@@ -1,0 +1,66 @@
+ID BEAM,CONTN
+SOL 101
+TIME 10000
+CEND
+  TITLE = ANALYSE
+  SUBTITLE = TEST
+  LABEL = TEST
+  ECHO = NONE
+  DISPLACEMENT(PRINT) = ALL
+  SPCFORCE(PRINT) = ALL
+  OLOAD(PRINT) = ALL
+  MPCFORCE(PRINT) = ALL
+  GPFORCE(PRINT) = ALL
+  FORCE(PRINT,CORNER) = ALL
+  STRESS(PRINT,CORNER) = ALL
+SUBCASE 1
+  SUBTITLE = SPC - Force
+  SPC = 1
+  LOAD = 1
+SUBCASE 2
+  SUBTITLE = SPC - Mass
+  SPC = 1
+  LOAD = 2
+BEGIN BULK
+PARAM,CHECKOUT,NO
+PARAM,PRTGPDT,YES
+PARAM,PRTCSTM,YES
+PARAM,PRTMGG,YES
+PARAM,PRTPG,YES
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,NO
+$PARAM,K6ROT,100. - REMOVED SINCE NOT FULLY FUNCTIONAL IN MYSTRAN 15.1.4
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+CONTNC1
++CONTNC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+CONTNC2
++CONTNC2      1.      0.      1.        
+FORCE          1       9       0      1.   1780.    750.   -875.
+GRAV           2       0      1.   9827.      0.      0.
+SPC1           1  123456       1
+SPC1           1  123456       2
+SPC1           1  123456       3
+SPC1           1  123456       4
+PBUSH          1       K  17850.  24503.  57800. 170000. 270000. 370000.                
+GRID           1       0      0.      0.      0.       0
+GRID           2       0     10.      0.      0.       0
+GRID           3       0     10.     20.      0.       0
+GRID           4       0      0.     20.      0.       0
+GRID           5       0      0.      0.    12.5       0
+GRID           6       0     10.      0.    12.5       0
+GRID           7       0     10.     20.    12.5       0
+GRID           8       0      0.     20.    12.5       0
+GRID           9       0     10.     10.     50.       0
+CBUSH          1       1       1       5                               0
+CBUSH          2       1       2       6                               0
+CBUSH          3       1       3       7                               0
+CBUSH          4       1       4       8                               0
+RBE2           5       9  123456       5       6       8       7
+CONM2          6       9       0    .002      0.      0.      0.                
+$
+$ DEBUG IS USED TO REQUEST ANS FILE, WHICH IS EASIER TO PARSE FOR BENCHMARKING (THIS IS MYSTRAN SPECIFIC)
+DEBUG   200     1                                                       ANS
+$
+ENDDATA

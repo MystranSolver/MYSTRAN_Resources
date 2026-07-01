@@ -1,0 +1,98 @@
+ID BEAM,CONTN
+SOL 101
+TIME 10000
+CEND
+  TITLE = ANALYSE
+  SUBTITLE = TEST
+  LABEL = TEST
+  ECHO = NONE
+  DISPLACEMENT(PRINT) = ALL
+  SPCFORCE(PRINT) = ALL
+  OLOAD(PRINT) = ALL
+  MPCFORCE(PRINT) = ALL
+  GPFORCE(PRINT) = ALL
+  FORCE(PRINT,CORNER) = ALL
+  STRESS(PRINT,CORNER) = ALL
+SUBCASE 1
+  SUBTITLE = NASTRAN SPC 1 - LC1
+  SPC = 1
+  LOAD = 1
+SUBCASE 2
+  SUBTITLE = NASTRAN SPC 1 - LC2
+  SPC = 1
+  LOAD = 2
+BEGIN BULK
+PARAM,CHECKOUT,NO
+PARAM,PRTGPDT,YES
+PARAM,PRTCSTM,YES
+PARAM,PRTMGG,YES
+PARAM,PRTPG,YES
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,NO
+$PARAM,K6ROT,100. - REMOVED SINCE NOT FULLY FUNCTIONAL IN MYSTRAN 15.1.4
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+CONTNC1
++CONTNC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+CONTNC2
++CONTNC2      1.      0.      1.        
+CORD2R         3       0    500.      0.-7.874021000.062      0.-7.87402+       
++           500. 500.062-7.87402        
+FORCE          3      10       0      1.      0.      0.-449.618
+LOAD           1      1.      1.       3                                
+FORCE          4      11       0      1.      0.      0.-224.809
+MOMENT         4      11       0      1.      0.44253.73      0.
+FORCE          4      12       0      1.      0.      0.-224.809
+MOMENT         4      12       0      1.      0.44253.73      0.
+LOAD           2      1.      1.       4                                
+SPC1           1     123       1
+SPC1           1       3       2
+SPC1           1     123       3
+SPC1           1       3       4
+SPC1           1      12       5
+SPC1           1      12       6
+SPC1           1      12       7
+SPC1           1      12      10
+SPC1           1      12      11
+SPC1           1      12      12
+PBAR           1       1    101.1.2012555.009233 500000.      0.        +       
++             0.      0.      0.      0.      0.      0.      0.      0.+       
++                             0.
+PBAR           2       1    120.1.44150660.06274 500000.      0.        +       
++             0.      0.      0.      0.      0.      0.      0.      0.+       
++                             0.
+PBAR           3       1    73.16.078349  63.186    2.+7      0.        +       
++             0.      0.      0.      0.      0.      0.      0.      0.+       
++                             0.
+PBUSH          4       K1.3133+7142753.7571014.78850.7468850.7468850.746                
+MAT1           1  1.04+73900000..333333336127.29      0.      0.        
+MAT1           2  1.04+73900000..333333372254.58      0.      0.        
+GRID           1       0    100.    -20.-7.87402       0
+GRID           2       0    100.     20.-7.87402       0
+GRID           3       0    500.  -121.8-7.87402       0
+GRID           4       0    500.   121.8-7.87402       0
+GRID           5       0    100.      0.      2.       0
+GRID           6       0    157.      0.      2.       0
+GRID           7       0    500.      0.      2.       0
+GRID           8       0    100.      0.-7.87402       0
+GRID           9       0    500.      0.-7.87402       0
+GRID          10       0    300.      0.      2.       0
+GRID          11       0    200.      0.      2.       0
+GRID          12       0    400.      0.      2.       0
+CBAR           1       1       1       8      1.      0.      0.
+CBAR           2       1       3       9      1.      0.      0.
+CBAR           3       3       5       6      0.      1.      0.
+CBAR           4       3       6      11      0.      1.      0.
+CBAR           5       1       8       2      1.      0.      0.
+CBAR           6       1       9       4      1.      0.      0.
+CBUSH          7       4       8       5                               3
+CBUSH          8       4       9       7                               3
+CBAR           9       3      10      12      0.      1.      0.
+CBAR          10       3      11      10      0.      1.      0.
+CBAR          11       3      12       7      0.      1.      0.
+$
+$ DEBUG IS USED TO REQUEST ANS FILE, WHICH IS EASIER TO PARSE FOR BENCHMARKING (THIS IS MYSTRAN SPECIFIC)
+DEBUG   200     1                                                       ANS
+$
+ENDDATA

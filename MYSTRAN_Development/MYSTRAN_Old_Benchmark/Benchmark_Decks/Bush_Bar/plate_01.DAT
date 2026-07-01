@@ -1,0 +1,3295 @@
+ID TEST,CONTN
+SOL 101
+CEND
+  TITLE = STATIC
+  ECHO = NONE
+  DISPLACEMENT(PRINT,PUNCH) = ALL
+  SPCFORCE(PRINT,PUNCH) = ALL
+  OLOAD(PRINT,PUNCH) = ALL
+  FORCE(PRINT,CORNER) = ALL
+  STRESS(PRINT,CORNER) = ALL
+  SPC = 1
+  LOAD = 1
+BEGIN BULK
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,YES
+$PARAM,K6ROT,0.
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+CONTNC1
++CONTNC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+CONTNC2
++CONTNC2      1.      0.      1.        
+PLOAD4         1       1      1.
+PLOAD4         1       2      1.
+PLOAD4         1       3      1.
+PLOAD4         1       4      1.
+PLOAD4         1       5      1.
+PLOAD4         1       6      1.
+PLOAD4         1       7      1.
+PLOAD4         1       8      1.
+PLOAD4         1       9      1.
+PLOAD4         1      10      1.
+PLOAD4         1      11      1.
+PLOAD4         1      12      1.
+PLOAD4         1      13      1.
+PLOAD4         1      14      1.
+PLOAD4         1      15      1.
+PLOAD4         1      16      1.
+PLOAD4         1      17      1.
+PLOAD4         1      18      1.
+PLOAD4         1      19      1.
+PLOAD4         1      20      1.
+PLOAD4         1      21      1.
+PLOAD4         1      22      1.
+PLOAD4         1      23      1.
+PLOAD4         1      24      1.
+PLOAD4         1      25      1.
+PLOAD4         1      26      1.
+PLOAD4         1      27      1.
+PLOAD4         1      28      1.
+PLOAD4         1      29      1.
+PLOAD4         1      30      1.
+PLOAD4         1      31      1.
+PLOAD4         1      32      1.
+PLOAD4         1      33      1.
+PLOAD4         1      34      1.
+PLOAD4         1      35      1.
+PLOAD4         1      36      1.
+PLOAD4         1      37      1.
+PLOAD4         1      38      1.
+PLOAD4         1      39      1.
+PLOAD4         1      40      1.
+PLOAD4         1      41      1.
+PLOAD4         1      42      1.
+PLOAD4         1      43      1.
+PLOAD4         1      44      1.
+PLOAD4         1      45      1.
+PLOAD4         1      46      1.
+PLOAD4         1      47      1.
+PLOAD4         1      48      1.
+PLOAD4         1      49      1.
+PLOAD4         1      50      1.
+PLOAD4         1      51      1.
+PLOAD4         1      52      1.
+PLOAD4         1      53      1.
+PLOAD4         1      54      1.
+PLOAD4         1      55      1.
+PLOAD4         1      56      1.
+PLOAD4         1      57      1.
+PLOAD4         1      58      1.
+PLOAD4         1      59      1.
+PLOAD4         1      60      1.
+PLOAD4         1      61      1.
+PLOAD4         1      62      1.
+PLOAD4         1      63      1.
+PLOAD4         1      64      1.
+PLOAD4         1      65      1.
+PLOAD4         1      66      1.
+PLOAD4         1      67      1.
+PLOAD4         1      68      1.
+PLOAD4         1      69      1.
+PLOAD4         1      70      1.
+PLOAD4         1      71      1.
+PLOAD4         1      72      1.
+PLOAD4         1      73      1.
+PLOAD4         1      74      1.
+PLOAD4         1      75      1.
+PLOAD4         1      76      1.
+PLOAD4         1      77      1.
+PLOAD4         1      78      1.
+PLOAD4         1      79      1.
+PLOAD4         1      80      1.
+PLOAD4         1      81      1.
+PLOAD4         1      82      1.
+PLOAD4         1      83      1.
+PLOAD4         1      84      1.
+PLOAD4         1      85      1.
+PLOAD4         1      86      1.
+PLOAD4         1      87      1.
+PLOAD4         1      88      1.
+PLOAD4         1      89      1.
+PLOAD4         1      90      1.
+PLOAD4         1      91      1.
+PLOAD4         1      92      1.
+PLOAD4         1      93      1.
+PLOAD4         1      94      1.
+PLOAD4         1      95      1.
+PLOAD4         1      96      1.
+PLOAD4         1      97      1.
+PLOAD4         1      98      1.
+PLOAD4         1      99      1.
+PLOAD4         1     100      1.
+PLOAD4         1     101      1.
+PLOAD4         1     102      1.
+PLOAD4         1     103      1.
+PLOAD4         1     104      1.
+PLOAD4         1     105      1.
+PLOAD4         1     106      1.
+PLOAD4         1     107      1.
+PLOAD4         1     108      1.
+PLOAD4         1     109      1.
+PLOAD4         1     110      1.
+PLOAD4         1     111      1.
+PLOAD4         1     112      1.
+PLOAD4         1     113      1.
+PLOAD4         1     114      1.
+PLOAD4         1     115      1.
+PLOAD4         1     116      1.
+PLOAD4         1     117      1.
+PLOAD4         1     118      1.
+PLOAD4         1     119      1.
+PLOAD4         1     120      1.
+PLOAD4         1     121      1.
+PLOAD4         1     122      1.
+PLOAD4         1     123      1.
+PLOAD4         1     124      1.
+PLOAD4         1     125      1.
+PLOAD4         1     126      1.
+PLOAD4         1     127      1.
+PLOAD4         1     128      1.
+PLOAD4         1     129      1.
+PLOAD4         1     130      1.
+PLOAD4         1     131      1.
+PLOAD4         1     132      1.
+PLOAD4         1     133      1.
+PLOAD4         1     134      1.
+PLOAD4         1     135      1.
+PLOAD4         1     136      1.
+PLOAD4         1     137      1.
+PLOAD4         1     138      1.
+PLOAD4         1     139      1.
+PLOAD4         1     140      1.
+PLOAD4         1     141      1.
+PLOAD4         1     142      1.
+PLOAD4         1     143      1.
+PLOAD4         1     144      1.
+PLOAD4         1     145      1.
+PLOAD4         1     146      1.
+PLOAD4         1     147      1.
+PLOAD4         1     148      1.
+PLOAD4         1     149      1.
+PLOAD4         1     150      1.
+PLOAD4         1     151      1.
+PLOAD4         1     152      1.
+PLOAD4         1     153      1.
+PLOAD4         1     154      1.
+PLOAD4         1     155      1.
+PLOAD4         1     156      1.
+PLOAD4         1     157      1.
+PLOAD4         1     158      1.
+PLOAD4         1     159      1.
+PLOAD4         1     160      1.
+PLOAD4         1     161      1.
+PLOAD4         1     162      1.
+PLOAD4         1     163      1.
+PLOAD4         1     164      1.
+PLOAD4         1     165      1.
+PLOAD4         1     166      1.
+PLOAD4         1     167      1.
+PLOAD4         1     168      1.
+PLOAD4         1     169      1.
+PLOAD4         1     170      1.
+PLOAD4         1     171      1.
+PLOAD4         1     172      1.
+PLOAD4         1     173      1.
+PLOAD4         1     174      1.
+PLOAD4         1     175      1.
+PLOAD4         1     176      1.
+PLOAD4         1     177      1.
+PLOAD4         1     178      1.
+PLOAD4         1     179      1.
+PLOAD4         1     180      1.
+PLOAD4         1     181      1.
+PLOAD4         1     182      1.
+PLOAD4         1     183      1.
+PLOAD4         1     184      1.
+PLOAD4         1     185      1.
+PLOAD4         1     186      1.
+PLOAD4         1     187      1.
+PLOAD4         1     188      1.
+PLOAD4         1     189      1.
+PLOAD4         1     190      1.
+PLOAD4         1     191      1.
+PLOAD4         1     192      1.
+PLOAD4         1     193      1.
+PLOAD4         1     194      1.
+PLOAD4         1     195      1.
+PLOAD4         1     196      1.
+PLOAD4         1     197      1.
+PLOAD4         1     198      1.
+PLOAD4         1     199      1.
+PLOAD4         1     200      1.
+PLOAD4         1     201      1.
+PLOAD4         1     202      1.
+PLOAD4         1     203      1.
+PLOAD4         1     204      1.
+PLOAD4         1     205      1.
+PLOAD4         1     206      1.
+PLOAD4         1     207      1.
+PLOAD4         1     208      1.
+PLOAD4         1     209      1.
+PLOAD4         1     210      1.
+PLOAD4         1     211      1.
+PLOAD4         1     212      1.
+PLOAD4         1     213      1.
+PLOAD4         1     214      1.
+PLOAD4         1     215      1.
+PLOAD4         1     216      1.
+PLOAD4         1     217      1.
+PLOAD4         1     218      1.
+PLOAD4         1     219      1.
+PLOAD4         1     220      1.
+PLOAD4         1     221      1.
+PLOAD4         1     222      1.
+PLOAD4         1     223      1.
+PLOAD4         1     224      1.
+PLOAD4         1     225      1.
+PLOAD4         1     226      1.
+PLOAD4         1     227      1.
+PLOAD4         1     228      1.
+PLOAD4         1     229      1.
+PLOAD4         1     230      1.
+PLOAD4         1     231      1.
+PLOAD4         1     232      1.
+PLOAD4         1     233      1.
+PLOAD4         1     234      1.
+PLOAD4         1     235      1.
+PLOAD4         1     236      1.
+PLOAD4         1     237      1.
+PLOAD4         1     238      1.
+PLOAD4         1     239      1.
+PLOAD4         1     240      1.
+PLOAD4         1     241      1.
+PLOAD4         1     242      1.
+PLOAD4         1     243      1.
+PLOAD4         1     244      1.
+PLOAD4         1     245      1.
+PLOAD4         1     246      1.
+PLOAD4         1     247      1.
+PLOAD4         1     248      1.
+PLOAD4         1     249      1.
+PLOAD4         1     250      1.
+PLOAD4         1     251      1.
+PLOAD4         1     252      1.
+PLOAD4         1     253      1.
+PLOAD4         1     254      1.
+PLOAD4         1     255      1.
+PLOAD4         1     256      1.
+PLOAD4         1     257      1.
+PLOAD4         1     258      1.
+PLOAD4         1     259      1.
+PLOAD4         1     260      1.
+PLOAD4         1     261      1.
+PLOAD4         1     262      1.
+PLOAD4         1     263      1.
+PLOAD4         1     264      1.
+PLOAD4         1     265      1.
+PLOAD4         1     266      1.
+PLOAD4         1     267      1.
+PLOAD4         1     268      1.
+PLOAD4         1     269      1.
+PLOAD4         1     270      1.
+PLOAD4         1     271      1.
+PLOAD4         1     272      1.
+PLOAD4         1     273      1.
+PLOAD4         1     274      1.
+PLOAD4         1     275      1.
+PLOAD4         1     276      1.
+PLOAD4         1     277      1.
+PLOAD4         1     278      1.
+PLOAD4         1     279      1.
+PLOAD4         1     280      1.
+PLOAD4         1     281      1.
+PLOAD4         1     282      1.
+PLOAD4         1     283      1.
+PLOAD4         1     284      1.
+PLOAD4         1     285      1.
+PLOAD4         1     286      1.
+PLOAD4         1     287      1.
+PLOAD4         1     288      1.
+PLOAD4         1     289      1.
+PLOAD4         1     290      1.
+PLOAD4         1     291      1.
+PLOAD4         1     292      1.
+PLOAD4         1     293      1.
+PLOAD4         1     294      1.
+PLOAD4         1     295      1.
+PLOAD4         1     296      1.
+PLOAD4         1     297      1.
+PLOAD4         1     298      1.
+PLOAD4         1     299      1.
+PLOAD4         1     300      1.
+PLOAD4         1     301      1.
+PLOAD4         1     302      1.
+PLOAD4         1     303      1.
+PLOAD4         1     304      1.
+PLOAD4         1     305      1.
+PLOAD4         1     306      1.
+PLOAD4         1     307      1.
+PLOAD4         1     308      1.
+PLOAD4         1     309      1.
+PLOAD4         1     310      1.
+PLOAD4         1     311      1.
+PLOAD4         1     312      1.
+PLOAD4         1     313      1.
+PLOAD4         1     314      1.
+PLOAD4         1     315      1.
+PLOAD4         1     316      1.
+PLOAD4         1     317      1.
+PLOAD4         1     318      1.
+PLOAD4         1     319      1.
+PLOAD4         1     320      1.
+PLOAD4         1     321      1.
+PLOAD4         1     322      1.
+PLOAD4         1     323      1.
+PLOAD4         1     324      1.
+PLOAD4         1     325      1.
+PLOAD4         1     326      1.
+PLOAD4         1     327      1.
+PLOAD4         1     328      1.
+PLOAD4         1     329      1.
+PLOAD4         1     330      1.
+PLOAD4         1     331      1.
+PLOAD4         1     332      1.
+PLOAD4         1     333      1.
+PLOAD4         1     334      1.
+PLOAD4         1     335      1.
+PLOAD4         1     336      1.
+PLOAD4         1     337      1.
+PLOAD4         1     338      1.
+PLOAD4         1     339      1.
+PLOAD4         1     340      1.
+PLOAD4         1     341      1.
+PLOAD4         1     342      1.
+PLOAD4         1     343      1.
+PLOAD4         1     344      1.
+PLOAD4         1     345      1.
+PLOAD4         1     346      1.
+PLOAD4         1     347      1.
+PLOAD4         1     348      1.
+PLOAD4         1     349      1.
+PLOAD4         1     350      1.
+PLOAD4         1     351      1.
+PLOAD4         1     352      1.
+PLOAD4         1     353      1.
+PLOAD4         1     354      1.
+PLOAD4         1     355      1.
+PLOAD4         1     356      1.
+PLOAD4         1     357      1.
+PLOAD4         1     358      1.
+PLOAD4         1     359      1.
+PLOAD4         1     360      1.
+PLOAD4         1     361      1.
+PLOAD4         1     362      1.
+PLOAD4         1     363      1.
+PLOAD4         1     364      1.
+PLOAD4         1     365      1.
+PLOAD4         1     366      1.
+PLOAD4         1     367      1.
+PLOAD4         1     368      1.
+PLOAD4         1     369      1.
+PLOAD4         1     370      1.
+PLOAD4         1     371      1.
+PLOAD4         1     372      1.
+PLOAD4         1     373      1.
+PLOAD4         1     374      1.
+PLOAD4         1     375      1.
+PLOAD4         1     376      1.
+PLOAD4         1     377      1.
+PLOAD4         1     378      1.
+PLOAD4         1     379      1.
+PLOAD4         1     380      1.
+PLOAD4         1     381      1.
+PLOAD4         1     382      1.
+PLOAD4         1     383      1.
+PLOAD4         1     384      1.
+PLOAD4         1     385      1.
+PLOAD4         1     386      1.
+PLOAD4         1     387      1.
+PLOAD4         1     388      1.
+PLOAD4         1     389      1.
+PLOAD4         1     390      1.
+PLOAD4         1     391      1.
+PLOAD4         1     392      1.
+PLOAD4         1     393      1.
+PLOAD4         1     394      1.
+PLOAD4         1     395      1.
+PLOAD4         1     396      1.
+PLOAD4         1     397      1.
+PLOAD4         1     398      1.
+PLOAD4         1     399      1.
+PLOAD4         1     400      1.
+PLOAD4         1     401      1.
+PLOAD4         1     402      1.
+PLOAD4         1     403      1.
+PLOAD4         1     404      1.
+PLOAD4         1     405      1.
+PLOAD4         1     406      1.
+PLOAD4         1     407      1.
+PLOAD4         1     408      1.
+PLOAD4         1     409      1.
+PLOAD4         1     410      1.
+PLOAD4         1     411      1.
+PLOAD4         1     412      1.
+PLOAD4         1     413      1.
+PLOAD4         1     414      1.
+PLOAD4         1     415      1.
+PLOAD4         1     416      1.
+PLOAD4         1     417      1.
+PLOAD4         1     418      1.
+PLOAD4         1     419      1.
+PLOAD4         1     420      1.
+PLOAD4         1     421      1.
+PLOAD4         1     422      1.
+PLOAD4         1     423      1.
+PLOAD4         1     424      1.
+PLOAD4         1     425      1.
+PLOAD4         1     426      1.
+PLOAD4         1     427      1.
+PLOAD4         1     428      1.
+PLOAD4         1     429      1.
+PLOAD4         1     430      1.
+PLOAD4         1     431      1.
+PLOAD4         1     432      1.
+PLOAD4         1     433      1.
+PLOAD4         1     434      1.
+PLOAD4         1     435      1.
+PLOAD4         1     436      1.
+PLOAD4         1     437      1.
+PLOAD4         1     438      1.
+PLOAD4         1     439      1.
+PLOAD4         1     440      1.
+PLOAD4         1     441      1.
+PLOAD4         1     442      1.
+PLOAD4         1     443      1.
+PLOAD4         1     444      1.
+PLOAD4         1     445      1.
+PLOAD4         1     446      1.
+PLOAD4         1     447      1.
+PLOAD4         1     448      1.
+PLOAD4         1     449      1.
+PLOAD4         1     450      1.
+PLOAD4         1     451      1.
+PLOAD4         1     452      1.
+PLOAD4         1     453      1.
+PLOAD4         1     454      1.
+PLOAD4         1     455      1.
+PLOAD4         1     456      1.
+PLOAD4         1     457      1.
+PLOAD4         1     458      1.
+PLOAD4         1     459      1.
+PLOAD4         1     460      1.
+PLOAD4         1     461      1.
+PLOAD4         1     462      1.
+PLOAD4         1     463      1.
+PLOAD4         1     464      1.
+PLOAD4         1     465      1.
+PLOAD4         1     466      1.
+PLOAD4         1     467      1.
+PLOAD4         1     468      1.
+PLOAD4         1     469      1.
+PLOAD4         1     470      1.
+PLOAD4         1     471      1.
+PLOAD4         1     472      1.
+PLOAD4         1     473      1.
+PLOAD4         1     474      1.
+PLOAD4         1     475      1.
+PLOAD4         1     476      1.
+PLOAD4         1     477      1.
+PLOAD4         1     478      1.
+PLOAD4         1     479      1.
+PLOAD4         1     480      1.
+PLOAD4         1     481      1.
+PLOAD4         1     482      1.
+PLOAD4         1     483      1.
+PLOAD4         1     484      1.
+PLOAD4         1     485      1.
+PLOAD4         1     486      1.
+PLOAD4         1     487      1.
+PLOAD4         1     488      1.
+PLOAD4         1     489      1.
+PLOAD4         1     490      1.
+PLOAD4         1     491      1.
+PLOAD4         1     492      1.
+PLOAD4         1     493      1.
+PLOAD4         1     494      1.
+PLOAD4         1     495      1.
+PLOAD4         1     496      1.
+PLOAD4         1     497      1.
+PLOAD4         1     498      1.
+PLOAD4         1     499      1.
+PLOAD4         1     500      1.
+PLOAD4         1     501      1.
+PLOAD4         1     502      1.
+PLOAD4         1     503      1.
+PLOAD4         1     504      1.
+PLOAD4         1     505      1.
+PLOAD4         1     506      1.
+PLOAD4         1     507      1.
+PLOAD4         1     508      1.
+PLOAD4         1     509      1.
+PLOAD4         1     510      1.
+PLOAD4         1     511      1.
+PLOAD4         1     512      1.
+PLOAD4         1     513      1.
+PLOAD4         1     514      1.
+PLOAD4         1     515      1.
+PLOAD4         1     516      1.
+PLOAD4         1     517      1.
+PLOAD4         1     518      1.
+PLOAD4         1     519      1.
+PLOAD4         1     520      1.
+PLOAD4         1     521      1.
+PLOAD4         1     522      1.
+PLOAD4         1     523      1.
+PLOAD4         1     524      1.
+PLOAD4         1     525      1.
+PLOAD4         1     526      1.
+PLOAD4         1     527      1.
+PLOAD4         1     528      1.
+PLOAD4         1     529      1.
+PLOAD4         1     530      1.
+PLOAD4         1     531      1.
+PLOAD4         1     532      1.
+PLOAD4         1     533      1.
+PLOAD4         1     534      1.
+PLOAD4         1     535      1.
+PLOAD4         1     536      1.
+PLOAD4         1     537      1.
+PLOAD4         1     538      1.
+PLOAD4         1     539      1.
+PLOAD4         1     540      1.
+PLOAD4         1     541      1.
+PLOAD4         1     542      1.
+PLOAD4         1     543      1.
+PLOAD4         1     544      1.
+PLOAD4         1     545      1.
+PLOAD4         1     546      1.
+PLOAD4         1     547      1.
+PLOAD4         1     548      1.
+PLOAD4         1     549      1.
+PLOAD4         1     550      1.
+PLOAD4         1     551      1.
+PLOAD4         1     552      1.
+PLOAD4         1     553      1.
+PLOAD4         1     554      1.
+PLOAD4         1     555      1.
+PLOAD4         1     556      1.
+PLOAD4         1     557      1.
+PLOAD4         1     558      1.
+PLOAD4         1     559      1.
+PLOAD4         1     560      1.
+PLOAD4         1     561      1.
+PLOAD4         1     562      1.
+PLOAD4         1     563      1.
+PLOAD4         1     564      1.
+PLOAD4         1     565      1.
+PLOAD4         1     566      1.
+PLOAD4         1     567      1.
+PLOAD4         1     568      1.
+PLOAD4         1     569      1.
+PLOAD4         1     570      1.
+PLOAD4         1     571      1.
+PLOAD4         1     572      1.
+PLOAD4         1     573      1.
+PLOAD4         1     574      1.
+PLOAD4         1     575      1.
+PLOAD4         1     576      1.
+PLOAD4         1     577      1.
+PLOAD4         1     578      1.
+PLOAD4         1     579      1.
+PLOAD4         1     580      1.
+PLOAD4         1     581      1.
+PLOAD4         1     582      1.
+PLOAD4         1     583      1.
+PLOAD4         1     584      1.
+PLOAD4         1     585      1.
+PLOAD4         1     586      1.
+PLOAD4         1     587      1.
+PLOAD4         1     588      1.
+PLOAD4         1     589      1.
+PLOAD4         1     590      1.
+PLOAD4         1     591      1.
+PLOAD4         1     592      1.
+PLOAD4         1     593      1.
+PLOAD4         1     594      1.
+PLOAD4         1     595      1.
+PLOAD4         1     596      1.
+PLOAD4         1     597      1.
+PLOAD4         1     598      1.
+PLOAD4         1     599      1.
+PLOAD4         1     600      1.
+PLOAD4         1     601      1.
+PLOAD4         1     602      1.
+PLOAD4         1     603      1.
+PLOAD4         1     604      1.
+PLOAD4         1     605      1.
+PLOAD4         1     606      1.
+PLOAD4         1     607      1.
+PLOAD4         1     608      1.
+PLOAD4         1     609      1.
+PLOAD4         1     610      1.
+PLOAD4         1     611      1.
+PLOAD4         1     612      1.
+PLOAD4         1     613      1.
+PLOAD4         1     614      1.
+PLOAD4         1     615      1.
+PLOAD4         1     616      1.
+PLOAD4         1     617      1.
+PLOAD4         1     618      1.
+PLOAD4         1     619      1.
+PLOAD4         1     620      1.
+PLOAD4         1     621      1.
+PLOAD4         1     622      1.
+PLOAD4         1     623      1.
+PLOAD4         1     624      1.
+PLOAD4         1     625      1.
+PLOAD4         1     626      1.
+PLOAD4         1     627      1.
+PLOAD4         1     628      1.
+PLOAD4         1     629      1.
+PLOAD4         1     630      1.
+PLOAD4         1     631      1.
+PLOAD4         1     632      1.
+PLOAD4         1     633      1.
+PLOAD4         1     634      1.
+PLOAD4         1     635      1.
+PLOAD4         1     636      1.
+PLOAD4         1     637      1.
+PLOAD4         1     638      1.
+PLOAD4         1     639      1.
+PLOAD4         1     640      1.
+PLOAD4         1     641      1.
+PLOAD4         1     642      1.
+PLOAD4         1     643      1.
+PLOAD4         1     644      1.
+PLOAD4         1     645      1.
+PLOAD4         1     646      1.
+PLOAD4         1     647      1.
+PLOAD4         1     648      1.
+PLOAD4         1     649      1.
+PLOAD4         1     650      1.
+PLOAD4         1     651      1.
+PLOAD4         1     652      1.
+PLOAD4         1     653      1.
+PLOAD4         1     654      1.
+PLOAD4         1     655      1.
+PLOAD4         1     656      1.
+PLOAD4         1     657      1.
+PLOAD4         1     658      1.
+PLOAD4         1     659      1.
+PLOAD4         1     660      1.
+PLOAD4         1     661      1.
+PLOAD4         1     662      1.
+PLOAD4         1     663      1.
+PLOAD4         1     664      1.
+PLOAD4         1     665      1.
+PLOAD4         1     666      1.
+PLOAD4         1     667      1.
+PLOAD4         1     668      1.
+PLOAD4         1     669      1.
+PLOAD4         1     670      1.
+PLOAD4         1     671      1.
+PLOAD4         1     672      1.
+PLOAD4         1     673      1.
+PLOAD4         1     674      1.
+PLOAD4         1     675      1.
+PLOAD4         1     676      1.
+PLOAD4         1     677      1.
+PLOAD4         1     678      1.
+PLOAD4         1     679      1.
+PLOAD4         1     680      1.
+PLOAD4         1     681      1.
+PLOAD4         1     682      1.
+PLOAD4         1     683      1.
+PLOAD4         1     684      1.
+PLOAD4         1     685      1.
+PLOAD4         1     686      1.
+PLOAD4         1     687      1.
+PLOAD4         1     688      1.
+PLOAD4         1     689      1.
+PLOAD4         1     690      1.
+PLOAD4         1     691      1.
+PLOAD4         1     692      1.
+PLOAD4         1     693      1.
+PLOAD4         1     694      1.
+PLOAD4         1     695      1.
+PLOAD4         1     696      1.
+PLOAD4         1     697      1.
+PLOAD4         1     698      1.
+PLOAD4         1     699      1.
+PLOAD4         1     700      1.
+PLOAD4         1     701      1.
+PLOAD4         1     702      1.
+PLOAD4         1     703      1.
+PLOAD4         1     704      1.
+PLOAD4         1     705      1.
+PLOAD4         1     706      1.
+PLOAD4         1     707      1.
+PLOAD4         1     708      1.
+PLOAD4         1     709      1.
+PLOAD4         1     710      1.
+PLOAD4         1     711      1.
+PLOAD4         1     712      1.
+PLOAD4         1     713      1.
+PLOAD4         1     714      1.
+PLOAD4         1     715      1.
+PLOAD4         1     716      1.
+PLOAD4         1     717      1.
+PLOAD4         1     718      1.
+PLOAD4         1     719      1.
+PLOAD4         1     720      1.
+PLOAD4         1     721      1.
+PLOAD4         1     722      1.
+PLOAD4         1     723      1.
+PLOAD4         1     724      1.
+PLOAD4         1     725      1.
+PLOAD4         1     726      1.
+PLOAD4         1     727      1.
+PLOAD4         1     728      1.
+PLOAD4         1     729      1.
+PLOAD4         1     730      1.
+PLOAD4         1     731      1.
+PLOAD4         1     732      1.
+PLOAD4         1     733      1.
+PLOAD4         1     734      1.
+PLOAD4         1     735      1.
+PLOAD4         1     736      1.
+PLOAD4         1     737      1.
+PLOAD4         1     738      1.
+PLOAD4         1     739      1.
+PLOAD4         1     740      1.
+PLOAD4         1     741      1.
+PLOAD4         1     742      1.
+PLOAD4         1     743      1.
+PLOAD4         1     744      1.
+PLOAD4         1     745      1.
+PLOAD4         1     746      1.
+PLOAD4         1     747      1.
+PLOAD4         1     748      1.
+PLOAD4         1     749      1.
+PLOAD4         1     750      1.
+PLOAD4         1     751      1.
+PLOAD4         1     752      1.
+PLOAD4         1     753      1.
+PLOAD4         1     754      1.
+PLOAD4         1     755      1.
+PLOAD4         1     756      1.
+PLOAD4         1     757      1.
+PLOAD4         1     758      1.
+PLOAD4         1     759      1.
+PLOAD4         1     760      1.
+PLOAD4         1     761      1.
+PLOAD4         1     762      1.
+PLOAD4         1     763      1.
+PLOAD4         1     764      1.
+PLOAD4         1     765      1.
+PLOAD4         1     766      1.
+PLOAD4         1     767      1.
+PLOAD4         1     768      1.
+PLOAD4         1     769      1.
+PLOAD4         1     770      1.
+PLOAD4         1     771      1.
+PLOAD4         1     772      1.
+PLOAD4         1     773      1.
+PLOAD4         1     774      1.
+PLOAD4         1     775      1.
+PLOAD4         1     776      1.
+PLOAD4         1     777      1.
+PLOAD4         1     778      1.
+PLOAD4         1     779      1.
+PLOAD4         1     780      1.
+PLOAD4         1     781      1.
+PLOAD4         1     782      1.
+PLOAD4         1     783      1.
+PLOAD4         1     784      1.
+PLOAD4         1     785      1.
+PLOAD4         1     786      1.
+PLOAD4         1     787      1.
+PLOAD4         1     788      1.
+PLOAD4         1     789      1.
+PLOAD4         1     790      1.
+PLOAD4         1     791      1.
+PLOAD4         1     792      1.
+PLOAD4         1     793      1.
+PLOAD4         1     794      1.
+PLOAD4         1     795      1.
+PLOAD4         1     796      1.
+PLOAD4         1     797      1.
+PLOAD4         1     798      1.
+PLOAD4         1     799      1.
+PLOAD4         1     800      1.
+PLOAD4         1     801      1.
+PLOAD4         1     802      1.
+PLOAD4         1     803      1.
+PLOAD4         1     804      1.
+PLOAD4         1     805      1.
+PLOAD4         1     806      1.
+PLOAD4         1     807      1.
+PLOAD4         1     808      1.
+PLOAD4         1     809      1.
+PLOAD4         1     810      1.
+PLOAD4         1     811      1.
+PLOAD4         1     812      1.
+PLOAD4         1     813      1.
+PLOAD4         1     814      1.
+PLOAD4         1     815      1.
+PLOAD4         1     816      1.
+PLOAD4         1     817      1.
+PLOAD4         1     818      1.
+PLOAD4         1     819      1.
+PLOAD4         1     820      1.
+PLOAD4         1     821      1.
+PLOAD4         1     822      1.
+PLOAD4         1     823      1.
+PLOAD4         1     824      1.
+PLOAD4         1     825      1.
+PLOAD4         1     826      1.
+PLOAD4         1     827      1.
+PLOAD4         1     828      1.
+PLOAD4         1     829      1.
+PLOAD4         1     830      1.
+PLOAD4         1     831      1.
+PLOAD4         1     832      1.
+PLOAD4         1     833      1.
+PLOAD4         1     834      1.
+PLOAD4         1     835      1.
+PLOAD4         1     836      1.
+PLOAD4         1     837      1.
+PLOAD4         1     838      1.
+PLOAD4         1     839      1.
+PLOAD4         1     840      1.
+PLOAD4         1     841      1.
+PLOAD4         1     842      1.
+PLOAD4         1     843      1.
+PLOAD4         1     844      1.
+PLOAD4         1     845      1.
+PLOAD4         1     846      1.
+PLOAD4         1     847      1.
+PLOAD4         1     848      1.
+PLOAD4         1     849      1.
+PLOAD4         1     850      1.
+PLOAD4         1     851      1.
+PLOAD4         1     852      1.
+PLOAD4         1     853      1.
+PLOAD4         1     854      1.
+PLOAD4         1     855      1.
+PLOAD4         1     856      1.
+PLOAD4         1     857      1.
+PLOAD4         1     858      1.
+PLOAD4         1     859      1.
+PLOAD4         1     860      1.
+PLOAD4         1     861      1.
+PLOAD4         1     862      1.
+PLOAD4         1     863      1.
+PLOAD4         1     864      1.
+PLOAD4         1     865      1.
+PLOAD4         1     866      1.
+PLOAD4         1     867      1.
+PLOAD4         1     868      1.
+PLOAD4         1     869      1.
+PLOAD4         1     870      1.
+PLOAD4         1     871      1.
+PLOAD4         1     872      1.
+PLOAD4         1     873      1.
+PLOAD4         1     874      1.
+PLOAD4         1     875      1.
+PLOAD4         1     876      1.
+PLOAD4         1     877      1.
+PLOAD4         1     878      1.
+PLOAD4         1     879      1.
+PLOAD4         1     880      1.
+PLOAD4         1     881      1.
+PLOAD4         1     882      1.
+PLOAD4         1     883      1.
+PLOAD4         1     884      1.
+PLOAD4         1     885      1.
+PLOAD4         1     886      1.
+PLOAD4         1     887      1.
+PLOAD4         1     888      1.
+PLOAD4         1     889      1.
+PLOAD4         1     890      1.
+PLOAD4         1     891      1.
+PLOAD4         1     892      1.
+PLOAD4         1     893      1.
+PLOAD4         1     894      1.
+PLOAD4         1     895      1.
+PLOAD4         1     896      1.
+PLOAD4         1     897      1.
+PLOAD4         1     898      1.
+PLOAD4         1     899      1.
+PLOAD4         1     900      1.
+PLOAD4         1     901      1.
+PLOAD4         1     902      1.
+PLOAD4         1     903      1.
+PLOAD4         1     904      1.
+PLOAD4         1     905      1.
+PLOAD4         1     906      1.
+PLOAD4         1     907      1.
+PLOAD4         1     908      1.
+PLOAD4         1     909      1.
+PLOAD4         1     910      1.
+PLOAD4         1     911      1.
+PLOAD4         1     912      1.
+PLOAD4         1     913      1.
+PLOAD4         1     914      1.
+PLOAD4         1     915      1.
+PLOAD4         1     916      1.
+PLOAD4         1     917      1.
+PLOAD4         1     918      1.
+PLOAD4         1     919      1.
+PLOAD4         1     920      1.
+PLOAD4         1     921      1.
+PLOAD4         1     922      1.
+PLOAD4         1     923      1.
+PLOAD4         1     924      1.
+PLOAD4         1     925      1.
+PLOAD4         1     926      1.
+PLOAD4         1     927      1.
+PLOAD4         1     928      1.
+PLOAD4         1     929      1.
+PLOAD4         1     930      1.
+PLOAD4         1     931      1.
+PLOAD4         1     932      1.
+PLOAD4         1     933      1.
+PLOAD4         1     934      1.
+PLOAD4         1     935      1.
+PLOAD4         1     936      1.
+PLOAD4         1     937      1.
+PLOAD4         1     938      1.
+PLOAD4         1     939      1.
+PLOAD4         1     940      1.
+PLOAD4         1     941      1.
+PLOAD4         1     942      1.
+PLOAD4         1     943      1.
+PLOAD4         1     944      1.
+PLOAD4         1     945      1.
+PLOAD4         1     946      1.
+PLOAD4         1     947      1.
+PLOAD4         1     948      1.
+PLOAD4         1     949      1.
+PLOAD4         1     950      1.
+PLOAD4         1     951      1.
+PLOAD4         1     952      1.
+PLOAD4         1     953      1.
+PLOAD4         1     954      1.
+PLOAD4         1     955      1.
+PLOAD4         1     956      1.
+PLOAD4         1     957      1.
+PLOAD4         1     958      1.
+PLOAD4         1     959      1.
+PLOAD4         1     960      1.
+PLOAD4         1     961      1.
+PLOAD4         1     962      1.
+PLOAD4         1     963      1.
+PLOAD4         1     964      1.
+PLOAD4         1     965      1.
+PLOAD4         1     966      1.
+PLOAD4         1     967      1.
+PLOAD4         1     968      1.
+PLOAD4         1     969      1.
+PLOAD4         1     970      1.
+PLOAD4         1     971      1.
+PLOAD4         1     972      1.
+PLOAD4         1     973      1.
+PLOAD4         1     974      1.
+PLOAD4         1     975      1.
+PLOAD4         1     976      1.
+PLOAD4         1     977      1.
+PLOAD4         1     978      1.
+PLOAD4         1     979      1.
+PLOAD4         1     980      1.
+PLOAD4         1     981      1.
+PLOAD4         1     982      1.
+PLOAD4         1     983      1.
+PLOAD4         1     984      1.
+PLOAD4         1     985      1.
+PLOAD4         1     986      1.
+PLOAD4         1     987      1.
+PLOAD4         1     988      1.
+PLOAD4         1     989      1.
+PLOAD4         1     990      1.
+PLOAD4         1     991      1.
+PLOAD4         1     992      1.
+PLOAD4         1     993      1.
+PLOAD4         1     994      1.
+PLOAD4         1     995      1.
+PLOAD4         1     996      1.
+PLOAD4         1     997      1.
+PLOAD4         1     998      1.
+PLOAD4         1     999      1.
+PLOAD4         1    1000      1.
+PLOAD4         1    1001      1.
+PLOAD4         1    1002      1.
+PLOAD4         1    1003      1.
+PLOAD4         1    1004      1.
+PLOAD4         1    1005      1.
+PLOAD4         1    1006      1.
+PLOAD4         1    1007      1.
+PLOAD4         1    1008      1.
+PLOAD4         1    1009      1.
+PLOAD4         1    1010      1.
+PLOAD4         1    1011      1.
+PLOAD4         1    1012      1.
+PLOAD4         1    1013      1.
+PLOAD4         1    1014      1.
+PLOAD4         1    1015      1.
+PLOAD4         1    1016      1.
+PLOAD4         1    1017      1.
+PLOAD4         1    1018      1.
+PLOAD4         1    1019      1.
+PLOAD4         1    1020      1.
+PLOAD4         1    1021      1.
+PLOAD4         1    1022      1.
+PLOAD4         1    1023      1.
+PLOAD4         1    1024      1.
+SPC1           1     123       1
+SPC1           1     123       2
+SPC1           1     123       3
+SPC1           1     123       4
+SPC1           1     123       5
+SPC1           1     123       6
+SPC1           1     123       7
+SPC1           1     123       8
+SPC1           1     123       9
+SPC1           1     123      10
+SPC1           1     123      11
+SPC1           1     123      12
+SPC1           1     123      13
+SPC1           1     123      14
+SPC1           1     123      15
+SPC1           1     123      16
+SPC1           1     123      17
+SPC1           1     123      18
+SPC1           1     123      19
+SPC1           1     123      20
+SPC1           1     123      21
+SPC1           1     123      22
+SPC1           1     123      23
+SPC1           1     123      24
+SPC1           1     123      25
+SPC1           1     123      26
+SPC1           1     123      27
+SPC1           1     123      28
+SPC1           1     123      29
+SPC1           1     123      30
+SPC1           1     123      31
+SPC1           1     123      32
+SPC1           1     123      33
+SPC1           1     123      34
+SPC1           1     123      35
+SPC1           1     123      36
+SPC1           1     123      37
+SPC1           1     123      38
+SPC1           1     123      39
+SPC1           1     123      40
+SPC1           1     123      41
+SPC1           1     123      42
+SPC1           1     123      43
+SPC1           1     123      44
+SPC1           1     123      45
+SPC1           1     123      46
+SPC1           1     123      47
+SPC1           1     123      48
+SPC1           1     123      49
+SPC1           1     123      50
+SPC1           1     123      51
+SPC1           1     123      52
+SPC1           1     123      53
+SPC1           1     123      54
+SPC1           1     123      55
+SPC1           1     123      56
+SPC1           1     123      57
+SPC1           1     123      58
+SPC1           1     123      59
+SPC1           1     123      60
+SPC1           1     123      61
+SPC1           1     123      62
+SPC1           1     123      63
+SPC1           1     123      64
+SPC1           1     123      65
+SPC1           1     123      66
+SPC1           1     123      67
+SPC1           1     123      68
+SPC1           1     123      69
+SPC1           1     123      70
+SPC1           1     123      71
+SPC1           1     123      72
+SPC1           1     123      73
+SPC1           1     123      74
+SPC1           1     123      75
+SPC1           1     123      76
+SPC1           1     123      77
+SPC1           1     123      78
+SPC1           1     123      79
+SPC1           1     123      80
+SPC1           1     123      81
+SPC1           1     123      82
+SPC1           1     123      83
+SPC1           1     123      84
+SPC1           1     123      85
+SPC1           1     123      86
+SPC1           1     123      87
+SPC1           1     123      88
+SPC1           1     123      89
+SPC1           1     123      90
+SPC1           1     123      91
+SPC1           1     123      92
+SPC1           1     123      93
+SPC1           1     123      94
+SPC1           1     123      95
+SPC1           1     123      96
+SPC1           1     123      97
+SPC1           1     123      98
+SPC1           1     123      99
+SPC1           1     123     100
+SPC1           1     123     101
+SPC1           1     123     102
+SPC1           1     123     103
+SPC1           1     123     104
+SPC1           1     123     105
+SPC1           1     123     106
+SPC1           1     123     107
+SPC1           1     123     108
+SPC1           1     123     109
+SPC1           1     123     110
+SPC1           1     123     111
+SPC1           1     123     112
+SPC1           1     123     113
+SPC1           1     123     114
+SPC1           1     123     115
+SPC1           1     123     116
+SPC1           1     123     117
+SPC1           1     123     118
+SPC1           1     123     119
+SPC1           1     123     120
+SPC1           1     123     121
+SPC1           1     123     122
+SPC1           1     123     123
+SPC1           1     123     124
+SPC1           1     123     125
+SPC1           1     123     126
+SPC1           1     123     127
+SPC1           1     123     128
+PSHELL         1       1      .1       1               1              0.
+MAT1           1    1.+73759398.     .33      0.      0.      0.        
+GRID           1       0     -5.     -5.      0.       0
+GRID           2       0      5.     -5.      0.       0
+GRID           3       0      5.      5.      0.       0
+GRID           4       0     -5.      5.      0.       0
+GRID           5       0 -4.6875     -5.      0.       0
+GRID           6       0  -4.375     -5.      0.       0
+GRID           7       0 -4.0625     -5.      0.       0
+GRID           8       0   -3.75     -5.      0.       0
+GRID           9       0 -3.4375     -5.      0.       0
+GRID          10       0  -3.125     -5.      0.       0
+GRID          11       0 -2.8125     -5.      0.       0
+GRID          12       0    -2.5     -5.      0.       0
+GRID          13       0 -2.1875     -5.      0.       0
+GRID          14       0  -1.875     -5.      0.       0
+GRID          15       0 -1.5625     -5.      0.       0
+GRID          16       0   -1.25     -5.      0.       0
+GRID          17       0  -.9375     -5.      0.       0
+GRID          18       0   -.625     -5.      0.       0
+GRID          19       0  -.3125     -5.      0.       0
+GRID          20       0      0.     -5.      0.       0
+GRID          21       0   .3125     -5.      0.       0
+GRID          22       0    .625     -5.      0.       0
+GRID          23       0   .9375     -5.      0.       0
+GRID          24       0    1.25     -5.      0.       0
+GRID          25       0  1.5625     -5.      0.       0
+GRID          26       0   1.875     -5.      0.       0
+GRID          27       0  2.1875     -5.      0.       0
+GRID          28       0     2.5     -5.      0.       0
+GRID          29       0  2.8125     -5.      0.       0
+GRID          30       0   3.125     -5.      0.       0
+GRID          31       0  3.4375     -5.      0.       0
+GRID          32       0    3.75     -5.      0.       0
+GRID          33       0  4.0625     -5.      0.       0
+GRID          34       0   4.375     -5.      0.       0
+GRID          35       0  4.6875     -5.      0.       0
+GRID          36       0      5. -4.6875      0.       0
+GRID          37       0      5.  -4.375      0.       0
+GRID          38       0      5. -4.0625      0.       0
+GRID          39       0      5.   -3.75      0.       0
+GRID          40       0      5. -3.4375      0.       0
+GRID          41       0      5.  -3.125      0.       0
+GRID          42       0      5. -2.8125      0.       0
+GRID          43       0      5.    -2.5      0.       0
+GRID          44       0      5. -2.1875      0.       0
+GRID          45       0      5.  -1.875      0.       0
+GRID          46       0      5. -1.5625      0.       0
+GRID          47       0      5.   -1.25      0.       0
+GRID          48       0      5.  -.9375      0.       0
+GRID          49       0      5.   -.625      0.       0
+GRID          50       0      5.  -.3125      0.       0
+GRID          51       0      5.      0.      0.       0
+GRID          52       0      5.   .3125      0.       0
+GRID          53       0      5.    .625      0.       0
+GRID          54       0      5.   .9375      0.       0
+GRID          55       0      5.    1.25      0.       0
+GRID          56       0      5.  1.5625      0.       0
+GRID          57       0      5.   1.875      0.       0
+GRID          58       0      5.  2.1875      0.       0
+GRID          59       0      5.     2.5      0.       0
+GRID          60       0      5.  2.8125      0.       0
+GRID          61       0      5.   3.125      0.       0
+GRID          62       0      5.  3.4375      0.       0
+GRID          63       0      5.    3.75      0.       0
+GRID          64       0      5.  4.0625      0.       0
+GRID          65       0      5.   4.375      0.       0
+GRID          66       0      5.  4.6875      0.       0
+GRID          67       0  4.6875      5.      0.       0
+GRID          68       0   4.375      5.      0.       0
+GRID          69       0  4.0625      5.      0.       0
+GRID          70       0    3.75      5.      0.       0
+GRID          71       0  3.4375      5.      0.       0
+GRID          72       0   3.125      5.      0.       0
+GRID          73       0  2.8125      5.      0.       0
+GRID          74       0     2.5      5.      0.       0
+GRID          75       0  2.1875      5.      0.       0
+GRID          76       0   1.875      5.      0.       0
+GRID          77       0  1.5625      5.      0.       0
+GRID          78       0    1.25      5.      0.       0
+GRID          79       0   .9375      5.      0.       0
+GRID          80       0    .625      5.      0.       0
+GRID          81       0   .3125      5.      0.       0
+GRID          82       0      0.      5.      0.       0
+GRID          83       0  -.3125      5.      0.       0
+GRID          84       0   -.625      5.      0.       0
+GRID          85       0  -.9375      5.      0.       0
+GRID          86       0   -1.25      5.      0.       0
+GRID          87       0 -1.5625      5.      0.       0
+GRID          88       0  -1.875      5.      0.       0
+GRID          89       0 -2.1875      5.      0.       0
+GRID          90       0    -2.5      5.      0.       0
+GRID          91       0 -2.8125      5.      0.       0
+GRID          92       0  -3.125      5.      0.       0
+GRID          93       0 -3.4375      5.      0.       0
+GRID          94       0   -3.75      5.      0.       0
+GRID          95       0 -4.0625      5.      0.       0
+GRID          96       0  -4.375      5.      0.       0
+GRID          97       0 -4.6875      5.      0.       0
+GRID          98       0     -5.  4.6875      0.       0
+GRID          99       0     -5.   4.375      0.       0
+GRID         100       0     -5.  4.0625      0.       0
+GRID         101       0     -5.    3.75      0.       0
+GRID         102       0     -5.  3.4375      0.       0
+GRID         103       0     -5.   3.125      0.       0
+GRID         104       0     -5.  2.8125      0.       0
+GRID         105       0     -5.     2.5      0.       0
+GRID         106       0     -5.  2.1875      0.       0
+GRID         107       0     -5.   1.875      0.       0
+GRID         108       0     -5.  1.5625      0.       0
+GRID         109       0     -5.    1.25      0.       0
+GRID         110       0     -5.   .9375      0.       0
+GRID         111       0     -5.    .625      0.       0
+GRID         112       0     -5.   .3125      0.       0
+GRID         113       0     -5.      0.      0.       0
+GRID         114       0     -5.  -.3125      0.       0
+GRID         115       0     -5.   -.625      0.       0
+GRID         116       0     -5.  -.9375      0.       0
+GRID         117       0     -5.   -1.25      0.       0
+GRID         118       0     -5. -1.5625      0.       0
+GRID         119       0     -5.  -1.875      0.       0
+GRID         120       0     -5. -2.1875      0.       0
+GRID         121       0     -5.    -2.5      0.       0
+GRID         122       0     -5. -2.8125      0.       0
+GRID         123       0     -5.  -3.125      0.       0
+GRID         124       0     -5. -3.4375      0.       0
+GRID         125       0     -5.   -3.75      0.       0
+GRID         126       0     -5. -4.0625      0.       0
+GRID         127       0     -5.  -4.375      0.       0
+GRID         128       0     -5. -4.6875      0.       0
+GRID         129       0  4.6875  4.0625      0.       0
+GRID         130       0 -4.6875  3.4375      0.       0
+GRID         131       0 -4.6875 -4.0625      0.       0
+GRID         132       0 -4.6875 -3.4375      0.       0
+GRID         133       0 -4.6875 -2.8125      0.       0
+GRID         134       0 -4.6875 -1.5625      0.       0
+GRID         135       0  -.9375 -4.6875      0.       0
+GRID         136       0   -1.25 -4.6875      0.       0
+GRID         137       0 -1.5625 -4.6875      0.       0
+GRID         138       0  1.5625  4.6875      0.       0
+GRID         139       0   3.125  4.6875      0.       0
+GRID         140       0  4.6875   -1.25      0.       0
+GRID         141       0  4.6875 -2.1875      0.       0
+GRID         142       0  4.6875  4.96-8      0.       0
+GRID         143       0  4.0625 -4.6875      0.       0
+GRID         144       0 -4.6875  2.8125      0.       0
+GRID         145       0 -4.6875     2.5      0.       0
+GRID         146       0 -4.6875   3.125      0.       0
+GRID         147       0 -4.6875  4.0625      0.       0
+GRID         148       0 -4.6875    3.75      0.       0
+GRID         149       0 -4.6875   4.375      0.       0
+GRID         150       0 -4.6875  4.6875      0.       0
+GRID         151       0  -4.375  4.6875      0.       0
+GRID         152       0   -3.75  4.6875      0.       0
+GRID         153       0 -4.0625  4.6875      0.       0
+GRID         154       0  -3.125  4.6875      0.       0
+GRID         155       0 -3.4375  4.6875      0.       0
+GRID         156       0    -2.5  4.6875      0.       0
+GRID         157       0 -2.8125  4.6875      0.       0
+GRID         158       0  -1.875  4.6875      0.       0
+GRID         159       0 -2.1875  4.6875      0.       0
+GRID         160       0   -1.25  4.6875      0.       0
+GRID         161       0 -1.5625  4.6875      0.       0
+GRID         162       0  4.13-8  4.6875      0.       0
+GRID         163       0  -.3125  4.6875      0.       0
+GRID         164       0   -.625  4.6875      0.       0
+GRID         165       0  -.9375  4.6875      0.       0
+GRID         166       0 -4.6875   1.875      0.       0
+GRID         167       0 -4.6875  2.1875      0.       0
+GRID         168       0 -4.6875  1.5625      0.       0
+GRID         169       0 -4.6875    1.25      0.       0
+GRID         170       0 -4.6875   .9375      0.       0
+GRID         171       0 -4.6875    .625      0.       0
+GRID         172       0 -4.6875  5.07-8      0.       0
+GRID         173       0 -4.6875   .3125      0.       0
+GRID         174       0 -4.6875   -3.75      0.       0
+GRID         175       0 -4.6875  -4.375      0.       0
+GRID         176       0 -4.6875 -4.6875      0.       0
+GRID         177       0  -4.375 -4.6875      0.       0
+GRID         178       0 -4.0625 -4.6875      0.       0
+GRID         179       0   -3.75 -4.6875      0.       0
+GRID         180       0  -3.125 -4.6875      0.       0
+GRID         181       0 -3.4375 -4.6875      0.       0
+GRID         182       0 -2.8125 -4.6875      0.       0
+GRID         183       0    -2.5 -4.6875      0.       0
+GRID         184       0 -4.6875    -2.5      0.       0
+GRID         185       0 -4.6875  -3.125      0.       0
+GRID         186       0 -4.6875  -.3125      0.       0
+GRID         187       0 -4.6875   -.625      0.       0
+GRID         188       0 -4.6875  -.9375      0.       0
+GRID         189       0 -4.6875  -1.875      0.       0
+GRID         190       0 -4.6875 -2.1875      0.       0
+GRID         191       0 -4.6875   -1.25      0.       0
+GRID         192       0  4.55-8 -4.6875      0.       0
+GRID         193       0  -.3125 -4.6875      0.       0
+GRID         194       0   -.625 -4.6875      0.       0
+GRID         195       0  -1.875 -4.6875      0.       0
+GRID         196       0 -2.1875 -4.6875      0.       0
+GRID         197       0  4.6875  2.8125      0.       0
+GRID         198       0  4.6875     2.5      0.       0
+GRID         199       0  4.6875   3.125      0.       0
+GRID         200       0  4.6875  3.4375      0.       0
+GRID         201       0  4.6875    3.75      0.       0
+GRID         202       0  4.6875   4.375      0.       0
+GRID         203       0  4.6875  4.6875      0.       0
+GRID         204       0   4.375  4.6875      0.       0
+GRID         205       0    3.75  4.6875      0.       0
+GRID         206       0  4.0625  4.6875      0.       0
+GRID         207       0  3.4375  4.6875      0.       0
+GRID         208       0     2.5  4.6875      0.       0
+GRID         209       0  2.8125  4.6875      0.       0
+GRID         210       0   1.875  4.6875      0.       0
+GRID         211       0  2.1875  4.6875      0.       0
+GRID         212       0    1.25  4.6875      0.       0
+GRID         213       0   .3125  4.6875      0.       0
+GRID         214       0    .625  4.6875      0.       0
+GRID         215       0   .9375  4.6875      0.       0
+GRID         216       0  4.6875  2.1875      0.       0
+GRID         217       0  4.6875   1.875      0.       0
+GRID         218       0  4.6875    1.25      0.       0
+GRID         219       0  4.6875  1.5625      0.       0
+GRID         220       0  4.6875   .9375      0.       0
+GRID         221       0  4.6875    .625      0.       0
+GRID         222       0  4.6875   .3125      0.       0
+GRID         223       0  4.6875 -1.5625      0.       0
+GRID         224       0  4.6875  -1.875      0.       0
+GRID         225       0  4.6875  -.3125      0.       0
+GRID         226       0  4.6875   -.625      0.       0
+GRID         227       0  4.6875  -.9375      0.       0
+GRID         228       0   .3125 -4.6875      0.       0
+GRID         229       0   .9375 -4.6875      0.       0
+GRID         230       0    .625 -4.6875      0.       0
+GRID         231       0    1.25 -4.6875      0.       0
+GRID         232       0  1.5625 -4.6875      0.       0
+GRID         233       0  2.1875 -4.6875      0.       0
+GRID         234       0   1.875 -4.6875      0.       0
+GRID         235       0  4.6875  -3.125      0.       0
+GRID         236       0  4.6875 -3.4375      0.       0
+GRID         237       0  4.6875 -2.8125      0.       0
+GRID         238       0  4.6875    -2.5      0.       0
+GRID         239       0     2.5 -4.6875      0.       0
+GRID         240       0  2.8125 -4.6875      0.       0
+GRID         241       0   3.125 -4.6875      0.       0
+GRID         242       0  3.4375 -4.6875      0.       0
+GRID         243       0    3.75 -4.6875      0.       0
+GRID         244       0  4.6875   -3.75      0.       0
+GRID         245       0  4.6875 -4.0625      0.       0
+GRID         246       0  4.6875  -4.375      0.       0
+GRID         247       0   4.375 -4.6875      0.       0
+GRID         248       0  4.6875 -4.6875      0.       0
+GRID         249       0  -3.125   3.125      0.       0
+GRID         250       0 -3.4375   3.125      0.       0
+GRID         251       0 -3.4375  3.4375      0.       0
+GRID         252       0  -3.125  3.4375      0.       0
+GRID         253       0 -2.8125  3.4375      0.       0
+GRID         254       0    -2.5  3.4375      0.       0
+GRID         255       0    -2.5   3.125      0.       0
+GRID         256       0 -2.8125   3.125      0.       0
+GRID         257       0 -2.8125  2.8125      0.       0
+GRID         258       0    -2.5  2.8125      0.       0
+GRID         259       0    -2.5     2.5      0.       0
+GRID         260       0 -2.8125     2.5      0.       0
+GRID         261       0  -3.125  2.8125      0.       0
+GRID         262       0  -3.125     2.5      0.       0
+GRID         263       0 -3.4375  2.8125      0.       0
+GRID         264       0 -3.4375     2.5      0.       0
+GRID         265       0   -3.75  2.8125      0.       0
+GRID         266       0   -3.75     2.5      0.       0
+GRID         267       0 -4.0625  2.8125      0.       0
+GRID         268       0 -4.0625     2.5      0.       0
+GRID         269       0  -4.375  2.8125      0.       0
+GRID         270       0  -4.375     2.5      0.       0
+GRID         271       0  -4.375   3.125      0.       0
+GRID         272       0  -4.375  3.4375      0.       0
+GRID         273       0   -3.75   3.125      0.       0
+GRID         274       0 -4.0625   3.125      0.       0
+GRID         275       0 -4.0625  3.4375      0.       0
+GRID         276       0   -3.75  3.4375      0.       0
+GRID         277       0   -3.75  4.0625      0.       0
+GRID         278       0   -3.75    3.75      0.       0
+GRID         279       0 -4.0625  4.0625      0.       0
+GRID         280       0 -4.0625    3.75      0.       0
+GRID         281       0  -4.375  4.0625      0.       0
+GRID         282       0  -4.375    3.75      0.       0
+GRID         283       0  -4.375   4.375      0.       0
+GRID         284       0   -3.75   4.375      0.       0
+GRID         285       0 -4.0625   4.375      0.       0
+GRID         286       0 -3.4375    3.75      0.       0
+GRID         287       0  -3.125    3.75      0.       0
+GRID         288       0  -3.125  4.0625      0.       0
+GRID         289       0 -3.4375  4.0625      0.       0
+GRID         290       0  -3.125   4.375      0.       0
+GRID         291       0 -3.4375   4.375      0.       0
+GRID         292       0    -2.5    3.75      0.       0
+GRID         293       0 -2.8125    3.75      0.       0
+GRID         294       0 -2.8125  4.0625      0.       0
+GRID         295       0    -2.5  4.0625      0.       0
+GRID         296       0    -2.5   4.375      0.       0
+GRID         297       0 -2.8125   4.375      0.       0
+GRID         298       0 -2.1875    3.75      0.       0
+GRID         299       0  -1.875    3.75      0.       0
+GRID         300       0  -1.875  4.0625      0.       0
+GRID         301       0 -2.1875  4.0625      0.       0
+GRID         302       0 -2.1875   4.375      0.       0
+GRID         303       0  -1.875   4.375      0.       0
+GRID         304       0   -1.25    3.75      0.       0
+GRID         305       0 -1.5625    3.75      0.       0
+GRID         306       0 -1.5625  4.0625      0.       0
+GRID         307       0   -1.25  4.0625      0.       0
+GRID         308       0   -1.25   4.375      0.       0
+GRID         309       0 -1.5625   4.375      0.       0
+GRID         310       0  -.3125   4.375      0.       0
+GRID         311       0  -.9375   4.375      0.       0
+GRID         312       0   -.625   4.375      0.       0
+GRID         313       0  -.9375  4.0625      0.       0
+GRID         314       0  -.9375    3.75      0.       0
+GRID         315       0   -.625  4.0625      0.       0
+GRID         316       0   -.625    3.75      0.       0
+GRID         317       0  -.3125  4.0625      0.       0
+GRID         318       0  -.3125    3.75      0.       0
+GRID         319       0  -.3125   3.125      0.       0
+GRID         320       0  -.3125  3.4375      0.       0
+GRID         321       0  -.3125  2.8125      0.       0
+GRID         322       0  -.3125     2.5      0.       0
+GRID         323       0  -.9375  3.4375      0.       0
+GRID         324       0   -.625  3.4375      0.       0
+GRID         325       0   -.625   3.125      0.       0
+GRID         326       0  -.9375   3.125      0.       0
+GRID         327       0  -.9375  2.8125      0.       0
+GRID         328       0   -.625  2.8125      0.       0
+GRID         329       0   -.625     2.5      0.       0
+GRID         330       0  -.9375     2.5      0.       0
+GRID         331       0  -1.875   3.125      0.       0
+GRID         332       0 -2.1875   3.125      0.       0
+GRID         333       0 -2.1875  3.4375      0.       0
+GRID         334       0  -1.875  3.4375      0.       0
+GRID         335       0 -1.5625  3.4375      0.       0
+GRID         336       0   -1.25  3.4375      0.       0
+GRID         337       0   -1.25   3.125      0.       0
+GRID         338       0 -1.5625   3.125      0.       0
+GRID         339       0 -1.5625  2.8125      0.       0
+GRID         340       0   -1.25  2.8125      0.       0
+GRID         341       0   -1.25     2.5      0.       0
+GRID         342       0 -1.5625     2.5      0.       0
+GRID         343       0  -1.875  2.8125      0.       0
+GRID         344       0  -1.875     2.5      0.       0
+GRID         345       0 -2.1875  2.8125      0.       0
+GRID         346       0 -2.1875     2.5      0.       0
+GRID         347       0-2.18749    1.25      0.       0
+GRID         348       0-1.87499    1.25      0.       0
+GRID         349       0-1.87499  1.5625      0.       0
+GRID         350       0 -2.1875  1.5625      0.       0
+GRID         351       0 -2.1875  2.1875      0.       0
+GRID         352       0 -2.1875   1.875      0.       0
+GRID         353       0  -1.875  2.1875      0.       0
+GRID         354       0  -1.875   1.875      0.       0
+GRID         355       0-1.24999    1.25      0.       0
+GRID         356       0-1.56249    1.25      0.       0
+GRID         357       0-1.56249  1.5625      0.       0
+GRID         358       0-1.24999  1.5625      0.       0
+GRID         359       0   -1.25   1.875      0.       0
+GRID         360       0 -1.5625   1.875      0.       0
+GRID         361       0 -1.5625  2.1875      0.       0
+GRID         362       0   -1.25  2.1875      0.       0
+GRID         363       0  -.3125  2.1875      0.       0
+GRID         364       0  -.3125   1.875      0.       0
+GRID         365       0  -.9375  2.1875      0.       0
+GRID         366       0   -.625  2.1875      0.       0
+GRID         367       0   -.625   1.875      0.       0
+GRID         368       0  -.9375   1.875      0.       0
+GRID         369       0 -.93749  1.5625      0.       0
+GRID         370       0 -.93749    1.25      0.       0
+GRID         371       0 -.62499  1.5625      0.       0
+GRID         372       0 -.62499    1.25      0.       0
+GRID         373       0 -.31249  1.5625      0.       0
+GRID         374       0 -.31249    1.25      0.       0
+GRID         375       0 -.31249   .9375      0.       0
+GRID         376       0 -.31249    .625      0.       0
+GRID         377       0 -.31249 .312501      0.       0
+GRID         378       0 -.31249  6.42-7      0.       0
+GRID         379       0 -.93749   .9375      0.       0
+GRID         380       0 -.62499   .9375      0.       0
+GRID         381       0 -.62499 .625001      0.       0
+GRID         382       0 -.93749 .625001      0.       0
+GRID         383       0 -.93749 .312501      0.       0
+GRID         384       0 -.62499 .312501      0.       0
+GRID         385       0 -.62499  6.48-7      0.       0
+GRID         386       0 -.93749  6.33-7      0.       0
+GRID         387       0-1.87499 .625001      0.       0
+GRID         388       0-2.18749    .625      0.       0
+GRID         389       0-2.18749   .9375      0.       0
+GRID         390       0-1.87499   .9375      0.       0
+GRID         391       0-1.56249   .9375      0.       0
+GRID         392       0-1.24999   .9375      0.       0
+GRID         393       0-1.24999 .625001      0.       0
+GRID         394       0-1.56249 .625001      0.       0
+GRID         395       0-1.56249 .312501      0.       0
+GRID         396       0-1.24999 .312501      0.       0
+GRID         397       0-1.24999  6.01-7      0.       0
+GRID         398       0-1.56249  5.64-7      0.       0
+GRID         399       0-1.87499 .312501      0.       0
+GRID         400       0-1.87499  5.19-7      0.       0
+GRID         401       0-2.18749   .3125      0.       0
+GRID         402       0-2.18749  4.71-7      0.       0
+GRID         403       0 -2.8125   1.875      0.       0
+GRID         404       0    -2.5   1.875      0.       0
+GRID         405       0    -2.5  2.1875      0.       0
+GRID         406       0 -2.8125  2.1875      0.       0
+GRID         407       0  -3.125  2.1875      0.       0
+GRID         408       0 -3.4375  2.1875      0.       0
+GRID         409       0 -3.4375   1.875      0.       0
+GRID         410       0  -3.125   1.875      0.       0
+GRID         411       0  -3.125  1.5625      0.       0
+GRID         412       0 -3.4375  1.5625      0.       0
+GRID         413       0 -3.4375    1.25      0.       0
+GRID         414       0  -3.125    1.25      0.       0
+GRID         415       0 -2.8125  1.5625      0.       0
+GRID         416       0 -2.8125    1.25      0.       0
+GRID         417       0    -2.5  1.5625      0.       0
+GRID         418       0    -2.5    1.25      0.       0
+GRID         419       0-2.49999  4.25-7      0.       0
+GRID         420       0 -2.8125  3.78-7      0.       0
+GRID         421       0 -2.8125   .3125      0.       0
+GRID         422       0-2.49999   .3125      0.       0
+GRID         423       0-2.49999   .9375      0.       0
+GRID         424       0-2.49999    .625      0.       0
+GRID         425       0 -2.8125   .9375      0.       0
+GRID         426       0 -2.8125    .625      0.       0
+GRID         427       0 -3.4375   2.7-7      0.       0
+GRID         428       0  -3.125  3.25-7      0.       0
+GRID         429       0  -3.125   .3125      0.       0
+GRID         430       0 -3.4375   .3125      0.       0
+GRID         431       0 -3.4375    .625      0.       0
+GRID         432       0  -3.125    .625      0.       0
+GRID         433       0  -3.125   .9375      0.       0
+GRID         434       0 -3.4375   .9375      0.       0
+GRID         435       0  -4.375  2.1875      0.       0
+GRID         436       0  -4.375   1.875      0.       0
+GRID         437       0 -4.0625  2.1875      0.       0
+GRID         438       0   -3.75  2.1875      0.       0
+GRID         439       0   -3.75   1.875      0.       0
+GRID         440       0 -4.0625   1.875      0.       0
+GRID         441       0 -4.0625  1.5625      0.       0
+GRID         442       0   -3.75  1.5625      0.       0
+GRID         443       0   -3.75    1.25      0.       0
+GRID         444       0 -4.0625    1.25      0.       0
+GRID         445       0  -4.375  1.5625      0.       0
+GRID         446       0  -4.375    1.25      0.       0
+GRID         447       0  -4.375    .625      0.       0
+GRID         448       0  -4.375   .9375      0.       0
+GRID         449       0   -3.75   .9375      0.       0
+GRID         450       0 -4.0625   .9375      0.       0
+GRID         451       0 -4.0625    .625      0.       0
+GRID         452       0   -3.75    .625      0.       0
+GRID         453       0   -3.75   .3125      0.       0
+GRID         454       0   -3.75  2.15-7      0.       0
+GRID         455       0 -4.0625   .3125      0.       0
+GRID         456       0 -4.0625  1.59-7      0.       0
+GRID         457       0  -4.375  1.04-7      0.       0
+GRID         458       0  -4.375   .3125      0.       0
+GRID         459       0 -4.0625 -4.0625      0.       0
+GRID         460       0   -3.75 -4.0625      0.       0
+GRID         461       0   -3.75   -3.75      0.       0
+GRID         462       0 -4.0625   -3.75      0.       0
+GRID         463       0  -4.375 -4.0625      0.       0
+GRID         464       0  -4.375   -3.75      0.       0
+GRID         465       0  -4.375  -4.375      0.       0
+GRID         466       0 -4.0625  -4.375      0.       0
+GRID         467       0   -3.75  -4.375      0.       0
+GRID         468       0 -3.4375  -4.375      0.       0
+GRID         469       0  -3.125  -4.375      0.       0
+GRID         470       0    -2.5  -4.375      0.       0
+GRID         471       0 -2.8125  -4.375      0.       0
+GRID         472       0    -2.5 -4.0625      0.       0
+GRID         473       0    -2.5   -3.75      0.       0
+GRID         474       0 -2.8125 -4.0625      0.       0
+GRID         475       0 -2.8125   -3.75      0.       0
+GRID         476       0 -3.4375 -4.0625      0.       0
+GRID         477       0  -3.125 -4.0625      0.       0
+GRID         478       0  -3.125   -3.75      0.       0
+GRID         479       0 -3.4375   -3.75      0.       0
+GRID         480       0 -3.4375  -3.125      0.       0
+GRID         481       0 -3.4375 -3.4375      0.       0
+GRID         482       0  -3.125  -3.125      0.       0
+GRID         483       0  -3.125 -3.4375      0.       0
+GRID         484       0    -2.5 -3.4375      0.       0
+GRID         485       0 -2.8125 -3.4375      0.       0
+GRID         486       0 -2.8125  -3.125      0.       0
+GRID         487       0    -2.5  -3.125      0.       0
+GRID         488       0    -2.5 -2.8125      0.       0
+GRID         489       0    -2.5    -2.5      0.       0
+GRID         490       0 -2.8125 -2.8125      0.       0
+GRID         491       0 -2.8125    -2.5      0.       0
+GRID         492       0 -3.4375 -2.8125      0.       0
+GRID         493       0  -3.125 -2.8125      0.       0
+GRID         494       0  -3.125    -2.5      0.       0
+GRID         495       0 -3.4375    -2.5      0.       0
+GRID         496       0   -3.75 -3.4375      0.       0
+GRID         497       0 -4.0625 -3.4375      0.       0
+GRID         498       0 -4.0625  -3.125      0.       0
+GRID         499       0   -3.75  -3.125      0.       0
+GRID         500       0   -3.75    -2.5      0.       0
+GRID         501       0   -3.75 -2.8125      0.       0
+GRID         502       0 -4.0625    -2.5      0.       0
+GRID         503       0 -4.0625 -2.8125      0.       0
+GRID         504       0  -4.375 -3.4375      0.       0
+GRID         505       0  -4.375  -3.125      0.       0
+GRID         506       0  -4.375 -2.8125      0.       0
+GRID         507       0  -4.375    -2.5      0.       0
+GRID         508       0  -4.375  -.3125      0.       0
+GRID         509       0   -3.75  -.3125      0.       0
+GRID         510       0 -4.0625  -.3125      0.       0
+GRID         511       0 -4.0625   -.625      0.       0
+GRID         512       0   -3.75   -.625      0.       0
+GRID         513       0   -3.75  -.9375      0.       0
+GRID         514       0 -4.0625  -.9375      0.       0
+GRID         515       0  -4.375  -.9375      0.       0
+GRID         516       0  -4.375   -.625      0.       0
+GRID         517       0  -4.375 -2.1875      0.       0
+GRID         518       0  -4.375  -1.875      0.       0
+GRID         519       0  -4.375   -1.25      0.       0
+GRID         520       0  -4.375 -1.5625      0.       0
+GRID         521       0   -3.75 -2.1875      0.       0
+GRID         522       0 -4.0625 -2.1875      0.       0
+GRID         523       0 -4.0625  -1.875      0.       0
+GRID         524       0   -3.75  -1.875      0.       0
+GRID         525       0   -3.75 -1.5625      0.       0
+GRID         526       0 -4.0625 -1.5625      0.       0
+GRID         527       0 -4.0625   -1.25      0.       0
+GRID         528       0   -3.75   -1.25      0.       0
+GRID         529       0 -2.8125  -.3125      0.       0
+GRID         530       0-2.49999  -.3125      0.       0
+GRID         531       0 -3.4375  -.3125      0.       0
+GRID         532       0  -3.125  -.3125      0.       0
+GRID         533       0  -3.125   -.625      0.       0
+GRID         534       0 -3.4375   -.625      0.       0
+GRID         535       0 -3.4375  -.9375      0.       0
+GRID         536       0  -3.125  -.9375      0.       0
+GRID         537       0 -2.8125   -.625      0.       0
+GRID         538       0 -2.8125  -.9375      0.       0
+GRID         539       0-2.49999   -.625      0.       0
+GRID         540       0-2.49999  -.9375      0.       0
+GRID         541       0-2.49999 -1.5625      0.       0
+GRID         542       0-2.49999   -1.25      0.       0
+GRID         543       0 -2.8125 -1.5625      0.       0
+GRID         544       0 -2.8125   -1.25      0.       0
+GRID         545       0 -3.4375   -1.25      0.       0
+GRID         546       0  -3.125   -1.25      0.       0
+GRID         547       0  -3.125 -1.5625      0.       0
+GRID         548       0 -3.4375 -1.5625      0.       0
+GRID         549       0 -3.4375  -1.875      0.       0
+GRID         550       0 -3.4375 -2.1875      0.       0
+GRID         551       0  -3.125  -1.875      0.       0
+GRID         552       0  -3.125 -2.1875      0.       0
+GRID         553       0-2.49999  -1.875      0.       0
+GRID         554       0 -2.8125  -1.875      0.       0
+GRID         555       0 -2.8125 -2.1875      0.       0
+GRID         556       0    -2.5 -2.1875      0.       0
+GRID         557       0   -.625 -4.0625      0.       0
+GRID         558       0  -.9375 -4.0625      0.       0
+GRID         559       0  -.9375   -3.75      0.       0
+GRID         560       0   -.625   -3.75      0.       0
+GRID         561       0  -.3125   -3.75      0.       0
+GRID         562       0  -.3125 -4.0625      0.       0
+GRID         563       0  -.3125  -4.375      0.       0
+GRID         564       0  -.9375  -4.375      0.       0
+GRID         565       0   -.625  -4.375      0.       0
+GRID         566       0 -1.5625  -4.375      0.       0
+GRID         567       0   -1.25  -4.375      0.       0
+GRID         568       0  -1.875  -4.375      0.       0
+GRID         569       0 -2.1875  -4.375      0.       0
+GRID         570       0 -2.1875 -4.0625      0.       0
+GRID         571       0 -2.1875   -3.75      0.       0
+GRID         572       0  -1.875 -4.0625      0.       0
+GRID         573       0  -1.875   -3.75      0.       0
+GRID         574       0   -1.25 -4.0625      0.       0
+GRID         575       0 -1.5625 -4.0625      0.       0
+GRID         576       0 -1.5625   -3.75      0.       0
+GRID         577       0   -1.25   -3.75      0.       0
+GRID         578       0   -1.25  -3.125      0.       0
+GRID         579       0   -1.25 -3.4375      0.       0
+GRID         580       0 -1.5625  -3.125      0.       0
+GRID         581       0 -1.5625 -3.4375      0.       0
+GRID         582       0 -2.1875 -3.4375      0.       0
+GRID         583       0  -1.875 -3.4375      0.       0
+GRID         584       0  -1.875  -3.125      0.       0
+GRID         585       0 -2.1875  -3.125      0.       0
+GRID         586       0 -2.1875 -2.8125      0.       0
+GRID         587       0 -2.1875    -2.5      0.       0
+GRID         588       0  -1.875 -2.8125      0.       0
+GRID         589       0  -1.875    -2.5      0.       0
+GRID         590       0   -1.25 -2.8125      0.       0
+GRID         591       0 -1.5625 -2.8125      0.       0
+GRID         592       0 -1.5625    -2.5      0.       0
+GRID         593       0   -1.25-2.49999      0.       0
+GRID         594       0  -.9375 -3.4375      0.       0
+GRID         595       0   -.625 -3.4375      0.       0
+GRID         596       0   -.625  -3.125      0.       0
+GRID         597       0  -.9375  -3.125      0.       0
+GRID         598       0  -.9375-2.49999      0.       0
+GRID         599       0  -.9375 -2.8125      0.       0
+GRID         600       0   -.625    -2.5      0.       0
+GRID         601       0   -.625 -2.8125      0.       0
+GRID         602       0  -.3125  -3.125      0.       0
+GRID         603       0  -.3125 -3.4375      0.       0
+GRID         604       0  -.3125 -2.8125      0.       0
+GRID         605       0  -.3125    -2.5      0.       0
+GRID         606       0 -.31249-1.24999      0.       0
+GRID         607       0 -.31249-1.56249      0.       0
+GRID         608       0 -.31249-1.87499      0.       0
+GRID         609       0  -.3125-2.18749      0.       0
+GRID         610       0 -.93749-1.24999      0.       0
+GRID         611       0 -.62499-1.24999      0.       0
+GRID         612       0 -.62499-1.56249      0.       0
+GRID         613       0 -.93749-1.56249      0.       0
+GRID         614       0  -.9375-1.87499      0.       0
+GRID         615       0   -.625-1.87499      0.       0
+GRID         616       0   -.625-2.18749      0.       0
+GRID         617       0  -.9375-2.18749      0.       0
+GRID         618       0-2.18749  -1.875      0.       0
+GRID         619       0 -2.1875 -2.1875      0.       0
+GRID         620       0-1.87499-1.87499      0.       0
+GRID         621       0  -1.875-2.18749      0.       0
+GRID         622       0   -1.25-2.18749      0.       0
+GRID         623       0 -1.5625-2.18749      0.       0
+GRID         624       0-1.56249-1.87499      0.       0
+GRID         625       0   -1.25-1.87499      0.       0
+GRID         626       0-1.24999-1.56249      0.       0
+GRID         627       0-1.24999-1.24999      0.       0
+GRID         628       0-1.56249-1.56249      0.       0
+GRID         629       0-1.56249-1.24999      0.       0
+GRID         630       0-2.18749 -1.5625      0.       0
+GRID         631       0-1.87499-1.56249      0.       0
+GRID         632       0-1.87499-1.24999      0.       0
+GRID         633       0-2.18749-1.24999      0.       0
+GRID         634       0-2.18749  -.9375      0.       0
+GRID         635       0-1.87499 -.93749      0.       0
+GRID         636       0-1.87499 -.62499      0.       0
+GRID         637       0-2.18749   -.625      0.       0
+GRID         638       0-2.18749  -.3125      0.       0
+GRID         639       0-1.87499 -.31249      0.       0
+GRID         640       0-1.24999 -.93749      0.       0
+GRID         641       0-1.56249 -.93749      0.       0
+GRID         642       0-1.56249 -.62499      0.       0
+GRID         643       0-1.24999 -.62499      0.       0
+GRID         644       0-1.56249 -.31249      0.       0
+GRID         645       0-1.24999 -.31249      0.       0
+GRID         646       0 -.31249 -.62499      0.       0
+GRID         647       0 -.31249 -.93749      0.       0
+GRID         648       0 -.62499 -.93749      0.       0
+GRID         649       0 -.93749 -.93749      0.       0
+GRID         650       0 -.93749 -.62499      0.       0
+GRID         651       0 -.62499 -.62499      0.       0
+GRID         652       0 -.62499 -.31249      0.       0
+GRID         653       0 -.93749 -.31249      0.       0
+GRID         654       0 -.31249 -.31249      0.       0
+GRID         655       0   3.125   3.125      0.       0
+GRID         656       0  3.4375   3.125      0.       0
+GRID         657       0  3.4375  3.4375      0.       0
+GRID         658       0   3.125  3.4375      0.       0
+GRID         659       0  2.8125  3.4375      0.       0
+GRID         660       0     2.5  3.4375      0.       0
+GRID         661       0     2.5   3.125      0.       0
+GRID         662       0  2.8125   3.125      0.       0
+GRID         663       0  2.8125  2.8125      0.       0
+GRID         664       0     2.5  2.8125      0.       0
+GRID         665       0     2.5     2.5      0.       0
+GRID         666       0  2.8125     2.5      0.       0
+GRID         667       0   3.125  2.8125      0.       0
+GRID         668       0   3.125     2.5      0.       0
+GRID         669       0  3.4375  2.8125      0.       0
+GRID         670       0  3.4375     2.5      0.       0
+GRID         671       0    3.75  2.8125      0.       0
+GRID         672       0    3.75     2.5      0.       0
+GRID         673       0  4.0625  2.8125      0.       0
+GRID         674       0  4.0625     2.5      0.       0
+GRID         675       0   4.375     2.5      0.       0
+GRID         676       0   4.375  2.8125      0.       0
+GRID         677       0   4.375   3.125      0.       0
+GRID         678       0   4.375  3.4375      0.       0
+GRID         679       0    3.75   3.125      0.       0
+GRID         680       0  4.0625   3.125      0.       0
+GRID         681       0  4.0625  3.4375      0.       0
+GRID         682       0    3.75  3.4375      0.       0
+GRID         683       0    3.75  4.0625      0.       0
+GRID         684       0    3.75    3.75      0.       0
+GRID         685       0  4.0625  4.0625      0.       0
+GRID         686       0  4.0625    3.75      0.       0
+GRID         687       0   4.375  4.0625      0.       0
+GRID         688       0   4.375    3.75      0.       0
+GRID         689       0   4.375   4.375      0.       0
+GRID         690       0    3.75   4.375      0.       0
+GRID         691       0  4.0625   4.375      0.       0
+GRID         692       0  3.4375    3.75      0.       0
+GRID         693       0   3.125    3.75      0.       0
+GRID         694       0   3.125  4.0625      0.       0
+GRID         695       0  3.4375  4.0625      0.       0
+GRID         696       0   3.125   4.375      0.       0
+GRID         697       0  3.4375   4.375      0.       0
+GRID         698       0     2.5    3.75      0.       0
+GRID         699       0  2.8125    3.75      0.       0
+GRID         700       0  2.8125  4.0625      0.       0
+GRID         701       0     2.5  4.0625      0.       0
+GRID         702       0     2.5   4.375      0.       0
+GRID         703       0  2.8125   4.375      0.       0
+GRID         704       0  2.1875    3.75      0.       0
+GRID         705       0   1.875    3.75      0.       0
+GRID         706       0   1.875  4.0625      0.       0
+GRID         707       0  2.1875  4.0625      0.       0
+GRID         708       0   1.875   4.375      0.       0
+GRID         709       0  2.1875   4.375      0.       0
+GRID         710       0    1.25    3.75      0.       0
+GRID         711       0  1.5625    3.75      0.       0
+GRID         712       0  1.5625  4.0625      0.       0
+GRID         713       0    1.25  4.0625      0.       0
+GRID         714       0  1.5625   4.375      0.       0
+GRID         715       0    1.25   4.375      0.       0
+GRID         716       0  8.66-8   4.375      0.       0
+GRID         717       0   .3125   4.375      0.       0
+GRID         718       0   .9375   4.375      0.       0
+GRID         719       0    .625   4.375      0.       0
+GRID         720       0   .9375  4.0625      0.       0
+GRID         721       0   .9375    3.75      0.       0
+GRID         722       0    .625  4.0625      0.       0
+GRID         723       0    .625    3.75      0.       0
+GRID         724       0  1.35-7  4.0625      0.       0
+GRID         725       0   .3125  4.0625      0.       0
+GRID         726       0   .3125    3.75      0.       0
+GRID         727       0  1.83-7    3.75      0.       0
+GRID         728       0  2.32-7  3.4375      0.       0
+GRID         729       0   .3125  3.4375      0.       0
+GRID         730       0   .3125   3.125      0.       0
+GRID         731       0  2.81-7   3.125      0.       0
+GRID         732       0  3.78-7     2.5      0.       0
+GRID         733       0   3.3-7  2.8125      0.       0
+GRID         734       0   .3125     2.5      0.       0
+GRID         735       0   .3125  2.8125      0.       0
+GRID         736       0   .9375  3.4375      0.       0
+GRID         737       0    .625  3.4375      0.       0
+GRID         738       0    .625   3.125      0.       0
+GRID         739       0   .9375   3.125      0.       0
+GRID         740       0   .9375  2.8125      0.       0
+GRID         741       0    .625  2.8125      0.       0
+GRID         742       0    .625     2.5      0.       0
+GRID         743       0   .9375     2.5      0.       0
+GRID         744       0   1.875   3.125      0.       0
+GRID         745       0  2.1875   3.125      0.       0
+GRID         746       0  2.1875  3.4375      0.       0
+GRID         747       0   1.875  3.4375      0.       0
+GRID         748       0  1.5625  3.4375      0.       0
+GRID         749       0    1.25  3.4375      0.       0
+GRID         750       0    1.25   3.125      0.       0
+GRID         751       0  1.5625   3.125      0.       0
+GRID         752       0  1.5625  2.8125      0.       0
+GRID         753       0    1.25  2.8125      0.       0
+GRID         754       0    1.25     2.5      0.       0
+GRID         755       0  1.5625     2.5      0.       0
+GRID         756       0   1.875  2.8125      0.       0
+GRID         757       0   1.875     2.5      0.       0
+GRID         758       0  2.1875  2.8125      0.       0
+GRID         759       0  2.1875     2.5      0.       0
+GRID         760       0  2.1875    1.25      0.       0
+GRID         761       0   1.875    1.25      0.       0
+GRID         762       0   1.875  1.5625      0.       0
+GRID         763       0  2.1875  1.5625      0.       0
+GRID         764       0  2.1875  2.1875      0.       0
+GRID         765       0  2.1875   1.875      0.       0
+GRID         766       0   1.875  2.1875      0.       0
+GRID         767       0   1.875   1.875      0.       0
+GRID         768       0    1.25    1.25      0.       0
+GRID         769       0  1.5625    1.25      0.       0
+GRID         770       0  1.5625  1.5625      0.       0
+GRID         771       0    1.25  1.5625      0.       0
+GRID         772       0    1.25   1.875      0.       0
+GRID         773       0  1.5625   1.875      0.       0
+GRID         774       0  1.5625  2.1875      0.       0
+GRID         775       0    1.25  2.1875      0.       0
+GRID         776       0   4.9-7   1.875      0.       0
+GRID         777       0  4.34-7  2.1875      0.       0
+GRID         778       0 .312501   1.875      0.       0
+GRID         779       0   .3125  2.1875      0.       0
+GRID         780       0   .9375  2.1875      0.       0
+GRID         781       0    .625  2.1875      0.       0
+GRID         782       0 .625001   1.875      0.       0
+GRID         783       0   .9375   1.875      0.       0
+GRID         784       0 .937501  1.5625      0.       0
+GRID         785       0 .937501    1.25      0.       0
+GRID         786       0 .625001  1.5625      0.       0
+GRID         787       0 .625001    1.25      0.       0
+GRID         788       0  5.48-7  1.5625      0.       0
+GRID         789       0 .312501  1.5625      0.       0
+GRID         790       0 .312501    1.25      0.       0
+GRID         791       0  6.01-7    1.25      0.       0
+GRID         792       0  6.46-7   .9375      0.       0
+GRID         793       0 .312501   .9375      0.       0
+GRID         794       0 .312501 .625001      0.       0
+GRID         795       0  6.76-7    .625      0.       0
+GRID         796       0  6.69-7  6.27-7      0.       0
+GRID         797       0   6.8-7 .312501      0.       0
+GRID         798       0 .312501  6.29-7      0.       0
+GRID         799       0 .312501 .312501      0.       0
+GRID         800       0 .937501 .937501      0.       0
+GRID         801       0 .625001 .937501      0.       0
+GRID         802       0 .625001 .625001      0.       0
+GRID         803       0   .9375 .625001      0.       0
+GRID         804       0   .9375 .312501      0.       0
+GRID         805       0    .625 .312501      0.       0
+GRID         806       0    .625  6.15-7      0.       0
+GRID         807       0   .9375  5.93-7      0.       0
+GRID         808       0   1.875 .625001      0.       0
+GRID         809       0  2.1875    .625      0.       0
+GRID         810       0  2.1875   .9375      0.       0
+GRID         811       0   1.875   .9375      0.       0
+GRID         812       0  1.5625 .937501      0.       0
+GRID         813       0    1.25 .937501      0.       0
+GRID         814       0    1.25 .625001      0.       0
+GRID         815       0  1.5625 .625001      0.       0
+GRID         816       0  1.5625 .312501      0.       0
+GRID         817       0    1.25 .312501      0.       0
+GRID         818       0    1.25   5.6-7      0.       0
+GRID         819       0  1.5625  5.21-7      0.       0
+GRID         820       0   1.875   .3125      0.       0
+GRID         821       0   1.875  4.77-7      0.       0
+GRID         822       0  2.1875   .3125      0.       0
+GRID         823       0  2.1875  4.33-7      0.       0
+GRID         824       0  2.8125   1.875      0.       0
+GRID         825       0     2.5   1.875      0.       0
+GRID         826       0     2.5  2.1875      0.       0
+GRID         827       0  2.8125  2.1875      0.       0
+GRID         828       0   3.125  2.1875      0.       0
+GRID         829       0  3.4375  2.1875      0.       0
+GRID         830       0  3.4375   1.875      0.       0
+GRID         831       0   3.125   1.875      0.       0
+GRID         832       0   3.125  1.5625      0.       0
+GRID         833       0  3.4375  1.5625      0.       0
+GRID         834       0  3.4375    1.25      0.       0
+GRID         835       0   3.125    1.25      0.       0
+GRID         836       0  2.8125  1.5625      0.       0
+GRID         837       0  2.8125    1.25      0.       0
+GRID         838       0     2.5  1.5625      0.       0
+GRID         839       0     2.5    1.25      0.       0
+GRID         840       0     2.5  3.88-7      0.       0
+GRID         841       0  2.8125  3.37-7      0.       0
+GRID         842       0  2.8125   .3125      0.       0
+GRID         843       0     2.5   .3125      0.       0
+GRID         844       0     2.5   .9375      0.       0
+GRID         845       0     2.5    .625      0.       0
+GRID         846       0  2.8125   .9375      0.       0
+GRID         847       0  2.8125    .625      0.       0
+GRID         848       0  3.4375  2.29-7      0.       0
+GRID         849       0   3.125  2.83-7      0.       0
+GRID         850       0   3.125   .3125      0.       0
+GRID         851       0  3.4375   .3125      0.       0
+GRID         852       0  3.4375    .625      0.       0
+GRID         853       0   3.125    .625      0.       0
+GRID         854       0   3.125   .9375      0.       0
+GRID         855       0  3.4375   .9375      0.       0
+GRID         856       0   4.375  2.1875      0.       0
+GRID         857       0   4.375   1.875      0.       0
+GRID         858       0  4.0625  2.1875      0.       0
+GRID         859       0    3.75  2.1875      0.       0
+GRID         860       0    3.75   1.875      0.       0
+GRID         861       0  4.0625   1.875      0.       0
+GRID         862       0  4.0625  1.5625      0.       0
+GRID         863       0    3.75  1.5625      0.       0
+GRID         864       0    3.75    1.25      0.       0
+GRID         865       0  4.0625    1.25      0.       0
+GRID         866       0   4.375  1.5625      0.       0
+GRID         867       0   4.375    1.25      0.       0
+GRID         868       0   4.375    .625      0.       0
+GRID         869       0   4.375   .9375      0.       0
+GRID         870       0    3.75   .9375      0.       0
+GRID         871       0  4.0625   .9375      0.       0
+GRID         872       0  4.0625    .625      0.       0
+GRID         873       0    3.75    .625      0.       0
+GRID         874       0    3.75   .3125      0.       0
+GRID         875       0    3.75  1.84-7      0.       0
+GRID         876       0  4.0625   .3125      0.       0
+GRID         877       0  4.0625   1.4-7      0.       0
+GRID         878       0   4.375  9.63-8      0.       0
+GRID         879       0   4.375   .3125      0.       0
+GRID         880       0   4.375  -1.875      0.       0
+GRID         881       0   4.375 -2.1875      0.       0
+GRID         882       0  4.0625 -2.1875      0.       0
+GRID         883       0    3.75 -2.1875      0.       0
+GRID         884       0    3.75  -1.875      0.       0
+GRID         885       0  4.0625  -1.875      0.       0
+GRID         886       0  4.0625 -1.5625      0.       0
+GRID         887       0    3.75 -1.5625      0.       0
+GRID         888       0    3.75   -1.25      0.       0
+GRID         889       0  4.0625   -1.25      0.       0
+GRID         890       0   4.375   -1.25      0.       0
+GRID         891       0   4.375 -1.5625      0.       0
+GRID         892       0   4.375  -.3125      0.       0
+GRID         893       0   4.375  -.9375      0.       0
+GRID         894       0   4.375   -.625      0.       0
+GRID         895       0  4.0625  -.3125      0.       0
+GRID         896       0    3.75  -.3125      0.       0
+GRID         897       0    3.75   -.625      0.       0
+GRID         898       0  4.0625   -.625      0.       0
+GRID         899       0  4.0625  -.9375      0.       0
+GRID         900       0    3.75  -.9375      0.       0
+GRID         901       0  2.8125  -1.875      0.       0
+GRID         902       0     2.5  -1.875      0.       0
+GRID         903       0     2.5 -2.1875      0.       0
+GRID         904       0  2.8125 -2.1875      0.       0
+GRID         905       0   3.125 -2.1875      0.       0
+GRID         906       0  3.4375 -2.1875      0.       0
+GRID         907       0  3.4375  -1.875      0.       0
+GRID         908       0   3.125  -1.875      0.       0
+GRID         909       0   3.125 -1.5625      0.       0
+GRID         910       0  3.4375 -1.5625      0.       0
+GRID         911       0  3.4375   -1.25      0.       0
+GRID         912       0   3.125   -1.25      0.       0
+GRID         913       0  2.8125 -1.5625      0.       0
+GRID         914       0  2.8125   -1.25      0.       0
+GRID         915       0     2.5 -1.5625      0.       0
+GRID         916       0     2.5   -1.25      0.       0
+GRID         917       0     2.5   -.625      0.       0
+GRID         918       0     2.5  -.9375      0.       0
+GRID         919       0  2.8125   -.625      0.       0
+GRID         920       0  2.8125  -.9375      0.       0
+GRID         921       0  3.4375  -.9375      0.       0
+GRID         922       0   3.125  -.9375      0.       0
+GRID         923       0   3.125   -.625      0.       0
+GRID         924       0  3.4375   -.625      0.       0
+GRID         925       0  3.4375  -.3125      0.       0
+GRID         926       0   3.125  -.3125      0.       0
+GRID         927       0     2.5  -.3125      0.       0
+GRID         928       0  2.8125  -.3125      0.       0
+GRID         929       0  6.26-7 -.93749      0.       0
+GRID         930       0 .312501 -.93749      0.       0
+GRID         931       0 .312501 -.62499      0.       0
+GRID         932       0   6.3-7 -.62499      0.       0
+GRID         933       0  6.43-7 -.31249      0.       0
+GRID         934       0 .312501 -.31249      0.       0
+GRID         935       0   .9375 -.93749      0.       0
+GRID         936       0 .625001 -.93749      0.       0
+GRID         937       0    .625 -.62499      0.       0
+GRID         938       0   .9375 -.62499      0.       0
+GRID         939       0    .625 -.31249      0.       0
+GRID         940       0   .9375 -.31249      0.       0
+GRID         941       0   1.875  -.3125      0.       0
+GRID         942       0  2.1875  -.3125      0.       0
+GRID         943       0    1.25 -.31249      0.       0
+GRID         944       0  1.5625 -.31249      0.       0
+GRID         945       0    1.25 -.62499      0.       0
+GRID         946       0    1.25 -.93749      0.       0
+GRID         947       0  1.5625 -.62499      0.       0
+GRID         948       0  1.5625 -.93749      0.       0
+GRID         949       0  2.1875   -.625      0.       0
+GRID         950       0   1.875   -.625      0.       0
+GRID         951       0   1.875  -.9375      0.       0
+GRID         952       0  2.1875  -.9375      0.       0
+GRID         953       0  2.1875   -1.25      0.       0
+GRID         954       0   1.875   -1.25      0.       0
+GRID         955       0   1.875 -1.5625      0.       0
+GRID         956       0  2.1875 -1.5625      0.       0
+GRID         957       0  2.1875 -2.1875      0.       0
+GRID         958       0  2.1875  -1.875      0.       0
+GRID         959       0   1.875 -2.1875      0.       0
+GRID         960       0   1.875  -1.875      0.       0
+GRID         961       0    1.25-1.24999      0.       0
+GRID         962       0  1.5625-1.24999      0.       0
+GRID         963       0  1.5625-1.56249      0.       0
+GRID         964       0    1.25-1.56249      0.       0
+GRID         965       0    1.25-1.87499      0.       0
+GRID         966       0  1.5625-1.87499      0.       0
+GRID         967       0  1.5625 -2.1875      0.       0
+GRID         968       0    1.25 -2.1875      0.       0
+GRID         969       0 .312501-1.56249      0.       0
+GRID         970       0   5.6-7-1.56249      0.       0
+GRID         971       0  5.98-7-1.24999      0.       0
+GRID         972       0 .312501-1.24999      0.       0
+GRID         973       0 .625001-1.24999      0.       0
+GRID         974       0   .9375-1.24999      0.       0
+GRID         975       0   .9375-1.56249      0.       0
+GRID         976       0 .625001-1.56249      0.       0
+GRID         977       0    .625-1.87499      0.       0
+GRID         978       0   .9375-1.87499      0.       0
+GRID         979       0   .9375 -2.1875      0.       0
+GRID         980       0    .625 -2.1875      0.       0
+GRID         981       0 .312501-1.87499      0.       0
+GRID         982       0   .3125-2.18749      0.       0
+GRID         983       0   5.1-7-1.87499      0.       0
+GRID         984       0   4.6-7-2.18749      0.       0
+GRID         985       0   .3125 -2.8125      0.       0
+GRID         986       0  3.57-7 -2.8125      0.       0
+GRID         987       0  4.09-7    -2.5      0.       0
+GRID         988       0   .3125    -2.5      0.       0
+GRID         989       0    .625    -2.5      0.       0
+GRID         990       0   .9375    -2.5      0.       0
+GRID         991       0   .9375 -2.8125      0.       0
+GRID         992       0    .625 -2.8125      0.       0
+GRID         993       0    .625  -3.125      0.       0
+GRID         994       0   .9375  -3.125      0.       0
+GRID         995       0   .9375 -3.4375      0.       0
+GRID         996       0    .625 -3.4375      0.       0
+GRID         997       0   .3125  -3.125      0.       0
+GRID         998       0   .3125 -3.4375      0.       0
+GRID         999       0  3.03-7  -3.125      0.       0
+GRID        1000       0  2.52-7 -3.4375      0.       0
+GRID        1001       0   .3125  -4.375      0.       0
+GRID        1002       0  9.64-8  -4.375      0.       0
+GRID        1003       0  2.02-7   -3.75      0.       0
+GRID        1004       0  1.49-7 -4.0625      0.       0
+GRID        1005       0   .3125   -3.75      0.       0
+GRID        1006       0   .3125 -4.0625      0.       0
+GRID        1007       0    .625  -4.375      0.       0
+GRID        1008       0   .9375  -4.375      0.       0
+GRID        1009       0   .9375 -4.0625      0.       0
+GRID        1010       0    .625 -4.0625      0.       0
+GRID        1011       0    .625   -3.75      0.       0
+GRID        1012       0   .9375   -3.75      0.       0
+GRID        1013       0   1.875 -2.8125      0.       0
+GRID        1014       0  2.1875 -2.8125      0.       0
+GRID        1015       0  2.1875    -2.5      0.       0
+GRID        1016       0   1.875    -2.5      0.       0
+GRID        1017       0  1.5625    -2.5      0.       0
+GRID        1018       0    1.25    -2.5      0.       0
+GRID        1019       0    1.25 -2.8125      0.       0
+GRID        1020       0  1.5625 -2.8125      0.       0
+GRID        1021       0  1.5625  -3.125      0.       0
+GRID        1022       0    1.25  -3.125      0.       0
+GRID        1023       0    1.25 -3.4375      0.       0
+GRID        1024       0  1.5625 -3.4375      0.       0
+GRID        1025       0   1.875  -3.125      0.       0
+GRID        1026       0   1.875 -3.4375      0.       0
+GRID        1027       0  2.1875  -3.125      0.       0
+GRID        1028       0  2.1875 -3.4375      0.       0
+GRID        1029       0  2.1875 -4.0625      0.       0
+GRID        1030       0  2.1875   -3.75      0.       0
+GRID        1031       0   1.875 -4.0625      0.       0
+GRID        1032       0   1.875   -3.75      0.       0
+GRID        1033       0    1.25   -3.75      0.       0
+GRID        1034       0  1.5625   -3.75      0.       0
+GRID        1035       0  1.5625 -4.0625      0.       0
+GRID        1036       0    1.25 -4.0625      0.       0
+GRID        1037       0  1.5625  -4.375      0.       0
+GRID        1038       0    1.25  -4.375      0.       0
+GRID        1039       0  2.1875  -4.375      0.       0
+GRID        1040       0   1.875  -4.375      0.       0
+GRID        1041       0  4.0625  -3.125      0.       0
+GRID        1042       0    3.75  -3.125      0.       0
+GRID        1043       0    3.75 -3.4375      0.       0
+GRID        1044       0  4.0625 -3.4375      0.       0
+GRID        1045       0   4.375 -3.4375      0.       0
+GRID        1046       0   4.375  -3.125      0.       0
+GRID        1047       0   4.375 -2.8125      0.       0
+GRID        1048       0   4.375    -2.5      0.       0
+GRID        1049       0  4.0625 -2.8125      0.       0
+GRID        1050       0  4.0625    -2.5      0.       0
+GRID        1051       0    3.75 -2.8125      0.       0
+GRID        1052       0    3.75    -2.5      0.       0
+GRID        1053       0  3.4375 -2.8125      0.       0
+GRID        1054       0  3.4375    -2.5      0.       0
+GRID        1055       0   3.125 -2.8125      0.       0
+GRID        1056       0   3.125    -2.5      0.       0
+GRID        1057       0     2.5    -2.5      0.       0
+GRID        1058       0  2.8125    -2.5      0.       0
+GRID        1059       0  2.8125 -2.8125      0.       0
+GRID        1060       0     2.5 -2.8125      0.       0
+GRID        1061       0     2.5  -3.125      0.       0
+GRID        1062       0     2.5 -3.4375      0.       0
+GRID        1063       0  2.8125  -3.125      0.       0
+GRID        1064       0  2.8125 -3.4375      0.       0
+GRID        1065       0  3.4375  -3.125      0.       0
+GRID        1066       0   3.125  -3.125      0.       0
+GRID        1067       0   3.125 -3.4375      0.       0
+GRID        1068       0  3.4375 -3.4375      0.       0
+GRID        1069       0  3.4375 -4.0625      0.       0
+GRID        1070       0  3.4375   -3.75      0.       0
+GRID        1071       0   3.125 -4.0625      0.       0
+GRID        1072       0   3.125   -3.75      0.       0
+GRID        1073       0     2.5   -3.75      0.       0
+GRID        1074       0  2.8125   -3.75      0.       0
+GRID        1075       0  2.8125 -4.0625      0.       0
+GRID        1076       0     2.5 -4.0625      0.       0
+GRID        1077       0  2.8125  -4.375      0.       0
+GRID        1078       0     2.5  -4.375      0.       0
+GRID        1079       0   3.125  -4.375      0.       0
+GRID        1080       0  3.4375  -4.375      0.       0
+GRID        1081       0    3.75   -3.75      0.       0
+GRID        1082       0  4.0625   -3.75      0.       0
+GRID        1083       0  4.0625 -4.0625      0.       0
+GRID        1084       0    3.75 -4.0625      0.       0
+GRID        1085       0  4.0625  -4.375      0.       0
+GRID        1086       0    3.75  -4.375      0.       0
+GRID        1087       0   4.375 -4.0625      0.       0
+GRID        1088       0   4.375   -3.75      0.       0
+GRID        1089       0   4.375  -4.375      0.       0
+CQUAD4         1       1     370     369     358     355                
+CQUAD4         2       1     359     368     365     362                
+CQUAD4         3       1     596     597     594     595                
+CQUAD4         4       1     369     368     359     358                
+CQUAD4         5       1     365     330     341     362                
+CQUAD4         6       1     588     584     580     591                
+CQUAD4         7       1     620     621     623     624                
+CQUAD4         8       1     584     583     581     580                
+CQUAD4         9       1     601     599     597     596                
+CQUAD4        10       1     417     350     352     404                
+CQUAD4        11       1     559     594     579     577                
+CQUAD4        12       1     431     432     433     434                
+CQUAD4        13       1     591     592     589     588                
+CQUAD4        14       1     814     817     816     815                
+CQUAD4        15       1     501     492     495     500                
+CQUAD4        16       1     340     341     330     327                
+CQUAD4        17       1     797     795     376     377                
+CQUAD4        18       1     790     793     801     787                
+CQUAD4        19       1     559     577     574     558                
+CQUAD4        20       1     426     424     423     425                
+CQUAD4        21       1     616     617     598     600                
+CQUAD4        22       1     423     424     388     389                
+CQUAD4        23       1     599     601     600     598                
+CQUAD4        24       1     434     449     452     431                
+CQUAD4        25       1     375     376     795     792                
+CQUAD4        26       1     386     397     645     653                
+CQUAD4        27       1     400     639     644     398                
+CQUAD4        28       1     462     497     504     464                
+CQUAD4        29       1    1016    1017    1020    1013                
+CQUAD4        30       1     576     581     583     573                
+CQUAD4        31       1     432     426     425     433                
+CQUAD4        32       1     618     630     541     553                
+CQUAD4        33       1    1061    1027    1028    1062                
+CQUAD4        34       1     802     805     804     803                
+CQUAD4        35       1     337     340     327     326                
+CQUAD4        36       1     544     542     540     538                
+CQUAD4        37       1     993     997     998     996                
+CQUAD4        38       1     538     536     546     544                
+CQUAD4        39       1     468     469     477     476                
+CQUAD4        40       1     639     400     402     638                
+CQUAD4        41       1     592     623     621     589                
+CQUAD4        42       1     627     626     613     610                
+CQUAD4        43       1    1027    1061    1060    1014                
+CQUAD4        44       1    1019    1020    1017    1018                
+CQUAD4        45       1     823     942     927     840                
+CQUAD4        46       1    1083    1084    1086    1085                
+CQUAD4        47       1     175     465     463     131                
+CQUAD4        48       1     781     742     734     779                
+CQUAD4        49       1     500     502     503     501                
+CQUAD4        50       1    1083    1082    1081    1084                
+CQUAD4        51       1     530     638     402     419                
+CQUAD4        52       1     231     232    1037    1038                
+CQUAD4        53       1     579     594     597     578                
+CQUAD4        54       1     191     519     515     188                
+CQUAD4        55       1     335     334     331     338                
+CQUAD4        56       1     334     335     305     299                
+CQUAD4        57       1     959     967    1017    1016                
+CQUAD4        58       1     578     597     599     590                
+CQUAD4        59       1    1073    1030    1029    1076                
+CQUAD4        60       1     613     626     625     614                
+CQUAD4        61       1     387     390     389     388                
+CQUAD4        62       1    1061    1063    1059    1060                
+CQUAD4        63       1     194     193     563     565                
+CQUAD4        64       1    1061    1062    1064    1063                
+CQUAD4        65       1     404     403     415     417                
+CQUAD4        66       1     944     819     818     943                
+CQUAD4        67       1     644     645     397     398                
+CQUAD4        68       1     572     568     566     575                
+CQUAD4        69       1    1000    1003    1005     998                
+CQUAD4        70       1     336     337     326     323                
+CQUAD4        71       1     625     622     617     614                
+CQUAD4        72       1     491     555     552     494                
+CQUAD4        73       1     590     599     598     593                
+CQUAD4        74       1     307     304     314     313                
+CQUAD4        75       1    1062    1028    1030    1073                
+CQUAD4        76       1     186     508     457     172                
+CQUAD4        77       1     283     281     279     285                
+CQUAD4        78       1     422     421     420     419                
+CQUAD4        79       1     556     555     491     489                
+CQUAD4        80       1     356     348     390     391                
+CQUAD4        81       1     492     493     494     495                
+CQUAD4        82       1     442     443     413     412                
+CQUAD4        83       1     633     634     540     542                
+CQUAD4        84       1     264     266     438     408                
+CQUAD4        85       1     819     944     941     821                
+CQUAD4        86       1     494     552     550     495                
+CQUAD4        87       1     817     814     803     804                
+CQUAD4        88       1     543     547     551     554                
+CQUAD4        89       1    1022    1021    1020    1019                
+CQUAD4        90       1     786     782     778     789                
+CQUAD4        91       1     615     614     617     616                
+CQUAD4        92       1     783     784     771     772                
+CQUAD4        93       1     259     405     351     346                
+CQUAD4        94       1     419     420     529     530                
+CQUAD4        95       1     905     906     907     908                
+CQUAD4        96       1    1026    1025    1021    1024                
+CQUAD4        97       1     401     422     419     402                
+CQUAD4        98       1     323     314     304     336                
+CQUAD4        99       1     395     399     400     398                
+CQUAD4       100       1     653     652     385     386                
+CQUAD4       101       1     735     734     742     741                
+CQUAD4       102       1     942     823     821     941                
+CQUAD4       103       1     230     229    1008    1007                
+CQUAD4       104       1     989     992     991     990                
+CQUAD4       105       1     751     744     747     748                
+CQUAD4       106       1     608     983     970     607                
+CQUAD4       107       1     782     781     779     778                
+CQUAD4       108       1     553     541     543     554                
+CQUAD4       109       1     133     506     507     184                
+CQUAD4       110       1     865     867     866     862                
+CQUAD4       111       1     559     560     595     594                
+CQUAD4       112       1     541     630     633     542                
+CQUAD4       113       1     979     980     989     990                
+CQUAD4       114       1     415     416     418     417                
+CQUAD4       115       1     610     611     648     649                
+CQUAD4       116       1     414     413     434     433                
+CQUAD4       117       1     131     126     127     175                
+CQUAD4       118       1     270     145     167     435                
+CQUAD4       119       1     789     790     787     786                
+CQUAD4       120       1     457     508     510     456                
+CQUAD4       121       1    1025    1013    1020    1021                
+CQUAD4       122       1     622     593     598     617                
+CQUAD4       123       1     386     385     384     383                
+CQUAD4       124       1     232     231      24      25                
+CQUAD4       125       1     182     183     470     471                
+CQUAD4       126       1     681     680     677     678                
+CQUAD4       127       1     500     521     522     502                
+CQUAD4       128       1     882     885     884     883                
+CQUAD4       129       1     276     273     250     251                
+CQUAD4       130       1     971     606     607     970                
+CQUAD4       131       1     136      16      17     135                
+CQUAD4       132       1     228     192      20      21                
+CQUAD4       133       1     604     986     987     605                
+CQUAD4       134       1     792     791     374     375                
+CQUAD4       135       1     632     633     630     631                
+CQUAD4       136       1     519     527     514     515                
+CQUAD4       137       1    1035    1036    1038    1037                
+CQUAD4       138       1    1071    1069    1070    1072                
+CQUAD4       139       1     398     397     396     395                
+CQUAD4       140       1     193     194      18      19                
+CQUAD4       141       1     504     497     498     505                
+CQUAD4       142       1     982     984     987     988                
+CQUAD4       143       1     171     447     448     170                
+CQUAD4       144       1    1014    1060    1057    1015                
+CQUAD4       145       1     943     818     807     940                
+CQUAD4       146       1     188     116     117     191                
+CQUAD4       147       1     229     230      22      23                
+CQUAD4       148       1     243      32      33     143                
+CQUAD4       149       1     397     386     383     396                
+CQUAD4       150       1     259     260     406     405                
+CQUAD4       151       1     456     454     453     455                
+CQUAD4       152       1     495     550     521     500                
+CQUAD4       153       1     547     543     544     546                
+CQUAD4       154       1     772     775     780     783                
+CQUAD4       155       1     417     418     347     350                
+CQUAD4       156       1     183     182      11      12                
+CQUAD4       157       1     573     572     575     576                
+CQUAD4       158       1     940     807     806     939                
+CQUAD4       159       1     998     997     999    1000                
+CQUAD4       160       1    1021    1022    1023    1024                
+CQUAD4       161       1    1076    1029    1039    1078                
+CQUAD4       162       1     513     514     527     528                
+CQUAD4       163       1    1042    1041    1049    1051                
+CQUAD4       164       1     172     113     114     186                
+CQUAD4       165       1     435     437     268     270                
+CQUAD4       166       1     390     387     394     391                
+CQUAD4       167       1     562     561     560     557                
+CQUAD4       168       1     549     551     547     548                
+CQUAD4       169       1     932     646     647     929                
+CQUAD4       170       1      14      15     137     195                
+CQUAD4       171       1     313     311     308     307                
+CQUAD4       172       1    1005    1011     996     998                
+CQUAD4       173       1     339     343     344     342                
+CQUAD4       174       1     548     525     524     549                
+CQUAD4       175       1     665     826     827     666                
+CQUAD4       176       1     268     266     265     267                
+CQUAD4       177       1     449     450     451     452                
+CQUAD4       178       1     414     411     412     413                
+CQUAD4       179       1     905     908     901     904                
+CQUAD4       180       1     775     754     743     780                
+CQUAD4       181       1     991     992     993     994                
+CQUAD4       182       1     504     132     174     464                
+CQUAD4       183       1     678     677     199     200                
+CQUAD4       184       1    1065    1042    1051    1053                
+CQUAD4       185       1     468     181     180     469                
+CQUAD4       186       1     606     971     929     647                
+CQUAD4       187       1     490     486     487     488                
+CQUAD4       188       1    1037     232     234    1040                
+CQUAD4       189       1     966     965     968     967                
+CQUAD4       190       1     124     132     185     123                
+CQUAD4       191       1     701     702     709     707                
+CQUAD4       192       1     605     987     984     609                
+CQUAD4       193       1     558     574     567     564                
+CQUAD4       194       1     240     239      28      29                
+CQUAD4       195       1     636     639     638     637                
+CQUAD4       196       1     266     268     437     438                
+CQUAD4       197       1     985     988     987     986                
+CQUAD4       198       1     513     535     534     512                
+CQUAD4       199       1     820     808     815     816                
+CQUAD4       200       1     253     254     292     293                
+CQUAD4       201       1    1001    1002     192     228                
+CQUAD4       202       1     272     271     274     275                
+CQUAD4       203       1     510     509     454     456                
+CQUAD4       204       1     343     339     338     331                
+CQUAD4       205       1     167     166     436     435                
+CQUAD4       206       1     178     177       6       7                
+CQUAD4       207       1     565     563     562     557                
+CQUAD4       208       1     416     414     433     425                
+CQUAD4       209       1     484     487     486     485                
+CQUAD4       210       1     729     730     738     737                
+CQUAD4       211       1     545     546     536     535                
+CQUAD4       212       1    1069    1071    1079    1080                
+CQUAD4       213       1     267     269     270     268                
+CQUAD4       214       1     477     478     479     476                
+CQUAD4       215       1     181     179       8       9                
+CQUAD4       216       1     988     989     980     982                
+CQUAD4       217       1     698     660     659     699                
+CQUAD4       218       1     300     299     305     306                
+CQUAD4       219       1      99     149     150      98                
+CQUAD4       220       1     840     927     928     841                
+CQUAD4       221       1    1024    1034    1032    1026                
+CQUAD4       222       1     693     658     657     692                
+CQUAD4       223       1     788     776     364     373                
+CQUAD4       224       1     471     470     472     474                
+CQUAD4       225       1    1073    1076    1075    1074                
+CQUAD4       226       1     264     263     265     266                
+CQUAD4       227       1     478     483     481     479                
+CQUAD4       228       1     107     166     167     106                
+CQUAD4       229       1     115     187     186     114                
+CQUAD4       230       1     279     281     282     280                
+CQUAD4       231       1     516     508     186     187                
+CQUAD4       232       1     502     507     506     503                
+CQUAD4       233       1     443     442     441     444                
+CQUAD4       234       1     133     122     123     185                
+CQUAD4       235       1     768     771     784     785                
+CQUAD4       236       1    1086     243     143    1085                
+CQUAD4       237       1     542     544     543     541                
+CQUAD4       238       1    1034    1033    1036    1035                
+CQUAD4       239       1     632     635     634     633                
+CQUAD4       240       1     999     997     985     986                
+CQUAD4       241       1     481     496     461     479                
+CQUAD4       242       1    1018    1017     967     968                
+CQUAD4       243       1     867     218     219     866                
+CQUAD4       244       1     646     932     933     654                
+CQUAD4       245       1     969     970     983     981                
+CQUAD4       246       1    1005    1003    1004    1006                
+CQUAD4       247       1     747     705     711     748                
+CQUAD4       248       1     809     822     843     845                
+CQUAD4       249       1     122     133     184     121                
+CQUAD4       250       1      31      32     243     242                
+CQUAD4       251       1     958     957     903     902                
+CQUAD4       252       1     614     615     612     613                
+CQUAD4       253       1     483     482     480     481                
+CQUAD4       254       1     282     281     147     148                
+CQUAD4       255       1    1006    1010    1011    1005                
+CQUAD4       256       1     483     485     486     482                
+CQUAD4       257       1     181       9      10     180                
+CQUAD4       258       1     182     180      10      11                
+CQUAD4       259       1     325     319     320     324                
+CQUAD4       260       1     430     453     454     427                
+CQUAD4       261       1     195     196      13      14                
+CQUAD4       262       1     294     293     292     295                
+CQUAD4       263       1     295     296     297     294                
+CQUAD4       264       1     791     788     373     374                
+CQUAD4       265       1     485     475     473     484                
+CQUAD4       266       1    1033    1034    1024    1023                
+CQUAD4       267       1     239     233      27      28                
+CQUAD4       268       1     741     738     730     735                
+CQUAD4       269       1     177     176       5       6                
+CQUAD4       270       1     983     608     609     984                
+CQUAD4       271       1     239     240    1077    1078                
+CQUAD4       272       1     982     980     977     981                
+CQUAD4       273       1     517     507     502     522                
+CQUAD4       274       1     849     850     842     841                
+CQUAD4       275       1     132     124     125     174                
+CQUAD4       276       1     459     463     465     466                
+CQUAD4       277       1     568     195     137     566                
+CQUAD4       278       1     131     463     464     174                
+CQUAD4       279       1     319     325     328     321                
+CQUAD4       280       1     893     894     898     899                
+CQUAD4       281       1     992     985     997     993                
+CQUAD4       282       1     361     342     344     353                
+CQUAD4       283       1     828     668     666     827                
+CQUAD4       284       1    1040     234     233    1039                
+CQUAD4       285       1     444     441     445     446                
+CQUAD4       286       1     904     901     902     903                
+CQUAD4       287       1     141     224     880     881                
+CQUAD4       288       1     497     496     499     498                
+CQUAD4       289       1    1035    1037    1040    1031                
+CQUAD4       290       1     135     564     567     136                
+CQUAD4       291       1     391     394     393     392                
+CQUAD4       292       1      34      35     248     247                
+CQUAD4       293       1     896     895     877     875                
+CQUAD4       294       1     349     350     347     348                
+CQUAD4       295       1     907     906     883     884                
+CQUAD4       296       1     672     859     858     674                
+CQUAD4       297       1     411     415     403     410                
+CQUAD4       298       1     595     603     602     596                
+CQUAD4       299       1     994     993     996     995                
+CQUAD4       300       1     440     437     435     436                
+CQUAD4       301       1    1049    1041    1046    1047                
+CQUAD4       302       1     144     269     271     146                
+CQUAD4       303       1     896     875     848     925                
+CQUAD4       304       1     601     596     602     604                
+CQUAD4       305       1     411     414     416     415                
+CQUAD4       306       1     759     764     826     665                
+CQUAD4       307       1     428     420     421     429                
+CQUAD4       308       1     475     474     472     473                
+CQUAD4       309       1     353     354     360     361                
+CQUAD4       310       1     507     517     190     184                
+CQUAD4       311       1     985     992     989     988                
+CQUAD4       312       1    1010    1006    1001    1007                
+CQUAD4       313       1     274     273     276     275                
+CQUAD4       314       1     297     296     156     157                
+CQUAD4       315       1       1       5     176     128                
+CQUAD4       316       1       4      98     150      97                
+CQUAD4       317       1     670     829     859     672                
+CQUAD4       318       1     516     511     510     508                
+CQUAD4       319       1    1064    1062    1073    1074                
+CQUAD4       320       1     262     261     263     264                
+CQUAD4       321       1     129     202     689     687                
+CQUAD4       322       1     496     497     462     461                
+CQUAD4       323       1     561     603     595     560                
+CQUAD4       324       1     977     978     975     976                
+CQUAD4       325       1    1034    1035    1031    1032                
+CQUAD4       326       1     930     929     971     972                
+CQUAD4       327       1     523     524     525     526                
+CQUAD4       328       1     535     513     528     545                
+CQUAD4       329       1     948     947     945     946                
+CQUAD4       330       1      30      31     242     241                
+CQUAD4       331       1     194     135      17      18                
+CQUAD4       332       1     755     757     756     752                
+CQUAD4       333       1     121     184     190     120                
+CQUAD4       334       1     697     207     139     696                
+CQUAD4       335       1     969     981     977     976                
+CQUAD4       336       1     569     470     183     196                
+CQUAD4       337       1     269     144     145     270                
+CQUAD4       338       1     980     979     978     977                
+CQUAD4       339       1     347     418     423     389                
+CQUAD4       340       1     562    1004    1003     561                
+CQUAD4       341       1     752     756     744     751                
+CQUAD4       342       1     455     458     457     456                
+CQUAD4       343       1     460     459     466     467                
+CQUAD4       344       1     250     273     265     263                
+CQUAD4       345       1     149      99     100     147                
+CQUAD4       346       1     407     406     260     262                
+CQUAD4       347       1     109     169     168     108                
+CQUAD4       348       1     271     272     130     146                
+CQUAD4       349       1      55      56     219     218                
+CQUAD4       350       1     446     169     170     448                
+CQUAD4       351       1     262     264     408     407                
+CQUAD4       352       1      15      16     136     137                
+CQUAD4       353       1     822     809     808     820                
+CQUAD4       354       1     128     176     175     127                
+CQUAD4       355       1     193     192    1002     563                
+CQUAD4       356       1     947     948     951     950                
+CQUAD4       357       1     170     110     111     171                
+CQUAD4       358       1     278     277     279     280                
+CQUAD4       359       1    1079     241     242    1080                
+CQUAD4       360       1     972     971     970     969                
+CQUAD4       361       1     247     143      33      34                
+CQUAD4       362       1     211     709     702     208                
+CQUAD4       363       1    1072    1074    1075    1071                
+CQUAD4       364       1     481     480     499     496                
+CQUAD4       365       1    1072    1070    1068    1067                
+CQUAD4       366       1     430     431     452     453                
+CQUAD4       367       1     101     148     147     100                
+CQUAD4       368       1     399     401     402     400                
+CQUAD4       369       1     737     723     726     729                
+CQUAD4       370       1     668     828     829     670                
+CQUAD4       371       1     712     711     705     706                
+CQUAD4       372       1     420     428     532     529                
+CQUAD4       373       1     237     235      41      42                
+CQUAD4       374       1     848     875     874     851                
+CQUAD4       375       1     611     610     613     612                
+CQUAD4       376       1     241     240      29      30                
+CQUAD4       377       1     851     850     849     848                
+CQUAD4       378       1     425     423     418     416                
+CQUAD4       379       1     113     172     173     112                
+CQUAD4       380       1     695     697     696     694                
+CQUAD4       381       1     282     148     130     272                
+CQUAD4       382       1     530     539     637     638                
+CQUAD4       383       1     660     698     704     746                
+CQUAD4       384       1    1046     235     237    1047                
+CQUAD4       385       1     910     887     888     911                
+CQUAD4       386       1     639     636     642     644                
+CQUAD4       387       1     446     445     168     169                
+CQUAD4       388       1     913     909     912     914                
+CQUAD4       389       1     511     516     515     514                
+CQUAD4       390       1     520     134     189     518                
+CQUAD4       391       1     118     134     191     117                
+CQUAD4       392       1     877     895     892     878                
+CQUAD4       393       1    1004     562     563    1002                
+CQUAD4       394       1    1079    1077     240     241                
+CQUAD4       395       1    1007    1008    1009    1010                
+CQUAD4       396       1       7       8     179     178                
+CQUAD4       397       1     169     109     110     170                
+CQUAD4       398       1    1078    1077    1075    1076                
+CQUAD4       399       1     518     523     526     520                
+CQUAD4       400       1     514     513     512     511                
+CQUAD4       401       1     476     460     467     468                
+CQUAD4       402       1    1000     603     561    1003                
+CQUAD4       403       1     256     255     254     253                
+CQUAD4       404       1     972     969     976     973                
+CQUAD4       405       1      26      27     233     234                
+CQUAD4       406       1     661     662     659     660                
+CQUAD4       407       1     798     934     939     806                
+CQUAD4       408       1     568     569     196     195                
+CQUAD4       409       1     450     448     447     451                
+CQUAD4       410       1     534     531     509     512                
+CQUAD4       411       1     290     291     289     288                
+CQUAD4       412       1     533     532     531     534                
+CQUAD4       413       1     929     930     931     932                
+CQUAD4       414       1     864     865     862     863                
+CQUAD4       415       1     119     189     134     118                
+CQUAD4       416       1     885     882     881     880                
+CQUAD4       417       1     849     926     925     848                
+CQUAD4       418       1     707     704     698     701                
+CQUAD4       419       1     225     142     878     892                
+CQUAD4       420       1     546     545     548     547                
+CQUAD4       421       1      12      13     196     183                
+CQUAD4       422       1     172     457     458     173                
+CQUAD4       423       1     674     858     856     675                
+CQUAD4       424       1     188     515     516     187                
+CQUAD4       425       1      19      20     192     193                
+CQUAD4       426       1    1056    1055    1053    1054                
+CQUAD4       427       1    1040    1039    1029    1031                
+CQUAD4       428       1     863     833     834     864                
+CQUAD4       429       1      50      51     142     225                
+CQUAD4       430       1     474     477     469     471                
+CQUAD4       431       1     147     281     283     149                
+CQUAD4       432       1      37      38     245     246                
+CQUAD4       433       1     518     189     190     517                
+CQUAD4       434       1     187     115     116     188                
+CQUAD4       435       1     228     230    1007    1001                
+CQUAD4       436       1     714     712     706     708                
+CQUAD4       437       1     887     886     889     888                
+CQUAD4       438       1     526     525     528     527                
+CQUAD4       439       1     173     458     447     171                
+CQUAD4       440       1     197     199     677     676                
+CQUAD4       441       1     155     291     290     154                
+CQUAD4       442       1     739     740     753     750                
+CQUAD4       443       1      80     214     215      79                
+CQUAD4       444       1     509     531     427     454                
+CQUAD4       445       1    1078    1039     233     239                
+CQUAD4       446       1     166     107     108     168                
+CQUAD4       447       1     179     181     468     467                
+CQUAD4       448       1     510     511     512     509                
+CQUAD4       449       1     284     285     279     277                
+CQUAD4       450       1     427     428     429     430                
+CQUAD4       451       1     174     125     126     131                
+CQUAD4       452       1     148     101     102     130                
+CQUAD4       453       1     246     245    1087    1089                
+CQUAD4       454       1    1010    1009    1012    1011                
+CQUAD4       455       1     604     605     600     601                
+CQUAD4       456       1     878     879     876     877                
+CQUAD4       457       1     643     645     644     642                
+CQUAD4       458       1     959     960     966     967                
+CQUAD4       459       1     275     276     278     280                
+CQUAD4       460       1     311     165     160     308                
+CQUAD4       461       1     684     682     681     686                
+CQUAD4       462       1     449     434     413     443                
+CQUAD4       463       1     650     653     645     643                
+CQUAD4       464       1     689     691     685     687                
+CQUAD4       465       1     217     216     856     857                
+CQUAD4       466       1     255     256     257     258                
+CQUAD4       467       1     691     689     204     206                
+CQUAD4       468       1     112     173     171     111                
+CQUAD4       469       1     835     834     833     832                
+CQUAD4       470       1     616     600     605     609                
+CQUAD4       471       1     915     913     914     916                
+CQUAD4       472       1     322     363     777     732                
+CQUAD4       473       1      25      26     234     232                
+CQUAD4       474       1     185     505     506     133                
+CQUAD4       475       1     879     878     142     222                
+CQUAD4       476       1     230     228      21      22                
+CQUAD4       477       1     251     286     278     276                
+CQUAD4       478       1     517     522     523     518                
+CQUAD4       479       1     773     767     766     774                
+CQUAD4       480       1     615     616     609     608                
+CQUAD4       481       1      84     164     163      83                
+CQUAD4       482       1     189     119     120     190                
+CQUAD4       483       1     318     316     324     320                
+CQUAD4       484       1     635     632     629     641                
+CQUAD4       485       1     750     749     736     739                
+CQUAD4       486       1     272     275     280     282                
+CQUAD4       487       1     535     536     533     534                
+CQUAD4       488       1     565     564     135     194                
+CQUAD4       489       1     856     858     861     857                
+CQUAD4       490       1     566     567     574     575                
+CQUAD4       491       1     519     191     134     520                
+CQUAD4       492       1     692     695     694     693                
+CQUAD4       493       1     257     256     249     261                
+CQUAD4       494       1     680     681     682     679                
+CQUAD4       495       1     466     465     177     178                
+CQUAD4       496       1     430     429     432     431                
+CQUAD4       497       1     918     917     949     952                
+CQUAD4       498       1     842     843     840     841                
+CQUAD4       499       1     306     309     303     300                
+CQUAD4       500       1     981     983     984     982                
+CQUAD4       501       1    1054    1053    1051    1052                
+CQUAD4       502       1    1055    1059    1063    1066                
+CQUAD4       503       1     285     153     151     283                
+CQUAD4       504       1     389     390     348     347                
+CQUAD4       505       1     695     683     690     697                
+CQUAD4       506       1     894     893     227     226                
+CQUAD4       507       1      60      61     199     197                
+CQUAD4       508       1     916     953     956     915                
+CQUAD4       509       1     475     478     477     474                
+CQUAD4       510       1      23      24     231     229                
+CQUAD4       511       1     458     455     451     447                
+CQUAD4       512       1    1068    1070    1081    1043                
+CQUAD4       513       1     267     265     273     274                
+CQUAD4       514       1     261     262     260     257                
+CQUAD4       515       1     569     568     572     570                
+CQUAD4       516       1     448     450     444     446                
+CQUAD4       517       1     178     179     467     466                
+CQUAD4       518       1     316     318     317     315                
+CQUAD4       519       1     162     716     717     213                
+CQUAD4       520       1     437     440     439     438                
+CQUAD4       521       1     952     949     950     951                
+CQUAD4       522       1     560     559     558     557                
+CQUAD4       523       1     202     129      64      65                
+CQUAD4       524       1    1085    1089    1087    1083                
+CQUAD4       525       1     708     210     138     714                
+CQUAD4       526       1     699     700     701     698                
+CQUAD4       527       1     451     455     453     452                
+CQUAD4       528       1     428     427     531     532                
+CQUAD4       529       1     986     604     602     999                
+CQUAD4       530       1      35       2      36     248                
+CQUAD4       531       1     212      78      79     215                
+CQUAD4       532       1      69     206     204      68                
+CQUAD4       533       1      51      52     222     142                
+CQUAD4       534       1     527     519     520     526                
+CQUAD4       535       1      77     138     210      76                
+CQUAD4       536       1     938     935     946     945                
+CQUAD4       537       1     757     755     774     766                
+CQUAD4       538       1     899     898     897     900                
+CQUAD4       539       1    1071    1075    1077    1079                
+CQUAD4       540       1     658     655     656     657                
+CQUAD4       541       1     710     713     720     721                
+CQUAD4       542       1     886     891     890     889                
+CQUAD4       543       1     143     247    1089    1085                
+CQUAD4       544       1     661     660     746     745                
+CQUAD4       545       1     154      92      93     155                
+CQUAD4       546       1     505     185     132     504                
+CQUAD4       547       1     214      80      81     213                
+CQUAD4       548       1    1067    1066    1063    1064                
+CQUAD4       549       1    1002    1001    1006    1004                
+CQUAD4       550       1     837     835     832     836                
+CQUAD4       551       1     450     449     443     444                
+CQUAD4       552       1     776     777     363     364                
+CQUAD4       553       1     657     656     679     682                
+CQUAD4       554       1    1059    1058    1057    1060                
+CQUAD4       555       1    1013    1014    1015    1016                
+CQUAD4       556       1     612     615     608     607                
+CQUAD4       557       1     684     692     657     682                
+CQUAD4       558       1     716     724     725     717                
+CQUAD4       559       1     603    1000     999     602                
+CQUAD4       560       1     248     246    1089     247                
+CQUAD4       561       1     274     271     269     267                
+CQUAD4       562       1    1014    1013    1025    1027                
+CQUAD4       563       1     841     928     926     849                
+CQUAD4       564       1     532     533     537     529                
+CQUAD4       565       1     909     910     911     912                
+CQUAD4       566       1     890     893     899     889                
+CQUAD4       567       1     570     472     470     569                
+CQUAD4       568       1      61      62     200     199                
+CQUAD4       569       1     153     285     284     152                
+CQUAD4       570       1     953     954     955     956                
+CQUAD4       571       1     806     807     804     805                
+CQUAD4       572       1     845     843     842     847                
+CQUAD4       573       1     153      95      96     151                
+CQUAD4       574       1    1080    1086    1084    1069                
+CQUAD4       575       1     702     701     700     703                
+CQUAD4       576       1     703     209     208     702                
+CQUAD4       577       1     245      38      39     244                
+CQUAD4       578       1     643     642     641     640                
+CQUAD4       579       1     876     874     875     877                
+CQUAD4       580       1     567     566     137     136                
+CQUAD4       581       1     161      87      88     158                
+CQUAD4       582       1    1045    1088     244     236                
+CQUAD4       583       1     891     223     140     890                
+CQUAD4       584       1     723     722     725     726                
+CQUAD4       585       1     165      85      86     160                
+CQUAD4       586       1     146     103     104     144                
+CQUAD4       587       1     213      81      82     162                
+CQUAD4       588       1     145     105     106     167                
+CQUAD4       589       1    1011    1012     995     996                
+CQUAD4       590       1    1081    1070    1069    1084                
+CQUAD4       591       1     180     182     471     469                
+CQUAD4       592       1     226     227      48      49                
+CQUAD4       593       1     103     146     130     102                
+CQUAD4       594       1     215     718     715     212                
+CQUAD4       595       1     807     818     817     804                
+CQUAD4       596       1    1082    1083    1087    1088                
+CQUAD4       597       1     921     924     923     922                
+CQUAD4       598       1     715     714     138     212                
+CQUAD4       599       1     557     558     564     565                
+CQUAD4       600       1     256     253     252     249                
+CQUAD4       601       1     144     104     105     145                
+CQUAD4       602       1     754     753     740     743                
+CQUAD4       603       1    1066    1065    1053    1055                
+CQUAD4       604       1      58      59     198     216                
+CQUAD4       605       1     263     261     249     250                
+CQUAD4       606       1    1047    1048    1050    1049                
+CQUAD4       607       1     678     688     686     681                
+CQUAD4       608       1     524     523     522     521                
+CQUAD4       609       1     321     328     329     322                
+CQUAD4       610       1     197     198      59      60                
+CQUAD4       611       1     868     879     222     221                
+CQUAD4       612       1     963     955     954     962                
+CQUAD4       613       1     722     719     717     725                
+CQUAD4       614       1    1031    1029    1030    1032                
+CQUAD4       615       1     214     719     718     215                
+CQUAD4       616       1     229     231    1038    1008                
+CQUAD4       617       1     210     708     709     211                
+CQUAD4       618       1     465     175     176     177                
+CQUAD4       619       1    1074    1072    1067    1064                
+CQUAD4       620       1     917     918     920     919                
+CQUAD4       621       1     873     874     876     872                
+CQUAD4       622       1      46      47     140     223                
+CQUAD4       623       1     224     141      44      45                
+CQUAD4       624       1     664     663     662     661                
+CQUAD4       625       1      76     210     211      75                
+CQUAD4       626       1     713     715     718     720                
+CQUAD4       627       1     168     445     436     166                
+CQUAD4       628       1     550     552     551     549                
+CQUAD4       629       1     872     876     879     868                
+CQUAD4       630       1     367     364     363     366                
+CQUAD4       631       1     366     363     322     329                
+CQUAD4       632       1      78     212     138      77                
+CQUAD4       633       1      57      58     216     217                
+CQUAD4       634       1     571     573     583     582                
+CQUAD4       635       1     962     961     964     963                
+CQUAD4       636       1      85     165     164      84                
+CQUAD4       637       1     924     921     900     897                
+CQUAD4       638       1    1041    1042    1043    1044                
+CQUAD4       639       1     154     290     297     157                
+CQUAD4       640       1     521     550     549     524                
+CQUAD4       641       1     463     459     462     464                
+CQUAD4       642       1     242     243    1086    1080                
+CQUAD4       643       1    1036    1009    1008    1038                
+CQUAD4       644       1     227     140      47      48                
+CQUAD4       645       1     236     244      39      40                
+CQUAD4       646       1     200     201     688     678                
+CQUAD4       647       1     851     852     853     850                
+CQUAD4       648       1     460     476     479     461                
+CQUAD4       649       1     309     161     158     303                
+CQUAD4       650       1     246     248      36      37                
+CQUAD4       651       1     478     475     485     483                
+CQUAD4       652       1     206      69      70     205                
+CQUAD4       653       1     208      74      75     211                
+CQUAD4       654       1     959    1016    1015     957                
+CQUAD4       655       1     713     710     711     712                
+CQUAD4       656       1    1045    1046    1041    1044                
+CQUAD4       657       1     152      94      95     153                
+CQUAD4       658       1     207     697     690     205                
+CQUAD4       659       1     718     719     722     720                
+CQUAD4       660       1     721     736     749     710                
+CQUAD4       661       1     163     164     312     310                
+CQUAD4       662       1     529     537     539     530                
+CQUAD4       663       1     293     294     288     287                
+CQUAD4       664       1    1027    1025    1026    1028                
+CQUAD4       665       1     577     576     575     574                
+CQUAD4       666       1     552     555     554     551                
+CQUAD4       667       1      87     161     160      86                
+CQUAD4       668       1     490     488     489     491                
+CQUAD4       669       1     973     936     930     972                
+CQUAD4       670       1     683     695     692     684                
+CQUAD4       671       1     159     302     303     158                
+CQUAD4       672       1     964     975     978     965                
+CQUAD4       673       1      92     154     157      91                
+CQUAD4       674       1     836     838     839     837                
+CQUAD4       675       1    1048    1047     237     238                
+CQUAD4       676       1     287     286     251     252                
+CQUAD4       677       1     140     227     893     890                
+CQUAD4       678       1    1058    1059    1055    1056                
+CQUAD4       679       1     691     206     205     690                
+CQUAD4       680       1     505     498     503     506                
+CQUAD4       681       1    1033    1012    1009    1036                
+CQUAD4       682       1      72     139     207      71                
+CQUAD4       683       1     299     298     333     334                
+CQUAD4       684       1     752     751     750     753                
+CQUAD4       685       1     582     583     584     585                
+CQUAD4       686       1     220     218     867     869                
+CQUAD4       687       1      45      46     223     224                
+CQUAD4       688       1     473     571     582     484                
+CQUAD4       689       1    1088    1087     245     244                
+CQUAD4       690       1     587     489     488     586                
+CQUAD4       691       1    1049    1050    1052    1051                
+CQUAD4       692       1     732     733     321     322                
+CQUAD4       693       1      67     203      66       3                
+CQUAD4       694       1     819     821     820     816                
+CQUAD4       695       1     525     548     545     528                
+CQUAD4       696       1      97     150     151      96                
+CQUAD4       697       1     287     252     253     293                
+CQUAD4       698       1     286     287     288     289                
+CQUAD4       699       1     995    1023    1022     994                
+CQUAD4       700       1    1032    1030    1028    1026                
+CQUAD4       701       1     218     220      54      55                
+CQUAD4       702       1     201     200      62      63                
+CQUAD4       703       1     975     964     961     974                
+CQUAD4       704       1     663     664     665     666                
+CQUAD4       705       1     426     432     429     421                
+CQUAD4       706       1      40      41     235     236                
+CQUAD4       707       1     719     214     213     717                
+CQUAD4       708       1     716     162     163     310                
+CQUAD4       709       1     252     251     250     249                
+CQUAD4       710       1     408     409     410     407                
+CQUAD4       711       1      65      66     203     202                
+CQUAD4       712       1     852     851     874     873                
+CQUAD4       713       1     405     404     352     351                
+CQUAD4       714       1      89     159     158      88                
+CQUAD4       715       1     258     257     260     259                
+CQUAD4       716       1     238     237      42      43                
+CQUAD4       717       1     860     861     858     859                
+CQUAD4       718       1     221     222      52      53                
+CQUAD4       719       1      43      44     141     238                
+CQUAD4       720       1     607     606     611     612                
+CQUAD4       721       1     974     973     976     975                
+CQUAD4       722       1     403     406     407     410                
+CQUAD4       723       1     221     220     869     868                
+CQUAD4       724       1      83     163     162      82                
+CQUAD4       725       1     461     462     459     460                
+CQUAD4       726       1     298     299     300     301                
+CQUAD4       727       1    1018     990     991    1019                
+CQUAD4       728       1    1043    1042    1065    1068                
+CQUAD4       729       1     731     728     320     319                
+CQUAD4       730       1     571     473     472     570                
+CQUAD4       731       1     303     302     301     300                
+CQUAD4       732       1    1023     995    1012    1033                
+CQUAD4       733       1     923     924     925     926                
+CQUAD4       734       1     315     317     310     312                
+CQUAD4       735       1     438     439     409     408                
+CQUAD4       736       1      74     208     209      73                
+CQUAD4       737       1     382     393     396     383                
+CQUAD4       738       1     960     959     957     958                
+CQUAD4       739       1     919     920     922     923                
+CQUAD4       740       1     990    1018     968     979                
+CQUAD4       741       1     570     572     573     571                
+CQUAD4       742       1     553     554     555     556                
+CQUAD4       743       1     850     853     847     842                
+CQUAD4       744       1     891     880     224     223                
+CQUAD4       745       1     585     487     484     582                
+CQUAD4       746       1     881    1048     238     141                
+CQUAD4       747       1     727     726     725     724                
+CQUAD4       748       1      63      64     129     201                
+CQUAD4       749       1     294     297     290     288                
+CQUAD4       750       1     648     611     606     647                
+CQUAD4       751       1     673     676     677     680                
+CQUAD4       752       1     204     689     202     203                
+CQUAD4       753       1     387     388     401     399                
+CQUAD4       754       1     209     703     696     139                
+CQUAD4       755       1     410     409     412     411                
+CQUAD4       756       1    1044    1082    1088    1045                
+CQUAD4       757       1     760     839     838     763                
+CQUAD4       758       1     156      90      91     157                
+CQUAD4       759       1     671     673     680     679                
+CQUAD4       760       1     277     278     286     289                
+CQUAD4       761       1      56      57     217     219                
+CQUAD4       762       1      73     209     139      72                
+CQUAD4       763       1     712     714     715     713                
+CQUAD4       764       1     388     424     422     401                
+CQUAD4       765       1     203      67      68     204                
+CQUAD4       766       1      71     207     205      70                
+CQUAD4       767       1     588     586     585     584                
+CQUAD4       768       1     536     538     537     533                
+CQUAD4       769       1     758     759     665     664                
+CQUAD4       770       1     538     540     539     537                
+CQUAD4       771       1     315     312     311     313                
+CQUAD4       772       1     864     870     871     865                
+CQUAD4       773       1     675     856     216     198                
+CQUAD4       774       1     746     704     705     747                
+CQUAD4       775       1     733     731     319     321                
+CQUAD4       776       1      94     152     155      93                
+CQUAD4       777       1     656     655     667     669                
+CQUAD4       778       1     965     978     979     968                
+CQUAD4       779       1     749     750     751     748                
+CQUAD4       780       1     768     785     800     813                
+CQUAD4       781       1     489     587     619     556                
+CQUAD4       782       1     865     871     869     867                
+CQUAD4       783       1     709     708     706     707                
+CQUAD4       784       1     318     320     728     727                
+CQUAD4       785       1      53      54     220     221                
+CQUAD4       786       1     664     661     745     758                
+CQUAD4       787       1     618     553     556     619                
+CQUAD4       788       1     161     309     308     160                
+CQUAD4       789       1    1043    1081    1082    1044                
+CQUAD4       790       1     406     403     404     405                
+CQUAD4       791       1     710     749     748     711                
+CQUAD4       792       1     440     436     445     441                
+CQUAD4       793       1      49      50     225     226                
+CQUAD4       794       1     816     817     818     819                
+CQUAD4       795       1     586     588     589     587                
+CQUAD4       796       1     399     395     394     387                
+CQUAD4       797       1     703     700     694     696                
+CQUAD4       798       1     487     585     586     488                
+CQUAD4       799       1      90     156     159      89                
+CQUAD4       800       1     201     129     687     688                
+CQUAD4       801       1     868     869     871     872                
+CQUAD4       802       1     576     577     579     581                
+CQUAD4       803       1     830     860     859     829                
+CQUAD4       804       1     424     426     421     422                
+CQUAD4       805       1     149     283     151     150                
+CQUAD4       806       1     994    1022    1019     991                
+CQUAD4       807       1     923     926     928     919                
+CQUAD4       808       1     854     846     847     853                
+CQUAD4       809       1     897     896     925     924                
+CQUAD4       810       1     765     763     838     825                
+CQUAD4       811       1     704     707     706     705                
+CQUAD4       812       1     898     895     896     897                
+CQUAD4       813       1     620     624     628     631                
+CQUAD4       814       1     822     820     821     823                
+CQUAD4       815       1     346     345     258     259                
+CQUAD4       816       1     823     840     843     822                
+CQUAD4       817       1     721     723     737     736                
+CQUAD4       818       1     289     291     284     277                
+CQUAD4       819       1     439     440     441     442                
+CQUAD4       820       1     669     671     679     656                
+CQUAD4       821       1     683     684     686     685                
+CQUAD4       822       1     345     332     255     258                
+CQUAD4       823       1     395     396     393     394                
+CQUAD4       824       1     317     318     727     724                
+CQUAD4       825       1     769     761     762     770                
+CQUAD4       826       1     236     235    1046    1045                
+CQUAD4       827       1     540     634     637     539                
+CQUAD4       828       1     690     683     685     691                
+CQUAD4       829       1     900     888     889     899                
+CQUAD4       830       1     442     412     409     439                
+CQUAD4       831       1     676     675     198     197                
+CQUAD4       832       1     834     855     870     864                
+CQUAD4       833       1     642     636     635     641                
+CQUAD4       834       1     314     323     324     316                
+CQUAD4       835       1     331     334     333     332                
+CQUAD4       836       1     928     927     917     919                
+CQUAD4       837       1     636     637     634     635                
+CQUAD4       838       1     651     648     647     646                
+CQUAD4       839       1     302     159     156     296                
+CQUAD4       840       1     295     292     298     301                
+CQUAD4       841       1     219     217     857     866                
+CQUAD4       842       1     894     892     895     898                
+CQUAD4       843       1     873     872     871     870                
+CQUAD4       844       1     731     730     729     728                
+CQUAD4       845       1     883    1052    1050     882                
+CQUAD4       846       1     852     873     870     855                
+CQUAD4       847       1     349     354     352     350                
+CQUAD4       848       1     723     721     720     722                
+CQUAD4       849       1     364     367     371     373                
+CQUAD4       850       1     880     891     886     885                
+CQUAD4       851       1     726     727     728     729                
+CQUAD4       852       1    1054     906     905    1056                
+CQUAD4       853       1     921     911     888     900                
+CQUAD4       854       1     491     494     493     490                
+CQUAD4       855       1     724     716     310     317                
+CQUAD4       856       1     756     757     759     758                
+CQUAD4       857       1     836     824     825     838                
+CQUAD4       858       1     882    1050    1048     881                
+CQUAD4       859       1     740     739     738     741                
+CQUAD4       860       1     755     752     753     754                
+CQUAD4       861       1     291     155     152     284                
+CQUAD4       862       1     332     345     343     331                
+CQUAD4       863       1     296     295     301     302                
+CQUAD4       864       1     308     309     306     307                
+CQUAD4       865       1     700     699     693     694                
+CQUAD4       866       1     165     311     312     164                
+CQUAD4       867       1     316     315     313     314                
+CQUAD4       868       1     501     503     498     499                
+CQUAD4       869       1     775     772     773     774                
+CQUAD4       870       1     802     794     799     805                
+CQUAD4       871       1     323     326     325     324                
+CQUAD4       872       1     761     760     763     762                
+CQUAD4       873       1     360     357     358     359                
+CQUAD4       874       1     952     953     916     918                
+CQUAD4       875       1     809     845     844     810                
+CQUAD4       876       1     936     973     974     935                
+CQUAD4       877       1     342     361     362     341                
+CQUAD4       878       1     767     773     770     762                
+CQUAD4       879       1     885     886     887     884                
+CQUAD4       880       1     482     486     490     493                
+CQUAD4       881       1     837     846     854     835                
+CQUAD4       882       1     844     845     847     846                
+CQUAD4       883       1     369     370     372     371                
+CQUAD4       884       1     341     340     339     342                
+CQUAD4       885       1     685     686     688     687                
+CQUAD4       886       1     953     952     951     954                
+CQUAD4       887       1     855     834     835     854                
+CQUAD4       888       1     831     830     829     828                
+CQUAD4       889       1     892     894     226     225                
+CQUAD4       890       1     629     632     631     628                
+CQUAD4       891       1     827     826     825     824                
+CQUAD4       892       1    1065    1066    1067    1068                
+CQUAD4       893       1     327     330     329     328                
+CQUAD4       894       1    1015    1057     903     957                
+CQUAD4       895       1     337     336     335     338                
+CQUAD4       896       1     922     912     911     921                
+CQUAD4       897       1     359     362     361     360                
+CQUAD4       898       1     662     663     667     655                
+CQUAD4       899       1     846     837     839     844                
+CQUAD4       900       1     774     755     754     775                
+CQUAD4       901       1     304     307     306     305                
+CQUAD4       902       1     764     759     757     766                
+CQUAD4       903       1     909     908     907     910                
+CQUAD4       904       1     742     781     780     743                
+CQUAD4       905       1     333     298     292     254                
+CQUAD4       906       1     954     951     948     962                
+CQUAD4       907       1     740     741     742     743                
+CQUAD4       908       1     372     374     373     371                
+CQUAD4       909       1     853     852     855     854                
+CQUAD4       910       1     912     922     920     914                
+CQUAD4       911       1    1057    1058     904     903                
+CQUAD4       912       1     332     333     254     255                
+CQUAD4       913       1     833     830     831     832                
+CQUAD4       914       1     764     766     767     765                
+CQUAD4       915       1     328     325     326     327                
+CQUAD4       916       1     736     737     738     739                
+CQUAD4       917       1     578     580     581     579                
+CQUAD4       918       1    1058    1056     905     904                
+CQUAD4       919       1     830     833     863     860                
+CQUAD4       920       1     828     827     824     831                
+CQUAD4       921       1     733     735     730     731                
+CQUAD4       922       1     762     763     765     767                
+CQUAD4       923       1     781     782     783     780                
+CQUAD4       924       1     675     676     673     674                
+CQUAD4       925       1     345     346     344     343                
+CQUAD4       926       1     758     745     744     756                
+CQUAD4       927       1     492     501     499     480                
+CQUAD4       928       1     655     658     659     662                
+CQUAD4       929       1     672     671     669     670                
+CQUAD4       930       1     944     943     945     947                
+CQUAD4       931       1     370     379     380     372                
+CQUAD4       932       1     927     942     949     917                
+CQUAD4       933       1     913     901     908     909                
+CQUAD4       934       1     760     810     844     839                
+CQUAD4       935       1     779     777     776     778                
+CQUAD4       936       1     747     744     745     746                
+CQUAD4       937       1     778     776     788     789                
+CQUAD4       938       1     861     862     866     857                
+CQUAD4       939       1     809     810     811     808                
+CQUAD4       940       1     784     783     782     786                
+CQUAD4       941       1     962     948     946     961                
+CQUAD4       942       1     330     365     366     329                
+CQUAD4       943       1     340     337     338     339                
+CQUAD4       944       1     699     659     658     693                
+CQUAD4       945       1     938     940     939     937                
+CQUAD4       946       1     381     376     375     380                
+CQUAD4       947       1     668     667     663     666                
+CQUAD4       948       1     860     863     862     861                
+CQUAD4       949       1     918     916     914     920                
+CQUAD4       950       1     493     492     480     482                
+CQUAD4       951       1     942     941     950     949                
+CQUAD4       952       1     346     351     353     344                
+CQUAD4       953       1     950     941     944     947                
+CQUAD4       954       1     937     936     935     938                
+CQUAD4       955       1     626     628     624     625                
+CQUAD4       956       1    1052     883     906    1054                
+CQUAD4       957       1     910     907     884     887                
+CQUAD4       958       1     765     825     826     764                
+CQUAD4       959       1     590     591     580     578                
+CQUAD4       960       1     374     372     380     375                
+CQUAD4       961       1     734     732     777     779                
+CQUAD4       962       1     367     366     365     368                
+CQUAD4       963       1     667     668     670     669                
+CQUAD4       964       1     940     938     945     943                
+CQUAD4       965       1     649     640     627     610                
+CQUAD4       966       1     355     392     379     370                
+CQUAD4       967       1     824     836     832     831                
+CQUAD4       968       1     622     623     592     593                
+CQUAD4       969       1     356     357     349     348                
+CQUAD4       970       1     336     304     305     335                
+CQUAD4       971       1     810     760     761     811                
+CQUAD4       972       1     769     812     811     761                
+CQUAD4       973       1     593     592     591     590                
+CQUAD4       974       1     786     787     785     784                
+CQUAD4       975       1     771     770     773     772                
+CQUAD4       976       1     671     672     674     673                
+CQUAD4       977       1     815     812     813     814                
+CQUAD4       978       1     368     369     371     367                
+CQUAD4       979       1     354     349     357     360                
+CQUAD4       980       1     791     790     789     788                
+CQUAD4       981       1     640     641     629     627                
+CQUAD4       982       1     808     811     812     815                
+CQUAD4       983       1     735     733     732     734                
+CQUAD4       984       1     392     393     382     379                
+CQUAD4       985       1     813     812     769     768                
+CQUAD4       986       1     958     956     955     960                
+CQUAD4       987       1     935     974     961     946                
+CQUAD4       988       1     790     791     792     793                
+CQUAD4       989       1     805     799     798     806                
+CQUAD4       990       1     623     622     625     624                
+CQUAD4       991       1     587     589     621     619                
+CQUAD4       992       1     354     353     351     352                
+CQUAD4       993       1     915     902     901     913                
+CQUAD4       994       1     794     795     797     799                
+CQUAD4       995       1     800     803     814     813                
+CQUAD4       996       1     936     937     931     930                
+CQUAD4       997       1     795     794     793     792                
+CQUAD4       998       1     956     958     902     915                
+CQUAD4       999       1     654     652     651     646                
+CQUAD4      1000       1     378     385     652     654                
+CQUAD4      1001       1     964     965     966     963                
+CQUAD4      1002       1     654     933     796     378                
+CQUAD4      1003       1     933     932     931     934                
+CQUAD4      1004       1     377     378     796     797                
+CQUAD4      1005       1     650     643     640     649                
+CQUAD4      1006       1     801     800     785     787                
+CQUAD4      1007       1     628     626     627     629                
+CQUAD4      1008       1     392     355     356     391                
+CQUAD4      1009       1     794     802     801     793                
+CQUAD4      1010       1     963     966     960     955                
+CQUAD4      1011       1     649     648     651     650                
+CQUAD4      1012       1     652     653     650     651                
+CQUAD4      1013       1     357     356     355     358                
+CQUAD4      1014       1     381     380     379     382                
+CQUAD4      1015       1     631     630     618     620                
+CQUAD4      1016       1     770     771     768     769                
+CQUAD4      1017       1     378     377     384     385                
+CQUAD4      1018       1     384     381     382     383                
+CQUAD4      1019       1     620     618     619     621                
+CQUAD4      1020       1     377     376     381     384                
+CQUAD4      1021       1     934     931     937     939                
+CQUAD4      1022       1     798     796     933     934                
+CQUAD4      1023       1     799     797     796     798                
+CQUAD4      1024       1     802     803     800     801                
+$
+$ DEBUG IS USED TO REQUEST ANS FILE, WHICH IS EASIER TO PARSE FOR BENCHMARKING (THIS IS MYSTRAN SPECIFIC)
+DEBUG   200     1                                                       ANS
+$
+ENDDATA

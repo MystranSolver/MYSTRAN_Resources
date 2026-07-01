@@ -1,0 +1,71 @@
+ID BEAM,CONTN
+SOL 101
+TIME 10000
+CEND
+  TITLE = ANALYSE
+  SUBTITLE = TEST
+  LABEL = TEST
+  ECHO = NONE
+  DISPLACEMENT(PRINT) = ALL
+  SPCFORCE(PRINT) = ALL
+  OLOAD(PRINT) = ALL
+  MPCFORCE(PRINT) = ALL
+  GPFORCE(PRINT) = ALL
+  FORCE(PRINT,CORNER) = ALL
+  STRESS(PRINT,CORNER) = ALL
+SUBCASE 1
+  SUBTITLE = NASTRAN SPC 1 - FX=1000
+  SPC = 1
+  LOAD = 1
+SUBCASE 2
+  SUBTITLE = NASTRAN SPC 1 - FY=1000
+  SPC = 1
+  LOAD = 2
+SUBCASE 3
+  SUBTITLE = NASTRAN SPC 1 - FZ=1000
+  SPC = 1
+  LOAD = 3
+SUBCASE 4
+  SUBTITLE = NASTRAN SPC 1 - MX=1000
+  SPC = 1
+  LOAD = 4
+SUBCASE 5
+  SUBTITLE = NASTRAN SPC 1 - MY=1000
+  SPC = 1
+  LOAD = 5
+SUBCASE 6
+  SUBTITLE = NASTRAN SPC 1 - MZ=1000
+  SPC = 1
+  LOAD = 6
+BEGIN BULK
+PARAM,CHECKOUT,NO
+PARAM,PRTGPDT,YES
+PARAM,PRTCSTM,YES
+PARAM,PRTMGG,YES
+PARAM,PRTPG,YES
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,NO
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+CONTNC1
++CONTNC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+CONTNC2
++CONTNC2      1.      0.      1.        
+FORCE          1       2       0      1.   1000.      0.      0.
+FORCE          2       2       0      1.      0.   1000.      0.
+FORCE          3       2       0      1.      0.      0.   1000.
+MOMENT         4       2       0      1.   1000.      0.      0.
+MOMENT         5       2       0      1.      0.   1000.      0.
+MOMENT         6       2       0      1.      0.      0.   1000.
+SPC1           1  123456       1
+SPC1           1   12456       2
+PBUSH          1       K   1500.                                                        
+GRID           1       0      0.      0.      0.       0
+GRID           2       0      0.      0.     10.       0
+CBUSH          1       1       1       2                                
+$
+$ DEBUG IS USED TO REQUEST ANS FILE, WHICH IS EASIER TO PARSE FOR BENCHMARKING (THIS IS MYSTRAN SPECIFIC)
+DEBUG   200     1                                                       ANS
+$
+ENDDATA

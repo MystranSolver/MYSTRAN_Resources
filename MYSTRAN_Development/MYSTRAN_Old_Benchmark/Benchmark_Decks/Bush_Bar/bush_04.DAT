@@ -1,0 +1,39 @@
+ID test,CONTN
+SOL 101
+CEND
+  TITLE = Static
+  ECHO = NONE
+  DISPLACEMENT(PRINT) = ALL
+  SPCFORCE(PRINT) = ALL
+  OLOAD(PRINT) = ALL
+  MPCFORCE(PRINT) = ALL
+  GPFORCE(PRINT) = ALL
+  FORCE(PRINT,CORNER) = ALL
+  STRESS(PRINT,CORNER) = ALL
+  SPC = 1
+  LOAD = 1
+BEGIN BULK
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,YES
+$PARAM,K6ROT,100. - REMOVED SINCE NOT FULLY FUNCTIONAL IN MYSTRAN 15.1.4
+PARAM,GRDPNT,0
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+CONTNC1
++CONTNC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+CONTNC2
++CONTNC2      1.      0.      1.        
+FORCE          1       4       0      1.   1200.   2520.   3780.
+SPC1           1  123456       1
+PBUSH          1       K  17825.  20542.  37542. 742000. 412000. 214000.                
+PBUSH          2       K   7500.   2500.   3750. 120000. 110000. 540000.                
+GRID           1       0      0.      0.      0.       0
+GRID           2       0     12.    25.2    37.8       0
+GRID           4       0     24.    50.4    75.6       0
+CBUSH          1       1       1       2.7071068.7071068      0.        
+CBUSH          2       2       2       4      1.      0.      0.
+$
+$ DEBUG IS USED TO REQUEST ANS FILE, WHICH IS EASIER TO PARSE FOR BENCHMARKING (THIS IS MYSTRAN SPECIFIC)
+DEBUG   200     1                                                       ANS
+$        
+ENDDATA
