@@ -1,5 +1,4 @@
-You have to use a very short path for RFDIR !!!!
+Note, the user may need to use a very short path for RFDIR!
 
-Available is a Powershell script to run Nastran95 instead of the huge Python script.
-I followed your instructions for running it manually but scripted instead, and Powershell so no weird opening command prompt.
-Now you can easily run Nastran95 just like other Nastrans.
+There is a Powershell script that can assist the user instead of the large Python script.
+This should allow the user to run Nastran95 like other Nastrans.
