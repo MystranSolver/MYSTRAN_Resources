@@ -1,0 +1,44 @@
+Thread: 11/11/2021 UPDATE
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=56
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 12-20-2020, 11:50 PM
+
+11/11/2021 UPDATE
+
+- MYSTRAN 13.3 has been released: https://www.mystran.com/forums/showthread.php?tid=39
+
+- 13.3 has a corrected BUSH formulation.
+
+- Other news to follow.
+
+--- Post #2 ---
+Author: Admin
+Date: 02-04-2021, 04:54 AM
+
+3/16/2021 UPDATE - NEW UPDATES SOON (APPROX 10/15/2021)
+
+- Harry Schaeffer has released ComLab (an improved version of NASTRAN-95). See this thread: https://www.mystran.com/forums/showthread.php?tid=58. There is also a list of enhancements here: https://www.mystran.com/forums/showthread.php?tid=63
+
+- Initial investigation has been done to add the differential stiffness matrix to to the shell and solid elements (to allow for Eigenvalue buckling - SOL 105). We are also considering an different shell element formulation. If you have any thoughts on this, please make a post or visit us on the Discord channel:
+https://discord.gg/fUJr75H
+
+- Version 12.1 has now been released, which fixes an error with the BUSH element.
+
+- The MYSTRAN Benchmark Tool has been introduced in the new TestRuns ZIP. This tool assists in benchmarking new builds. A new approach replaced the old one one 2/15/2021 so you may need to download it again.
+
+- Steve is  working on the OP2 support. That will be a nice compliment to his pyNastran program.
+
+- We identified the how to get "clean" Test Runs that don't yield ambiguous data to compare different version/compilers. We are also working on generating the Pass/Fail criteria using the MYSTRAN Benchmark Tool. This should be available by 3/15/2021.
+
+2/4/2021 UPDATE
+
+- The two major threads in ALL CAPS have been updated and ready to go. There may be some fine tuning still, but they are completed for the most part.
+
+- Version 12.0 has now been released, which includes the SuperLU sparse solver. The documentation, Windows EXE, and Test Runs have been updated here:
+https://www.mystran.com/forums/showthread.php?tid=39

@@ -1,0 +1,27 @@
+Thread: PaStiX Sparse Solver
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=34
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-19-2020, 04:41 AM
+
+A few months ago, Guido Dhondt (developer of CalculiX), mentioned that he was looking into the PaStiX sparse solver. This solver seems to be a great option since it is modern, still being developed, and is open source. I recently contacted him about it and here are his comments (he said it is OK to post his comments here). I also contacted the authors of PaStiX some time ago and they said they are willing to help us incorporate it.
+
+---
+
+I had an IT-student to work on PaStiX for his master thesis. He finished two months ago. He took the standard version of PaStiX, however, he also did some improvements in PaStiX specifically for CalculiX. We had a test suite of 7 examples, between 700,000 and 5,000,000 equations. The results:
+
+- the solver alone was a factor 4 to 13 faster than Pardiso
+- the complete CalculiX-calculation was a factor 3 to 8 faster than with Pardiso.
+
+PaStiX will be available in the next CalculiX-release. We are still working on some special cases. Since we changed PaStiX and it is not sure that these changes will be included by the originators of PaStiX we may have to include the modified version on our homepage.
+
+There is one caveat: these accelarations only become true if you have a really good graphical card, let's say a card costing about 8,000 Euro. I have a GeForce GTX 1060 6GB Graphical card in my private computer, with this GPU CalculiX is slower with PaStiX (if you use the GPU).
+
+---
+
+I think high on the list of things to do is to add the PaStix Solver to MYSTRAN.

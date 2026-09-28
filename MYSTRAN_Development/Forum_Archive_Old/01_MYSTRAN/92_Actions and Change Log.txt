@@ -1,0 +1,17 @@
+Thread: Actions and Change Log
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=92
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-29-2022, 04:38 AM
+
+ACTIONS:
+https://github.com/MYSTRANsolver/MYSTRAN...Actions.md
+
+CHANGE LOG:
+Add all changes here (code, compiling, documentation, benchmark, etc.,). Some of this information is later filtered to the appropriate documents after an official release. But this is the MASTER log for developers to add notes to.
+https://github.com/MYSTRANsolver/MYSTRAN...angeLog.md

@@ -1,0 +1,92 @@
+Thread: 2
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=43
+Posts: 11
+
+======================================================================
+
+--- Post #1 ---
+Author: JuanP74
+Date: 08-19-2020, 06:35 AM
+
+Hello,
+
+I would recommend gmsh, at least for postprocessing. The MSH file formats (ASCII and binary) are very well suited for it in my experience (small, medium model sizes) and in ascii format easy to check and modify if necessary. Plotting capabilities are as good as femap and allows for nodal and elemental results. I have created the files with text processor sometimes for small models using f06 results. I think is as good as femap .neu file and easier to read and can be used with a software that is free & open source that does not need installation and runs in all platforms (macOS, windows and linux).
+
+http://gmsh.info/doc/texinfo/gmsh.html#M...egacy_0029
+
+I attach an example so you can check by yourselves (this is an ascii file in legacy format 2) for normal modes of a small model (remove .txt extension before opening with gmsh).
+
+--- Post #2 ---
+Author: ceanwang
+Date: 08-20-2020, 10:25 PM
+
+(08-19-2020, 06:35 AM)JuanP74 Wrote:  I attach an example so you can check by yourselves (this is an ascii file in legacy format 2) for normal modes of a small model (remove .txt extension before opening with gmsh).
+All-Elem-Test
+
+--- Post #3 ---
+Author: JuanP74
+Date: 08-21-2020, 07:10 AM
+
+(08-20-2020, 10:25 PM)ceanwang Wrote:   (08-19-2020, 06:35 AM)JuanP74 Wrote:  I attach an example so you can check by yourselves (this is an ascii file in legacy format 2) for normal modes of a small model (remove .txt extension before opening with gmsh).
+All-Elem-Test
+Hello, good example.
+As a suggestion in gmsh you can define directly vector and tensor results and from them extract any component in the options window (see attachment). Vectors can be ploted as deformation or vector plots. So in general you only need to create 1 vector result for displacements and 1 vector result for rotations, from them components can be ploted if required.
+
+--- Post #4 ---
+Author: ceanwang
+Date: 08-21-2020, 09:47 AM
+
+two subcases
+
+--- Post #5 ---
+Author: JuanP74
+Date: 08-23-2020, 08:20 AM
+
+(08-21-2020, 09:47 AM)ceanwang Wrote:  two subcases
+hi, I hand modified your file to show vector display capabilities.
+
+--- Post #6 ---
+Author: ceanwang
+Date: 08-23-2020, 10:48 PM
+
+This test file defined 9 vectors at the nodes, but I don't understand why it shows 6 vectors at the element center.
+
+--- Post #7 ---
+Author: JuanP74
+Date: 08-24-2020, 05:46 AM
+
+(08-23-2020, 10:48 PM)ceanwang Wrote:  This test file defined 9 vectors at the nodes, but I don't understand why it shows 6 vectors at the element center.
+You have two options to show the arrows: at barycenter or at node, you have to choose at node, see attached picture.
+
+--- Post #8 ---
+Author: ceanwang
+Date: 08-24-2020, 06:42 AM
+
+Thanks. Is there a setting to set the default to Show at node?
+
+How you show the deformed shape? In View[0]/Aspect/Displacement factor, I changed the value, but seems no effect.
+
+I like this Shrink function
+
+--- Post #9 ---
+Author: JuanP74
+Date: 08-24-2020, 11:25 AM
+
+You have to save the options. You have an overall options file that applies by default and you can as well save a file specific options file. It is loaded every time you open that file, otherwise default options apply.
+
+In view>aspect>vector display select displacements
+
+--- Post #10 ---
+Author: JuanP74
+Date: 08-25-2020, 07:21 AM
+
+Grouping by physical properties (can be assimilated by mystran input deck element properties) and coloring. Groups prosprocess.
+
+--- Post #11 ---
+Author: ceanwang
+Date: 08-15-2021, 12:51 AM
+
+" you only need to create 1 vector result for displacements and 1 vector result for rotations, from them components can be ploted if required."
+
+Finally got one example.

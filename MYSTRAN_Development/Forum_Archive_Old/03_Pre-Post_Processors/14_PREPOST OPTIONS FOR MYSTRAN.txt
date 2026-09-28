@@ -1,0 +1,67 @@
+Thread: PRE/POST OPTIONS FOR MYSTRAN
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=14
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-20-2020, 02:28 AM
+
+MYSTRAN is largely compatible with programs that can read BDF/DAT files. MYSTRAN outputs OP2 and also NEU (though it is an older format).
+
+While there are commercial programs that can use MYSTRAN, such as MSC Patran and Femap, these programs are expensive and are usually combined with their own solvers. Instead, this thread will present low cost or free/open pre/post software that works with MYSTRAN.
+
+Using the OP2 interface, you can read large result files quickly and efficiently. Additionally, you can also extract a subset of the result data and write OP2/F06 result files.
+
+FYI, see also this repository: https://github.com/MYSTRANsolver/MYSTRAN_Resources
+
+BDF Readers
+
+A BDF (Bulk Data File) or DAT file reader can be read to interrogate models, but are not all programs can be used to create a mesh, apply loads, etc.
+
+pyNastran ( https://github.com/SteveDoyle2/pyNastran )
+Using the BDF interface, you can read/edit/write Nastran geometry without worrying about field formatting. Many checks are also performed to verify that your model is correct.
+
+FEX
+A lightweight program (only 3MB) that can read and interrogate BDF files. It can be used to visually show the model, discover issues, measure, and perform various other operations. It has a built in tutorial and low learning curve. I found this to be a simple tool that is quite useful. It does not have post processing capabilities
+
+This program no longer has a website, but the most recent version (1.1), can be downloaded here: https://www.mystran.com/misc/fex-1.1.zip
+
+M3DFEA (http://www.m3dfea.com )
+See below for additional information
+
+LS-PrePost ( https://www.lstc.com/products/ls-prepost )
+This is a pre/post that can create finite element models and can also read BDF files. See below for more information.
+
+PreProcessors (With Native MYSTRAN Support)
+
+Preprocessors have the ability to create geometry, a mesh, apply loads, etc. However, not all preprocessors can create a compatible MYSTRAN deck (BDF/DAT). These are programs that can natively create a NASTRAN deck. This is a significant advantage because the elements are linked to properties (among other things).
+
+M3DFEA ( http://www.m3dfea.com )
+A pre/post that supports NASTRAN (and MYSTRAN by extension). It is a free program, but not open source. It has only been evaluated on a preliminary basis, but looks like a promising option.
+
+PreProcessors (Without Native MYSTRAN Support)
+
+Mecway ( https://www.mecway.com)
+Apre/post and has an internal Mecway solver as well. It also supports the CalculiX solver. A simple mesh converter has been partially developed, but a true translator from BDF to INP (CalculiX/ABAQUS) has not been developed. This may be a possible option in the future since pyNastran has some capabilities to do this. Although Mecway is not free, it is low cost.
+
+LS-PrePost (https://lsdyna.ansys.com/download-install-overview/ links to here: https://ftp.lstc.com/anonymous/outgoing/lsprepost/ )
+This is a pre/post that can create finite element models, but not native MYSTRAN decks. However, we are working on a generic converted that can covert nodes/elements from one program to another. While this is not the same as creating a BDF (in fact it is quite different), it may be functional approach for specific models. For example, models with only a few element types but where a very good geometry/mesh creation tool is required.
+
+PostProcessors
+
+pyNastran ( https://github.com/SteveDoyle2/pyNastran )
+Open source and can post-process OP2 files. pyNastran is a very complete postprocessor. Also, the developer assists with MYSTRAN and developed the MYSTRAN OP2 files, which helps to ensure compatibility. pyNastran is considered to be the most native MYSTRAN post processor (there is also a BDF switch that can be turned on to improve postprocessing with MYSTRAN).
+
+M3DFEA ( http://www.m3dfea.com )
+A pre/post that supports NASTRAN (and MYSTRAN by extension). It is a free program, but not open source. It has only been evaluated on a preliminary basis, but looks like a promising option.
+
+LS-PrePost ( https://www.lstc.com/products/ls-prepost )
+This is a pre/post that can read NASTRAN Punch (PCH) files. We need to evaluate if it can read MYSTRAN Punch files.
+
+Other
+
+1D Elements (https://www.structuralfea.com/ )
+A program that can use beam, rod, and spring elements in 2D space (linear static analysis, buckling analysis, natural frequency analysis). It has complete documentation and series of videos that explain how the program works. This program is not a general pre/post. Rather, it is a specific tool limited to beams, rods, and springs in 2D space.

@@ -1,0 +1,43 @@
+Thread: --- MAIN OVERVEIW THREAD ---
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=83
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-05-2022, 03:01 AM
+
+Website: https://www.mystran.com
+
+-------------------------------------------------------------------
+
+GitHub: https://github.com/MYSTRANsolver
+Within this account, there are 4 repositories (3 of them are used to store files and 1 contains the source code and build instructions)
+
+1 - Main Project - Source Code, Build Instructions, and End User Documentation - https://github.com/MYSTRANsolver/MYSTRAN
+For reference, the latest Windows EXE is located at: https://github.com/MYSTRANsolver/MYSTRAN_Releases
+
+2 - Resources - https://github.com/MYSTRANsolver/MYSTRAN_Resources
+Developer resources and files related to pre/post processors for MYSTRAN/NASTRAN
+
+3 - Benchmarks - https://github.com/MYSTRANsolver/MYSTRAN_Benchmark
+Initial updates have been made and uploaded.
+
+4 - Releases - https://github.com/MYSTRANsolver/MYSTRAN_Releases
+The most recent release 14.01 (10/1/2022) has been uploaded.
+
+-------------------------------------------------------------------
+
+--- Online Chat (DISCORD) --- NEW SERVER --- https://discord.gg/9k76SkHpHM
+
+-------------------------------------------------------------------
+
+NOTE: As of September 2022, more information is stored on GitHub and less on the forums. This is done to ensure long term access and improve organization. In turn, the previous sticky threads have been unstuck and noted as OLD (but kept for reference in the forum).
+
+--- Post #2 ---
+Author: Admin
+Date: 09-29-2022, 04:41 AM
+
+.

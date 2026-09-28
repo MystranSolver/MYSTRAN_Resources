@@ -1,0 +1,16 @@
+Thread: Mecway Pre/Post
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=29
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-13-2020, 02:06 AM
+
+Mecway is a fork of LISA (https://mecway.com/).
+
+There is an internal solver and it also has support for CaclculiX. This program is still in development and it might be possible to add MYSTRAN support.
+
+While this is not a free program, it is low cost and there is a free 1,000 node version. I like this program a lot, especially as you become more familiar with it. If you would like to see MYSTRAN support, you may want to mention this to the author.

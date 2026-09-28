@@ -1,0 +1,76 @@
+Thread: RBE3 Issue
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=77
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: Jon
+Date: 09-28-2021, 04:38 AM
+
+I came across and issue with the RBE3 element. I have already emailed Bill about the issue, but I thought I would post here for the benefit of the rest pf the community.
+
+I am using a RBE3 to distribute load at a bolted joint. The joint is in thin sheet metal structure so I do not want the fasteners to take out of plane load. I used the following RBE3 to accomplish this.
+
+RBE3          17              17  123456   0.189      13    9901   0.189+
++             13    9902   0.189      13    9903   0.189      13    9904+
++          0.189      12    9905   0.189      12    9906   0.189      12+
++           9907   0.189      12    9908   0.189      12    9909   0.189+
++             12    9910   0.189      12    9911   0.189      12    9912+
++          0.189      13    9913   0.189      13    9914   0.189      13+
++           9915   0.189      13    9916
+
+When I run this through MYSTRAN the SPC forces are not equal and opposite the applied loads. The SPC forces in the Y and Z directions are half of what they should be.  It appears that the RBE3 is incorrectly calculating the weighted average when one or more independent nodes are not effective in all three translational DOF. To check this I changed the RBE3 to have Ci = 123 for every independent node. I also ran my original model through NXNASTRAN. In both cases the SPC forces were equal and opposite to the applied loads.
+
+I have attached copies of the BDF and F06 files for the original run and the run with Ci = 123.
+
+Cheers.
+
+Jon
+
+--- Post #2 ---
+Author: Admin
+Date: 09-28-2021, 10:05 PM
+
+Thanks for the input. I also sent Bill a message on the discord chat.
+
+--- Post #3 ---
+Author: drbillc
+Date: 10-03-2021, 06:05 PM
+
+(09-28-2021, 04:38 AM)Jon Wrote:  I came across and issue with the RBE3 element. I have already emailed Bill about the issue, but I thought I would post here for the benefit of the rest pf the community.
+
+I am using a RBE3 to distribute load at a bolted joint. The joint is in thin sheet metal structure so I do not want the fasteners to take out of plane load. I used the following RBE3 to accomplish this.
+
+RBE3          17              17  123456   0.189      13    9901   0.189+
++             13    9902   0.189      13    9903   0.189      13    9904+
++          0.189      12    9905   0.189      12    9906   0.189      12+
++           9907   0.189      12    9908   0.189      12    9909   0.189+
++             12    9910   0.189      12    9911   0.189      12    9912+
++          0.189      13    9913   0.189      13    9914   0.189      13+
++           9915   0.189      13    9916
+
+When I run this through MYSTRAN the SPC forces are not equal and opposite the applied loads. The SPC forces in the Y and Z directions are half of what they should be.  It appears that the RBE3 is incorrectly calculating the weighted average when one or more independent nodes are not effective in all three translational DOF. To check this I changed the RBE3 to have Ci = 123 for every independent node. I also ran my original model through NXNASTRAN. In both cases the SPC forces were equal and opposite to the applied loads.
+
+I have attached copies of the BDF and F06 files for the original run and the run with Ci = 123.
+
+Cheers.
+
+Jon
+Hi Jon,
+I have found an error in the RBE3 code in how I was handling th weights (specifically the sum of the weights) and now MYSTRAN gets the correct translational (T1, T2, T3) SPC forces. I am still having trouble with the rotational (R1, R2, R3) SPC forces, however. It would be helpful if I could see the NX results. The code for the RBE3 processor is over 800 lines of code so having the NX results could be helpful in searching for what is wrong. Would you mind sending me the NX result (for just the original run, not the C123 one)
+
+--- Post #4 ---
+Author: drbillc
+Date: 10-04-2021, 01:57 PM
+
+Here is the f06 now that I fixed the error in the RBE3 processor for the T1, T2, T3 components. You can see the error in Appendix E of the MYSTRAN Users Manual. The term WT is not supposed to be the sum of all weights. It is supposed to be the sum of all weights in each of the 3 Ti translation components (giving 3 values for WT - one for each component rather than 1 value for all weights)
+
+--- Post #5 ---
+Author: Jon
+Date: 10-05-2021, 11:57 PM
+
+(10-03-2021, 06:05 PM)drbillc Wrote:  Hi Jon,
+I have found an error in the RBE3 code in how I was handling th weights (specifically the sum of the weights) and now MYSTRAN gets the correct translational (T1, T2, T3) SPC forces. I am still having trouble with the rotational (R1, R2, R3) SPC forces, however. It would be helpful if I could see the NX results. The code for the RBE3 processor is over 800 lines of code so having the NX results could be helpful in searching for what is wrong. Would you mind sending me the NX result (for just the original run, not the C123 one)
+Here is the F06 you asked for. I have to run NX NASTRAN through FEMAP, which rewrite the BDF, so I have included a copy of that too.

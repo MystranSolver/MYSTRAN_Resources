@@ -1,0 +1,109 @@
+Thread: Compling NASTRAN-95
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=20
+Posts: 10
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-27-2020, 03:22 AM
+
+Here is the original source code from NASA:
+https://github.com/nasa/NASTRAN-95
+
+Based on this, Thomas Hermann (along with Harry Schaeffer), created this version:
+https://github.com/OdonataResearchLLC/NASTRAN-95
+
+Later, it seems (but not exactly sure of the timeline), that Luca created this version for Linux, which was was later distributed with Ubuntu:
+https://github.com/ldallolio/NASTRAN-95
+I think this is a more user friendly version that is easier to set up on the host computer, but not sure. TBD item.
+
+Note from Vittorio:
+I also compiled successfully NASTRAN-95, both under linux (Ubuntu 16.04) and Cygwin/windows. Under ubuntu the simplest way is to use the debian version already available.
+
+--- Post #2 ---
+Author: Admin
+Date: 01-27-2020, 03:25 AM
+
+Regarding Windows:
+
+- Steve mentioned a program called "bash for Windows" can be used (Windows 10). However, it would better to have a more native version.
+- Some information here: https://github.com/ldallolio/NASTRAN-95/issues/2
+- Some comments from Vittorio: "Under windows I used Cygwin, that is an Unix-like environment. It has a make utility for the compilation so almost the same makefile used under Ubuntu can be used. The resulting exe should run also under windows out of the Cygwin environment, if the needed dll's are statically linked. If you are not comfortable with Cygwin I'll try in the future to obtain a single exe file. Anyway Nastran95 in Cygwin runs in a terminal window not very different from a dos command one.
+
+--- Post #3 ---
+Author: Admin
+Date: 01-27-2020, 06:59 PM
+
+Notes from Tom:
+
+The release goal is to put something out that people can experiment with on both Windows and Linux. This means 2 things: (1) It needs to build and (2) it needs to run. The best cross-platform build system in my experience is CMAKE (https://cmake.org/) and I already have it on the TODO list to implement that. The best cross-platform wrapping language is Python. That is also already on the TODO list. There are also some minor internal modifications related to file paths that need to be made. These were the things I was working on the last time I was active with the code base. This release will be 0.1.0. I always use 3-dotted notation for release versions: MAJOR.MINOR.BUG.
+
+--- Post #4 ---
+Author: ldallolio
+Date: 01-28-2020, 09:40 AM
+
+Hi,
+
+Brian Esp told me about this thread, nice to hear that you are working on this subject!
+I do not have much to add to all this: with the help of some friends I created a debian package of the Nastran 95 version:
+https://packages.debian.org/sid/nastran
+
+The first package version was accepted on December the 13th, 2015
+
+I use it daily to validate an open source FEA translator (https://github.com/Alneos/vega): the comparison between Nastran and Code_Aster results is fairly good in most cases and is used by software editors and industrials.
+The translator is also able to write Nastran (95 or modern) syntax as an output.
+If you need anything from my side, I will do my best to help!
+
+All the best,
+
+Luca
+
+--- Post #5 ---
+Author: kkremitzki
+Date: 05-12-2020, 07:09 PM
+
+Hello, I am a Debian Maintainer on the Science Team. I was recently looking into NASTRAN-95 and the package you mentioned. It's a bit of a shame, really, that the package is forced to be in the non-free section and thus not really part of Debian. This means other packages can't depend on it for any features without becoming non-free themselves.
+
+The NASA Open Source Agreement has a clause that says that if you redistribute with patches, the patches must be original authorship, not a set of accumulated patches from multiple authors, such as would be kept for a Linux distribution. This also means if you fix something and it never gets merged upstream, it's a license violation for someone else to distribute NASTRAN with your fix.
+
+It seems like a tall order to try to change to a standard license without this flaw, but unfortunately without such a change it seems like NASTRAN is moribund.
+
+--- Post #6 ---
+Author: Admin
+Date: 05-13-2020, 01:58 AM
+
+Thanks very much for this information. That is one reason I think it is prudent to pursue MYSTRAN as well. I will pass this along to someone else working on NASTRAN-95.
+
+A response from another developer: "It is a problem for a packaged distribution. It does not effect distribution on Github. At some point, we can figure out how to get this license replaced with something like the MIT license. That is the license I prefer."
+
+--- Post #7 ---
+Author: kkremitzki
+Date: 05-14-2020, 03:28 PM
+
+That's great news! Yes, MIT license seems appropriate for the stated goals from when the software was opened up.
+
+And indeed, that problem does not affect distribution from https://github.com/nasa/NASTRAN-95, but if pull requests were to no longer get merged in a timely manner and pile up, someone could not fork nasa/NASTRAN-95 into their own e.g. kkremitzki/NASTRAN-95 and incorporate those pull requests sitting around.
+
+--- Post #8 ---
+Author: Admin
+Date: 05-14-2020, 07:35 PM
+
+To be honest, I am not sure how we will be able to get the license converted. We should look into that soon though.
+
+--- Post #9 ---
+Author: kkremitzki
+Date: 05-15-2020, 10:03 PM
+
+Yeah, getting license changes when dealing with orgs of this size is a very tall order. I've considered a similar problem with the license of OpenSees, an earthquake engineering simulation software. Developed at UC Berkeley, you'd think they'd eat their own dogfood so to speak and use the BSD license, but no.
+
+Anyway, since most people would think of reasonable solutions to this, I can share an unreasonable one that came to mind. In a sense, the problem is the NASA Open Source Agreement 1.3, but for us it's manifesting as a NASTRAN-95 problem. So, while it might be easier to go after a relicensing of NASTRAN-95 to the MIT license, there's existing momentum [1] for fixing the problem of NASA OSA 1.3 itself. And as for a solution to that problem, it seems very appropriately NASA-esque to me to suggest a release an updated NASA OSA 1.4, which states in appropriate legalese that its license its equivalent to the MIT license.
+
+[1] https://en.wikipedia.org/wiki/NASA_Open_...ite_note-7
+
+--- Post #10 ---
+Author: Admin
+Date: 05-18-2020, 03:09 AM
+
+FYI, someone is going to look into this. If I have any further information, I will report it here.

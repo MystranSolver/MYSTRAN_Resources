@@ -1,0 +1,48 @@
+Thread: Some Notes about NASTRAN
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=11
+Posts: 4
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-15-2020, 08:09 PM
+
+These are some notes about NASTRAN, which may help to shed light about the state of NASTRAN-95:
+-------------------------------
+
+The FTC settlement with MSC resulted in the sale of UAI NASTRAN to a competitor. It wasn't made public. As I recall SDRC was the purchaser. They eventually were taken over by Siemens and UAI Nastran is part of their engineering software offering. The original NASA NASTRAN is still available but I don't know the details about that.
+
+The original Nastran was written in a subset of FORTRAN IV that would compile on IBM, CDC and Univac machines. Starting around 1979 <name omitted> led a project to put NASA Nastran on the Digital Equipment VAX computers running VMS. MSC complained about our doing what they had shown little interest in doing. MSC then did an updated version themselves that ran on VAX and other brands with FORTRAN 77 compilers.
+
+Meanwhile UAI also migrated their version to the VAX and other platforms including PCs running Windows. I provided the VAX computer UAI used for a lot of their debugging. You may recall that we had a rather rocky start with UAI Nastran but I helped them in various ways to use our VAX via a phone dial up connection (1200 baud!). Given the three hour difference in California time, the arrangement worked fairly well as they used our VAX after we went home. Eventually UAI's version worked as well as MSC's did. As you know, UAI had better sub structuring. Eventually MSC took over UAI and then CSA for good measure. Somebody (not us) sicced the FTC on them and that eventually led to the anti-trust trial that almost happened. The day before the trial, MSC folded and negotiated the settlement that led ultimately to the Siemens version.
+
+--- Post #2 ---
+Author: Admin
+Date: 01-16-2020, 11:41 PM
+
+Here is a note from Wikipedia (https://en.wikipedia.org/wiki/Nastran) :
+
+"In November 2002 MSC Software reached a final agreement with the FTC to resolve an antitrust case against the company in connection with two acquisitions of rival CAE vendors, Universal Analytics, Inc. (UAI) and Computerized Structural Analysis & Research Corp. (CSAR). The FTC had alleged the acquisitions represented anticompetitive activities. Under the terms of the settlement, MSC divested a clone copy of its current Nastran software. The divestiture was through royalty-free, perpetual, non-exclusive licenses to UGS Corporation. UGS Corporation was acquired by Siemens in 2007.[7]"
+
+--- Post #3 ---
+Author: Admin
+Date: 01-16-2020, 11:47 PM
+
+NASTRAN-95 is distributed directly by NASA ( https://software.nasa.gov/software/LAR-16804-GS ), which links to GitHub ( https://github.com/nasa/NASTRAN-95 ).
+
+Based on the information in this thread, it seems that the later MSC Nastran (updated coding) was distributed to UGS, but *not* to the public (this is not NASTRAN-95).
+
+Rather, it seems that NASTRAN-95 is based on the Fortran77 code by COSMIC. We still don't know what updates were done up until 1995 (and were they done directly by NASA?). However, Bill has stated that has done some modification to the original COSMIC version and that it is rather difficult to work with.
+
+Based on this information, it seems these comments are still valid:
+https://www.mystran.com/forums/showthread.php?tid=4
+
+--- Post #4 ---
+Author: Admin
+Date: 01-20-2020, 06:48 AM
+
+A comment from another attempt about compiling NASTRAN-95:
+
+"I had to fix a number of compile errors to get it to link.  When I ran it, I got a number of run-time errors (mostly buffer overruns or mis-matches) and didn't get a good feeling on it.  It seemed to require an inordinate number of input and configuration files which had little or no documentation on them.  I found some incomplete sets of test cases but never enough to run the program far enough to get any meaningful results.  It seemed that the risk/reward tradeoff of trying to reverse-engineer it just wasn't worth it."

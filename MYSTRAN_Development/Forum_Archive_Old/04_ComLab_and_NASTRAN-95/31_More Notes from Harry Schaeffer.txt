@@ -1,0 +1,40 @@
+Thread: More Notes from Harry Schaeffer
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=31
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-13-2020, 06:49 PM
+
+Notes from Harry Schaeffer:
+
+1. The IFP should be thrown away. I suggest marrying pynastan code and sqlite. Steve has done a lot of work in writing code for parsing and validating bulk data. These data can then be written to sglite tables.
+
+2. Write interface routines to replace the geom1, 2, etc files. The code that implements the bulk data items still expects to find the internal bulk data codes.
+
+3. The MPL should be replaced so that it is easier add new modules.
+
+4.The checkpoint/restart must be replaced with a database restart.
+
+5. Several helper fortran modules such as a scratch file manager would be useful.
+
+6. Rethink the startup code.
+
+7. Remove and replace the eigen and solve routines.
+
+--- Post #2 ---
+Author: Admin
+Date: 05-13-2020, 06:52 PM
+
+Some other notes from Harry Schaeffer:
+
+https://github.com/nasa/NASTRAN-95/issues/5
+
+Interesting that I have been working on an article that describes how to build Calculix using Code Blocks. I work was done using Ubuntu 18.04 that you mentioned in your note.
+
+I have also used C::B to build a much enhanced version of Nastran95 that I call ComLab. The architecture of Nastran is a keeper, with some major improvements, but the FEA libraries are not useful in today's world. The 95 code has 2 main libraries: MIS are Machine independent source; and MDS are Machine dependent source. You might try these first using C::B.
+
+It you are looking for a modern Nastran, there is always MSC.Nastran from MSC Software. I also offer ComLab which is delivered on a memory stick for $100 that covers packaging and shipping. If this is of interest I will send you a copy of the EULA.

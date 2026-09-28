@@ -1,0 +1,16 @@
+Thread: Changes - 14.0 to Date
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=89
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-20-2022, 05:12 AM
+
+14.0.1 to Date
+TBD
+
+14.0 to 14.0.1
+Updated Source/LK9/L92/OFP3_ELFE_1D.f90 to place OGEL writes bush results regardless of the type of bush

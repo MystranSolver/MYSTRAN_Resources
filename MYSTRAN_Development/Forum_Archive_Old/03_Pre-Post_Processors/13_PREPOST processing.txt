@@ -1,0 +1,60 @@
+Thread: PRE/POST processing
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=13
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: vittorio
+Date: 01-18-2020, 08:03 PM
+
+Dear all,
+have a look at
+http://www.f-e-x.com/
+FEX is a free program that can read  Nastran INPUT and view/check the model
+Bye
+Vittorio
+
+--- Post #2 ---
+Author: Admin
+Date: 01-19-2020, 12:45 AM
+
+Vittorio,
+
+I remember you also posted about http://www.m3dfea.com/post-processing.html. Do you have any experience with FEX or M3D FEA? I think I will start a thread and a main item on mystran.com that points to useful programs like this (of course there is also pyNASTRAN).
+
+--- Post #3 ---
+Author: vittorio
+Date: 01-19-2020, 08:20 PM
+
+(01-19-2020, 12:45 AM)Admin Wrote:  Vittorio,
+
+I remember you also posted about http://www.m3dfea.com/post-processing.html. Do you have any experience with FEX or M3D FEA? I think I will start a thread and a main item on mystran.com that points to useful programs like this (of course there is also pyNASTRAN).Brian,
+up to now i just tried both programs reading some models from the examples (e.g. HEXA08-02-02-020-CANT-AR1-RED-2x2x2).
+They works and can be useful to check the models.
+For model inspection also VisIT and paraview have some capabilities in reading NASTRAN input.
+Maybe also developing VTK output or OP2/F06/punch to VTK translator could be an interesting solution.
+Paraview is a great post processor and a VTK output is relatively easy to understand.
+Vittorio
+
+--- Post #4 ---
+Author: Admin
+Date: 01-20-2020, 02:54 AM
+
+Thanks for the info. I created a new thread and will try to explain these various programs (features, state of development, documentation level, usability, etc.).
+
+Another option is use the CalculiX post processor (CalculiX GraphiX). I like this program because it is very light and has some interesting features. See this video (about the half way mark) for how I was able to integrate it with Excel
+https://www.structuralfea.com/Plate_Mesh/videos.html
+
+We just need to create an FRD output, which is probably straightforward. I think it supports F06, but that does not seem to be a good approach (there seem to be too many challenges parsing the file and its not consistent between Nastran versions).
+
+--- Post #5 ---
+Author: vittorio
+Date: 01-20-2020, 09:04 PM
+
+Brian,
+Calculix is a very interesting program and the frd format is very easy to read/write.
+It's main limitation is that it supports only nodal values and not element response.
+By the way on the net there are a couple of format converters from frd to vtk, so, if simpler, the frd format is an option.
+Vittorio

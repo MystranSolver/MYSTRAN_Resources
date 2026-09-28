@@ -1,0 +1,40 @@
+Thread: Converting MSC Nastran Input Deck to NASTRAN-95
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=100
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: fontanj
+Date: 12-18-2022, 01:11 AM
+
+Hi All,
+
+Does anyone have experience converting an MSC or NX Nastran input deck to a format NASTRAN-95 can read?
+
+Here are some of the things I've done and I think it has got me most of the way there:
+-insert lines from "INCLUDE"-ed files
+-added an "ID" card at the top
+-changed SOL 101 to SOL 1
+-replaced CBEAM and PBEAM cards with CBAR and PBAR cards (luckily my model doesn't use advanced CBEAM functionality)
+-replaced CBUSH and PBUSH with a set of CELAS1 and PELAS elements
+-made sure my coordsys ID numbers on the CQUAD4 and CTRIA3 elements are < 1,000,000 (NASTRAN-95 manual specifies this)
+-converted all my line continuations to labeled line continuations with a unique label for each one
+-changed the names of my RBE2 and RBE3 elements to CRBE2 and CRBE3
+
+Now the CRBE3 elements seem to be giving me trouble. I am getting singular columns in the stiffness matrix, and for  of my RBE3 reference gridpoints, it says "EXTERNAL GRID PT. .... NOT CONNECTED".
+
+The only way these grid points are intended to be connected to the model is through the RBE3 elements. They are used to distribute a point-force (applied at the RBE3 reference grid point) to other nodes. Does NASTRAN-95 not allow this?
+
+Thanks,
+Josh
+
+--- Post #2 ---
+Author: ceanwang
+Date: 03-28-2023, 09:47 PM
+
+(12-18-2022, 01:11 AM)fontanj Wrote:  Now the CRBE3 elements seem to be giving me trouble. I am getting singular columns in the stiffness matrix, and for  of my RBE3 reference gridpoints, it says "EXTERNAL GRID PT. .... NOT CONNECTED".
+
+The only way these grid points are intended to be connected to the model is through the RBE3 elements. They are used to distribute a point-force (applied at the RBE3 reference grid point) to other nodes. Does NASTRAN-95 not allow this?
+Here are RBE3 definition in N95's UM.

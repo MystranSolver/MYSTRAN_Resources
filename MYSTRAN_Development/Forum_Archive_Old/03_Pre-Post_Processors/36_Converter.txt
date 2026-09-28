@@ -1,0 +1,77 @@
+Thread: Converter
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=36
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-24-2020, 10:10 PM
+
+One idea is to create a CaculiX to MYSTRAN converter. This may be useful since some pre-processors support CalculiX. While it is better if the if the preprocessor adds native support for MYSTRAn, this might be a more practical solution and is more versatile (automatically support multiple platforms). pyNastran can be used a post once Steve adds OP2 output to MYSTRAN.
+
+--- Post #2 ---
+Author: vittorio
+Date: 05-25-2020, 08:52 PM
+
+Brian,
+Calculix has a native preprocessor named Cgx that reads an input file in abaqus/calculix format and can write a nastran format file.
+Another preprocessor capable to read a number of format and writes a nastran input is gmsh.
+Gmsh can also do the other way round, reading nastran and writing abaqus.
+Vittorio
+
+--- Post #3 ---
+Author: Admin
+Date: 05-26-2020, 03:52 AM
+
+Vittorio,
+Thanks. I am familiar with CGX and tried a file. It only translated the nodes and elements and according to the documentation it is quite limited (node, elements, and some boundary conditions). I would imagine the same is grue for Gmsh (I doubt it has material properties and property cards). But let me know if you think otherwise. I suspect will will have to create something custom to interface with Mecway.
+
+--- Post #4 ---
+Author: vittorio
+Date: 05-30-2020, 07:32 PM
+
+(05-26-2020, 03:52 AM)Admin Wrote:  Vittorio,
+Thanks. I am familiar with CGX and tried a file. It only translated the nodes and elements and according to the documentation it is quite limited (node, elements, and some boundary conditions). I would imagine the same is grue for Gmsh (I doubt it has material properties and property cards). But let me know if you think otherwise. I suspect will will have to create something custom to interface with Mecway.Brian,a good starting point could be FECONV at
+https://github.com/victorsndvg/FEconv.
+I tried to compile it under Mingw in the Codeblocks installation.
+Just one hint:
+in the makefile Makefile.gfortran.windows,
+add -libquadmath to the linker options as below
+# LINKER OPTIONS
+LDFLAGS = -static -Lbasicmod/lib -lbasicmod -lquadmath
+
+Open a Command Window in Windows, go to the FECONV folder, add the path to C:\prog\CodeBlocks\MinGW\bin or somewhat similar in your mingw installation  and type:
+
+    mingw32-make -f Makefile.gfortran.windows
+
+you'll find FECONV.exe
+
+At the moment FECONV does not support ABAQUS/CCX input format, but it is written in fortran and adding a different format should not be too much difficult.
+
+Vittorio
+
+--- Post #5 ---
+Author: Admin
+Date: 05-31-2020, 10:44 PM
+
+EDIT: Is this just a mesh converter? If so, I don't think it will have much value.
+
+Vittorio,
+That is interesting. Its been a while since I used ANSYS, but I thought it was similiar to ABAQUS. Would you be willing to give it a go?
+
+One thing to consider is that you can add custom entries in Mecway (text that goes in certain parts of the deck). We would need the converter to ignore trying to convert these regions. For example, in Mecway, one would add text like:
+
+$$$ START - DO NOT CONVERT $$$
+CARD, 1, 2, ...
+CARDB, 2, 4, ...
+$$$ END - DO NOT CONVERT $$$
+
+The converter would skip over this region (as designated by a specific string such as "$$$ START - DO NOT CONVERT $$$" and "$$$ END - DO NOT CONVERT $$$"
+
+The advantage of doing is:
+- We would only need support for whatever Mecway can output to CCX
+- There are some cards/features that MYSTRAN has that CCX does not, so it would be impossible to convert those anyway.
+
+There may be multiple "do not convert" regions. They may occur in the Case Control section and the Bulk Data sections. I think the Executative Control section is simple enough that it could always be converted though.

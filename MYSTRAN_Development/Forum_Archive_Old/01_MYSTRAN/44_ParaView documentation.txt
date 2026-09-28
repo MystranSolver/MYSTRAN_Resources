@@ -1,0 +1,61 @@
+Thread: ParaView documentation
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=44
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: Dom
+Date: 08-24-2020, 03:43 PM
+
+Hello,
+
+Is there documentation on how to use Paraview as a post-processor of MYSTRAN?
+
+Thanks
+Dom
+
+--- Post #2 ---
+Author: Admin
+Date: 08-24-2020, 05:21 PM
+
+Dom,
+Not that I am aware of. MYSTRAN has output for F06, NEU (neutral), and ANS (internal output for checking). We are working on OP2 output. I don't know what Paraview supports, but it would need to read one of those output types or we would need to code in a different output I suppose.
+
+--- Post #3 ---
+Author: Dom
+Date: 08-24-2020, 07:01 PM
+
+Admin,
+
+ParaView should read the F06 file, but I have problems loading the f06 of MYSTRAN f06 and also the f06 of MSC Nastran.
+
+VTK is ASCII file, with a syntax simple. ParaView suppor very well this format file.
+
+I will try to write a DMAP script in order to have the VTK as an output file.
+
+I have a old version of DMAP manual (MSC Nastran V68), but many models don't match with MYSTRAN
+
+Do you have a DMAP manual for MYSTRAN to share with me?
+
+Thanks in advanced
+
+Dom
+
+PS
+I employed in MSC for about 15 years
+
+--- Post #4 ---
+Author: ceanwang
+Date: 08-24-2020, 10:19 PM
+
+Is it possible for Nastran95 to have a VTK output script?
+
+--- Post #5 ---
+Author: Admin
+Date: 08-24-2020, 10:24 PM
+
+The F06 is notoriously difficult to parse. It also can change for different versions of Nastran/ MSC Nastran. Furthermore, the MYSTRAN F06 will have some differences between an MSC Nastran F06. In general, its not a reliable way to parse data (though possible).
+
+Regarding DMAP, I am not sure if MYSTRAN supports it or not (but I think it does not). You can find all known documentation here: https://www.mystran.com/forums/showthread.php?tid=39. Someone else may be able to chime in about this as well.

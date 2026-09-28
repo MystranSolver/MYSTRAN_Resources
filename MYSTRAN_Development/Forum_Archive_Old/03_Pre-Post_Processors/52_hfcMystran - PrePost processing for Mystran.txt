@@ -1,0 +1,27 @@
+Thread: hfcMystran - Pre/Post processing for Mystran
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=52
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 09-25-2020, 01:36 AM
+
+Hi,
+
+The project is at https://github.com/ceanwang/hfcMystran
+
+Some case photos could be seen from here:
+https://forum.freecadweb.org/viewtopic.php?f=18&t=46171
+
+Regards,
+
+Cean
+
+--- Post #2 ---
+Author: Admin
+Date: 09-28-2020, 07:23 PM
+
+This looks like it could be a great option. I will have to look into FreeCAD more to see how robust of a pre/post it could be.

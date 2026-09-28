@@ -1,0 +1,15 @@
+Thread: Python Neutral Parse
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=65
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: numenic
+Date: 04-16-2021, 08:02 AM
+
+I wrote a lightweight python femap neutral file parser to ease automatic post-processing:
+
+It's available on pypi: https://pypi.org/project/femap-neutral-parser/
+repository: https://framagit.org/numenic/femap_neutral_parser/

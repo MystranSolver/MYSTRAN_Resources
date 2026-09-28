@@ -1,0 +1,21 @@
+Thread: FreeCad
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=24
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: vittorio
+Date: 01-29-2020, 09:34 PM
+
+Freecad is an OpenSource cad system already integrated with calculix and other solvers.
+A nastran thread is already on its forum.
+Vittorio
+https://forum.freecadweb.org/viewtopic.php?f=18&t=12753
+
+--- Post #2 ---
+Author: Admin
+Date: 07-23-2020, 11:26 PM
+
+https://forum.freecadweb.org/viewtopic.p...d726d1e5b0

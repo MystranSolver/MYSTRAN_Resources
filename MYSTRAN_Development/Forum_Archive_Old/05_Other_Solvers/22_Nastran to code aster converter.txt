@@ -1,0 +1,16 @@
+Thread: Nastran to code aster converter
+Category: Other Solvers
+URL: https://www.mystran.com/forums/showthread.php?tid=22
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: vittorio
+Date: 01-29-2020, 08:59 PM
+
+An input file format converter from Nastran to Code_Aster is available at
+
+https://sourceforge.net/projects/nastrantocodeas/
+
+Vittorio

@@ -1,0 +1,36 @@
+Thread: Successful addition of sparse solver SuperLU to MYSTRAN
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=57
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: drbillc
+Date: 12-21-2020, 10:12 PM
+
+With the help of Cean Wang I was able to get the sparse solver SuperLU downloaded and compiled into 2 libraries, libsuperlu.a and libblas.a . Using these, along with the c routine: c_fortran_dgssv.o I modified MYSTRAN's LINK3 solution of the L-set displacements (from the equation KLL*UL = PL) to run using SuperLU as a sparse solver. I ran a series of test problems, for which I have known solutions, to see how SuperlU performed. The series of test problems were of a square, simply supported, thick plate under a pressure load. I ran successively larger meshes up to a maximum of 800x800 plate elements with 1,920,000 L-set degrees of freedom (DOF). SuperLU ran all of the test problems successfully up to the almost 2 million degree of freedom problem (but took an excessive amount of time for this largest DOF run). The banded solver (LAPACK) couldn't come close to running anything this large. It would have required almost 40 GB of storage for the banded KLL array LAPACK uses. LAPACK couldn't even run the smaller 500x500 mesh problem with 750,000 L-set DOF. LAPACK needed 9 GB in this case but Windows will not allocate more than 2 GB to any array
+
+There are a number of other subroutines (approximately 10) in MYSTRAN that need to be modified to take advantage of this new sparse solver. For example, reduction of the G-set stiffness matrix, KGG, to the N-set involves eliminating the dependent DOF identified on MPC's and rigid elements. However, for the test problems mentioned above, none of these effects in the 10 additional subroutines were needed and for many problems in general the inclusion of the sparse solver that has been done for LINK3 will be sufficient. Over the next few months I will try to get the other routines reprogrammed to use SuperLU but, in the meantime, most simple statics problems will run the new sparse solver very effectively.
+
+I will post the updated MYSTRAN, with SuperLU incorporated into LINK3, to GitHub later this week
+
+Cean has a thread with the procedure to compile SuperLU. If anyone uses it ignore his comments on how to incorporate into MYSTRAN. Only use up to step 6 in his procedure (outlined below):
+
+From Cean:
+Download and execute the cmake msi binary from www.cmake.org/download. This will install cmake into C:\Program Files\Cmake
+
+Download SuperLU as a zip file, unzip it to D:\MYSTRAN\Cmake
+
+Start Windows Terminal and change to D:\MYSTRAN\SuperLU (Use FreeCommander XE program is more easy to do this.)
+
+Configure with my w.bat script as before,
+
+Run make to build SuperLU
+
+then, to test SuperLU prior to incorporating into MYSTRAN:
+After building SuperLU successfully, change to D:\MYSTRAN\SuperLU\FORTRAN
+
+Run make to build the FORTRAN example.
+
+You could look at f77_main.f to see how it is called.

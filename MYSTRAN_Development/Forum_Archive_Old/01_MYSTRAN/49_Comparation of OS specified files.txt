@@ -1,0 +1,130 @@
+Thread: Comparation of OS specified files
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=49
+Posts: 6
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 08-31-2020, 02:57 AM
+
+Hi,
+
+Under Sources\Specifics, there are files for Windows and Linux system.
+
+Here is a script to compare them. Put the script under Sources\Specifics folder and run cpSrc.bat, the difference will saved in a cpDiff.txt file.
+
+For GET_INI_FILNAM.f90, the difference is:
+
+Code:InputObject
+-----------
+! ##################################################################################################################...
+! Gets name (incl path) of the MYSTRAN.INI initialization file. This is the Linux version which uses '/' as a folder...
+         INIFIL(MYSTRAN_DIR_LEN+1:MYSTRAN_DIR_LEN+2)  = '/'
+
+! Gets name (incl path) of the MYSTRAN.INI initialization file. This is the Windows version which uses '\' as a fold...
+         INIFIL(MYSTRAN_DIR_LEN+1:MYSTRAN_DIR_LEN+2)  = '\'           There should be a way to work for both OSes, '\\' ?
+
+For GET_MYSTRAN_DIR.f90, the difference is:
+
+Code:InputObject
+-----------
+! ##################################################################################################################...
+      CHARACTER(FILE_NAM_MAXLEN*BYTE), INTENT(OUT) :: MYSTRAN_DIR       ! Directory where program executable (and IN...
+      INTRINSIC                                    :: GET_ENVIRONMENT_VARIABLE
+      CALL GET_ENVIRONMENT_VARIABLE ( 'MYSTRAN_directory', MYSTRAN_DIR, MYSTRAN_DIR_LEN  )
+! Gets the environment variable MYSTRAN_DIR that tells Windows where the MYSTRAN executable is located. The user mus...
+! environment variable on their computer
+      CHARACTER(FILE_NAM_MAXLEN*BYTE), INTENT(OUT) :: MYSTRAN_DIR       ! Directory where executable (and INI file) ...
+      INTRINSIC                                    :: GETENV
+      CALL GETENV ( 'MYSTRAN_directory', MYSTRAN_DIR )
+      MYSTRAN_DIR_LEN = FILE_NAM_MAXLEN
+      DO I=FILE_NAM_MAXLEN,1,-1
+         IF (MYSTRAN_DIR(I:I) /= ' ') THEN
+            EXIT
+         ELSE
+            MYSTRAN_DIR_LEN = MYSTRAN_DIR_LEN - 1
+            CYCLE
+         ENDIF
+      ENDDO
+I think GET_ENVIRONMENT_VARIABLE (Fortran 2003 and later) and GETENV (backwards compatibility with GNU Fortran 77) could use one to work for both OSes. In new code, programmers should consider the use of the GET_ENVIRONMENT_VARIABLE.
+
+For READ_CL.f90,  the difference is:
+
+Code:InputObject
+-----------
+! Begin MIT license text.
+! _______________________________________________________________________________________________________
+! Copyright 2019 Dr William R Case, Jr (dbcase29@gmail.com)
+! Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+! associated documentation files (the "Software"), to deal in the Software without restriction, including
+! without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+! copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
+! the following conditions:
+! The above copyright notice and this permission notice shall be included in all copies or substantial
+! portions of the Software and documentation.
+! THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+! OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+! FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+! AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+! LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+! OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+! THE SOFTWARE.
+! _______________________________________________________________________________________________________
+! End MIT license text.
+! ##################################################################################################################...All are comments. So there should be no difference for this file.
+
+--- Post #2 ---
+Author: Admin
+Date: 08-31-2020, 03:27 AM
+
+So the idea is to make a common set of files so they are not OS specific?
+
+--- Post #3 ---
+Author: ceanwang
+Date: 08-31-2020, 03:54 AM
+
+(08-31-2020, 03:27 AM)Admin Wrote:  So the idea is to make a common set of files so they are not OS specific?Yes.
+
+Just did a test. Windows 10 now accept both / and \ as directory separator. So GET_MYSTRAN_DIR.f90 doesn't need two versions.
+Code:      program check_dir_sep
+      implicit none
+      integer                         :: i, ierr, n
+      open(19,file='d:/00master/1/test_open.txt', iostat=ierr, form='formatted', status='replace')
+      !open(19,file='d:\00master\1\test_open.txt', iostat=ierr, form='formatted', status='replace')
+      if (ierr == 0) then
+         do i=1,10
+            write(19,'(A,I4)') ' #1: Hello, number ', i
+         enddo
+      else
+         write(*,'(A,I8)') ' Stopping due to error opening file with IERR = ', IERR
+      endif
+      close (19,iostat=ierr,status='keep')
+      end program check_dir_sep
+
+--- Post #4 ---
+Author: borges
+Date: 08-31-2020, 07:43 PM
+
+Actually, I have to say that you don't need two different files at all, and there's no need to use just / (and thus drop Windows versions before 10) either.
+
+One can just use compiler directives to put OS-specific variables and code. It was part of my "minor structural improvements" plan.
+
+I don't know how much other Fortran compilers support preprocessing. Does anyone here even use a compiler other than gfortran anyway?
+
+--- Post #5 ---
+Author: borges
+Date: 08-31-2020, 09:00 PM
+
+I got rid of OS-specific files on my fork.
+
+Build fine on Windows and Linux using CMake.
+
+I also made a pull request.
+
+--- Post #6 ---
+Author: Admin
+Date: 09-01-2020, 04:45 AM
+
+Cean/Borges, thanks. The main Github is now updated and no longer has OS specific files. This makes it less confusing.

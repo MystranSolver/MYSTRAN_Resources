@@ -1,0 +1,178 @@
+Thread: Mystran and Intel One API 2022
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=99
+Posts: 8
+
+======================================================================
+
+--- Post #1 ---
+Author: realbabilu
+Date: 11-09-2022, 01:27 AM
+
+Hi everyone,
+
+I just new at mystran this year.
+For information Intel One API now is free for everyone. Including the Math Kernel Library ,and Vtune
+The c++ compiler for compiling SuperLu and fortran compiler for compiling Mystran can be downloaded at https://www.intel.com/content/www/us/en/...nents.html
+The MKL can be downloaded at https://www.intel.com/content/www/us/en/...nload.html
+alternatively OpenBlas also can be used https://github.com/xianyi/OpenBLAS/relea...21-x64.zip
+The Intel compiler required free Visual Studio Community https://visualstudio.microsoft.com/vs/community/
+I still learn to create makefile using Cmake for VS and the GCC equations.com. so i jumped without CMAKE
+
+A. USING Visual Studio Windows
+Steps :
+1. Compile SuperLu.Lib in SRC superlu with c_fortran_dgsvv.c with
+Code:icl -c *.c /O3 /Qpar with modified Slu_cnames.h for creating obj, then
+Code:xilib /out:superlu.lib *.obj    compile with optimization like /QaxCORE-AVX2 for intel or /QxCORE-AVX2 for AMD may improve the speed, and /Qpar for parallel run
+2. Create the StandardConsole / Quickwin Fortran project
+3. Drag all fortran subroutine excluding the "Source\Modules\LAPACK\Unresolved_Externals_Problem" since we will use Openblas / MKL AND  *.H files in include folder
+    to the Solution Explorer - Source Files
+4. Edit GET_MYSTRAN_DIR.f90
+
+Code:CALL GETENV ( 'MYSTRAN_directory', MYSTRAN_DIR ) to
+Code:CALL get_environment_variable  ( 'MYSTRAN_directory', MYSTRAN_DIR )    Hope this call get_environment_variable is used in the next mystran, since it used also in gcc.
+5. For mkl --> in Solution --> right click Properties » Configuration properties » Fortran  » Use Intel MKL » Sequential or Parallel  --> if /Qpar then Parallel
+    For OpenBlas drag Openblas.dll.a and with all *.h to the Solution Explorer - Source Files
+    compile with optimization like /QaxCORE-AVX2 for Intel or /QxCORE-AVX2 for AMD may improve the speed
+6. For big problems, it could catch stack overflow, move all stack to heap.
+  in Solution --> Properties » Fortran » Configuration properties » Optimization » Heap Arrays » 0
+7. You will get the exe file.
+
+B. Using command line Intel compiler x64 enviroment
+a. Get mystran latest source code put in d:\mystran --> d:\mystran\mystran-main\
+a. Get superLu latest, put on SRC folder with FORTRAN d_fortran_dgssv.c  and modified SLU_Cnames.h on SuperLu folder d:\mystran\mystran-main\superlu
+b. Get into CMD command lines intel x64 Compiler
+c. Get 2 Batch file to run in d:\mystran
+    compile_mystran_superlu_with_mkl_AVX2_Parallel.bat https://controlc.com/f266943f
+    mystran.rsp  https://controlc.com/32578204
+d. Get mystran.exe inside x64/Release
+
+Questions
+1. SuperLu-MT cant be used here, right?
+2. Can i get the built MingW GCC makefile? that compiled in msys or mingw, so i can changed to be compiled in the equations mingw compiler
+
+NOTE: Modified SLU_Cnames.h inside SRC SuperLU dir for Visual Fortran
+Code:/* Fortran interface */
+#define c_bridge_dgssv_ C_BRIDGE_DGSSV
+#define c_fortran_sgssv_ C_FORTRAN_SGSSV
+#define c_fortran_dgssv_ C_FORTRAN_DGSSV
+#define c_fortran_cgssv_ C_FORTRAN_CGSSV
+#define c_fortran_zgssv_ C_FORTRAN_ZGSSV
+
+--- Post #2 ---
+Author: Admin
+Date: 11-09-2022, 02:13 PM
+
+This is a fairly detailed question, so you may have more success on the Discord chat here: https://www.mystran.com/forums/showthread.php?tid=93
+
+--- Post #3 ---
+Author: realbabilu
+Date: 11-16-2022, 01:50 AM
+
+Just done some testing.
+somehow GCC is very fast in stiffness solving in sparse. 4min vs 8min in intel. 15 min github release.
+
+ >> MYSTRAN BEGIN  : 11/13/2022 at 19: 3: 1.274 The input file is BIGDATA-1401.DAT  [github release]
+ >> MYSTRAN END    : 11/13/2022 at 19:18:36.748
+
+ >> MYSTRAN BEGIN  : 11/13/2022 at 19:37:24.776 The input file is bigdata-GCC.dat [gfortran + gcc superlu + openblas]
+ >> MYSTRAN END    : 11/13/2022 at 19:41: 9.616
+
+ >> MYSTRAN BEGIN  : 11/13/2022 at 19:43:22.374 The input file is bigdata-intel.dat [mkl sequential + ifort v2020+ icl superlu]
+ >> MYSTRAN END    : 11/13/2022 at 19:51:33.164
+
+ >> MYSTRAN BEGIN  : 11/14/2022 at  0:20: 8.676 The input file is bigdata-INTEL-PAR.dat [mkl parallel+  ifort parallel lib v2020  icl superlu ]
+ >> MYSTRAN END    : 11/14/2022 at  0:27:57.530
+
+ >> MYSTRAN BEGIN  : 11/14/2022 at  0:43:14.248 The input file is bigdata-intel-threads.dat [mkl parallel + ifort parallel dll v2020+ icl superlu]
+ >> MYSTRAN END    : 11/14/2022 at  0:51: 4.271
+
+ >> MYSTRAN BEGIN  : 11/14/2022 at  1:18: 7.880 The input file is bigdata-VS.dat [c++ VS] [mkl parallel + ifort parallel dll 2020 + cl superlu]
+ >> MYSTRAN END    : 11/14/2022 at  1:25:38. 62
+
+Test File: bigdata.dat Solid Static
+https://www.mediafire.com/file/8nt61quat...a.zip/file
+
+Windows GCC Binary + Openblas [gcc equations.com]
+https://www.mediafire.com/file/rpmarn09z...c.zip/file
+
+Windows IntelCompiler + MKL Binary
+https://www.mediafire.com/file/eew23mm8h...r.zip/file
+
+--- Post #4 ---
+Author: Admin
+Date: 11-16-2022, 05:36 AM
+
+Thanks for the info. You might also want to try using the parameter "PARAM, SOLLIB, BANDED" and see what the performance is like. This will call the banded solver LAPACK instead of the default sparse solver (SuperLU). LAPACK is built into the source code automatically btw.
+
+--- Post #5 ---
+Author: ceanwang
+Date: 11-16-2022, 10:54 AM
+
+(11-16-2022, 01:50 AM)realbabilu Wrote:  >> MYSTRAN BEGIN  : 11/14/2022 at  0:20: 8.676 The input file is bigdata-INTEL-PAR.dat [mkl parallel+  ifort parallel lib v2020  icl superlu ]
+ >> MYSTRAN END    : 11/14/2022 at  0:27:57.530
+Current code doesn't have call to MKL. Also no code to parallel. Have you done any change?
+
+In your case file, PARAM,K6ROT,100. is not supported yet.
+
+I can run the gcc version. For Intel version, I got a msg on Windows [Version 10.0.19044.2251]
+
+Code:Please verify that both the operating system and the processor support Intel(R) X87, CMOV, MMX, FXSAVE, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, MOVBE, POPCNT, AVX, F16C, FMA, BMI, LZCNT and AVX2 instructions.
+
+--- Post #6 ---
+Author: realbabilu
+Date: 11-16-2022, 09:24 PM
+
+(11-16-2022, 05:36 AM)Admin Wrote:  Thanks for the info. You might also want to try using the parameter "PARAM, SOLLIB, BANDED" and see what the performance is like. This will call the banded solver LAPACK instead of the default sparse solver (SuperLU). LAPACK is built into the source code automatically btw.Got hit by " *ERROR  940: ATTEMPT TO ALLOCATE 105236.780 MB OF MEMORY TO ARRAY ABAND EXCEEDING WINDOWS MAX MEMORY ALLOWED OF  2147.484 MB"
+
+In params.f90
+Code:[/font][/size][/color]
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]      REAL(DOUBLE)            :: WINAMEM        =2147.483647! Max MB of memory that Windows XP allows for arrays 2147.483647[/font][/size][/color]
+[color=#333333][size=small][font=Tahoma, Verdana, Arial, sans-serif]
+So i need to increasing the max 2GB limit. to lets say 150gb limit
+it took a while to process... i mean a long....since very big it need 106GB memory
+very long than superlu.
+are we sure the superlu did it fast right...this need a benchmark.
+
+here is the 152gb limit winamem
+gcc binary
+https://www.mediafire.com/file/f1uv79v6o...m.zip/file
+
+intel binary
+https://www.mediafire.com/file/vrt15tbaz...2.zip/file
+
+ (11-16-2022, 10:54 AM)ceanwang Wrote:   (11-16-2022, 01:50 AM)realbabilu Wrote:  >> MYSTRAN BEGIN  : 11/14/2022 at  0:20: 8.676 The input file is bigdata-INTEL-PAR.dat [mkl parallel+  ifort parallel lib v2020  icl superlu ]
+ >> MYSTRAN END    : 11/14/2022 at  0:27:57.530
+>>Current code doesn't have call to MKL. Also no code to parallel. Have you done any change?
+
+I only change for the compatibility along Fortran Compiler to use CALL get_environment_variable  ( 'MYSTRAN_directory', MYSTRAN_DIR )
+than CALL GETENV ( 'MYSTRAN_directory', MYSTRAN_DIR )
+in GET_MYSTRAN_DIR.f90
+
+The Source\Modules\LAPACK\Unresolved_Externals_Problem from mystran source and the CBLAS on Superlu source is not used.
+It will call optimized Blas subroutine in math library in Intel MKL or Openblas.
+
+>>In your case file, PARAM,K6ROT,100. is not supported yet.
+
+>>I can run the gcc version. For Intel version, I got a msg on Windows [Version 10.0.19044.2251]
+
+Code:Please verify that both the operating system and the processor support Intel(R) X87, CMOV, MMX, FXSAVE, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, MOVBE, POPCNT, AVX, F16C, FMA, BMI, LZCNT and AVX2 instructions.[font=Tahoma, Verdana, Arial, sans-serif][color=#333333]
+Hm i think the intel compiler must use intel processor when using /Qpar. Let me check. try 152gb mod above.
+
+--- Post #7 ---
+Author: ceanwang
+Date: 11-17-2022, 01:46 AM
+
+(11-16-2022, 09:24 PM)realbabilu Wrote:  [quote pid="336" dateline="1668596057"]
+Hm i think the intel compiler must use intel processor when using /Qpar. Let me check. try 152gb mod above.
+[/quote]
+
+I think you need first to parallel the source code, then you could call the parallel library.
+
+How do you increase the max mem limit?
+
+--- Post #8 ---
+Author: Admin
+Date: 11-17-2022, 02:48 AM
+
+Cean, I saw WINAMEM as a PARAM in the manual. Maybe also search for "memory" in the user manual.

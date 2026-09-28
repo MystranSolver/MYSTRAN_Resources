@@ -1,0 +1,22 @@
+Thread: gFortran  8.1.0 for Windows
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=42
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 08-15-2020, 01:40 AM
+
+Hi,
+
+It is from MinGW-w64 project. Code::Block uses this version.
+
+You could download it from https://sourceforge.net/projects/mingw-w64/
+
+With cmake, you could use it to compile MYSTRAN in DOS terminal.
+
+Regards,
+
+Cean

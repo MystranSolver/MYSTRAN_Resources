@@ -1,0 +1,38 @@
+Thread: hfcNASTRAN95 - Pre/Post processing for NASTRAN95
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=40
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 07-26-2020, 10:44 PM
+
+Hi,
+
+The project is at https://github.com/ceanwang/hfcNastran95
+
+Some case photos could be seen from this post:
+
+https://forum.freecadweb.org/viewtopic.php?f=18&t=39234
+
+and demo case:
+
+https://forum.freecadweb.org/viewtopic.php?f=18&t=48982
+
+Regards,
+
+Cean
+
+--- Post #2 ---
+Author: ceanwang
+Date: 08-01-2020, 03:10 AM
+
+Mesh of large problem 3 from freeBSD distribution of NASTRAN-95
+
+--- Post #3 ---
+Author: ceanwang
+Date: 10-18-2020, 08:39 AM
+
+https://github.com/nasa/NASTRAN-95/blob/...05011a.txt

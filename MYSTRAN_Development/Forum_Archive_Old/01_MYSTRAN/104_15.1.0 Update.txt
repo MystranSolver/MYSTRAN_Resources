@@ -1,0 +1,16 @@
+Thread: 15.1.0 Update
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=104
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: borges
+Date: 12-19-2023, 02:50 PM
+
+This minor update adds a drilling stiffness for our 5-dof shells (QUAD4s and TRIA2s), the parameter K6ROT.
+
+We separated this from 15.0 so people could have a "clean" release without this new feature, since verification efforts are still ongoing.
+
+You can get the Windows and Linux binaries at https://github.com/MYSTRANsolver/MYSTRAN...tag/15.1.0 !

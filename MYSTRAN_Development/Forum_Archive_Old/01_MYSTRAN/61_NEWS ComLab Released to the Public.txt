@@ -1,0 +1,22 @@
+Thread: NEWS: ComLab Released to the Public
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=61
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 03-10-2021, 03:07 AM
+
+Harry Schaeffer has released ComLab to the public. It is an improved version of NASTRAN-95. For more information, see this thread:
+
+https://www.mystran.com/forums/showthread.php?tid=58
+
+--- Post #2 ---
+Author: Admin
+Date: 03-16-2021, 03:06 PM
+
+Also, a list of Enhancements...
+
+https://www.mystran.com/forums/showthread.php?tid=63

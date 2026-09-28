@@ -1,0 +1,140 @@
+Thread: Trying to add sparse matrix code to LK2/REDUCE_KFF_TO_KAA.f90
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=54
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 10-14-2020, 11:55 PM
+
+Hi,
+
+Trying to use SuperLU sparse solver which is from https://github.com/xiaoyeli/superlu
+
+First: Inputs for SuperLU are:
+Code:            !NROW=n=400
+            !NCOL=n=400
+            !NNZERO=nnz=1920
+            !values
+            !rowind - row index
+            !colptr - column pointerHave to map MYSTRAN's I_KOO, J_KOO, KOO to these.
+
+Second: Output for SuperLU is b(i), i=1,n after solving. Need to map this b(i) to what MYSTRAN is called.
+
+Help is appreciated.
+
+Cheers
+
+Cean
+
+The code is like this:
+
+Existing Banded:
+
+Code:         IF (SOLLIB == 'BANDED  ') THEN                    ! Use LAPACK
+
+            KOO_SDIA   = 0
+            EQUIL_KOO  = 'N'
+            INFO = 0
+            CALL SYM_MAT_DECOMP_LAPACK ( SUBR_NAME, 'KOO', 'O ', NDOFO, NTERM_KOO, I_KOO, J_KOO, KOO, 'Y', KOORAT, EQUIL_KOO,      &
+                                         RCONDK, DEB_PRT, EQUED, KOO_SDIA, K_INORM, RCOND, KOO_SCALE_FACS, INFO )
+Newly added Sparse:
+
+Code:        ELSE IF (SOLLIB == 'SPARSE  ') THEN
+
+            ! Add sparse matrix code here to decompose matrix KOO
+
+            !use SuperLU subroutine hbcode1(nrow, ncol, nnzero, values, rowind, colptr)
+            !call hbcode1(n, n, nnz, values, rowind, colptr)
+            !NROW=n=400
+            !NCOL=n=400
+            !NNZERO=nnz=1920
+            !values
+            !rowind - row index
+            !colptr - column pointer
+
+            nrhs = 1
+            ldb = n
+            do i = 1, n
+               b(i) = 1
+            enddo
+
+            ! First, factorize the matrix. The factors are stored in *factors* handle.
+            iopt = 1
+            call c_fortran_dgssv( iopt, n, nnz, nrhs, values, rowind, colptr,
+     $                      b, ldb, factors, info )
+
+            if (info .eq. 0) then
+               write (*,*) 'Factorization succeeded'
+            else
+               write(*,*) 'INFO from factorization = ', info
+            endif
+
+            ! Second, solve the system using the existing factors.
+            iopt = 2
+            call c_fortran_dgssv( iopt, n, nnz, nrhs, values, rowind, colptr,
+     $                      b, ldb, factors, info )
+
+            if (info .eq. 0) then
+               write (*,*) 'Solve succeeded'
+               write (*,*) (b(i), i=1, 10)
+            else
+               write(*,*) 'INFO from triangular solve = ', info
+            endif
+
+            ! Last, free the storage allocated inside SuperLU
+            iopt = 3
+            call c_fortran_dgssv( iopt, n, nnz, nrhs, values, rowind, colptr,
+     $                      b, ldb, factors, info )
+Here is SuperLU's test data g20.rua
+
+https://github.com/xiaoyeli/superlu/blob...LE/g20.rua
+
+It has 400 rows, 400 columns and 1920 none zero values. The data is arrange as COLPTR, ROWIND and VALUES.
+
+--- Post #2 ---
+Author: Admin
+Date: 10-26-2020, 10:07 PM
+
+Cean,
+
+Is there a reason you are looking into SuplerLU? Perhaps because it is native Fortran? PaStiX looks to be a great option, but it is coded in C. CalculiX (coded in Fortran) uses PaStiX so there is a way to incorporate it. Here are some papers about solvers. The 2017 paper discusses SuperLU and I made a screenshot of some notable comments.
+
+I also contacted Bill and he is going to look into it.
+
+https://www.mystran.com/docs/Solver_Papers.zip
+
+--- Post #3 ---
+Author: ceanwang
+Date: 10-27-2020, 11:41 PM
+
+Yes, just want to try a easy build case.
+
+There could setup a sparse solver switch, like:
+
+If SparseSolver = 'SuperLU' then
+  ...
+else If SparseSolver = 'PaStiX' then
+  ...
+else
+   print 'Not supported yet'
+endif
+
+--- Post #4 ---
+Author: Admin
+Date: 10-28-2020, 04:07 AM
+
+Sure, that is a good idea. Have you seen this document? It might help.
+
+https://mystran.com/notes/Sparse_Solver_Notes.pdf
+
+--- Post #5 ---
+Author: ceanwang
+Date: 10-28-2020, 04:37 AM
+
+(10-28-2020, 04:07 AM)Admin Wrote:  Sure, that is a good idea. Have you seen this document? It might help.
+
+https://mystran.com/notes/Sparse_Solver_Notes.pdf
+I am following it.

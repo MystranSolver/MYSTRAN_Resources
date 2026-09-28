@@ -1,0 +1,28 @@
+Thread: Added a Parameter that Removes Bandit Files from final Run Directory
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=62
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: ZacharyALerner
+Date: 03-15-2021, 03:09 AM
+
+Howdy all.
+
+With aid from Bill, I've added a parameter to MYSTRAN called PARAM,DELBAN that deletes the bandit files from the home run directory.  You can find the modified files in my respository here.
+
+For future reference, the files needed (at the barest minimum to merely function) in order to add a parameter to MYSTRAN are
+
+1.) Source/Interfaces/BD_PARAM_Interface.f90 where other subroutines can read the types of all parameter entities.
+2.) Source/LK1/L1A-BD/BD_PARAM.f90  which processes the PARAM bulk data cards
+3.) Source/Modlues/PARAMS.f90  where you define and comment the default value of your parameter, and describe what it does.
+
+Otherwise, all that was needed for this parameter to be parsed was to add a conditional into Source/Modules/BANDIT/BANDIT_MODULE.f to deal set a close status flag to 'delete' instead of 'keep'.  It's worth noting that my compiler was throwing a fit over my if statements for some reason here, I think that because this BANDIT subroutine contains some F77 legacy syntax, the newer compilers don't like some of the looser syntax available in the f90 and f95 scripts. Future tinker'ers beware.
+
+Also I've added the bones of a README revision for the github page, as I really like the quality of Ceanwang and Bruno's works on documentation and I'd love to take it on myself to beautify them for publication in any way that you all think is best.
+
+Let me know you think and what else I should do.
+
+- Zach

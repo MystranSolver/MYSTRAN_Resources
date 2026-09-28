@@ -1,0 +1,61 @@
+Thread: DMAP
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=82
+Posts: 7
+
+======================================================================
+
+--- Post #1 ---
+Author: Dom
+Date: 08-23-2022, 08:38 AM
+
+Hello there,
+
+Is it possible to use DMAP in MYSTRAN?
+
+Many thanks
+
+--- Post #2 ---
+Author: Admin
+Date: 08-23-2022, 12:52 PM
+
+You can have a look at the documentation, but I do not believe so. From my understanding from some of the guys that coded DMAP, its a "work of art" and would be quite difficult to implement in MYSTRAN. If you go to the Discord chat, the other guys would know more.
+
+--- Post #3 ---
+Author: Dom
+Date: 08-23-2022, 01:31 PM
+
+I'm talking about Direct Matrix Abstraction Program.
+I couldn't find anything in the documentation yet.
+
+--- Post #4 ---
+Author: Admin
+Date: 08-24-2022, 12:21 AM
+
+Yes, I believe we are talking about the same thing. I do not think there is anything in MYSTRAN for that. It is not "necessary" for most FEA programs. Its an added bonus of NASTRAN.
+
+--- Post #5 ---
+Author: Dom
+Date: 08-24-2022, 07:57 AM
+
+Pity, because DMAP makes Nastran different from any other FEM code. The ability to modify an SOL, create a new one, extract matrices, directly introduce matrices, etc. It is the main feature of Nastran that differentiates it from other FEM codes.
+
+Nastran is make by DMAP!
+
+By DMAP, you can create a program to solve any matrix math problem, regardless of whether it is a finite element problem or other.
+
+Does this mean that MYSTRAN was not developed by NASA's Nastran?
+
+--- Post #6 ---
+Author: Admin
+Date: 08-24-2022, 05:57 PM
+
+Well its possible that it may be the main feature that differentiates if from other FEM programs. However, I would argue that the basic approach of NASTRAN/MYSTRAN is different enough from other FEM programs. For example, NASTRAN is still widely used in the aircraft industry for linear models for a variety of reasons (low on that list is DMAP).
+
+No, MYSTRAN was developed by people that worked on NASA NASTRAN, but is totally independent and designed from the ground up. It has a much more modern code base and is far easier to code/develop/compile. A few attempts have been made to continue the development of the public release of NASA NASTRAN, but there are major roadblocks. AFAIK, there has only been one person to develop it (other than compile it), which is Harry Schaeffer (there is a discussion about his ComLab in the other subforum). Also, due to international restrictions, it can not be released to non-US Citizens. For the most, the community seems to have given up on it, other than still being able to use the version that has been released to the public (since a few people have been able to compile it).
+
+--- Post #7 ---
+Author: ceanwang
+Date: 08-27-2022, 04:43 AM
+
+(08-24-2022, 07:57 AM)Dom Wrote:  Pity, because DMAP makes Nastran different from any other FEM code. You can try Nastran-95 which is free and easy to install on a Linux system. Also there is Windows exe.

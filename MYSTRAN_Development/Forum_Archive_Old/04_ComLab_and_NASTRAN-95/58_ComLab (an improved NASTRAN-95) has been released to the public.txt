@@ -1,0 +1,42 @@
+Thread: ComLab (an improved NASTRAN-95) has been released to the public
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=58
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 02-10-2021, 07:47 AM
+
+Harry Schaeffer has created an improved version of NASTRAN-95 called ComLab. It was previously a commercial program, but he has now released it to the public and we are hosting it here. We are looking into adding the source code at a later date as well.
+
+Full Package is on hold.
+https://www.mystran.com/comlab/CML.pdf - User Manual (part of the full package)
+https://www.mystran.com/comlab/INSTALL.pdf - Installation Guide (part of the full package)
+https://www.mystran.com/comlab/COMLAB_EULA.pdf - License Agreement (note that Harry has released ComLab to the public now so this may not be a current document, but is provided for reference)
+
+Harry wrote one of the first books about NASTRAN and it was published in 1979. He also helped release one of the first complied versions of NASTRAN-95
+https://www.amazon.com/Nastran-Primer-St...B000O15X8Y
+
+--- Post #2 ---
+Author: fontanj
+Date: 12-13-2022, 02:15 AM
+
+(02-10-2021, 07:47 AM)Admin Wrote:  Harry Schaeffer has created an improved version of NASTRAN-95 called ComLab. It was previously a commercial program, but he has now released it to the public and we are hosting it here. We are looking into adding the source code at a later date as well.
+
+Full Package is on hold.
+https://www.mystran.com/comlab/CML.pdf - User Manual (part of the full package)
+https://www.mystran.com/comlab/INSTALL.pdf - Installation Guide (part of the full package)
+https://www.mystran.com/comlab/COMLAB_EULA.pdf - License Agreement (note that Harry has released ComLab to the public now so this may not be a current document, but is provided for reference)
+
+Harry wrote one of the first books about NASTRAN and it was published in 1979. He also helped release one of the first complied versions of NASTRAN-95
+https://www.amazon.com/Nastran-Primer-St...B000O15X8Y
+Is ComLab available for download somewhere? I am having trouble finding it.
+Thanks
+
+--- Post #3 ---
+Author: Admin
+Date: 12-13-2022, 04:55 AM
+
+Sorry, it turns out that ComLab can not be distributed to non-US citizens. This means that it can be released to the public.

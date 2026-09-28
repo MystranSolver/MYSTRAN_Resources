@@ -1,0 +1,23 @@
+Thread: Ansible Role to install MYSTRAN
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=67
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: numenic
+Date: 04-19-2021, 09:41 PM
+
+I pusblished here (https://framagit.org/numenic/mystran_instl_ansible_role) a small Ansible role for installing Mystran. I use it under Ubuntu, but it should work *at least* under Debian too.
+
+It basically:
+
+* check and install "gcc", "gfortran", "make", "git", "f2c"
+* under Ubuntu: install "libssl-deb" (necessaty tom compile CMAKE)
+* git clone or git pull CMAKE sources
+* compile CMAKE if git repo has changed
+* git clone or git pull Mystran sources
+* compile Mystran if git repo has changed
+
+Do not hesitate to give me your feedback and issues.

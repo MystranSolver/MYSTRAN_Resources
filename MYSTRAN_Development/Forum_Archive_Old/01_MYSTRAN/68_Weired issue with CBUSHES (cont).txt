@@ -1,0 +1,45 @@
+Thread: Weired issue with CBUSHES (cont)
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=68
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: numenic
+Date: 07-12-2021, 03:29 PM
+
+hello Forum,
+
+I'm referring to this issue https://github.com/dr-bill-c/MYSTRAN/issues/12
+
+The very strange thing is that I do not get the same F06 results that DrBill! how can it be? Compilation issue? Configuration?
+
+I have the same issue with 12.3 and 12.4.
+
+Thanks in advance.
+numenic / toto
+
+--- Post #2 ---
+Author: ZacharyALerner
+Date: 07-14-2021, 02:09 AM
+
+Howdy toto, hope you're doing well.  I'll crack that zip file open and take a looksie.
+
+--- Post #3 ---
+Author: drbillc
+Date: 07-15-2021, 02:51 PM
+
+(07-12-2021, 03:29 PM)numenic Wrote:  hello Forum,
+
+I'm referring to this issue https://github.com/dr-bill-c/MYSTRAN/issues/12
+
+The very strange thing is that I do not get the same F06 results that DrBill! how can it be? Compilation issue? Configuration?
+
+I have the same issue with 12.3 and 12.4.
+
+Thanks in advance.
+numenic / toto
+Hi numenic. I just ran it on my system and it gives the correct answers. See attached. I also checked the routine that had been in error calculating engineering forces and the one on GitHub is identical with the one I have on my system.
+
+I just cloned 12.4 on my system, compiled it and ran single_cbush again and get the same results so I imagine something must be wrong with your compilation or whatever. 12.4 looks good to me

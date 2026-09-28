@@ -1,0 +1,14 @@
+Thread: MYSTRAN - History and Current Efforts (2025 Update)
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=112
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 03-01-2025, 01:05 PM
+
+This is an informal history of history of MYSTRAN and where the project is going. I will also be posting a series of videos that explain how to use M3DFEA. Have a look at this video so get a better understanding of our goals and direction.
+
+https://www.espcomposites.com/MYSTRAN_Overview_2025.mp4

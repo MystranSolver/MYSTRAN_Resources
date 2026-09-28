@@ -1,0 +1,116 @@
+Thread: Intel Compile
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=10
+Posts: 9
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-15-2020, 08:03 PM
+
+EDIT: See this thread for the most current: https://www.mystran.com/forums/showthread.php?tid=2
+
+This is the initial findings from an attempt at compiling with Intel (note: this was not the Admin's effort, but was done by someone else):
+------------------------
+
+So, I thought I'd give things a whirl and see what happened if I tried to compile and link using Intel Fortran integrated into Visual Studio 2019.  I presumed that at some point, you'd like to have it so it would compile and link using several different flavors of Fortran.  So, maybe a good thing to try.
+
+I had a few compilation issues owing to minor differences between how Lahey and Intel view things, but got past them OK.  We can discuss that more at some later point.  Back in the day, I had developed some techniques to make my Fortran code mostly (but not completely) agnostic to the compiler vendor.
+
+But, during the linking phase, I encountered several missing references.  They are noted in the attached file that Intel Fortran generated.
+
+I suspect one of two possibilities occurred:
+
+1. Not all of the source code was in the ZIP file that I downloaded.  (or perhaps I missed something somewhere).
+2. I included some files in the link list that shouldn't have been included.  (I just included all the source code files I found in the directory hierarchy.) (I didn't try to un-ravel any of the Lahey-specific documents to try to discern what the link list actually was.)
+
+https://www.mystran.com/misc/BuildLog.htm
+
+--- Post #2 ---
+Author: Admin
+Date: 01-15-2020, 11:34 PM
+
+A few notes from Bill about this:
+
+1. He used an older version of the Intel sparse solver, which had to be purchased. Therefore, it can not be used by 3rd parties.
+2. Because of item 1, we need to remove the dependencies.
+3. In the short term, ARPACK/LAPACK can still be used as the MYSTRAN solver option (banded solver). It just means that there is no sparse solver option. In other words, large problems will be an issue (these require a sparse solver).
+
+Moving forward, we need to incorporate a sparse solver (or more than one even). See item 1 in the INTERMEDIATE section for some discussion about this.
+
+https://www.mystran.com/forums/showthread.php?tid=6
+
+--- Post #3 ---
+Author: drbillc
+Date: 01-16-2020, 12:08 AM
+
+The issue with the missing references in the linking process has to do with the fact that the source files I put on GitHub contain code for a very old Intel MKL sparse solver (version 10.2). When you link MYSTRAN you would need the Intel MKL libraries which I purchased from Intel. However, this old MKL solver has some bugs that cause MYSTRAN to crash under some conditions which are not at all obvious. Unfortunately, that MKL did not have any error codes and just crashed very ungracefully. Going forward that MKL code has to be removed so that the linking process will be able to complete without error. I am currently working on removing that MKL code. We will have to find another sparse solver in order for MYSTRAN to be useful for large problems
+
+--- Post #4 ---
+Author: drbillc
+Date: 01-21-2020, 12:18 AM
+
+I have been completely puzzled by the 13 unresolved externals that both Robert K. and I have been experiencing while linking mystran after a successful compile. They do not seem to make any sense, since all of the source code referenced by the unresolved externals is in the LAPACK_???. FOR routines which compile and produce obj files. I have looked at the err files and there is no hint of anything that could explain the problem.
+
+A little bit if history may be helpful. About 10-12 years ago I purchased the Intel Math Kernel Library (MKL) to use  as a sparse solver for mystran. For all the years prior to that I had, primarily, the LAPACK (banded solver, not a sparse solver) routines which were first installed many years ago and I never had any incidence of unresolved externals then. After the MKL was installed in mystran there were several Intel MKL libraries (4 of them to be exact) that were required in the linker response text file, LMY.LIN. That old MKL (version 10.2.4.032 to be exact) had some serious bugs and, if it failed, it always did so by just crashing. Recently it has given several users problems. So it is not a good option as a sparse solver going forward. With that in mind, I recently removed all of the MKL source code from MYSTRAN (and of course also removed the MKL libraries from the linker response file LMY.LIN. That's when I first started getting the unresolved externals. Besides the fact that, as mentioned above, the "unresolved" externals really are part of the LAPACK obj files, I found that if I put the MKL library files back in the LMY.LIN the problem goes away. That is, inclusion of the MKL libraries, even though the MYSTRAN code contains no MKL code, fixes the unresolved external problem. Wierd!
+
+One other way that seems to be taking care of the unresolved externals is to remove the objectionable source files from the large LAPACK files and put them in individual files (13 of them). I have done this with 2 of the files and, so far, have reduced the unresolved external issue to 11 (rather than the original 13). I plan to continue this effort to try and eliminate all 13 of the unresolved externals.
+
+Any ideas would be very welcome. If nothing else we can fix the problem with one of the 2 temporary fixes referenced above.
+
+--- Post #5 ---
+Author: Admin
+Date: 01-21-2020, 03:03 AM
+
+Notes from Robert K:
+
+A quick note to keep you apprised of my progress.  Don’t know if I am plowing the same ground or telling you things that you already know, but here goes, FYI, for whatever use you can make of it.
+
+Now that I am clear on the issue with INTEL MKL libraries, I was able to run that issue down and get them linked in and get the program successfully linked.  I did it as a Windows x64 executable.  (Running on Windows 10.)
+
+It only seemed to need 3 of the INTEL libraries.    I don’t know how my versions of the MKL library (that came with INTEL Parallel Studio XE 2020 Composer Edition for Fortran) compare with what you were using in the past.  Perhaps not the end-all solution, but at least it allows me to get it all linked and running while you continue to work on removing the need for the MKL.
+
+I ran the program against the all-elem-test example file, and it seemed to have no difficulty at all.  A quick perusal of the output it generated didn’t spot anything amiss, but I haven’t had a chance to study it in depth.
+
+I had to do a few small things to the source code to get it all to compile.  These appear to be due to minor differences between how Lahey and INTEL handled things.  A list of what I did is in the attached Word document.
+
+I had to add in one new simple function to resolve the call to GETCL.  It is attached.  Feel free to do with it what you will.  All it does is turn around and call INTEL Fortran’s built-in function for getting the command line.  I presume that there is not a universal way to communicate with the operating environment that would work the same for Lahey, gFortran and INTEL?  (That would be too easy.)
+
+The reason for my changing the file extensions is that INTEL is a bit persnickety about that and uses the file extension to determine whether the source is free format or not.  Unless I am missing something, it shouldn’t be a big deal to convert those few fixed format source files to free format, so we could use just one extension.  I can do that for you, if you’d like.
+
+Hopefully this is of some net positive help.
+
+https://www.mystran.com/docs/K2_GETCL.f90
+https://www.mystran.com/docs/Modificatio...STRAN.docx
+
+--- Post #6 ---
+Author: Admin
+Date: 01-21-2020, 04:10 AM
+
+From Bill:
+
+Thanks Robert. I just incorporated some of your changes in my code, especially the ones that were obvious errors or oversights in coding. I have not removed the Intrinsic GETCL or GETENV yet. I will take a look at those in more detail tomorrow. You may have found a way to better incorporate those functions in a way that will work on more compilers
+
+--- Post #7 ---
+Author: Admin
+Date: 01-27-2020, 12:49 AM
+
+From Bill:
+
+I have successfully compiled and linked MYSTRAN with no Unresolved Externals (UE) problem. I had to remove 13 of the 95 routines in the 9 large LAPACK files and put them into separate subroutines in order to get rid of the UP problem. I'm going to upload all of MYSTRAN, again, rather than just the files that were affected.
+
+--- Post #8 ---
+Author: Admin
+Date: 01-30-2020, 12:50 AM
+
+FYI, there is a free Intel compiler if you are using Linux (but the free Windows version is only available to students and teachers):
+https://software.intel.com/en-us/paralle...ntributors
+
+--- Post #9 ---
+Author: Admin
+Date: 05-13-2020, 02:02 AM
+
+FYI, Robert has compiled MYSTRAN v10.2 with Visual Studio and Intel. With Robert's notes, I was able to do so as well. I now have detailed instructions for this and I will continue to update them (you can request them from me if you are interested in this approach). At first glance, it looks like the results are correct, but there are some issues that are still being dealt with.
+
+As of now, v10.3 does not compile in Intel with the same process so we need to track down the issue. There may be a few more bumps in the road, but the end goal is to get everything cleaned up and compiled in gFortran.

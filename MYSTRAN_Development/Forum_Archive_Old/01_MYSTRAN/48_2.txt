@@ -1,0 +1,168 @@
+Thread: 2
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=48
+Posts: 16
+
+======================================================================
+
+--- Post #1 ---
+Author: borges
+Date: 08-28-2020, 04:51 PM
+
+I think it's a good idea to sum up all the information regarding the whole BANDIT/CMake/Windows situationin a thread over here.
+
+Here's a quick run-down of what happened:
+
+In the interest of getting a consistent, faster build process (without Code::Blocks) and supporting Linux, I updated Cean's CMakeLists.txt file, enabling users to compile MYSTRAN (using gfortran) under both Linux and Windows (using MSYS).
+
+The resulting binaries worked fine on Linux, but caused runtime errors on Windows. Those crashes originated in WRITE calls in BANDIT.
+
+We were unable to find an explanation for the uncovered OS-dependent behavior. It's a really weird glitch in how the runtime is treating opened files.
+
+In the interest of getting this improved build process out there, I also commented out all offending WRITE calls. After that change, the Windows binary seems to work.
+
+That's the current state of my fork: CMake cross-platform improved build spec and silenced BANDIT.
+
+Some extra points that came up during discussion and are very much worth mentioning:
+BANDIT is comprised of legacy F77 code. This may be related to the "quirky" behavior across OSes.
+
+Even though the test cases run on Windows after silencing BANDIT, it still reports BANDIT failed (code 4). That doesn't happen on Linux. Maybe the glitch causing this inconsistent behavior runs deeper than we previously thought.
+
+That may explain why others were unable to reproduce this behavior in simple test programs.
+
+Since integrating a better solver (PaStiX) is in the works and it doesn't need BANDIT, "fixing" BANDIT doesn't seem worth the effort. PaStiX should be the priority.
+
+Still, until that's done, it's good to have an alternative build process working.
+
+--- Post #2 ---
+Author: Admin
+Date: 08-28-2020, 06:47 PM
+
+Thanks very much for the detailed information. I am in agreement with this approach. Just to clarify, the goal is to "remove" BANDIT so that we can get a clean builds across the board (with different approaches). Adding BANDIT back in will then be a separate work item. However, if we can direct resources towards adding PaStiX (which we need to do anyway), we will get a better bang for the buck. MYSTRAN very much needs a sparse solver and I think that should be our top priority.
+
+--- Post #3 ---
+Author: drbillc
+Date: 08-28-2020, 08:24 PM
+
+With all write statements commented out in BANDIT, no bdf SEQGP entries will be generated and therefore no grid re-sequencing will occur. Maybe a more acceptable option would be just to remove BANDIT from MYSTRAN but everyone must realize that, without grid re-sequencing, problem size can be severely limited. However, this may make it obvious that the addition of a sparse solver, where BANDIT won't be needed anymore, is imperative.
+
+BTW, NASTRAN-95 uses a modified version of the original BANDIT code (modified to fit the NASTRAN code style and I/O)
+
+Let me know if the rest of you want to remove BANDIT and I will take care of it. I had thought the only issue was with the file open status=replace but it appears it is more than that when we consider OS's other than Windows
+
+--- Post #4 ---
+Author: borges
+Date: 08-28-2020, 08:41 PM
+
+(08-28-2020, 08:24 PM)drbillc Wrote:  With all write statements commented out in BANDIT, no bdf SEQGP entries will be generated and therefore no grid re-sequencing will occur. Maybe a more acceptable option would be just to remove BANDIT from MYSTRAN but everyone must realize that, without grid re-sequencing, problem size can be severely limited. However, this may make it obvious that the addition of a sparse solver, where BANDIT won't be needed anymore, is imperative.
+
+BTW, NASTRAN-95 uses a modified version of the original BANDIT code (modified to fit the NASTRAN code style and I/O)
+I fully agree that adding a sparse solver is high priority.
+
+However, just to clarify, I didn't comment out all the write statements, only some "offending ones".
+They all seem to be diagnostics messages written to IOU6 (bandit.out) and IOU8 (bandit.f08).
+I ran some tests to see what effect their absence would have on both OSes.
+
+On Linux, the SEQGP cards are indeed still generated, as per the output BANDIT files.
+MYSTRAN proceeds normally.
+
+On Windows, BANDIT sometimes fails to run for another reason (code 4?), but does not cause a crash.
+MYSTRAN reports the BANDIT failure and proceeds otherwise normally.
+
+--- Post #5 ---
+Author: drbillc
+Date: 08-28-2020, 10:01 PM
+
+Borges, if you want to keep BANDIT with the offending write's commented out that would be fine with me. Until we get a sparse solver problem size will be quite limited anyway so either option works
+
+--- Post #6 ---
+Author: borges
+Date: 08-28-2020, 10:14 PM
+
+(08-28-2020, 10:01 PM)drbillc Wrote:  Borges, if you want to keep BANDIT with the offending write's commented out that would be fine with me. Until we get a sparse solver problem size will be quite limited anyway so either option works
+That's just the quickest way I found to get the CMake build working on both OSes. A straightforward buildspec is essential should others -- myself included -- want to contribute in the future.
+
+Now that a consistent cross-platform buildspec is out of the way, I've been focusing on getting familiar with Fortran and the other tasks at hand. It's a long road, but I want to help.
+
+--- Post #7 ---
+Author: drbillc
+Date: 08-28-2020, 10:31 PM
+
+OK, lets go with the BANDIT you have with the offending write's commented out. Can you post that file? I'm new to GitHub and not quite sure of how to do that
+
+and thanks for your help. We need folks like you to keep this thing alive
+
+--- Post #8 ---
+Author: borges
+Date: 08-28-2020, 10:46 PM
+
+(08-28-2020, 10:31 PM)drbillc Wrote:  OK, lets go with the BANDIT you have with the offending write's commented out. Can you post that file? I'm new to GitHub and not quite sure of how to do that
+
+and thanks for your help. We need folks like you to keep this thing alive
+It's all live on my fork, for which I have a pull request into your master branch. =)
+
+P.S.: The edit diff for BANDIT_MODULE.f looks huge because my editor (Atom) removed loads of trailing whitespace.
+That should have no practical effect other than... huge diffs.
+
+--- Post #9 ---
+Author: drbillc
+Date: 08-28-2020, 11:13 PM
+
+I'm new to this process. Tell me how I should accept the change. Do I just click on "Merge Pull Request".
+
+--- Post #10 ---
+Author: borges
+Date: 08-28-2020, 11:34 PM
+
+(08-28-2020, 11:13 PM)drbillc Wrote:  I'm new to this process. Tell me how I should accept the change. Do I just click on "Merge Pull Request".
+That'd merge ("copy") my fork's changes into your repository.
+
+Have you talked to Brian about this? I was coordinating an eventual pull request with him before.
+He had some (valid) objections to my changes to the README.
+
+Nothing on GitHub is irreversible, though, so no need to worry in case something breaks.
+
+--- Post #11 ---
+Author: drbillc
+Date: 08-28-2020, 11:58 PM
+
+So the pull cannot be just of BANDIT_MODULE.f?
+
+--- Post #12 ---
+Author: drbillc
+Date: 08-29-2020, 01:05 AM
+
+I'll check with Brian but I didn't see a problem with it when I looked at it
+
+--- Post #13 ---
+Author: borges
+Date: 08-29-2020, 01:20 AM
+
+(08-28-2020, 11:58 PM)drbillc Wrote:  So the pull cannot be just of BANDIT_MODULE.f?
+You could, in theory, isolate just that change, but that wouldn't make much sense.
+
+The change to BANDIT_MODULE.f is only useful in the context of the CMake alternative/improved cross-platform build process.
+That's why it's bundled with some other minor changes.
+
+That's what the fork is for -- holding my changes. If you're comfortable with the state of the fork (i.e. the changes), feel free to merge.
+
+--- Post #14 ---
+Author: ceanwang
+Date: 08-29-2020, 07:29 AM
+
+If the end result just defunction BANDIT, why not use an old version which whitout BANDIT?
+
+--- Post #15 ---
+Author: drbillc
+Date: 08-30-2020, 12:49 AM
+
+I did the pull request earlier today. Can you check it. Something doesn't look right
+
+Cean, not sure what you are asking but BANDIT has been in MYSTRAN for 15 years so there isn't any version without it anymore
+
+--- Post #16 ---
+Author: borges
+Date: 08-30-2020, 12:53 AM
+
+(08-30-2020, 12:49 AM)drbillc Wrote:  I did the pull request earlier today. Can you check it. Something doesn't look right
+Did something go wrong?

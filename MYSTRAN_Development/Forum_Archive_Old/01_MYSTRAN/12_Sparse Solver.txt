@@ -1,0 +1,90 @@
+Thread: Sparse Solver
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=12
+Posts: 6
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-16-2020, 07:23 AM
+
+As discussed in this thread (https://www.mystran.com/forums/showthread.php?tid=6), one of the top priorities is to address the sparse solver.
+
+For small DOF problems, this card "PARAM, SOLLIB, ZZPACK" can be used and is reliable (banded solver). However, for larger DOF programs, a sparse solver may be required. MYSTRAN currently uses an older Intel solver for this case (this only exists for the complied EXE but ***NOT*** for the files on GitHub, which is a known issue). However, this older sparse solver is not very reliable. This challenge has increased in priority because we can not use the older Intel MKL solver that Bill used in the past (so MYSTRAN only has the banded solvers LAPACK/ARPACK).
+
+We are investigating various sparse solvers. We previously looked at BCSLIB-EXT, but the cost is relatively high and it appears there may be other solvers that are just as good (if not better).
+
+1. The SPOOLES solver is an option, but it seems to be relatively slow compared to other options.
+2. PARDSIO with Intel MKL is an option, but requires an Intel compiler and the user must also download the Intel MKL (personal information is required).
+3. PARDISO 6 is more improved than PARDISO MKL, but requires the user download a free license every year (personal information is required).
+4. PaStiX may be the best option since it is modern and free. We can take a page from CalculiX and see how their investigation is going since they looking at other solvers.
+
+CalculiX has historically used SPOOLES, but recently added an option for the PARDISO MKL.
+
+My personal feeling is to incorporate the SPOOLES solver for the time being and continue to investigate other solvers (and keep on eye on what CalculiX is doing). The SPOOLES solver has been around for a while and including it as an option would not be a disadvantage (even if we later add other sparse solver options). If anyone is interested in looking into this, go ahead and create a thread about it.
+
+Brian Esp
+
+--- Post #2 ---
+Author: Admin
+Date: 01-20-2020, 10:29 PM
+
+SPOOLES
+http://www.netlib.org/linalg/spooles/spooles.2.2.html
+I downloaded all the files (and created some PDF files) and packaged them here as well ( http://mystran.com/docs/SPOOLES.zip )
+I thought I saw a section/link about how to use SPOOLES with Fortran, but can not find the link right now. I will add it later if I can find it. For reference, CalculiX uses SPOOLES and is written in Fortran.
+I saw this example of how to build CalculiX with SPOOLES, so it may carry over to MYSTRAN? ( https://icme.hpc.msstate.edu/mediawiki/i...:_CALCULIX )
+CalculiX has nonlinear capability (it has used SPOOLES for quite a while), but I am not sure if SPOOLES has nonlinear capability?
+I also noticed a "correction" file for large input decks on the CalculiX site: ( http://www.dhondt.de/ )
+
+PaStiX
+http://pastix.gforge.inria.fr/files/READ...tml#PaStiX
+About half way down is a section called "Calling PaStiX from Fortran"
+
+--- Post #3 ---
+Author: Admin
+Date: 01-21-2020, 12:54 AM
+
+Here are 4 papers about various sparse solvers:
+https://www.mystran.com/docs/Solver_Papers.zip
+
+--- Post #4 ---
+Author: vittorio
+Date: 01-21-2020, 09:11 PM
+
+(01-20-2020, 10:29 PM)Admin Wrote:  SPOOLES
+http://www.netlib.org/linalg/spooles/spooles.2.2.html
+I downloaded all the files (and created some PDF files) and packaged them here as well ( http://mystran.com/docs/SPOOLES.zip )
+I thought I saw a section/link about how to use SPOOLES with Fortran, but can not find the link right now. I will add it later if I can find it. For reference, CalculiX uses SPOOLES and is written in Fortran.
+I saw this example of how to build CalculiX with SPOOLES, so it may carry over to MYSTRAN? ( https://icme.hpc.msstate.edu/mediawiki/i...:_CALCULIX )
+CalculiX has nonlinear capability (it has used SPOOLES for quite a while), but I am not sure if SPOOLES has nonlinear capability?
+I also noticed a "correction" file for large input decks on the CalculiX site: ( http://www.dhondt.de/ )
+
+PaStiX
+http://pastix.gforge.inria.fr/files/READ...tml#PaStiX
+About half way down is a section called "Calling PaStiX from Fortran"All these solvers are linear. Calculix has nonlinear capabilities, but as any nonlinear fem program, the nonlinear solution is obtained using an algorithm based on a sequence of linear steps.
+Vittorio
+
+--- Post #5 ---
+Author: Admin
+Date: 01-21-2020, 11:10 PM
+
+Thanks, I just talked with Guido about this. I was under the impression that there may be packages that already have the nonlinear algorithm included in them (making things easier). However, it seems that there are only (or predominantly) linear solvers and we must create a nonlinear algorithm (or are there public domain options?)
+
+Looking at something like MSC Nastran SOL 106, the nonlinear algorithm is not very robust (it tends to be slow and often has a hard time converging). However, ABAQUS has been known to have a much more robust nonlinear solver. Later, MSC purchased MARC because it had a very good nonlinear solver (as opposed to SOL106 and SOL400). So I suspect there is a a basic nonlinear algorithm approach (something like Newton-Raphson or modified Newton-Raphson), but probably also something more more challenging (and effective) than that.
+
+So this begs the question of whether would we would code in Newton-Raphson in or if there are pubic domain codes that could do better?
+
+--- Post #6 ---
+Author: Admin
+Date: 01-28-2020, 03:53 AM
+
+Back to the solver. It turns out that the PARDISO that comes with Intel MKL can be redistributed. So if we compile it with an Intel compiler, we can use it:
+https://software.intel.com/en-us/mkl/license-faq
+
+ It is a pretty good solver as well, as discussed here. Obviously it is not as good at the most recent PARDISO, but that have various licensing challenges. Here is some information about it
+https://www.mystran.com/docs/2008-PARDISO-MKL.pdf
+
+Also, note that it looks like there is a free version of the Intel compiler for those working on an open source project
+https://software.intel.com/en-us/article...ontributor

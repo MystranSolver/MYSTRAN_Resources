@@ -1,0 +1,45 @@
+Thread: Compile 10.3 With Intel and gFortran Assistance
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=32
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-13-2020, 11:12 PM
+
+EDIT: See this thread for the most current: https://www.mystran.com/forums/showthread.php?tid=2
+
+Using Visual Studio/Intel Fortran, here are the changes that can be made to the 10.31 on GitHub (they are minor). This may be useful if you are trying to compile with gFortran since similar changes may need to be made. This is a smaller list than in 10.2 and removes the MKL dependencies. It also removes BANDIT, which was causing a problem and is not necessary. We can restore BANDIT later.
+
+1. OPTIONAL - Commented out reference to CDIR$ NEXTSCALAR on lines 4477 and 4479 of LAPACK_BLAS_AUX.f. This does not cause an error in Lahey or Intel so it seems optional.
+
+2. Commented out INTRINSIC GETCL in line 46 of GET_COMMAND_LINE.f90
+
+3. Commented out INTRINSIC GETENV in line 44 of GET_MYSTRAN_DIR.f90
+
+4a (OPTION 1). In GET_COMMAND_LINE.f90, change "CALL GETCL ( FILNAM )" to "CALL GET_COMMAND_ARGUMENT ( 1, FILNAM )"
+
+-------------------------------FOR REFERENCE (OLD)-------------------------------------------------------------
+
+4b (OPTION 2). Remove GETCL.f90 (if it exists) and replace it with K2_GETCL.f90 (linked below)
+
+https://www.mystran.com/docs/K2_GETCL.f90
+
+--- Post #2 ---
+Author: Admin
+Date: 05-13-2020, 11:18 PM
+
+Here are some files that may be useful when compiling with gFortran:
+
+This is a MYSTRAN fork that has a makefile and Install instructions. It is from v10.2 and not the new 10.31 though. FYI, this version seems to call MKL files, which are no longer necessary. It also uses "NASTRAN" and "NASTRAN-95" for the INSTALL.md as opposed to MYSTRAN. That may be an oversight and carryover from their NASRAN-95 effort.
+https://github.com/Open-Cascade-SAS/MYSTRAN
+
+To create a list of all the files in a directory with the full file paths, you can use this Excel sheet.
+https://www.mystran.com/docs/File_Paths.xls
+
+Output files from the Intel compile:
+https://www.mystran.com/misc/Intel_build/BuildLog.htm
+https://www.mystran.com/misc/Intel_build/MYSTRAN.vfproj
+https://www.mystran.com/misc/Intel_build/ReadMe.txt

@@ -1,0 +1,54 @@
+Thread: Steps to build third party package under Windows 10
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=55
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 11-13-2020, 11:46 PM
+
+Hi,
+
+Take building SuperLU as an example.
+
+First you need to install these two packages:
+1. cmake https://cmake.org/
+2. gnu for Windows https://sourceforge.net/projects/mingw-w64/
+
+And add their bin folders into Windows PATH. Then you can start to build SuperLU.
+
+1. Download from https://github.com/xiaoyeli/superlu
+    On that page, click  Code, select Download ZIP
+2. Unzip it into D:\MYSTRAN\superlu-master folder
+3. Copy w.bat (see attached) into D:\MYSTRAN\superlu-master (Rename the attached w.txt as w.bat)
+4. On lower left corner of Windows desktop, inside the search area, type CMD, then press Enter key to start cmd.exe - the windows terminal.
+5. Change to D:\MYSTRAN\superlu-master folder
+6. Type w in the windows terminal command line, then press Enter key to run w.bat  It will find the tools needed to build SuperLU. It will generate  a  D:\MYSTRAN\superlu-master\Build_win10 folder and changed into that folder.
+7. Type make, then press Enter key to build SuperLU.
+
+--- Post #2 ---
+Author: ceanwang
+Date: 11-14-2020, 04:35 AM
+
+Build FORTRAN examples
+
+There are Fortran examples at D:\MYSTRAN\superlu-master\FORTRAN
+
+1. Start Windows terminal, change to D:\MYSTRAN\superlu-master\FORTRAN folder.
+2. There is a file named Makefile in it. You can try to type in MAKE in the command line to build these examples. But there are errors. This Makefile file needs a file named make.inc under D:\MYSTRAN\superlu-master folder. You need to do some changes to reflect where you installed superLU in your Windows system. Replace it with the attached one. Rename make.inc.txt as make.inc
+3. Goback to D:\MYSTRAN\superlu-master\FORTRAN folder, MAKE again, now you will get the exe files.
+
+--- Post #3 ---
+Author: ceanwang
+Date: 11-16-2020, 12:46 AM
+
+After making the Fortran example, there is a file named df77exm.exe
+
+To run it, you need a test data. You could copy D:\MYSTRAN\superlu-master\EXAMPLE\g20.rua into D:\MYSTRAN\superlu-master\FORTRAN.
+
+In the FORTRAN folder, use this command to run:
+df77exm < g20.rua
+
+The shape of g20.rua is displayed as a photo as attached. The green dot means non-zero value at the place of the matrix. It is a 400x400 matrix.

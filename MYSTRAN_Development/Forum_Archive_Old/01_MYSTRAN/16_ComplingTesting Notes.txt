@@ -1,0 +1,48 @@
+Thread: Compling/Testing Notes
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=16
+Posts: 6
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-27-2020, 12:48 AM
+
+EDIT: See this thread for the most current version: https://www.mystran.com/forums/showthread.php?tid=2
+
+The older Intel MKL sparse solver has been removed. This was done because those libraries are no longer available and it was not a good sparse solver.
+
+However, this means that a BDF should have the line "PARAM, SOLLIB, ZZPACK" to call LAPACK as the default solver. Otherwise, it will call the Intel solver by default, which is no longer available. I think the default should change to ZZPACK, but for for the meantime be aware of this item.
+
+--- Post #2 ---
+Author: drbillc
+Date: 01-29-2020, 03:31 PM
+
+The new MYSTRAN verson, 10.00, has just been uploaded to GitHub with all of the old Intel MKL code removed. In addition the bdf PARAM SOLLIB now has only one available solver and it is now referred to as LAPACK rather than ZZPACK. Hopefully we will find a new sparse solver to add to MYSTRAN to replace the old version of Intel MKL just removed
+
+--- Post #3 ---
+Author: drbillc
+Date: 01-29-2020, 04:51 PM
+
+I should have added that the Unresolved External (UE) problem did raise its ugly head when I tried to link MYSTRAN. My UE problem was exactly the same 13 routines as Robert had the same issue with. I removed the 13 files from 3 of the 9 large LAPACK modules and put them into 13 separate FOR source files. This, for some unknown reason, fixed the UE problem.
+
+--- Post #4 ---
+Author: drbillc
+Date: 04-16-2020, 12:21 PM
+
+Version 10.2 is now available. A problem with a coordinate transformation matrix that related to anisotropic and/or orthotropic materials was uncovered by a user of the exe on my old web site. One thing I forgot to take care of was to rename the default SOLLIB from ZZPACK to LAPACK. This, however, will have no effect on the accuracy of the code; it was to be a cosmetic change which will be implemented in the next version.
+
+--- Post #5 ---
+Author: drbillc
+Date: 05-12-2020, 12:29 PM
+
+Version 10.3 zip file was just uploaded. The 10.3 zip file is much "cleaner" than previous zip files. I took special care to make sure that it contains the necessary source files for compilation and no other source files. Previous zip's had some older copies of source files that were incorrectly included and may have confused things.
+
+--- Post #6 ---
+Author: drbillc
+Date: 06-23-2020, 06:31 PM
+
+Version 11 was just uploaded (if you uploaded it before this post please discard what you uploaded and upload 11.0 again). Several important notes:
+1) BANDIT has been modified and now compiles in gfortran (I used the CodeBlocks IDE)
+2) Subr GET_COMMAND_LINE.f90, with the Lahey intrinsic command GETCL (FILNAM), has been removed. The routine that called it, READ_CL.f90, now contains the gfortran intrinsic GET_COMMAND_ARGUMENT (1, FILNAM) that replaces the Lahey intrinsic GETCL)

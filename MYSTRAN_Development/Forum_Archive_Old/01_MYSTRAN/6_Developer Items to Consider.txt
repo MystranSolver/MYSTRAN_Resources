@@ -1,0 +1,49 @@
+Thread: Developer Items to Consider
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=6
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-11-2020, 12:04 AM
+
+NOTE FOR DEVELOPERS:
+
+In the documentation package in this link ( https://www.mystran.com/forums/showthread.php?tid=39 ) there is a file called MYSTRAN-Source-Code-Structure.pdf, which gives a basic overview of the code structure.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+This is a list of items for developers to consider. Developers are free take on any project they like. These are just some basic ideas:
+
+SHORT TERM:
+1. Improve the benchmark suite. This consists of adding more validated models that exercise the program and produce reliable results.
+
+INTERMEDIATE:
+1. Add a CBEAM element.
+
+LONG TERM - PRE/POST
+1. No current items.
+
+LONG TERM - NONLINEAR
+1. A nonlinear solver could be implemented.  For starters, a bisection method solution may be acceptable. Using the bisection method, I think geometric nonlinearity would be the easiest to develop and implement. Material nonlinearity could possibly be addressed after that. This would be similar to the MSC Nastran SOL 106, which has some basic nonlinear capabilities. A full nonlinear implementation (with contact, etc.) would probably be beyond the scope in the near term.
+
+--- Post #2 ---
+Author: O_Stodieck
+Date: 06-02-2020, 06:55 PM
+
+Very interesting!
+
+May I suggest the implementation of sensitivity output as another long-term development item? I am interested in displacement sensitivity wrt. material stiffness properties for example.
+
+Also, you suggest 'Developers are free take on any project they like'.
+Is this development managed through git-hub and is it open for community contribution?
+
+--- Post #3 ---
+Author: Admin
+Date: 06-02-2020, 07:14 PM
+
+(06-02-2020, 06:55 PM)O_Stodieck Wrote:  Also, you suggest 'Developers are free take on any project they like'.
+Is this development managed through git-hub and is it open for community contribution?
+Yes, any help is greatly appreciated. As of 7/1/2020, the project is on GitHub for further development.

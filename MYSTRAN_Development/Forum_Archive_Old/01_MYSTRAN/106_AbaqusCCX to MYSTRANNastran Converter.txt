@@ -1,0 +1,15 @@
+Thread: Abaqus/CCX to MYSTRAN/Nastran Converter
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=106
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-25-2024, 01:52 PM
+
+pyNastran has an Abaqus to Nastran converter (so it works with CalculiX and MYSTRAN as well). In the event that you don't want to install pyNastran and just want something simple and quick...see this link (courtesy of Bruno).
+
+ABAQUS to Nastran converter:
+https://bor.gs/inp2nas/

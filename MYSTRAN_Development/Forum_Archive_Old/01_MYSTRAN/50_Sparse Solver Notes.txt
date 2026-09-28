@@ -1,0 +1,36 @@
+Thread: Sparse Solver Notes
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=50
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-07-2020, 07:39 PM
+
+This thread is in-work, but provides some basic information about to implement a sparse solver to MYSTRAN.
+
+----------------------
+MYSTRAN Information
+----------------------
+
+In the following link, there are notes for how to incorporate a sparse solver. PaStiX seems to be best option for this. More information about PaStiX will be added later.
+
+https://mystran.com/notes/Sparse_Solver_Notes_1.1.pdf
+
+----------------------
+SuperLU
+----------------------
+We previously were going to add the PaStiX sparse solver. However, we opted for the SuperLU sparse solver instead, partially due to convenience. 11.3 now contains the SuperLU sparse solver. At a later date, we may add an option to use PaStiX or another sparse solver (this would be in addition to the SuperLU option).
+
+----------------------
+PaStiX Information
+----------------------
+http://pastix.gforge.inria.fr/files/README-txt.html
+
+https://www.labri.fr/perso/ramet/
+
+https://gitlab.inria.fr/solverstack/pastix
+
+https://gforge.inria.fr/forum/forum.php?...oup_id=186

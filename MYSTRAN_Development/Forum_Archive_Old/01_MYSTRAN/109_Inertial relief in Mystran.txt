@@ -1,0 +1,24 @@
+Thread: Inertial relief in Mystran
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=109
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Maxime56
+Date: 10-29-2024, 03:05 AM
+
+I am currently evaluating Mystran and am particularly interested in understanding whether it offers an "inertial relief" feature similar to that in Nastran. I have cases with unrestrained structures under applied loads. Could you let me know if Mystran supports this functionality or if there are alternative methods to achieve a similar effect?
+
+--- Post #2 ---
+Author: Admin
+Date: 10-30-2024, 01:19 PM
+
+I think you have a better response if you ask in the Discord channel. The forum is more of a placeholder for prior discussions now.
+
+--- Post #3 ---
+Author: Maxime56
+Date: 10-31-2024, 11:23 PM
+
+Ok thanks

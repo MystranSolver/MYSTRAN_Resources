@@ -1,0 +1,35 @@
+Thread: Help to get a NEU output
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=47
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 08-28-2020, 12:09 AM
+
+Hi,
+
+I am trying this shell_bending.txt case but can't get a NEU result file. What is the setting to also have a NEU output?
+
+https://www.mystran.com/forums/showthread.php?tid=46
+
+Regards,
+
+Cean
+
+--- Post #2 ---
+Author: Admin
+Date: 08-28-2020, 12:28 AM
+
+See also page 145 of the MYSTRAN manual, but add:
+
+BEGIN BULK
+PARAM, POST, -1
+
+If forget, but you may also need something like this in the case control section:
+
+DISP(PUNCH,PRINT) = ALL
+FORCE(PUNCH,PRINT) = ALL
+SPCF(PUNCH,PRINT) = ALL

@@ -1,0 +1,25 @@
+Thread: MYSTRAN Solid Element Buckling
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=71
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: drbillc
+Date: 07-30-2021, 02:35 AM
+
+I've recently added code to MYSTRAN for buckling/differential stiffness for the 6 solid elements: HEXA (8 and 20 node), PENTA (6 and 15 node) and TETRA (4 and 10 node). Attached are the results of a study of the accuracy of the code. A beam of dimensions 1"x1"x40" was modeled with each of the 3D solid elements and results are shown for the convergence to the beam critical buckling load vs mesh size. It is seen that all 6 elements are quite accurate, even for a fairly coarse mesh. I would appreciate anyone trying out these elements, especially with some element distortion, to see if the accuracy holds up
+
+--- Post #2 ---
+Author: Admin
+Date: 07-30-2021, 04:07 AM
+
+Thanks Bill, that is great progress.
+
+--- Post #3 ---
+Author: ceanwang
+Date: 09-10-2021, 05:42 AM
+
+(07-30-2021, 02:35 AM)drbillc Wrote:  I've recently added code to MYSTRAN for buckling/differential stiffness for the 6 solid elements: HEXA (8 and 20 node), PENTA (6 and 15 node) and TETRA (4 and 10 node).
+Is there a Win exe to test and the case files? Thx.

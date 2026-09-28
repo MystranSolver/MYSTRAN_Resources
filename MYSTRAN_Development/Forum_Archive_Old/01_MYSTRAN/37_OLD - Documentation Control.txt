@@ -1,0 +1,34 @@
+Thread: OLD - Documentation Control
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=37
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 06-08-2020, 04:31 AM
+
+This thread is considered to be outdated, but is kept for reference. For the most current source code and compiling instructions, see:
+
+https://www.mystran.com/forums/showthread.php?tid=83
+
+---OUTDATED THREAD FOLLOWS---
+
+The documentation is controlled by specific developers (as opposed to by the general community).
+
+For the most recent documentation, see this thread: https://www.mystran.com/forums/showthread.php?tid=39
+
+-----------------------------------------------------------------------------------
+
+The following is a list of pending modifications/updates (all updates are current as of 1/29/2021)
+
+http://www.mystran.com/documentation/ToDo_Updates.doc
+
+If you wish to request documentation updates, contact Bill Case at the email listed at https://www.mystran.com/
+
+-----------------------------------------------------------------------------------
+
+Prior Corrections:
+
+http://www.mystran.com/documentation/Corrected.doc

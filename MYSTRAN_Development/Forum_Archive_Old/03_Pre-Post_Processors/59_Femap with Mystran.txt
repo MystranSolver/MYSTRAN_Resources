@@ -1,0 +1,59 @@
+Thread: Femap with Mystran
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=59
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: SamiH.
+Date: 02-17-2021, 09:22 AM
+
+Hi,
+
+I am experimenting with Mystran with Femap and would like to share and have comments on the observations, and after all would appreciate help to adjust the settings correctly. These may be sometimes Femap related questions or issues but also Mystran related. I have only done one analysis and haven't checked the Mystran documentation very carefully so that these might be more of a rookie type questions/observations.
+
+First of all I am impressed how well the key results are in line with Simcenter Nastran results without any adjustments at all. Here's what I've done:
+- opened up a random FE model consisting of plate elements, some glue contacts, and few RBE2 elements. The analysis for this had been done earlier using Simcenter Nastran.
+- exported the analysis model (without any adjustments, i.e. Simcenter Nastran version)
+- run it with Mystran
+- imported the Femap neu file
+
+The few things that caught my eye comparing the results:
+- The deformation looks very similar by eye
+- the max total translation in Simcenter Nastran was 1.883 mm and RSS translation in Mystran 1.909 mm, so no big difference (1.4 %)
+- the max vonMises bot stress differs quite a lot but this is difficult to compare. See next observations.
+- the result scale (contour levels) is something odd. For these translations (max 1.909 mm) the scaling is from 0 to 1.826E+10 when it should be from 0 to 1.909. Of course I can change it manually but for automatic detection it seems to have some kind of scaling issue.
+- the scaling issue seems to be the problem for dynamic rotation also. When tried to rotate the model even slightest of rotation will throw the model off the screen somewhere in the space and in practice the rotation can not be done.
+- the element results are shown in transparent type of way in which it is difficult to observe which element is which when front and back and all in between are in a same spot. I couldn't figure out how to change this. This is not the same transparency as in Femap but something related to the results.
+- the result vectors are numbered very differently from Nastran. There is also separated results for QUADs and TRIAs which is perhaps not very necessary but inconvenient sometimes
+
+Has anyone any ideas how to improve the performance of Mystran results in Femap related to above mentioned observations? Can I adjust something somewhere?
+
+--- Post #2 ---
+Author: borges
+Date: 02-17-2021, 09:39 PM
+
+Thanks a lot for this information! I've used Femap before, and I've been looking closely at how we can improve MYSTRAN on the output front (e.g. formats and automatic comparison/testing).
+
+It's great to know that the neutral files work with Femap. I've had some issues with them before, but maybe it's because I was using a model edited by me to work with NASTRAN-95.
+
+About the vonMises stress differences, I think we'll need to have Bill look into those. Are you at liberty to disclose the model(s)/result file(s)? Those could be useful when looking into those differences and what could be causing them.
+
+And the scaling... I thought Femap inferred the scales from the values in the neutral file, but after looking at the PDF where they define how the format works, it appears there are some fields that the solver can use to "suggest" display modes for vectors and such. Same goes for result vector numbering and the transparent/weird display, although the latter can be manually adjusted in the Display specifics dialog.
+
+But there's a serious hindrance when investigating anything like this: the only "standard" format MYSTRAN outputs is NEU (OP2 support is on its way), and _there seems to be no open-source parser/writer library for those._ Since neutral files are made of blocks that can be in any order and there's lots of deprecated/redundant features (about one fourth of all data block types were obsolete **by the time Femap 6.0 was released**), looking at their contents directly is a nightmare. To make matters worse, the modern standards are really, _really_ hard to come by. Took me a while to find the PDF for v6.0...
+
+Due to all that, it's really hard to look into how NEU output can be improved because the closest we can get to inspecting the files is Femap, and it abstracts away a lot of details. That's why I've been searching all around for the latest NEU standard -- this way, there could finally be a compliant, open parser/writer library and we could inspect and compare output files to fix those issues.
+
+All in all... thanks for all the info. I'll tell Bill about those differing values in case he hasn't read this already. As for the other issues, their fixing will be much easier once we can inspect those files properly, and I'm working on that. If you know anything about where I can find the latest standard for Femap NEU files, that'd be much appreciated, just like any other feedback.
+
+--- Post #3 ---
+Author: SamiH.
+Date: 02-18-2021, 12:05 PM
+
+I just discovered that I had glue contacts in my model and few of the issues were due to these. I somehow managed to miss these before. I was so concentrated on the local results I didn't notice few glued parts were thrown into a space to 1.2E+10 distance... For Nastran I would have expected this to come up as no-go (fatal error) but Mystran didn't complain at all and happily finished the run (which is good).
+
+So the scaling of the contour levels was correct but I failed to notice this until observed the NEU file content a bit closer. When the undeformed shape was observed the rotation could be done and even the element transparency was not found.
+
+I will prepare a bit simpler model without glue contacts and submit this model file for you. The stress results may differ because Nastran input file has a bit different format for STRESS than Mystran. Nastran default (I suppose) is corner results but Mystran is center and since the format is different Mystran doesn't understand Nastran format and overrides it with the default. But we will see how it turns out.

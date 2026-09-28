@@ -1,0 +1,82 @@
+Thread: error in beam analysis
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=72
+Posts: 7
+
+======================================================================
+
+--- Post #1 ---
+Author: bernd
+Date: 08-03-2021, 06:39 PM
+
+attached two simple cantilever analysises. One runs the other with slighlty greater cross section does give all zero. I  do not know why nor can I really read the logs. What do I need to look for? Can someon confirm the problem an may be give some hints what went wrong.
+
+cheers bernd
+
+  Mesh_not_ok.bdf.txt (Size: 5.29 KB / Downloads: 7)
+
+  Mesh_not_ok.F06.txt (Size: 31.88 KB / Downloads: 4)
+
+  Mesh_ok.bdf.txt (Size: 5.29 KB / Downloads: 6)
+
+  Mesh_ok.F06.txt (Size: 30.06 KB / Downloads: 1)
+
+--- Post #2 ---
+Author: mesheb82
+Date: 08-04-2021, 12:48 AM
+
+Does Mystran support PBARLs?  That'd be my first guess...
+
+--- Post #3 ---
+Author: ZacharyALerner
+Date: 08-04-2021, 03:37 AM
+
+(08-04-2021, 12:48 AM)mesheb82 Wrote:  Does Mystran support PBARLs?  That'd be my first guess...
+It absolutely does support PBARLs, but not every single section in msc nastran for example, as that's an aggressively large number of shapes to support.
+
+Okay, so first of all, Bars should have 2 dimensions, not 3.
+
+Second:... I have no clue why either of these things run.
+
+I'll be making a spreadsheet to check this.
+
+--- Post #4 ---
+Author: ZacharyALerner
+Date: 08-04-2021, 04:57 AM
+
+Okay I'm back.
+
+This problem is so soft that it's overflowing the matrix inversion subroutine.
+To put this problem in terms of physical units,
+
+This is a cantilever beam, five times softer than hot glue, that's two soccer fields long, 33 feet tall, and loaded by seven fully loaded airbus A380s.
+I don't know how to make this converge, but I'm sure there is a way.
+
+- Zach
+
+--- Post #5 ---
+Author: bernd
+Date: 08-04-2021, 09:25 AM
+
+it ist the most often used standard example in FreeCAD FEM, a 9 meters span cantilever. This is taken from calculix. normaly the cross section is 1.0 x 1.0 m made of full steel. May be because guido from Calculx does make huge really huge turbines, thus he has taken some bigger geometry when he set up this example dozens of years ago. The standard 1.0 x 1.0 cross section is analysed very well by Mystran. I just started to play with the cross section parameter and realized it did not return results.
+
+If you guys would like I can post the FreeCAD file as well, which was used to create the Mystran solver input. Load the file press a button Mystran solver input is done
+
+--- Post #6 ---
+Author: bernd
+Date: 08-04-2021, 11:42 AM
+
+(08-04-2021, 03:37 AM)ZacharyALerner Wrote:  Okay, so first of all, Bars should have 2 dimensions, not 3.
+
+ Why? Is this a Mystran restriction or Nastran or whatever?
+
+--- Post #7 ---
+Author: ZacharyALerner
+Date: 08-05-2021, 03:17 AM
+
+(08-04-2021, 11:42 AM)bernd Wrote:   (08-04-2021, 03:37 AM)ZacharyALerner Wrote:  Okay, so first of all, Bars should have 2 dimensions, not 3.
+
+ Why? Is this a Mystran restriction or Nastran or whatever?
+It is not, I'm sorry I made a mistake.
+
+A bar is a rectangle that needs a width and a height only, but I forgot that the last field in a PBARL card is always the nonstructural mass per unit length; which is what you'd use to represent something like paint, which adds weight but doesn't increase strength.

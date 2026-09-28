@@ -1,0 +1,38 @@
+Thread: New User Bernd
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=69
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: bernd
+Date: 07-22-2021, 12:44 PM
+
+Hi there,
+
+just wanted to say hello. I am from FreeCAD FEM workbench projekt. I started to play with Mystran. For sure I will have questions ...
+
+Depending on my time range there will be more or less questions ...
+
+cheers bernd
+
+--- Post #2 ---
+Author: Admin
+Date: 07-26-2021, 01:46 AM
+
+Welcome to the team! Perhaps the biggest challenge is finding a good and open pre/post for MYSTRAN.
+
+There are some good options for a post (pyNastran) once OP2 is complete. And there is a free tool (but not open) in M3DFEA. But we have not had a real path forward for an open preprocessor.
+
+So FreeCAD seems likes a great option. Lets see how it goes. Also, there is the discord channel for more routine questions. We tend to use the forum for items that are good for archiving and that sort of thing.
+
+Discord channel - https://discord.com/invite/fUJr75H
+
+--- Post #3 ---
+Author: bernd
+Date: 07-26-2021, 03:03 PM
+
+Yeah let's see how it goes with FreeCAD.
+
+Bernd

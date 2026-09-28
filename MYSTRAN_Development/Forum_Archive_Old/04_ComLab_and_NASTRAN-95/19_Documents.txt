@@ -1,0 +1,26 @@
+Thread: Documents
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=19
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-27-2020, 03:13 AM
+
+Bill pointed us to the full user manual (1382 pages). The important of this manual (unlike the one on GitHub), is that is has the "Quick Reference Guide", which is what most end users are used to (as opposed to the programming related aspects).
+
+https://ntrs.nasa.gov/search.jsp?R=19720022271
+
+Thomas Hermann has a large collection of documents here:
+
+https://www.odonata-research.com/referen...talog.html
+
+https://www.odonata-research.com/referen...talog.html
+
+A theoretical manual is here:
+https://ntrs.nasa.gov/search.jsp?R=19790019360
+
+A list of elements is shown here:
+A list of elements is shown here ( https://github.com/SteveDoyle2/pyNastran/issues/583 )

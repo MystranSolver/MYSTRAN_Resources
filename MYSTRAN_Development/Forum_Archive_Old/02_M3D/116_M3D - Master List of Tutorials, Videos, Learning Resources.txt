@@ -1,0 +1,44 @@
+Thread: M3D - Master List of Tutorials, Videos, Learning Resources
+Category: M3D
+URL: https://www.mystran.com/forums/showthread.php?tid=116
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 03-05-2025, 12:54 PM
+
+First Watch - Is M3D Right For You?
+-----------------------
+https://www.espcomposites.com/1_M3D_Preliminary.mp4
+
+Tutorial Series (Step-by-Step)
+-----------------------
+https://www.mystran.com/forums/showthread.php?tid=115
+
+Official User Guide
+-----------------------
+http://www.m3dfea.com/user-guide.html
+
+YouTube Videos
+-----------------------
+Beam Tutorial
+https://www.youtube.com/watch?v=CxOtORha4mY
+
+Constructing a Gear
+https://www.youtube.com/watch?v=RIh1wPpovVw
+
+Simple Floor Slab
+https://www.youtube.com/watch?v=cS96mYU0Iuc
+
+Basic Model
+https://www.youtube.com/watch?v=vdb0Wticp3k
+
+Mesh Beam Cross Section
+https://www.youtube.com/watch?v=-pP7Uz76Gj4
+
+Other
+-----------------------
+WingBox
+https://www.espcomposites.com/M3D_Wingbox.mp4

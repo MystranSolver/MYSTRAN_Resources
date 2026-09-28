@@ -1,0 +1,83 @@
+Thread: pyNastran
+Category: Pre-Post Processors
+URL: https://www.mystran.com/forums/showthread.php?tid=53
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: mesheb82
+Date: 09-28-2020, 08:08 PM
+
+I'm the developer of pyNastran, which you can find out about over at:
+ - https://github.com/SteveDoyle2/pyNastran
+
+I've added support for Mystran (the BDF and for the GUI).  You can flag the deck as a Mystran file by putting the following on the first line of your BDF:
+$ pyNastran: version=mystran
+
+If you just use the standard install, you won't have mystran support, but if you install from git (see the install guide), you will.
+ - https://pynastran-git.readthedocs.io/en/...rom-source
+
+There's probably still a few PARAMs that I'm not validating, so bug me over at:
+ - https://github.com/SteveDoyle2/pyNastran/issues
+if you find something wrong.
+
+Also, an FYI, it's a bit stricter than Mystran (there's an embedded blank), so a card like:
+SPC1, 1, 12 34, 42
+
+is invalid, but:
+SPC1, 1, 1234, 42
+
+is fine.  That's just per the MSC/NX Nastran documentation, which I try to follow as best as I can.
+
+--- Post #2 ---
+Author: Admin
+Date: 12-24-2020, 06:07 AM
+
+What do you think about adding this line by default to BDF files? And maybe a comment to designate the purpose?
+
+--- Post #3 ---
+Author: mesheb82
+Date: 12-24-2020, 11:35 AM
+
+(12-24-2020, 06:07 AM)Admin Wrote:  What do you think about adding this line by default to BDF files?
+Correct me if I'm wrong, but you're referring to supporting embedded blanks in the SPC?  On that, not very likely.  If you look at the User Manual, you'll see the SPC/SPC1 have the following note:
+ - C: Component numbers at grids Gi that will be constrained (Integers 1-6)
+
+If you then look at the formatting section, you'll see:
+ - Data can be character, integer or real but must be of the type specified and with the following conventions:
+   - Integer data must contain no decimal point or imbedded blanks.
+So it violates it's own requirements.
+
+I've haven't exhaustively gone through MYSTRAN & other Nastran versions, but there are cases (definitely in MSC) where blanks are allowed in things like GRID ids and that integer values are allowed for floats on some fields (X1/2/3), but the same is not true for a LOAD card.  I also assume this may change per version given it violates it's own spec.
+
+Regarding the version (maybe what you meant), pyNastran supports:
+ - MSC
+ - NX/Simcenter
+ - Optistruct
+ - NASA95
+ - Autodesk/NEi
+ - IMAT
+ - VABS
+ - Zona
+ - MYSTRAN
+
+The default really should be MSC/NX given that they've been continually active since 1968, so similar, and both sourced from the official line.
+
+> And maybe a comment to designate the purpose?
+
+I'm not sure what you mean by that.
+
+My best guess is you're referring to the version, which is documented.  That may be a classic problem of too much documentation to find what you want or being able to find the documentation at all.  There are a few cases where cards have different formatting requirements based on version for the same card.  If you don't hit those cases, it doesn't matter, but the PARAMs in MYSTRAN are a bit different than MSC/NX.
+
+--- Post #4 ---
+Author: Admin
+Date: 12-24-2020, 02:07 PM
+
+I meant what is we add "$ pyNastran: version=mystran" to the BDF by default? Would that cause any problems? It seems like it would be a benefit once OP2 output exists.
+
+--- Post #5 ---
+Author: mesheb82
+Date: 12-24-2020, 04:09 PM
+
+Oh, yeah, that would be fine.  I encourage it

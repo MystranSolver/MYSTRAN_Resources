@@ -1,0 +1,31 @@
+Thread: Compiler Error for Preferred Option - Windows
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=60
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 02-23-2021, 06:24 PM
+
+[ 97%] Linking Fortran executable Binaries\mystran.exe D:/Program_Files/MYSTRAN/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0\libgfortran.a(read.o)Sad.text$_gfortrani_convert_real+0xb7): relocation truncated to fit: IMAGE_REL_AMD64_REL32 against undefined symbol
+strtoflt128'
+D:/Program_Files/MYSTRAN/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/10.2.0\libgfortran.a(read.o)Sad.text$_gfortrani_convert_infnan+0xb3): relocation truncated to fit: IMAGE_REL_AMD64_REL32 against undefined symbol
+strtoflt128' collect2.exe: error: ld returned 1 exit status mingw32-make[2]: [CMakeFiles\mystran.dir\build.make:23351: Binaries/mystran.exe] Error 1 mingw32-make[1]: [CMakeFiles\Makefile2:562: CMakeFiles/mystran.dir/all] Error 2 mingw32-make: *** [Makefile:148: all] Error 2
+
+--- Post #2 ---
+Author: Admin
+Date: 02-23-2021, 06:25 PM
+
+this problem has many solutions
+strtoflt128 is defined by libquadmath, which is usually provided in static form as well as dynamic
+however, msys2 devs every once in a while decide to break everything and provide a version of gcc/gfortran without the static version of libquadmath
+since I made sure it worked on the lastest packages provided by the msys2 maintainers there's four ways this can turn out
+1. they're using an outdated build of gcc/gfortran without libquadmath.a. solution is easy: to run pacman -Syu in order to update and grab the necessary file
+2. there was an update to the msys2 packages for gcc/gfortran and they got rid of libquadmath.a once more.
+3. the toolchain detection may have gone rogue because of the nonstandard install dir for msys2, exposing a toolchain without libquadmath.a somewhere else. solution is straightforward: specify the toolchain explicitly through a CMake toolchain file.
+4. something else (highly unlikely)
+1 and 3 are issues on their side
+2 has a "quick fix" on their side (commenting out the line that adds the -static flag to the compiler options), and a real fix on our side -- I gotta add code for the CMake buildspec look for libquadmath.a and enable -static if and only if it's present and linkable, and also warn the user that since it's not statically linked, the resulting binary requires anyone running it to have the libraries within (e.g. libgfortran and maybe f2c) installed, therefore the binary they make will likely be good just for them.
+commenting out the -static line will solve the problem, but it's kludgy and I'd really like to know if it's scenario 2, because msys2 devs would have to be notified of the regression they may have introduced, and the sooner I add the check/warning, the surer we can be about other prospective contributors not running into that issue

@@ -1,0 +1,14 @@
+Thread: Bill Case - Primary Author
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=84
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-05-2022, 03:11 AM
+
+PRIMARY AUTHOR: Dr. Bill Case was a member of the project management team for the development of the popular NASTRAN finite element analysis computer program developed in the late 1960's and early 1970's for the National Aeronautics and Space Administration (NASA). Over the course of 30 plus years from that time he was a structural analyst using NASTRAN and subsequently the head of an analysis branch comprised of approximately 20 analysts who used NASTRAN on many of the spaceflight structures built or managed by NASA Goddard Space Flight Center (GSFC). He taught many graduate level courses in the area of static and dynamic structural analysis as well as basic and advanced courses in the use of NASTRAN. He was the author of many technical papers in the areas of finite element analyses and in the use of NASTRAN for major flight projects. MYSTRAN, formerly a commercial program, is now a community project.
+
+Bill continued to work on the MYSTRAN source code until late 2021 when he passed away. Bill spent decades developing the MYSTRAN program and it was his wish for the project to continue. There are currently a community of developers that work on the program and we aim to honor his legacy. Thank you Bill for your contribution to the engineering community.

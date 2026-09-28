@@ -1,0 +1,27 @@
+Thread: ABAQUS/CalculiX to NASTRAN/MYSTRAN Converter
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=98
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 10-19-2022, 05:29 AM
+
+TBD
+
+--- Post #2 ---
+Author: vittorio
+Date: 10-19-2022, 02:42 PM
+
+Some basic conversion capabilities from Calculix to Nastran file format are included in the CGX pre-post processor for Calculix, as stated in sec. 3 and B.22
+of the CGX manual at
+http://www.dhondt.de/cgx_2.20.pdf
+Vittorio
+
+--- Post #3 ---
+Author: Admin
+Date: 10-19-2022, 02:53 PM
+
+Hi Vittorio...been a while. We also have a basic node/element converter that Bill created, but Steve (of pyNastran), has something MUCH better than this. He has created a real deck converter that links nodes, elements, properties, materials, loads, and boundary conditions. It's not really even comparable to a simple node/element converter. AFAIK, all the other open converters (including CGX) only do nodes/elements and are not actually deck converters. They may be able to also convert some things such as materials, loads, B.C. as well, but I am not aware of anything that can link it together other than what Steve has done (which is quite amazing). I think he reads a deck into a fields internally an then creates a deck from those fields. It is quite impressive.

@@ -1,0 +1,35 @@
+Thread: Batch file to solve test cases in one folder
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=45
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: ceanwang
+Date: 08-24-2020, 10:58 PM
+
+Hi,
+
+Same as the 3-TestRuns folder, create a 8-Test folder and save this msolve.bat file in it. Please remove the txt extension.
+Run, it will solve all dat files in 3-TestRuns\Statics\Banded\CurrentRuns folder.
+
+Regards,
+
+Cean
+
+After solving all the cases, you could compare the newly generated *.ANS to the corresponding *.ARC files under the 3-TestRuns\Statics\Banded\Archive folder using these two bat files. Also save and run in 8-test folder. Please remove the txt extension.
+
+cpARC.bat will call compareARC.ps1 to compare the pair of files line by line. compareARC.ps1 is a Window 10 PowerShell's script. It will write the difference into the cpDiff.txt file.
+
+The problem at the moment for me is that the ARC file treat 0 different to my ANS file. One has - sign at the front of 0. I think if the exe is generate by same compiler, there will be no problem.
+
+--- Post #2 ---
+Author: ceanwang
+Date: 08-31-2020, 02:03 AM
+
+Compare two F06 files: one solver with BANDIT, one with BANDIT defunctioned.
+
+Run cpF06.bat will output difference into cpDiff.txt file.
+
+If there is an error in running Bandit, it will show up in the ERR file. For the solver with BANDIT, there mentioned nothing in the ERR file, so I think  it runs successfully.

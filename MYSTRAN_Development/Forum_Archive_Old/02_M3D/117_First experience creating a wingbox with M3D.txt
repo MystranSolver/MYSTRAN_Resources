@@ -1,0 +1,49 @@
+Thread: First experience creating a wingbox with M3D
+Category: M3D
+URL: https://www.mystran.com/forums/showthread.php?tid=117
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Eduhg97
+Date: 03-05-2025, 07:01 PM
+
+Hello everyone, this is my first post and I wanted show the wingbox I was able to model using the M3D program.
+
+Last weekend I decided to try M3D out by myself for the first time. I would like it to become my main pre and pro-processor for Mystran and since efforts are being made to achieve this goal for the community, I thought it would be useful for other users to share my experience with it like the most useful tools, some pitfalls and showing the progress in general.
+
+My only input was the set of points shaping an airfoil from the "airofoil.txt" archive located in the Examples folder. From there, with a bit of pacience and after playing around with literally every button and functionality I found, I was able to create the following model:
+
+Things to note:
+Although M3D currently lacks some automatic quad paver mesh for quads (it only has the advanced front tria mesh) I found it has huge potential for manual meshing (this is good news for some of us who like to have full control when meshing), specially regarding the 1D and 2D elements (Good for aero  ): My 4 most used commands here were:
+
+    -sweep nodes to beams (to create and extend the stringers and spar caps spanwise) --> located in the menu create ---> FEM tools
+    -sweep nodes to quads (to create and extend the panels and spar webs spanwise) --> located in the menu create ---> FEM tools
+    -copy selected objects (acts like an overpowered reflect, ideal for placing multiple rib stations) --> available as a symbol by default
+    -create quad elements from set of nodes (to create an organized cquad mesh, specially useful with curved surfaces) --> available as a symbol by default
+
+With these four in action, the most efficient workflow I found was create first the 2D mesh of the rib that will serve as a "footprint", then build the rest of components like spar webs and caps, panel skins and stringers by extruding directly the nodes you want in CBEAM and CQUAD elements (you can specify the total length of the extrusion and the number of elements per length). This is great since you dont need an intermediate element to extrude, you just select the nodes to locate where you want to extrude directly.
+
+The "create quad elements from sets of nodes" is one of the tools I have used the most also, it is the closest to an automatic quad meshing when the surface is not straight, very useful for curved surfaces like the ribs for example.
+The "copy selected objects" command copies and translates the number of times you input an object, in this case the Rib mesh spanwise, it is like a powerful version of reflect.
+
+After all of these action have been done, keep in mind the nodes are duplicated (between spar webs and panels, also with CBAR nodes) so in order to merge them you have to use the merge coincident nodes. I saw that it will actually merge the nodal position of each element to the one with higher or lower node label (depends on what you choose) but it does NOT merge nodes (in the sense of keeping one and deleting the other), you have to delete them after with the delete button by selecting all the model (DEL key also works for deleting the free nodes within your selection). This was tricky because being used to hypermesh each time I merge nodes, the merged nodes are deleted and I dont have to take care of them anymore, here it is a 2 steps process: Merge "nodal positions" of very close elements and then delete the free nodes.
+
+Things I found it would be helpful to improve:
+
+    -Preserve same filter used in repeat last command action.
+    -Add mask functionality to the group management menu, it only has the ability to isolate the current group, but what if I just want to hide some particular locations of my model.
+    -How to tell there are 1D elements in a 2D mesh (the quads and tria edges hide the 1D elements) when there is no property applied yet, ease the 1D element visualization.
+    -Advancing front meshing does not respect nodes already existing in the model (creates connectivity problems, can't join detailed meshes with the one being created)
+    -Translate option is either you know the module and direction (by key) or you specify both by the relative position of 2 objects (for example between 2 selected nodes)
+     Here it would be incredibly useful if both functionalities were fusioned: You input the distance module you want, and then you specify the direction by picking 2 nodes or other set of         object that follows the direction you wish.
+    -During the merge nodes task, maybe add a hint reminding the user that nodes are still there and they need to be deleted.
+
+I find M3D a promising candidate for Mystran, once you start understanding how the program works and what it expects from you as inputs, it really feels nice and smooth, it is like a compilation of some of the most used tools in comercial pre-processors.
+
+My intention is to continue with the model by applying properties, constraints and some typical load cases and see how it goes. Once it is finished, I will try a more complex model of a wing with some wing warping, sweepback angle and wingtips, I even plan to model the engine as a concentrated mass but well... the idea is to challenge M3D with more complex constructions.
+
+Please do not hesitate to comment and share how you would have done something in a different way, at the end of the day I am learning the program and the more we are trying it the better for everyone.
+
+Cheers!

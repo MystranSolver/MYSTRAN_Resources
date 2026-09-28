@@ -1,0 +1,76 @@
+Thread: tetra10 from pyNastran do not work with Mystran
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=70
+Posts: 6
+
+======================================================================
+
+--- Post #1 ---
+Author: bernd
+Date: 07-22-2021, 12:48 PM
+
+tetra10 from pyNastran do not work with Mystran. the files are attached ...
+
+this is what I used in pyNastran
+
+Code:model.add_grid(1, [8000.0, 1000.0, 0.0])
+...
+
+model.add_ctetra(147, 1, [23, 12, 22, 42, 110, 122, 68, 174, 192, 184])
+
+This is what the solver Mystran said ...
+
+Code:*ERROR  1928: ELEMENT      149, TYPE TETRA10 , HAS JACOBIAN LESS THAN OR EQUAL TO ZERO ( = -7.3E+08). BAD GEOMETRY
+...
+
+  Box_Mesh.bdf.txt (Size: 21.74 KB / Downloads: 3)
+
+  Box_Mesh.py.txt (Size: 18.33 KB / Downloads: 3)
+
+--- Post #2 ---
+Author: drbillc
+Date: 07-25-2021, 07:49 PM
+
+I think the numbering of your TETRA's is not the same as required by most programs I am aware of. The attached zip file shows what the correct ordering number is, as well as 2 MYSTRAN runs using a model containing only 1 of your TETRA elements (#155). The 2 runs are: (1) using the order you have (which results in the negative Jacobian indicating a serious problem) and (2) with a correct ordering which runs successfully. Please take a look at it and let me know what you think
+
+--- Post #3 ---
+Author: bernd
+Date: 07-26-2021, 01:05 PM
+
+Thanks for the detailed information. You are correct. The node numbering I used was wrong. My mistake :-(
+
+I will post some more information later on.
+
+cheers bernd
+
+--- Post #4 ---
+Author: bernd
+Date: 07-26-2021, 02:28 PM
+
+I made a very small model. It should be fine now. Would you have a look at this ... I get exact the same results in Mystran an Calculix.
+
+  tetra10.bdf.txt (Size: 1.34 KB / Downloads: 2)
+
+  tetra10.py.txt (Size: 1.99 KB / Downloads: 0)
+
+(the first screen shot of the my new play ground ...  )
+
+The difference is as follows.
+
+- Mystran uses rightHandRule thumb to top node 4 for the first face
+
+- FreeCAD (SMESH, Salome, Med, what is the FreeCAD FEM Mesh datastructure based on) uses for all faces from all solid elements the rightHandRule thumb to face normal and face normal goes out of the mesh volume for any face of a solid mesh element.
+
+this is the assignment I used ...
+
+--- Post #5 ---
+Author: drbillc
+Date: 07-30-2021, 02:17 AM
+
+Runs fine on my system Bernd. Even FEMAP likes it
+
+--- Post #6 ---
+Author: bernd
+Date: 08-03-2021, 04:31 PM
+
+great

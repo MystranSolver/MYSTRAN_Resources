@@ -1,0 +1,86 @@
+Thread: Concern about RBE3
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=105
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Victor
+Date: 01-25-2024, 03:12 AM
+
+I'm trying to implement my own RBE3 according to the Mystran manual and I've noticed something that looks like a familiar type of wrong behavior. I'm not really sure if it is wrong or not or if Mystran also behaves this way. I haven't used Mystran before but I'd like see what other people think of it before setting up Mystran and learning how to define a model.
+
+In my implementation, when I apply a moment load about the x axis, it causes the correct moment about x but also another moment about the y axis as shown in the attached picture. Note that the independent nodes are on an inclined face, not in a plane normal to the applied moment.
+
+If you've used RBE3 before, would you expect this beam to bend as well as twist?
+
+I'm suspicious of this because CalculiX has a similar issue with its moment loads on beams which are internally converted to MPCs similar to an RBE3.
+
+--- Post #2 ---
+Author: Victor
+Date: 01-25-2024, 09:26 PM
+
+I've made a simpler example and solved with Mystran. It's a single CHEXA element supported on one face (grids 1,2,3,4) by SPCs and with a moment about Z applied to the opposite face (grids 5,6,7,8) via RBE3 from a separate grid 9.
+
+Input file:
+Code:SOL STATICS
+CEND
+
+SPC = 1
+LOAD = 1
+SPCFORCES = ALL
+
+BEGIN BULK
+GRID    1       0       0.      -1.     0.0
+GRID    2       0       1.      0.      0.0
+GRID    3       0       0.      1.      0.0
+GRID    4       0       -1.     0.      0.0
+GRID    5       0       0.      -1.     1.2
+GRID    6       0       1.      0.      1.0
+GRID    7       0       0.      1.      0.8
+GRID    8       0       -1.     0.      1.0
+GRID    9       0       0.      0.      1.0
+
+C Element Connectivity: CHEXA
+CHEXA   1       1       1       2       3       4       5       6       +CH1
++CH1    7       8
+
+PSOLID  1       1       0       2       FULL
+MAT1    1       200.E9          0.
+SPC     1       1       1       0.
+SPC     1       1       2       0.
+SPC     1       1       3       0.
+SPC     1       2       1       0.
+SPC     1       2       2       0.
+SPC     1       2       3       0.
+SPC     1       3       1       0.
+SPC     1       3       2       0.
+SPC     1       3       3       0.
+SPC     1       4       1       0.
+SPC     1       4       2       0.
+SPC     1       4       3       0.
+
+MOMENT  1       9       0       100000. 0.      0.      1.
+
+RBE3    2               9       123456  1.0     123     5       6       +1
++1      7       8
+
+ENDDATA
+Here's the solution for reaction forces on the SPC nodes (T1-T3) and my hand calculated moments about the 3 axes due to those forces (Moment X, Moment Y, Moment Z):
+Code:           GRID     COORD      T1            T2            T3       Moment X      Moment Y      Moment Z
+                     SYS
+              1        0 -2.431020E+04  9.081890E+02  5.563799E+02 -5.563799E+02               -2.431020E+04
+              2        0  5.401138E+02 -2.440502E+04  4.443620E+03  0.0          -4.443620E+03 -2.440502E+04
+              3        0  2.581279E+04 -1.975163E+03  5.563799E+02  5.563799E+02               -2.581279E+04
+              4        0 -2.042702E+03  2.547199E+04 -5.556380E+03  0.0          -5.556380E+03 -2.547199E+04
+            Sum                                                     0.0          -1.000000E+04 -1.000000E+05
+The total reaction moment about Z (-1.000000E+05) is the opposite of the applied moment which looks correct. However, there's also a reaction moment about Y (-1.000000E+04) which I think should be zero. It doesn't balance with the applied moment.
+
+Any thoughts?
+
+--- Post #3 ---
+Author: Admin
+Date: 01-25-2024, 11:12 PM
+
+Gotcha...we use this forum sometimes for general info and some static links and such. But all of the action is on Discord.

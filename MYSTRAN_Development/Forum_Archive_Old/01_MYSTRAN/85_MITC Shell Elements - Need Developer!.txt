@@ -1,0 +1,32 @@
+Thread: MITC Shell Elements - Need Developer!
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=85
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-05-2022, 03:57 PM
+
+1 - One of the highest priorities (if not the highest) for MYSTRAN is to improve the shell elements and add shell buckling. There are currently 2 quad element options in MYSTRAN now, but both have limitations. MYSTRAN can not do buckling for shell elements (but it can do buckling for all other elements).
+
+2 - A developer of another FE solver has incorporated the MITC shells into his code (3, 4, 6, and 8-noded). These are Bathe's formulation and are quite popular. He also developed the code shell buckling so we can use that code as reference. However, all if this code is in VB (Visual Basic) and I believe some C++. He has provided the code to me, but it is not for public use. It is only for developers and we need to make our own Fortran version. He said he used a lot of information from the following link and can assist us.
+https://www.sesamx.io/blog/shell_finite_element/
+
+3 - The open source solver CalculiX has developed a MITC 3-noded tri. Since this is coded in Fortran, it be useful to view this code.
+
+4 - Harry Schaeffer helped Dick MacNeal develop shell elements for MSC. Harry developed his own variation of NASTRAN-95, which is known as ComLab. But there are some challenges with redistribution and maintenance of that program. Harry is assisting us by adding his 3-node tri and 4-node quad (and improved solids) to MYSTRAN. I believe he is also going to add shell buckling as well. There is no time frame to completion, but his code may be useful for adding the MITC elements.
+
+5 - Cean has some notes for adding the drilling DOF stiffness (K6ROT) in the following link. MYSTRAN does not have K6ROT, but the developers think it would be a good idea to add it. Here is a PDF:
+https://www.mystran.com/misc/Adding_PARA...Update.pdf
+
+If you would like to help, post here or in the Discord channel: https://discord.com/invite/fUJr75H
+
+--- Post #2 ---
+Author: Admin
+Date: 09-25-2022, 04:16 AM
+
+FYI, I saw this file regarding shells
+
+https://www.mystran.com/misc/SHELL_arrays.pdf

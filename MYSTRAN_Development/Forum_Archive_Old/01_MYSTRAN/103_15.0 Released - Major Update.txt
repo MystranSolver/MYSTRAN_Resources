@@ -1,0 +1,50 @@
+Thread: 15.0 Released - Major Update
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=103
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 12-19-2023, 02:14 PM
+
+15.0 has just released. This is a significant update done by Bruno and mostly consists of memory bug fixes. Bruno is also making a major effort to continue to improve MYSTRAN in the coming months. The details for 15.0 are here (https://github.com/MYSTRANsolver/MYSTRAN/pull/9) and a quick summary is as follows:
+
+All models in our current benchmark set now run without any illegal memory operations. So do other models that used to cause trouble, like cshear.bdf (part of the build verification suite) and large_shelled_beam.bdf (user-reported, I think). That doesn't mean results are necessarily correct. Not all bugs are memory bugs! But this update means that many models that used to trigger nondeterministic behaviour and/or crashes now run to completion. This way, we can actually get the results to verify they're correct, and also work on new features unencumbered by crashes.
+
+------- SOME DETAILS --------
+
+ - ELMOFF was comparing QUAD4 areas to an uninitialized EPS1, causing it to think positive areas were negative. The fix: initialize EPS1 to be EPSIL(1) as everywhere else does.
+
+- GPWG had some debug prints that tried to write the value of ITABLE before it was set. The fix: move the initialization of ITABLE a couple lines up.
+
+- ANY_U_P_OUTPUT, a variable with all assignments and uses commented out, appeared on an IF statement, thus sometimes being read even though it was never set. The fix: comment it out of the IF statement as well.
+
+- there was a faulty conditional in the SuperLU version we were using, causing crashes when the global stiffness matrix was singular. The fix: so we changed to a more recent state of their repository since the fix was recent.
+
+- a small oversight in indexes used to print CSHEAR engineering forces in WRITE_ELEM_ENGR_FORCE caused a buffer to be read past the part that actually held values. The fix: make the indexes consistent with the initialized part.
+
+- OP2 code in WRITE_ELEM_STRESSES forgot to set a value called STRESS_CODE, used to indicate what's about to be written. The fix: put in a placeholder value for now -- there's other placeholder values in that same subroutine anyway.
+
+- a missing ELSE was causing a fatal error to be issued for valid models containing CSHEAR cards with a nonzero OCID. The fix: added the ELSE.
+
+- the subroutine GET_KE_OFFSET was communicating the wrong shape of BUSH element parameters (KEO_BUSH) to a matrix operation (MATPUT). The fix: communicate the correct shape.
+
+- a post-deallocation subroutine was being called for the matrix I2_GMN regardless of whether it had been just deallocated or not, triggering a bad read. The fix: move the call into the conditional for whether I2_GMN was just deallocated.
+
+- the SCNUM vector, containing subcase numbers, was being allocated with the wrong size, resulting in an overflow when it was written to. In MODES solutions, the "subcases" are the number of requested eigenvectors. The fix: set LSUB, which determines the maximum number of subcases in the solution, as soon was we see the EIGR bulk data card "chosen" by the METHOD case control card during LOADB. This way, all subsequent (i.e. after LINK0) allocations of SCNUM will be the correct size. There are no writes to SCNUM that could overflow before, since we set the size before the limit is even communicated to the rest of the program.
+
+- same as above, but for EIGRL cards and the OGROUT vector. The fix: same as above, but setting LSUB as soon as we see the right EIGRL card during LOADB.
+
+- a debug write was reading from an uninitialized variable depending on the requested data. The fix: initialize it just like in similar requests.
+
+- okay, so, when a BUSH element has negative OCID (or the continuation card is absent), that means we use the GA-GB line as the x-axis for computing offsets. However, when GA and GB coincide, that line can't be computed, but an attempt was being made to compute them anyway, resulting in some nasty memory bugs. The fix: detect zero-length BUSH elements with negative OCID and mark them as non-offset, thus avoiding the problematic computations.
+
+--- Post #2 ---
+Author: borges
+Date: 12-19-2023, 02:46 PM
+
+This update was really fun to do!
+
+In order to get the Windows and Linux binaries, just go to https://github.com/MYSTRANsolver/MYSTRAN...tag/15.0.0

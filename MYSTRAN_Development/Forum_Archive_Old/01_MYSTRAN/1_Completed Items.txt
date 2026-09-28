@@ -1,0 +1,46 @@
+Thread: Completed Items
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=1
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-10-2020, 11:50 PM
+
+Dates are approximate:
+
+COMPLETED ITEMS
+
+- (9/20/2022) 14.0.1 Fixes a ELAS bug
+
+- (9/7/2022) 14.0 Released. Compiling instructions were modifed.
+
+- (9/1/2022) Major restructure - see this thread: https://www.mystran.com/forums/showthread.php?tid=83
+
+- (2/13/2021) 12.1 fixes and error with the BUSH element.
+
+- (2/13/2021) Brian Esp added the new MYSTRAN Benchmark Tool, which assists in the benchmarking process for new builds.
+
+- (2/4/2021) 12.0 introduces a major feature, which is the SuperLU sparse solver. Prior versions only had the LAPACK banded solver option, which is not adequate for large DOF problems.
+
+- (9/1/2020) The source code has been improved and no longer has OS specific files.
+
+- (9/1/2020) Bill fixed an error that occurred when applying a pressure to shell elements.
+
+- (9/1/2020) Bruno has made various contributions and we now have a process to compile MYSTRAN for Linux using CMake. Aspects of this were based on Cean's original makefile.
+
+- (7/1/2020) Milesone: Brian reorganized the website, forum, links, and re-uploaded the project to GitHub. The project is more friendly for community development and can be compiled with open source tools.
+
+- (6/20/2020) Cean Wang has created a process to compile MYSTRAN with CMake
+
+- (6/20/2020) Brian completed the process to compile MYSTRAN with Code::Blocks and gFotran
+
+- (5/10/2020) Robert and Brian have been able to compile MYSTRAN with the Intel compiler. We need to work on gFortran now.
+
+- (11/25/2019) Bill added a GitHub version for MYSTRAN. This should now be the primary location for developers. This also includes the DOS and Perl files as well as Perl 3 and some additional instructions about compiling with the Lahey compiler.
+
+- (11/9/2019) Bill has provided the relevant DOS batch files and perl scripts that he used to compile MYSTRAN with the Lahey Express compiler.
+
+- (11/7/2019) Bill has converted the License from GNU GPL to the MIT License. The MIT license is much more permissive and will not tie the hands of developers. It only requires that the copyright be stated and that the author is acknowledged.

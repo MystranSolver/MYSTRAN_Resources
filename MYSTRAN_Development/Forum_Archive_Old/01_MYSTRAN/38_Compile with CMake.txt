@@ -1,0 +1,28 @@
+Thread: Compile with CMake
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=38
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 06-18-2020, 05:13 AM
+
+EDIT: See also this thread: https://www.mystran.com/forums/showthread.php?tid=2
+
+Cean Wang has created the files necessary to use CMake. He has also provided instructions in the link below. Note that the source code he used is an example and we will be updating the source code and it will be added to GitHub.
+
+https://mystran.com/compile/CMake.zip
+
+Also, as an FYI, we now have instructions for how to compile MYSTRAN with Code::Blocks. That will be provided once we upload the latest source code on GitHub.
+
+--- Post #2 ---
+Author: Admin
+Date: 06-20-2020, 04:54 AM
+
+NOTE: You can also use the gFortran that comes with Code:Blocks (if you chose the download that has gFortran with it).
+
+From Cean: To use CB's gfortran Ver 8.1 with cmake, you need add D:\Program Files\CodeBlocks\MinGW\bin into Window's PATH. Make a copy of mingw32-make.exe file (which is under that bin folder), rename that copy to make.exe. Otherwise, when run w.bat, cmake will not find make.exe program.
+
+After that, w.bat and make.exe will compile the src.

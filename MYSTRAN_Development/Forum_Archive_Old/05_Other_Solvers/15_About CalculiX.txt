@@ -1,0 +1,46 @@
+Thread: About CalculiX
+Category: Other Solvers
+URL: https://www.mystran.com/forums/showthread.php?tid=15
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-21-2020, 07:11 PM
+
+In other to best develop MYSTRAN, we should be aware of the other offerings.
+
+CalculiX is an excellent FEA solver that has an ABAQUS-like input deck (the input deck is often interchangeable in same manner as MYSTRAN and NASTRAN are similar). This is a great advantage to those already familiar with ABAQUS. It also seems to be one of the most popular open source solvers.
+
+Here is the website:
+http://www.dhondt.de/
+
+It is split into two aspects:
+1. CalculiX CrunchiX (CCX) is the solver, which is developed by Guido Dhondt
+2. CalculiX GraphiX (CGX) is a pre/post, which is developed by Klaus Wittig
+
+A distinct advantage is that the solver has nonlinear capabilities. However, something important to notes is that all elements are 3D on the solver side. A user can specify a beam or shell element, but the solver internally expands those elements into 3D. This has some advantages and some disadvantages, but is not a "classical" approach to FEA.  I think this presents a bigger challenge for beam elements than shell elements. And one advantage is that shell elements automatically have transverse shear stiffness because they are ultimately 3D. Another thing to consider is that CalculiX only reports the beam results at the integration point (center of the beam element) and the user is often interested in the results at the nodes (ends of the beam element).
+
+I have been impressed with CalculiX and have built some specialty pre/post programs with them ( www.espcomposites.com ) and (www.structuralfea.com)
+
+----------------
+
+There is some carry over from CaculiX to MYSTRAN:
+
+1. The CalculiX developers are looking to incorporate a new sparse solver. We can learn a lot from their efforts.
+2. CGX is a light pre/post that has some interesting capabilities. It uses an FRD file, which seems to be relatively straightforward. MYSTRAN could export a FRD file and CGX could be used.
+
+--- Post #2 ---
+Author: vittorio
+Date: 01-21-2020, 09:25 PM
+
+Cgx, the Calculix post processor, has a capability to read f. 06 nastran output  (only chexas, AFAIK). Maybe it is worth investigating if the same capability works for MYSTRAN output.
+
+Vittorio
+
+--- Post #3 ---
+Author: Admin
+Date: 01-21-2020, 11:02 PM
+
+Thanks, I am aware of this and will look into it further. However, the F06 format does not seem to be universal (and can change within versions of Nastran). So I don't have high hopes that it will be reliable. In general, parsing the F06 tends to be problematic and not robust.

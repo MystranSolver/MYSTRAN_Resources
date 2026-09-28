@@ -1,0 +1,168 @@
+Thread: Windows Complie Issue
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=94
+Posts: 5
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 10-18-2022, 08:41 PM
+
+There may be some issues with compiling MYSTRAN in Windows. While it appears to be resolvable, can we make this either (a) more bullet-proof or (b) provide some instructions in the trouble shooting section of the build MD here: https://github.com/MYSTRANsolver/MYSTRAN...n/BUILD.md
+
+From the Fortran forum, there is this thread, and the following notable comments:
+https://fortran-lang.discourse.group/t/f...er/4529/13
+
+As suggested I tried building via MSYS2 (or rather MinGW-w64). That failed because despite a message that CMake 3.23 would be installed, I am stuck with CMake 3.17.
+
+Instead, I switched to Cygwin, which does have an up-to-date version on my machine.
+
+The configuration step started, but then I got a complaint that submodules had not been downloaded. No indication of what submodules are to be downloaded. There is no indication in the BUILD.md file either.
+
+A quick check of the MakeLists.txt file showed a few packages are needed, but there is no information that I can see about where to get the various packages.
+
+I was also surprised to see f2c - is that really necessary?
+
+The information in BUILD.md suggests though the script will do it. Is that outdated information?
+
+Side note: I find a fairly recent version of CMake in the installation but it does not do much (no output, stops immediately - missing DLLs?). In the MinGW-w64 console a different version is invoked that actually works.
+
+--- Post #2 ---
+Author: Admin
+Date: 10-18-2022, 09:03 PM
+
+The initial response is to use a modern version of msys2 and install the correct version of cmake. This will be added to the trouble shoot section of the BUILD.MD file here: https://github.com/MYSTRANsolver/MYSTRAN...n/BUILD.md
+
+Also.."I got same or similar message when compiling v14.01 on macOS. I had to copy superlu on the mystran directory since the zip from github doesn't include it. After that everything went as expected."
+
+--- Post #3 ---
+Author: realbabilu
+Date: 11-17-2022, 05:08 PM
+
+Just the alternative for equation.com gcc gfortran, that doesn't came with  msys and pacman.
+
+i use the batch file to create mystran.exe from gcc.exe gfortran.exe
+1. copy all mystran on c:\mystran for example : latest on 14.01 with folder mystran-main
+2. create first folder opeblas in mystran-main.
+    copy openblas x64 binary for faster blas lapack solver https://github.com/xianyi/OpenBLAS/relea...21-x64.zip into folder openblas in mystran-main,
+    all in dll dll.a and .h header
+3. copy superlu src folder to superlu\gcc_src folder https://github.com/xiaoyeli/superlu/arch...v5.3.0.zip with c_fortran_dgssv.c in fortran folder into same folder gcc_src.
+   (rename default src from zipper to gcc_src)
+4. create output folder in mystran-main
+4. download batch file
+   https://pastebin.com/G4C9jN5c gcc_fortran4.rsp
+   https://pastebin.com/X89YMb8C gcc_fortran4.bat
+   copy 2 files into c:\mystran folder
+   set path=%path%;c:\gcc\bin  or whatever folder gcc equation.com installed.
+   go to folder c:\mystran via cmd.exe
+   run gcc_Fortran4.bat
+5. the mystran.exe is on output folder
+6. to run it will need openblas.dll in step2, superlu.dll.a that compiled in step 3.
+
+--- Post #4 ---
+Author: Admin
+Date: 11-17-2022, 09:50 PM
+
+Thanks, what did you use to generate the files in Step 4? If the source code changes, how does one update all the steps? In other words, what steps stay the same and what has to change with the source code?
+
+--- Post #5 ---
+Author: realbabilu
+Date: 11-18-2022, 10:23 AM
+
+(11-17-2022, 09:50 PM)Admin Wrote:  Thanks, what did you use to generate the files in Step 4? If the source code changes, how does one update all the steps? In other words, what steps stay the same and what has to change with the source code?
+It was generated copy from VS build log. then converted to use gcc. So we can experimenting faster.
+Yes it is only support 14.01 only. Any changes like from 13 not worked because the several files is different folder now than older mystran source.
+Minus: Any new files need to be added manually.
+
+For all update mystran later...
+UPDATE: For using CMAKE using GCC equation.com
+
+---------------------------------------------------------------
+
+1. Download GCC from equation.com - x64  Fortran, Fortran, C, C++ for Windows (equation.com)
+    http://www.equation.com/ftpdir/gcc/gcc-12.2.0-64.exe
+    install at c:\gcc
+
+2. Download CMAKE latest binary windows - x64 Download | CMake  zipped file
+    https://github.com/Kitware/CMake/release...x86_64.zip
+    - Extract bin cmake.exe etc. at c:\gcc\bin
+    - Extract share folder at c:\gcc\share
+    - Extract man folder at C:\gcc\share\man
+3. Create vars.bat in gcc folder that contain
+Code:path=C:\gcc\bin;%path%  4. Extract mystran in any folder.
+  5. Extract superlu in superlu mystran sub folder
+  6. Go to command cmd.exe and run vars.bat
+  Go to top root mystran folder that contain Cmakelist.txt and Build.md
+  run in command file
+
+  7A. If using CBLAS Superlu and LAPACK in Mystran
+Code:cmake -G"MinGW Makefiles"  -D"CMAKE_MAKE_PROGRAM=make.exe" -D"CMAKE_FORTRAN_COMPILER=gfortran.exe" -D"CMAKE_C_COMPILER=gcc.exe" -D"CMAKE_CXX_COMPILER=g++.exe"
+make -j16 (or how many threads you have)
+      7B. If Using OpenBlas binary https://github.com/xianyi/OpenBLAS/relea...21-x64.zip
+   8B. Extract Openblas in c:\gcc\openblas ; all files not in different folder, make it same folder libopenblas.dll and its .h files also others in the same folder
+   9B. the Cmake files  OpenBLASConfig.cmake and OpenBLASConfigVersion.cmake in the zipped Openblas putted in same folder c:\gcc\openblas
+    and  folder cmake share like c:\gcc\share\cmake in the C:\gcc\share\cmake-3.25\Modules
+   10B. Get modified BLAS Cmake Cmakelists.txt  that reside in mystran folder or mystran-main folder Cmakelists.txt - Pastebin.com
+     this modified Cmakelists.txt also compatible be used for Intel Fortran etc. The original cmake list grab internal Lapack files so it need to be replaced if you re going to use pre built BLAS VENDOR like ATLAS, OpenBLAS. etc
+
+   11B. Go to top root mystran folder that contain Cmakelist.txt and Build.md and run in command file
+
+Code:cmake -G "MinGW Makefiles" -D"CMAKE_MAKE_PROGRAM:PATH=c:\gcc\bin\make.exe" -D"CMAKE_Fortran_COMPILER:PATH=c:\gcc\bin\gfortran.exe"  -D"TPL_BLAS_LIBRARIES:PATH=c:\gcc\openblas\libopenblas.DLL.a"  -D"BLAS_LIBRARIES:PATH=c:\gcc\openblas\libopenblas.DLL.a" -D"XSDK_ENABLE_Fortran=TRUE" -D"CMAKE_BUILD_TYPE=RELEASE" -DBLA_VENDOR=OpenBLAS -DUSE_XSDK_DEFAULTS=TRUE -DBUILD_SHARED_LIBS=FALSE
+
+make -j16 (or whatever many threads you have)
+----- FOR INTEL FORTRAN COMPILER / ONE API using CMAKE
+
+  C For Command Line using CMAKE using Intel Fortran and existing BLAS
+    1. Extract mystran and superlu. superlu must reside in superlu folder
+    2. Please edit  GET_MYSTRAN_DIR.F90
+
+Code:      !      GETENV not compatible
+      !      INTRINSIC                                    :: GETENV
+
+      CALL GET_ENVironment_variable ( 'MYSTRAN_directory', MYSTRAN_DIR )
+
+      3. Goto \SuperLU\TESTING folder, Delete all files and MATGEN folder also
+       Put empty text file CMAKELISTS.TXT, this testing is just for testing and not used.
+      4. Goto \SRC and \CBLAS
+         Edit SLU_Cnames.h to call c obj as UPPERCASE call, not lowercase_ as default in C [ONLY FOR INTEL FORTRAN]
+
+Code:/* Fortran interface */
+#define c_bridge_dgssv_ C_BRIDGE_DGSSV
+#define c_fortran_sgssv_ C_FORTRAN_SGSSV
+#define c_fortran_dgssv_ C_FORTRAN_DGSSV
+#define c_fortran_cgssv_ C_FORTRAN_CGSSV
+#define c_fortran_zgssv_ C_FORTRAN_ZGSSV
+
+       5. Get modified CMakelists.txt in the root of mystran folder  Cmakelists.txt - Pastebin.com
+       6. Download jom, put it in mystran folder, or any path folder, for faster compiling than nmake
+       7A. Using Intel64 environment command line cmd.exe . O C:\Program Files (x86)\Intel\oneAPI\setvars,bat
+
+Code:cmake  -D"CMAKE_FORTRAN_COMPILER=ifort.exe" -D"CMAKE_C_COMPILER=icl.exe" -D"CMAKE_CXX_COMPILER=icl.exe" -G"NMake Makefiles JOM" -DUSE_XSDK_DEFAULTS=FALSE
+jom /j16 (or whatever threads you have)
+
+       7B. If using nmake or building
+
+Code:
+cmake  -D"CMAKE_FORTRAN_COMPILER=ifort.exe" -D"CMAKE_C_COMPILER=icl.exe" -D"CMAKE_CXX_COMPILER=icl.exe" -G"NMake Makefiles" -DUSE_XSDK_DEFAULTS=FALSE
+nmake
+
+       7C. For using Visual Studio Interface
+
+Code:cmake  -D"CMAKE_FORTRAN_COMPILER=ifort.exe" -D"CMAKE_C_COMPILER=icl.exe" -D"CMAKE_CXX_COMPILER=icl.exe" -G"Visual Studio 17 2022"
+mystran.sln
+
+    7D For Command Line using CMAKE using Intel Fortran and Intel MKL,
+
+Code:cmake  -D"CMAKE_FORTRAN_COMPILER=ifort.exe" -D"CMAKE_C_COMPILER=icx.exe" -D"CMAKE_CXX_COMPILER=icx.exe" -G"NMake Makefiles JOM"  -Denable_internal_blaslib=FALSE -DBLA_VENDOR=Intel10_64lp -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=FALSE -DXSDK_ENABLE_Fortran=TRUE -DUSE_XSDK_DEFAULTS=TRUE
+jom /j16
+
+   7E. For Command Line using CMAKE using Intel Fortran and OpenBLAS
+
+Code:cmake  -D"CMAKE_FORTRAN_COMPILER=ifort.exe" -D"CMAKE_C_COMPILER=icl.exe" -D"CMAKE_CXX_COMPILER=icl.exe" -G"NMake Makefiles JOM"  -Denable_internal_blaslib=FALSE -DBLA_VENDOR=Openblas -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=FALSE -DXSDK_ENABLE_Fortran=TRUE -D"TPL_BLAS_LIBRARIES=c:\gcc\openblas\libopenblas.dll.a" -D"BLAS_LIBRARIES=c:\gcc\openblas\libopenblas.dll.a" -USE_XSDK_DEFAULTS=TRUE
+jom /j16
+Sidenote:
+a. use     -G"Nmake Makefiles"  for nmake OR      -G"Nmake Makefiles JOM" for jom OR    -G"Visual Studio 17 2022" for using Visual Studio Interface
+b. f2c may be needed for MinGW, sometimes MSYS not compatible with it
+c. In Release setup of Intel Fortran compile from CMAKE, the /DNDEBUG made NDEBUG variable became 1, and there is error, so it need to be removed from CMAKE.
+d. The Ninja way not compatible with MinGW, and has some problems linking using Intel Compiler

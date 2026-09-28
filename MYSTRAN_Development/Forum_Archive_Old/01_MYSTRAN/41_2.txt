@@ -1,0 +1,247 @@
+Thread: 2
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=41
+Posts: 19
+
+======================================================================
+
+--- Post #1 ---
+Author: O_Stodieck
+Date: 08-06-2020, 08:58 AM
+
+What are the options for compiling on Linux Ubuntu? Is there a CMake file for linux?
+
+The github instructions are not very enlightening:
+"If compiling for Linux:
+
+1. Rename the other 3 files in this directory to have a ".f90" extension instead of a ".tmp" extension.
+2. Delete the files in the "1_Windows" directory."
+
+--- Post #2 ---
+Author: Admin
+Date: 08-06-2020, 10:40 PM
+
+We have do not have anything official for Linux and I do not know if anyone has tried that approach yet. The instructions on GitHub are just for how to set up the source code for readiness to compile. It is not a compile process. Have you seen this thread thread about compiling? While these options are primarily for Windows, would they be useful for Linux? Code::Blocks can be used on Linux and there is a CMake approach (the Visual Studio option is not relevant). One challenge might be that we are using a special Code::Blocks version for now, which has been compiled for Windows. But the standard Code::Blocks version might work since it accepts a longer command line string. That is TBD.
+
+https://www.mystran.com/forums/showthread.php?tid=2
+
+--- Post #3 ---
+Author: borges
+Date: 08-11-2020, 12:02 PM
+
+I have tried compiling under Linux using the provided CMake files. I got the CMakeLists.txt, then told CMake to generate the Makefile... basically, the same commands as the .bat file, save for replacing "gFortran" with "gfortran", since Linux file names are case sensitive. However, upon calling make, one of the source files fails to compile due to referencing an unknown module.
+
+Here's the full terminal output: https://pastebin.com/0WMGAAeE.
+
+I'm using git master's latest (commit f22e1b2 as of this writing), the unmodified CMakeLists.txt from the link, CMake 3.17.3, GNU Make 4.3, and gfortran (gcc) 10.1.0 under x86_64 Arch Linux.
+
+Maybe someone with a better understanding of the source code and internals could be of help? Assuming the current master branch is OK, that could only be an out-of-date CMakeLists.txt, but I don't know enough about CMake or the MYSTRAN source code to fix this. I'm hell-bent on getting this to compile on Linux though!
+
+Any ideas?
+
+--- Post #4 ---
+Author: drbillc
+Date: 08-11-2020, 06:41 PM
+
+Hi Borges. The CMake file you have must be incorrect since BANDIT_MODULE must be compiled before that point where your compilation stopped. I will make a list of a file order that should work for you. I have compiled the program for many years using batch files and perl scripts. From that I can make the list you can use. It may take a day or so and might require a couple of iterations to get it working but we will get there, I'm sure
+
+--- Post #5 ---
+Author: borges
+Date: 08-11-2020, 08:50 PM
+
+Interesting... never thought it was about order.
+
+I'll fiddle with the order settings within the CMakeLists.txt file while I'm at it.
+
+--- Post #6 ---
+Author: drbillc
+Date: 08-12-2020, 03:35 PM
+
+Hi Borges,
+I have a first cut at the list for the order in which to compile MYSTRAN. One of the reasons an order is required is that the code contains modules that are used in subroutines and they have to be compiled before some of the code. If you send me an email at the address in the Contact tab on the MYSTRAN.com web site I will respond with an Excel file that has the order. If you can't deal with Excel let me know and I'll send a plain text copy. Since I don't use that list when I compile it may take us an iteration or 2 to get this working.
+
+--- Post #7 ---
+Author: Admin
+Date: 08-12-2020, 07:43 PM
+
+borges, do you know if Code::Blocks might work? The following link contains the instructions for Windows. There is a major difference though. You would just download C::B from their site (http://www.codeblocks.org/downloads/26) (do not use the specific version we have for Windows, which contains a patch for long command line lengths). In other words, you should be able to go to page 4 of the following document after you download C::B for Linux. I am not sure if you will run into a command line length issue though. Linux is more generous than Windows, so it may or may not work (but I recommend putting the source code in a directory with a very small path to maximize the chance that it will work).
+
+https://www.mystran.com/compile/MYSTRAN_...ks_5.2.pdf
+
+P.S. Also, read the text file in the "2_Linux" directory of the source code. You need to make some minor modifications to set it up for Linux.
+
+--- Post #8 ---
+Author: borges
+Date: 08-13-2020, 12:18 PM
+
+(08-12-2020, 03:35 PM)drbillc Wrote:  Hi Borges,
+I have a first cut at the list for the order in which to compile MYSTRAN. One of the reasons an order is required is that the code contains modules that are used in subroutines and they have to be compiled before some of the code. If you send me an email at the address in the Contact tab on the MYSTRAN.com web site I will respond with an Excel file that has the order. If you can't deal with Excel let me know and I'll send a plain text copy. Since I don't use that list when I compile it may take us an iteration or 2 to get this working.
+Email sent. That file will sure be of help (see last paragraph).
+
+ (08-12-2020, 07:43 PM)Admin Wrote:  borges, do you know if Code::Blocks might work? The following link contains the instructions for Windows. There is a major difference though. You would just download C::B from their site (http://www.codeblocks.org/downloads/26) (do not use the specific version we have for Windows, which contains a patch for long command line lengths). In other words, you should be able to go to page 4 of the following document after you download C::B for Linux. I am not sure if you will run into a command line length issue though. Linux is more generous than Windows, so it may or may not work (but I recommend putting the source code in a directory with a very small path to maximize the chance that it will work).
+
+https://www.mystran.com/compile/MYSTRAN_...ks_5.2.pdf
+
+P.S. Also, read the text file in the "2_Linux" directory of the source code. You need to make some minor modifications to set it up for Linux.
+So, about Code::Blocks... I'm not a big fan of depending on a GUI program to bootstrap the compilation process. I'll consider it a "if all else fails" sort of option.
+
+The thing is, Code::Blocks doesn't do magic: all it does is generate a CMakeLists.txt file, which is then used to generate a Makefile, and said Makefile does all the work. A good CMakeLists.txt file is all you need, so one could argue "use Code::Blocks to generate good CMake files and use those for compiling wherever".
+
+That sounds doable -- I might even give it a shot -- but I don't like the sound of it for one simple reason: it's not a good long-term solution. Since Code::Blocks uses internal "project" information (namely, the .cbproj file) to generate the CMake files, it needn't care for their structure. Put simply, they're made for Code::Blocks to read, write and use. What this means is, should any changes occur in the source code structure (e.g. a source code file added, removed or renamed), the CMakeLists.txt file can no longer produce a working Makefile, meaning someone will have to boot up Code::Blocks and repeat the process all over again.
+
+In my opinion, the compilation info/scripts should be a part of the project files. See, if you download project that is supposed to be built with CMake, it'll have a CMakeLists.txt somewhere in its source tree. Same if you download a project that uses the GNU Build System: somewhere there will be a configure script and a Makefile.in file. Adacore GPS projects will have a .gpr file. Simpler projects will sometimes just have a hand-written Makefile. It's very rare for a project not to have any build script/file.
+
+Aaand from that tangent arises a good long-term solution: have a good, likely handwritten build file/script in the source tree, such as a CMakeLists.txt, a Makefile, whatever works. Not only will it make the build process more consistent across updates, it'll remove the need for user intervention (such as the 1_Windows or 2_Linux folder removal and file renaming) entirely. In fact, that's what I'm currently working on. Since I'm not very familiar with CMake and have some experience with compiling NASTRAN-95 (more than I find to be healthy) for both Windows and Linux, it's gonna be a Makefile for now. I'll likely need to have a look at the aforementioned "compile order" spreadsheet to get it working though.
+
+Also, quick note: I was experimenting with the CMakeLists.txt, and noticed it didn't compile any part of BANDIT at all, so I did some fiddling... namely, told it to compile BANDIT. I found a couple issues with the READ_CL sub too: GETARG is a compiler extension, and under gfortran, it takes takes two arguments, so you'd have to check iargc instead of getting a STATUS.
+
+After fixing those two things (getting rid of STATUS in READ_CL and telling CMake to compile and link against BANDIT), I actually got it to compile under Linux!
+
+All one would need to compile now (under any platform) is running "cmake . && make" in the Source folder. (In multicore systems e.g. quadcore, make -j 4 dramatically increases speed, so use that as well).
+
+--- Post #9 ---
+Author: Admin
+Date: 08-13-2020, 02:15 PM
+
+Some responses:
+
+- I agree that Code:Blocks is not an ideal solution in various ways. It has a GUI, which can be nice, but it also has some quirks. The major objective was to get away from the Lahey compiler that Bill was using and the Code::Blocks approach is at least one option. We had tried some other approaches, but we were not able to finish them. Also, if files are added/removed from the source code, you just have to adjust them in C::B. That is a quick change (most of the time consuming aspect is the setup and internal options which remain).
+
+- On that note, a few people tried to use Makefiles, but were not successful (hence C::B is the default approach today). But if you able to come up with a Makefile, then that is exactly what we need, so thanks!
+
+- Regaring Cean's attempt (https://www.mystran.com/forums/showthread.php?tid=38), there was a time when we removed BANDIT was removed from the code (since it needed to be touched up). Later, Bill reworked it we added it back into the source code. So it may be that it was not part of the code at all when Cean worked on it.
+
+- In any case, we can use all the help/options we can get. So if you are successful, we can add the processes and/or adjust the source code as necessary. Ideally, we would like a non C::B option for Windows as well, but something for Linux would be great. We haven't had any developers interested on the Linux side yet, but it seems are few more are interested now. Also, we are lacking a Linux 11.0 build, so it would be good to add that for end users.
+
+--- Post #10 ---
+Author: borges
+Date: 08-13-2020, 03:00 PM
+
+(08-13-2020, 02:15 PM)Admin Wrote:  Some responses:
+
+- I agree that Code:Blocks is not an ideal solution in various ways. It has a GUI, which can be nice, but it also has some quirks. The major objective was to get away from the Lahey compiler that Bill was using and the Code::Blocks approach is at least one option. We had tried some other approaches, but we were not able to finish them. Also, if files are added/removed from the source code, you just have to adjust them in C::B. That is a quick change (most of the time consuming aspect is the setup and internal options which remain).
+
+- On that note, a few people tried to use Makefiles, but were not successful (hence C::B is the default approach today). But if you able to come up with a Makefile, then that is exactly what we need, so thanks!
+
+- Regaring Cean's attempt (https://www.mystran.com/forums/showthread.php?tid=38), there was a time when we removed BANDIT was removed from the code (since it needed to be touched up). Later, Bill reworked it we added it back into the source code. So it may be that it was not part of the code at all when Cean worked on it.
+
+- In any case, we can use all the help/options we can get. So if you are successful, we can add the processes and/or adjust the source code as necessary. Ideally, we would like a non C::B option for Windows as well, but something for Linux would be great. We haven't had any developers interested on the Linux side yet, but it seems are few more are interested now. Also, we are lacking a Linux 11.0 build, so it would be good to add that for end users.
+Some good news then: I think I have produced a working CMakeLists.txt from Cean's. It generates a valid Makefile that can compile MYSTRAN all the way, just a "cmake && make" and you're all set. The resulting binary works; I ran some models, results are produced as expected, and albeit I don't have my Windows machine on me right now to visually check the results, they seem to be correct.
+
+There are lots of warnings, though; probably because this source tree wasn't originally meant to be compiled with gfortran, but this is very promising. The only thing I'm not confident in are my changes to the READ_CL subroutine's GETARG calls -- I have very little experience with Fortran --, but that was the only way that file could ever compile under gfortran, since GETARG is a compiler extension added for F77 compatibility, and takes only two arguments. Silently suppressing the STATUS value is hacky at best, and a better solution would be checking iargc() to set STATUS before even calling GETARG. Personally, I'd get rid of compat/extension calls entirely and replace them with F95-introduced alternatives in the long run.
+
+Anyway, I'll touch up the listfile, add a proper .gitignore, put together a fork, sort my changes into a commit or two, and link a pull request here later today.
+
+If you like what you see, we can get a Linux x86_64 automated build going on very soon!
+
+--- Post #11 ---
+Author: Admin
+Date: 08-13-2020, 05:54 PM
+
+That sounds great. Both Bill and I are new to GitHub, but we will try to get it all sorted out. Is there a way to test this on Windows as well? That would be very helpful since the developer for OP2 output has had an issue with CodeBlocks and a more direct process might be best. Thanks for the help, it seems you know quite about this (as well as NASTRAN-95). Based on your comments about NASTRAN-95 in the other thread, I think MYSTRAN is a great alternative.
+
+--- Post #12 ---
+Author: borges
+Date: 08-13-2020, 07:17 PM
+
+(08-13-2020, 05:54 PM)Admin Wrote:  That sounds great. Both Bill and I are new to GitHub, but we will try to get it all sorted out. Is there a way to test this on Windows as well? That would be very helpful since the developer for OP2 output has had an issue with CodeBlocks and a more direct process might be best. Thanks for the help, it seems you know quite about this (as well as NASTRAN-95). Based on your comments about NASTRAN-95 in the other thread, I think MYSTRAN is a great alternative.
+Regarding Windows, I think it'll be all the same. I mean, if we're compiling with gfortran, it's pretty okay to assume there's a GNU environment (e.g. make, as, ld, ar), be it a real Linux environment or a Windows environment with MinGW installed (which you'll already have downloaded in order to have gfortran in the first place); so all one would otherwise need to compile is CMake and the repo.
+
+So, regardless of being Windows or Linux, as long as there's a GNU environment and CMake, one would simply invoke cmake then make. The process would play out just the same, save for automatically picking the "OS-specific" files as opposed to user intervention. And there's more: with a little bit of effort, I believe this could be cross-compiled as well, meaning a Linux machine could compile binaries for Windows in the future if need be.
+
+As for testing under Windows, I'll get to that soon enough, but the outlook is good. In the end, I'll only make the pull request when I'm sure we have a reliable build spec that works seamlessly for both OSes.
+
+And yes, MYSTRAN appears to be the most promising OSS alternative, that's why I really really want this to work.
+
+--- Post #13 ---
+Author: Admin
+Date: 08-13-2020, 08:22 PM
+
+Great, when complete, can you put together a detailed process write up (it may be simple?). We can then try it on Windows at least.
+
+FYI, for the Code::Blocks build, there are 3093 warnings (0 errors)...so quite a few. Bill decided this is acceptable (at least for now) and the test runs (DAT/BDF) are working OK. It could be something that is investigated further at a later date though.
+
+And I think we can get everything worked out on MYSTRAN. It is a newer code base and I much more developer friendly than NASTRAN-95. I think this is the main advantage. We just need to continue to work it and add features.
+
+--- Post #14 ---
+Author: borges
+Date: 08-14-2020, 02:31 AM
+
+As promised, I set up a fork and made a pull request. I got it to reliably compile and run under both Linux and Windows!
+
+The CMakeLists.txt -- albeit much better organized than its previous iteration -- is still kinda rough around the edges (I had zero prior experience with CMake!), but the instructions on the README are precise and, hopefully, hard to get wrong. Good start, right?
+
+I hope it works should you give it a shot... Any thoughts?
+
+--- Post #15 ---
+Author: Admin
+Date: 08-14-2020, 06:05 AM
+
+I will have a look and let Bill know as well. Its great that you got it compiling for both Windows and Linux (without Code::Blocks)! This gives developers another compiling option and opens up the Linux avenue (I am not sure sure if C::B can be used to compile MYSTRAN in Linux). In any case, we will work to get everything updated and thanks very much for your contribution.
+
+--- Post #16 ---
+Author: ceanwang
+Date: 08-14-2020, 11:15 PM
+
+I have a version which includes BANDIT. Got the exe, but has problem to run.Talked with Bill. Need a bit fine turn of the order.
+
+Glad you have a runable exe.
+
+Edit:
+
+I tried to compile with your script under windows. The exe still has problem to run. Could you solve the all-elem-test. dat case?
+
+--- Post #17 ---
+Author: borges
+Date: 08-17-2020, 01:20 PM
+
+(08-14-2020, 11:15 PM)ceanwang Wrote:  I have a version which includes BANDIT. Got the exe, but has problem to run.Talked with Bill. Need a bit fine turn of the order.
+
+Glad you have a runable exe.
+
+Edit:
+
+I tried to compile with your script under windows. The exe still has problem to run. Could you solve the all-elem-test. dat case?
+This is most weird. I managed to run that test case under Linux with my binary, and under Windows with the publicly-released binary, but the one I compiled was no good, there's some error being raised in the output functions.
+
+I attached all input and output data and files from the three runs (public Windows binary, CMake Windows binary, and CMake Linux binary).
+
+Okay so... I have some points I think we should keep in mind while investigating this.
+
+GNU gfortran is a rather consistent compiler for F90/F95, so this being a gfortran bug is unlikely, but not impossible.
+
+Can we guarantee the same source code used for the public EXE is the same as git latest's? If not, this might have been introduced in the meantime.
+
+The fact the exact same source code produces different behavior should trace this error back to the OS-specific files, but none of them are tied to output formatting AFAIK, so this is a bit concerning indeed.
+
+Thanks to some random glitch in MinGW, I can't get a proper backtrace of the error, all we know is it was raised in the BANDIT_MODULE.f file, line 677 (see the output files (stdout/stderr will be of most help) for details)
+
+I do not think this has anything to do with the compilation order/process, as it would've probably caused a link-time diagnostic messag...
+
+...neither do I think this has anything to do with my only change to the READ_CL source code, since it does not have anything to do with formatted output.
+
+Unfortunately, it'll be really hard to pinpoint where the error's being raised and why until someone manages to get a proper backtrace on the error. I'm working on that, but I don't think I'll be able to do much more than that with my (very) limited knowledge of Fortran.
+
+--- Post #18 ---
+Author: borges
+Date: 08-17-2020, 02:59 PM
+
+P.S.: I'm really, really confused right now. Check this out:
+
+So, the Fortran runtime complains that we're attempting to perform a formatted write to an unformatted output.
+
+Line 677 is a WRITE to IOU6. Well, let's see where IOU6 is OPEN'd. That'd be line 408:
+
+Code:OPEN(IOU6,FILE='bandit.out',FORM='FORMATTED',STATUS='replace')
+This so not very nice. Why does Fortran think IOU6 is unformatted? And why only on Windows? Is this a gfortran bug?
+
+The only other reasonable thing I can think of is stack corruption, But... surgical enough to change file descriptor info and nothing else? Unlikely.
+
+And why only on Windows? My head hurts.
+
+--- Post #19 ---
+Author: ceanwang
+Date: 08-19-2020, 06:19 AM
+
+(08-17-2020, 02:59 PM)borges Wrote:  Line 677
+Found a solution for this. No problem now.

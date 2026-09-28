@@ -1,0 +1,14 @@
+Thread: CodeBlocks Notes - CalculiX
+Category: ComLab and NASTRAN-95
+URL: https://www.mystran.com/forums/showthread.php?tid=35
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-23-2020, 10:25 PM
+
+Here are some notes from Harry Schaeffer about using C::B to build CalculiX. There is also some history about NASTRAN and some notes about NASTRAN-95. Some of the information here may be useful for building NASTRAN-95 and MYSTRAN.
+
+https://www.mystran.com/misc/Calculix_an...Blocks.pdf

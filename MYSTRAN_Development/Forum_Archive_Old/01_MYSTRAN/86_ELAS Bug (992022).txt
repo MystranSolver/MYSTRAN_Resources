@@ -1,0 +1,29 @@
+Thread: ELAS Bug (9/9/2022)
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=86
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 09-10-2022, 03:48 AM
+
+From the "SB-ALL-ELEM-TEST.DAT" test model, we noticed that on line 507 (in the attached image), that the Force is incorrect. It should be 2.55E+03 and not 0.0. However, note that upstream from this, the current version reports the correct result. So it may be that the issue has to do with how MYSTRAN is reporting the results.
+
+By reviewing the different MYSTRAN builds, this bug looks to have been introduced in Version 13.2. This means approximately between Aug 10, 2021 and Aug 29, 2021 (but those dates are approximately and not exactly the dates that correspond to the code). However, there is a relatively small window for when the code was written that introduced this bug. I believe Bill was working on the BUSH element updates and maybe something occurred during that effort.
+
+MYSTRAN Version 10.31    May 14 2020 – OK
+MYSTRAN Version 12.2    Apr 26 2021 – OK
+MYSTRAN Version 12.2    Apr 26 2021 – OK
+MYSTRAN Version 12.1    Feb 12 2021 – OK
+MYSTRAN Version 13.1    Aug 10 2021 – OK
+MYSTRAN Version 13.2    Aug 29 2021 – Bug Noted
+MYSTRAN Version 13.3                         – Bug Noted
+MYSTRAN Version 14.0    Sep 07 2022 - Bug Noted
+
+--- Post #2 ---
+Author: Admin
+Date: 09-21-2022, 04:27 AM
+
+Bug has been resolved in 14.0.1

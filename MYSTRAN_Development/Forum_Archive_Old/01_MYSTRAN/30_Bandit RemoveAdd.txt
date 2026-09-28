@@ -1,0 +1,19 @@
+Thread: Bandit Remove/Add
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=30
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-13-2020, 05:08 PM
+
+EDIT: BANDIT has been restored in Version 11.0
+
+BANDIT is desired (although not mandatory) if we continue to have a "banded" solver. Although the LAPACK routines, which are optimized for banded matrices, will work on matrices that are not banded, it could result in excessive solution times. Once we get a sparse solver the only use of the banded solver will be as a backup in case the sparse solver fails.
+
+Starting with 10.3, we decided to depreciate BANDIT because it was causing compiling errors. It can be added back later once those errors are resolved.
+
+To add BANDIT back in, download the following ZIP file:
+https://www.mystran.com/docs/BANDIT.zip

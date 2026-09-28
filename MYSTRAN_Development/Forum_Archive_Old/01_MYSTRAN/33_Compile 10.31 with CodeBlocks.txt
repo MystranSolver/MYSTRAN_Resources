@@ -1,0 +1,49 @@
+Thread: Compile 10.31 with Code::Blocks
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=33
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 05-17-2020, 12:06 AM
+
+EDIT: See this thread for the most current: https://www.mystran.com/forums/showthread.php?tid=2
+
+I will create detailed instructions later, but for now, this is one option that seems to be very close.
+
+1. You can use Code::Blocks in the same way as Visual Studio. I also tried CBFortran, but it seems to be 32-bit and was much slower when reading in the source files.
+
+http://www.codeblocks.org/downloads/26
+
+Download "codeblocks-20.03mingw-setup.exe". This will add the Fortran compilers in the CodeBlocks install directory.
+
+2. Download this modified 10.31 source code, which has some minor modifications from 10.31.
+https://www.mystran.com/misc/Source.zip
+
+For reference, here are the modifications that were made (you don't need to do this if you download from the above link)
+
+- Delete the BANDIT directory
+- In GET_COMMAND_LINE.f90, comment out INTRINSIC GETCL in line 46
+- In GET_COMMAND_LINE.f90, change "CALL GETCL ( FILNAM )" to "CALL GET_COMMAND_ARGUMENT ( 1, FILNAM )"
+- In MYSTRAN.f90, line 128, change OPEN(SC1,CARRIAGECONTROL='FORTRAN') to OPEN(SC1)
+- In MYSTRAN.f90, for the line that says :  "PERCENT_CHANGE(LOAD_ISTEP,NL_ITER_NUM) = 1.0D2*(UG_NORM(LOAD_ISTEP,NL_ITER_NUM) - UG_NORM(LOAD_ISTEP,NL_ITER_NUM-1))    &" delete a space before the "&" character.
+
+3.
+- In Code::Blocks, start a new project. You don't need to select a compiler now.
+- Under settings/compiler/Toolchain Executables, click the GNU Fortran Compiler and point to this directory, C:\Program Files\CodeBlocks\MinGW. Then, replace the first 3 EXE files with with gfortran.exe (or the 64 bit MinGW)
+- Right click the project name in the tree and add all 10.31 directory recursively. You may also want to put the in a directory that has a short and simple path. In my case this took about 10 min so you may need to be patient.
+- In Project/Build Options/Search Directories, select the INCLUDE directory location under both "Compiler" and "Linker" tabs. Also, check both the Debug and Release tabs. Otherwise, it will not find debug.h and stat.h
+- Build/Rebuild
+
+ISSUE:
+At this point, Intel would normally compile, but I am not having success. At the end is says "Execution of 'X.. failed", where X is the compiler (Execution of 'mingw32-gfortran.exe...or Exectution of 'gfortran.exe..., etc). A google search has not helped to resolve it.
+
+Upon closing CodeBlocks and then reopening it, I get a different error related to Pentium-II. That seems to be resolved by just clicking Settings/Compiler/Toolchain Executables and selecting the GNU Fortran compiler. But this is odd behavior!
+
+For reference, here is the Makefile associated with this attempt. I changed the path to C:\A instead of C:\Source though in an attempt to shorten fix it (though that did not work).
+https://www.mystran.com/misc/Makefile
+
+And here is the build log for reference.
+https://www.mystran.com/misc/M5_build_log.html

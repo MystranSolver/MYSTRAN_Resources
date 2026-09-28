@@ -1,0 +1,34 @@
+Thread: Composite orientation
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=108
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: trilbytim
+Date: 08-03-2024, 12:30 PM
+
+I've been trying to modify the Mystran writer in FreeCAD to write composite cases with orthotropic material and composite laminate cards. I've been referring to the MSC Nastran "Quick" Reference Guide (all 3417 pages of it!). I'm calculating orientation angle relative to the element reference direction as described in the guide. I think I now have this working. I'll share the code when I get it less hacky, eventually I want to read a ply book from a spreadsheet, at the moment I'm hard coding everything just to test it.
+
+It creates a .bdf file which does solve (hooray!), however the results aren't right (boohoo!). I've attached a very simple test file (.txt extension added to allow it's upload to this forum, remove to use). You can see from the PCOMP card (line 41 onwards) that I have the ply orientations all set to 45 degrees. Since this is unbalanced (there are no -45 plies) then there should be strong bend-twist coupling, so the deformed shape should show some twist, but it doesn't. Also if you manually change the values of the plies to all 0 or all 90 and re run then there is nothing like enough difference in the deflection. The difference in modulus between the two directions is about 20x, so the deflection should be an order of magnitude lower for the 0 degree case than the 90 degree case. However they're coming out very similar.
+
+Something clearly isn't being applied correctly. I'm not sure if this is the element orientations, the PCOMP card or the MAT8 card. Any ideas, I'm a bit stumped?
+
+--- Post #2 ---
+Author: trilbytim
+Date: 08-05-2024, 09:48 AM
+
+Ah, so in the error file are the lines:
+```
+WARNING    : MATERIAL ANGLE FOR TRIA3          x IS NOT USED FOR PLATE ELEMENTS WITH PCOMP PROPERTIES
+```
+where x is all of my elements!
+
+So the question is: Why is it not using the material angle?
+
+--- Post #3 ---
+Author: Admin
+Date: 08-06-2024, 11:50 AM
+
+You will probably be able to response on our discord channel. But also, we are totally redoing the shells so there is little interest in fixing the current shells.

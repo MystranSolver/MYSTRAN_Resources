@@ -1,0 +1,124 @@
+Thread: OLD -  SOURCE CODE AND COMPILING
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=2
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 01-10-2020, 11:57 PM
+
+This thread is considered to be outdated, but is kept for reference. For the most current source code and compiling instructions, see:
+https://www.mystran.com/forums/showthread.php?tid=83
+
+LAST EDIT: 4/19/2021
+
+-----------------
+SOURCE CODE
+-----------------
+Official GitHub: https://github.com/dr-bill-c/MYSTRAN
+Note that there are NASA links for MYSTRAN, which should now point to www.mystran.com or https://github.com/dr-bill-c/MYSTRAN. There are other GitHub forks as well, but the official and most recent version is linked above.
+
+For official versions of the source code (source code in a Zip file as opposed to the current GitHub): https://www.mystran.com/forums/showthread.php?tid=39
+
+Note there is a 7 page document "MYSTRAN-Source-Code-Structure.pdf" that briefly describes the source code file structure within the "Documentation" in this link: https://www.mystran.com/forums/showthread.php?tid=39
+
+------------------------------
+12.0 and 12.1 COMPILING
+------------------------------
+
+The compiling process has changed since 11.2 because the SuperLU sparse solver has been incorporated.
+
+-----Overall Notes (Compares Options)
+IN WORK
+
+-----Option 1 (Preferred Approach): CMake + gFortran (Widows and Linux)
+
+https://www.mystran.com/compile/MYSTRAN_CMake_12.0.pdf
+The following link is the original source of the above PDF:
+https://gist.github.com/Bruno02468/4b58a...f2008698f5
+
+Note that you will use the SuperLU sparse solver, which is part of the build. The above process directly uses v5.2.2, which is linked below for reference:
+https://www.mystran.com/SuperLU/superlu_5.2.2.tar.gz
+
+For reference, the original source for SuperLU is:
+https://portal.nersc.gov/project/sparse/superlu/
+
+-----Option 2 (Alternative): Code::Blocks + gFortran (Windows Instructions)
+First, you need to address the SuperLU sparse solver, which is part of the build. To download the source code, we are using the version from this link:
+https://portal.nersc.gov/project/sparse/superlu/
+Source code direct link:
+https://www.mystran.com/SuperLU/superlu_5.2.2.tar.gz
+
+In Windows 10, you can compile SuperLU with this procedure, which requires CMake
+https://www.mystran.com/SuperLU/Compile_SuperLU.pdf
+
+The compiled SuperLU binaries are not provided because of the chance there can be an incompatibility. It is preferred to compile the yourself with the provided instructions above.
+
+Step 2: How to use Code::Blocks with the SuperLU files for Windows
+https://www.mystran.com/compile/MYSTRAN_...s_12.0.pdf
+
+-------------------
+BENCHMARK
+-------------------
+
+In order to benchmark a new build, you can run the DAT files here and compare the resulting ANS files to the ARC files. There is a batch file that allows you perform all the runs.
+We are working on an Excel file that can do a detailed comparison on the numerical data. In the meantime, you verify that the resulting ANS file sizes are the same (or very similar) to the ARC files.
+https://www.mystran.com/forums/showthread.php?tid=39
+
+-------------------------------------------------
+ANSIBLE ROLE FOR INSTALLING MYSTRAN
+-------------------------------------------------
+https://www.mystran.com/forums/showthread.php?tid=67
+
+--- Post #2 ---
+Author: Admin
+Date: 06-24-2020, 06:40 AM
+
+OLDER DOCUMENTS
+
+--------------------
+11.2 COMPILING
+--------------------
+Overall Notes (Compares Options 1, 2, and 3)
+https://www.mystran.com/compile/MYSTRAN_...ll_2.0.pdf
+
+Option 1: Code::Blocks + gFortran (Windows Instructions)
+https://www.mystran.com/compile/MYSTRAN_...ks_6.1.pdf
+
+Option 2a (New Approach): CMake + gFortran (Widows and Linux)
+https://www.mystran.com/compile/MYSTRAN_CMake_1.0.pdf
+
+Option 2b (Prior Approach): CMake + gFortran
+https://www.mystran.com/compile/CMake.zip
+https://www.mystran.com/forums/showthread.php?tid=38
+
+---OLD OPTION---
+Visual Studio + Intel Fortran
+This is an older option that worked for prior versions, but is considered just a legacy approach and is to be used for reference only.
+https://www.mystran.com/compile/MYSTRAN_Intel_1.0.pdf
+
+----------------------------------------
+PRIOR DOCUMENTS - BEFORE 11.2
+----------------------------------------
+
+Overall Notes (Compares Options 1, 2, and 3)
+https://www.mystran.com/compile/MYSTRAN_...verall.pdf
+
+Option 1: Code::Blocks + gFortran (Windows Instructions)
+https://www.mystran.com/compile/MYSTRAN_...ks_6.0.pdf
+https://www.mystran.com/compile/MYSTRAN_...ks_5.2.pdf
+https://www.mystran.com/compile/MYSTRAN_...ks_5.1.pdf
+
+Option 2b (Prior Approach): CMake + gFortran
+None
+
+Option 3: Visual Studio + Intel Fortran
+None.
+
+--- Post #3 ---
+Author: Admin
+Date: 12-04-2020, 03:15 AM
+
+.

@@ -1,0 +1,19 @@
+Thread: OP4 Discussion
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=96
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 10-18-2022, 08:55 PM
+
+F04 is controlled by mystran.ini file, unless WRT_LOG set to >1 inside mystran.ini, F04 file is deleted at completion.
+
+--- Post #2 ---
+Author: Admin
+Date: 10-19-2022, 06:04 AM
+
+Some general notes on OP4
+https://github.com/MYSTRANsolver/MYSTRAN...r_Docs/OP4

@@ -1,0 +1,308 @@
+Thread: 3
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=46
+Posts: 28
+
+======================================================================
+
+--- Post #1 ---
+Author: O_Stodieck
+Date: 08-27-2020, 06:01 PM
+
+Hi,
+
+I am getting some unexpected results running the attached cantilevered composite plate model in Mystran 11.0. :
+The model is a flat plate in the X-Y plane, with dimensions of 1.5m x 0.15m and fully fixed at one of the short ends.
+
+A Z-direction shear force is applied through an RBE3 at the unsupported end (Grid 737).
+
+I would expect a Z-deflection at Grid 737 close to T3 = 0.29625 (simple CLT calculation and in agreement with other FEM solvers)
+
+But I am getting T3 = 0.03613559 at Grid 737 instead.
+
+AUTO SPC forces are zero (constraining Z-rotations / drilling DOF on the CQUADs only)
+
+Any ideas what could trigger this behaviour?
+
+Do you have a simple test case for shell (CQUAD4) element bending that I can run to test the installation?
+Thanks.
+
+--- Post #2 ---
+Author: Admin
+Date: 08-27-2020, 06:26 PM
+
+Can you check the reaction forces to make sure you are applying the correct load? There is a 0.1 scaling factor in the FORCE card so you may want to double check that. Have you tried an isotropic material to see if the results are correct for that first? I will let Bill know as well.
+
+--- Post #3 ---
+Author: drbillc
+Date: 08-27-2020, 08:40 PM
+
+I'll take a look at it and get back to you
+
+--- Post #4 ---
+Author: O_Stodieck
+Date: 08-27-2020, 09:22 PM
+
+(08-27-2020, 06:26 PM)Admin Wrote:  Can you check the reaction forces to make sure you are applying the correct load? There is a 0.1 scaling factor in the FORCE card so you may want to double check that. Have you tried an isotropic material to see if the results are correct for that first? I will let Bill know as well.
+Reaction forces are correct - factor of 0.1 is intended.
+The element node numbering is such that the vectors from grids 1 to 2 point in the x-direction for all elements - this is matched in the comparison models - so I don't think this is an input error? Besides, the results are not any closer if the plies are set to 90deg in the PCOMP cards.
+
+As you suggested, I reran the model using an isotropic material - results are much closer (<2% error).
+Comparing Zmax in the T3 deflection at grid 737:
+
+Analytical (Bernoulli beam):
+I = (1.25e-04*12)**3*0.15/12 = 4.21875e-11
+F = 0.1
+L = 1.5
+E = 70.0E9
+Zmax  = F*L**3/(3*E*I) = 0.038095
+
+Mystran (see file attached)
+Zmax = 3.762719E-02
+
+--- Post #5 ---
+Author: drbillc
+Date: 08-27-2020, 10:28 PM
+
+I just did a quick calculation treating the plate as a beam (should be good assumption since the aspect ratio is 20 to 1) and get a displacement at the end that is within 7% of the MYSTRAN plate problem result. I did run the problem in MYSTRAN and get exactly what you got, the displacement of 0.03613558. See the attached jpg which shows the beam displacement within 7% of the plate solution. Can you tell me what other sources gave you such a different answer?
+
+--- Post #6 ---
+Author: Admin
+Date: 08-28-2020, 12:02 AM
+
+O_Stodieck, can you show your hand calculations for the original problem as well? The composite version.
+
+--- Post #7 ---
+Author: drbillc
+Date: 08-28-2020, 12:05 AM
+
+Sorry, I used the wrong width (.075 rather than .15). But where did the 70E+09 for modulus come from?
+
+--- Post #8 ---
+Author: Admin
+Date: 08-28-2020, 12:24 AM
+
+(08-28-2020, 12:05 AM)drbillc Wrote:  Sorry, I used the wrong width (.075 rather than .15). But where did the 70E+09 for modulus come from?
+Bill, there are two decks in the different posts and it was changed between them. Its a bit confusing, but maybe it was an attempt to try to make the composite more "isotropic-like". Not sure.
+
+--- Post #9 ---
+Author: drbillc
+Date: 08-28-2020, 01:29 AM
+
+O_Stodieck, I was looking for a good QUAD4 example to send you and, in the process, uncovered an error in MYSTRAN that crept in between versions 10.1 and 11. It is a plate problem with a pressure load that has a theoretical solution so that you can see how well MYSTRAN gets that answer. I will fix the error and then send you the bdf, but in the meantime MYSTRAN may crash with a shell pressure load.
+
+--- Post #10 ---
+Author: O_Stodieck
+Date: 08-28-2020, 07:55 PM
+
+(08-28-2020, 12:02 AM)Admin Wrote:  O_Stodieck, can you show your hand calculations for the original problem as well? The composite version.
+Sure - I have posted a python implementation of the CLT approach here https://gist.github.com/ostodieck/d0411f...2db4ccf512
+I hope this is self-explanatory enough - let me know if something is unclear.
+The laminate and materials are the same as in the first post, and the tip deflection is  0.29625 m as expected.
+Thanks for checking this!
+
+--- Post #11 ---
+Author: Admin
+Date: 08-28-2020, 08:16 PM
+
+A few notes:
+
+- If all the plies are 0, then why go through the CLT process? Just use the beam bending formula as you did for the isotropic and the modulus that runs along the 1.5m direction. In other words, I was expecting some simple hand calcs like before.
+
+- For a more general composite, I don't think you want the D matrix terms in this case. Rather, you should use the d matrix values. The D term would be used in a scenario where anticlastic curvature is resisted (I attached a snip from my book).
+
+- I didn't follow the python code all the way through, but remember D (and d) are "per width" stiffnesses so you need to adjust them by the width. This will flush out if you do the simple PL^3/(3EI) calculation as well.
+
+--- Post #12 ---
+Author: O_Stodieck
+Date: 08-28-2020, 08:50 PM
+
+(08-28-2020, 08:16 PM)Admin Wrote:  A few notes:
+
+- If all the plies are 0, then why go through the CLT process? Just use the beam bending formula as you did for the isotropic and the modulus that runs along the 1.5m direction. In other words, I was expecting some simple hand calcs like before.
+
+- For a more general composite, I don't think you want the D matrix terms in this case. Rather, you should use the d matrix values. The D term would be used in a scenario where anticlastic curvature is resisted (I attached a snip from my book).
+
+- I didn't follow the python code all the way through, but remember D (and d) are "per width" stiffnesses so you need to adjust them by the width. This will flush out if you do the simple PL^3/(3EI) calculation as well.
+Thanks - just to clarify:
+
+1) You are right, the current example is trivial, but CLT is a general method that could be used for any laminate.
+The simple hand calc results in deflections very close to CLT :
+# Analytical (Bernoulli beam):
+I = (1.25e-04*12)**3*0.15/12
+F = 0.1
+L = 1.5
+E = 9.0e9
+Zmax  = F*L**3/(3*E*I)
+Zmax = 0.296296
+
+Now we have 3 results:
+Mystran =0.03613559 m
+CLT = 0.296250 m
+Beam =  0.296296 m
+
+2) Could you share the reference please? I'm not familiar with a d matrix.
+
+3) adjustment for width is in the code, where the bending curvature of the beam is calculated from Ky = D^(-1) * [0, M/width,0]
+
+--- Post #13 ---
+Author: drbillc
+Date: 08-29-2020, 12:59 AM
+
+I have fixed the problem causing a crash with plate pressure load. Attached is a QUAD4 problem that you asked about. It is a thick plate and the bdf file is attached (you will have to change the extension as the forum would not allow .dat or .bdf). The theoretical thick plate solution for the max displacement is:
+
+Max displacement: theoretical = 4.294E-07
+
+--- Post #14 ---
+Author: Admin
+Date: 08-29-2020, 07:57 PM
+
+O_Stodieck, the book is "Practical Analysis of Aircraft Composites". The [d] properties are just from the [a], [b], [d] instead of the [A], [B], [D]. You can also use Exb (or Eby depending on the orientation) for this problem as well. All of those calculated in eLaminate here btw: https://www.espcomposites.com/software/download.html
+
+Regarding the issue, we know that the isotropic is OK (so its probably not an element issue or general issue). I would first try just a MAT8 orthotropic material (no PCOMP) and make sure that is behaving properly. If so, then we can look that the PCOMP further. The fact that you said changing the ply angles had no effect may mean there is an issue. But first I would like to isolate the issue to either the MAT8 side (as a general orthotropic material, but not a composite) or the PCOMP side. Then I can take a deeper look into as well...but something seems odd. I have not used composites in MYSTRAN, but that is something we need to make sure is correct.
+
+--- Post #15 ---
+Author: O_Stodieck
+Date: 08-30-2020, 11:28 AM
+
+(08-29-2020, 12:59 AM)drbillc Wrote:  I have fixed the problem causing a crash with plate pressure load. Attached is a QUAD4 problem that you asked about. It is a thick plate and the bdf file is attached (you will have to change the extension as the forum would not allow .dat or .bdf). The theoretical thick plate solution for the max displacement is:
+
+Max displacement: theoretical = 4.294E-07Thanks Bill. I just ran the file and am getting a max deflection of 4.280877E-07, that seems fairly close to the theoretical, so no problems there.
+
+ (08-29-2020, 07:57 PM)Admin Wrote:  O_Stodieck, the book is "Practical Analysis of Aircraft Composites". The [d] properties are just from the [a], [b], [d] instead of the [A], [B], [D]. You can also use Exb (or Eby depending on the orientation) for this problem as well. All of those calculated in eLaminate here btw: https://www.espcomposites.com/software/download.html
+
+Regarding the issue, we know that the isotropic is OK (so its probably not an element issue or general issue). I would first try just a MAT8 orthotropic material (no PCOMP) and make sure that is behaving properly. If so, then we can look that the PCOMP further. The fact that you said changing the ply angles had no effect may mean there is an issue. But first I would like to isolate the issue to either the MAT8 side (as a general orthotropic material, but not a composite) or the PCOMP side. Then I can take a deeper look into as well...but something seems odd. I have not used composites in MYSTRAN, but that is something we need to make sure is correct.
+Thanks for the references.
+
+I tried 2 more approaches:
+replacing the PCOMP with a PSHELL as suggested - the results are the same, i.e.  T3 = 3.613534E-02 (although a lot more information messages are generated, related to shear stiffness)
+
+replacing the MAT8 with a MAT2, where the G matrix terms are calculated from [D]*12/T**3 - again the results are the same with T3 = 3.613380E-02.
+
+So it looks like the error is not limited to MAT8 or PCOMP... (see input files attached)
+
+--- Post #16 ---
+Author: Admin
+Date: 08-30-2020, 04:45 PM
+
+If you then change it to isotropic, does it work? What I am trying to determine is if the issue is related to orthotropy in general. It seems that might be the case.
+
+I think the best thing to do would be create the simplest deck that demonstrates the issue. For example, I would not use any load scaling factors and I would use round numbers for the material properties, etc. Also, it will be easier if you don't use up all the entire space in the field (better separation of the numbers that includes spaces). This will be possible if you use whole numbers and it will be easier to read the deck for those that don't have column editors or less familiar with this format. Its still at a point where we have a better idea what is going, but I would encourage you to make the deck as simple, basic, and readable as possible to expedite resolution.
+
+--- Post #17 ---
+Author: O_Stodieck
+Date: 09-03-2020, 08:56 PM
+
+(08-30-2020, 04:45 PM)Admin Wrote:  If you then change it to isotropic, does it work? What I am trying to determine is if the issue is related to orthotropy in general. It seems that might be the case.
+
+I think the best thing to do would be create the simplest deck that demonstrates the issue. For example, I would not use any load scaling factors and I would use round numbers for the material properties, etc. Also, it will be easier if you don't use up all the entire space in the field (better separation of the numbers that includes spaces). This will be possible if you use whole numbers and it will be easier to read the deck for those that don't have column editors or less familiar with this format. Its still at a point where we have a better idea what is going, but I would encourage you to make the deck as simple, basic, and readable as possible to expedite resolution.
+Yes - an 'isotropic' MAT8 property works.
+
+I simplified the model and am attaching 3 versions, which are identical except for the MAT8 properties, which should outline the problem as clearly as we can get it right now. (Note, due to rounding and less elements, the model is not longer the same in geometry and properties as in previous posts).
+
+The _ref model has E1 = 1.3E11 , E2 = 9.0E9
+The _soft model has E1 = 9.0E9 , E2 = 9.0E9
+The _stiff model has E1 = 1.3E11, E2 = 1.3E11
+
+The table below compares the analytical beam deflection at the tip to the Mystran prediction.
+There is a good match for the _soft and _stiff models.
+The _ref model is 87% out and matches neither of the isotropic models (in theory it should match the _soft model).
+
+--- Post #18 ---
+Author: Admin
+Date: 09-03-2020, 11:59 PM
+
+Thanks, this looks easier to read and work with. I will have a look when I get a chance and talk with Bill about it. We should be able to get to the bottom of it. We should probably investigate beam and solid elements as well (the issue may be common).
+
+--- Post #19 ---
+Author: ceanwang
+Date: 09-04-2020, 12:06 AM
+
+mat_ref
+
+--- Post #20 ---
+Author: Admin
+Date: 09-04-2020, 03:50 PM
+
+I look into it further and the MYSTRAN output does not seem correct. I talked with Bill about it and he is going to look into it.
+
+--- Post #21 ---
+Author: Admin
+Date: 09-09-2020, 12:30 AM
+
+Just another way of putting it to see the issue:
+
+Case1: E1=E2
+If E1=E2=9.0E9, T3 at Node 22 is 7.03E-4 (classical is 7.11E-4)...so this is OK.
+
+Case 2: Change E1 by half and hold E2
+If E1=4.5E9 and E2=9.0E9, T3 at Node 22 is 9.08E-4
+
+Case 3: Change E2 by half and hold E1
+If E1=9.0E9 and E2=4.5E9, T3 at Node 22 is 9.37E-4
+
+For Cases 2 and 3, I would have expected one of those to have a deflection of 2*7.03E-4 and the other to have a deflection fo 1*7.03E4. But the results are odd instead.
+
+https://www.mystran.com/other/MAT8_issue.dat
+
+--- Post #22 ---
+Author: Admin
+Date: 09-09-2020, 02:40 PM
+
+I believe Bill has identified the issue. He will report on how it will be addressed here.
+
+--- Post #23 ---
+Author: drbillc
+Date: 09-09-2020, 05:35 PM
+
+O_Stodieck, I have found the problem with the QUAD4 with orthotropic materials. The default QUAD4 in MYSTRAN is actually made up of 4 non-overlapping TRIA3 elements and these triangular elements are not coded to rotate their orthotropic material axes to align with the material axes specified (or implied) on the basic quad shape. I will have to correct this error but, in the meantime, try using:
+
+1) Put PARAM, QUAD4TYP, MIN4 into your current bulk data file. The MIN4 version of QUAD4 is an actual quad, with transverse shear flexibility. It does have some issues with spurious modes when the shape is not rectangular. For your problem it is fine. I get agreement with bean theory to 4 significant figures (beam theory deflection = 0.2962, see attached image)
+
+I will put a warning message in MYSTRAN and a stop to let user's know of this problem until it gets fixed
+
+--- Post #24 ---
+Author: O_Stodieck
+Date: 09-09-2020, 06:27 PM
+
+(09-09-2020, 05:35 PM)drbillc Wrote:  O_Stodieck, I have found the problem with the QUAD4 with orthotropic materials. The default QUAD4 in MYSTRAN is actually made up of 4 non-overlapping TRIA3 elements and these triangular elements are not coded to rotate their orthotropic material axes to align with the material axes specified (or implied) on the basic quad shape. I will have to correct this error but, in the meantime, try using:
+
+1) Put PARAM, QUAD4TYP, MIN4 into your current bulk data file. The MIN4 version of QUAD4 is an actual quad, with transverse shear flexibility. It does have some issues with spurious modes when the shape is not rectangular. For your problem it is fine. I get agreement with bean theory to 4 significant figures (beam theory deflection = 0.2962, see attached image)
+
+I will put a warning message in MYSTRAN and a stop to let user's know of this problem until it gets fixed
+Thanks drbillc, I will try that for now.
+
+--- Post #25 ---
+Author: Admin
+Date: 09-09-2020, 07:13 PM
+
+The next step would be to make a test file with a PCOMP. I would first start with just a single layer and make sure a change of orientation is correct. Then I would try a multi-directional laminate.
+
+I think the other consideration is the orientation of the element itself (local orientation vs an orientation specified with w.r.t. a coord system). This is important for general problems since for a general quad/tri mesh has local system in many directions (but the properties are usually desired to be w.r.t. a coord system (not local system in that case).
+
+--- Post #26 ---
+Author: drbillc
+Date: 09-10-2020, 01:15 PM
+
+Would you come up with a good test problem that has those features? I have a PCOMP test problem which gave answers matching those in the comparison solution. Still working on why that happened
+
+--- Post #27 ---
+Author: Admin
+Date: 09-11-2020, 05:33 AM
+
+I can look into it further.
+
+Btw, here is the paper for the formulation of the CQUAD4 in MYSTRAN
+
+https://www.researchgate.net/publication...al_element
+
+--- Post #28 ---
+Author: Admin
+Date: 09-13-2020, 01:53 AM
+
+For the recent version (11.2), there is now an error when the CQUAD4 and orthotropic properties are used, as follows.
+
+ *ERROR  1999: Current code for QUAD4    element        1 is incomplete for Orthotropic material properties.
+               Try a PARAM, QUAD4TYP, MIN4 for an alternate QUAD4 if your elements are nearly rectangular.
+               Otherwise you will have to use CTRIA3 elements
+               You can override this and continue with a bdf entry: DEBUG, 248, 1

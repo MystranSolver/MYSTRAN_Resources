@@ -1,0 +1,34 @@
+Thread: Mystran on Github
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=28
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: vittorio
+Date: 05-09-2020, 12:35 PM
+
+There is a mystran project on Github at
+https://github.com/Open-Cascade-SAS/MYSTRAN
+
+EDIT by Brian: This is a fork of the MYSTRAN project. The most current MYSTRAN is at https://github.com/dr-bill-c/MYSTRAN
+
+--- Post #2 ---
+Author: O_Stodieck
+Date: 06-02-2020, 06:43 PM
+
+(05-09-2020, 12:35 PM)vittorio Wrote:  There is a mystran project on Github at
+https://github.com/Open-Cascade-SAS/MYSTRAN
+I saw that too. Another one is at:
+https://github.com/JohPle/MYSTRAN
+
+Edit by Brian: That is an old MYSTRAN fork.
+
+--- Post #3 ---
+Author: Admin
+Date: 06-24-2020, 06:18 AM
+
+See this thread for the most current:
+
+https://www.mystran.com/forums/showthread.php?tid=2

@@ -1,0 +1,33 @@
+Thread: New User facing issues
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=102
+Posts: 2
+
+======================================================================
+
+--- Post #1 ---
+Author: avi7
+Date: 12-12-2023, 04:41 AM
+
+As stated above I'm a very new user. Just installed and started using MYSTRAN since yesterday. I have a very simple static analysis case that I wanted to run as a trial. Here's the error I'm getting:
+
+Code:LINK  3 BEGIN
+dgstrf() error returns INFO= 2101
+L\U MB 6.750    total MB needed 7.648
+ *ERROR  9903: SUPERLU SPARSE SOLVER HAS FAILED WITH INFO =         2101 IN SUBR SYM_MAT_DECOMP_SUPRLU CALLED BY SUBR LINK3
+ CHECK F06 OUTPUT FILE FOR        1 FATAL MESSAGE(S)
+ CHECK ERR OUTPUT FILE FOR        2 WARNING MESSAGE(S)
+ Processing terminated. Check for error messages in output file:
+ Test.F06
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+The error in .F06 is basically the same:
+Code:>> LINK  3 BEGIN
+
+ *ERROR  9903: SUPERLU SPARSE SOLVER HAS FAILED WITH INFO =         2101 IN SUBR SYM_MAT_DECOMP_SUPRLU CALLED BY SUBR LINK3
+Please tell me if there's something I need to change. The test case is very simple.
+
+--- Post #2 ---
+Author: Admin
+Date: 12-12-2023, 06:11 AM
+
+If you can upload the BDF/DAT it will help (may need to rename the extension to txt though). Also, you can try to add PARAM, SOLLIB, BANDED (this will call the banded solver instead of SuperLU). Lastly, you can also get help on the discord server.

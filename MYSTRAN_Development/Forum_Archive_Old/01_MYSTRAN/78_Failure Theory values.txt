@@ -1,0 +1,32 @@
+Thread: Failure Theory values
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=78
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: fmjs
+Date: 09-30-2021, 02:06 PM
+
+Hello,
+
+I'm using Mystran to test some composite structures, and I need the value of the Failure Theory layer by layer.
+
+Is it possible to output the values for the Failure Theory index for all elements/layer? From the output, one can only get min and max at the summary.
+
+Regards,
+Filipe Silva
+
+--- Post #2 ---
+Author: Admin
+Date: 10-01-2021, 04:21 AM
+
+It is possible, but I am not sure how useful that would be. In almost all real world cases, ply-based failure criteria are not effective. In fact, I would specifically advise against adding this feature in since it is very misleading. Incorporation of these failure theories into commercial FEA programs has lead to a lot of issues regarding how to analyze practical composite structures.
+
+--- Post #3 ---
+Author: fmjs
+Date: 11-26-2021, 04:37 PM
+
+(10-01-2021, 04:21 AM)Admin Wrote:  It is possible, but I am not sure how useful that would be. In almost all real world cases, ply-based failure criteria are not effective. In fact, I would specifically advise against adding this feature in since it is very misleading. Incorporation of these failure theories into commercial FEA programs has lead to a lot of issues regarding how to analyze practical composite structures.
+Thank you for your reply.

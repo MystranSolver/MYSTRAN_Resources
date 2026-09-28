@@ -1,0 +1,100 @@
+Thread: Stress in layered composites
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=80
+Posts: 4
+
+======================================================================
+
+--- Post #1 ---
+Author: fmjs
+Date: 11-26-2021, 04:36 PM
+
+Hello,
+
+I’m using Mystran to simulate a wing with composite structures and a question about the output arose during the plot of the results.
+
+As one can see (Picture wing_leadingedge (
+
+)), on the leading edge area, there is an abrupt change in the values of Stress Normal 1 for adjacent triangles (change blue to red)when the material angle for ply1 is 45º. The values used to plot the Stress Normal 1 parameter are from the “Stresses in layered composite elements for element type TRIA3” table from F06 output. Picture OutputValues (
+
+) shows an example of the values found for the Stresses and Failure theory (emphasizing the abrupt changes) of adjacent triangles located on the leading edge:
+
+                                  StressNormal1
+ElementID 4500 Ply1:  -8.34076
+ElementID 4501 Ply1:  -0.661743
+ElementID 4502 Ply1:  -8.38790
+ElementID 4503 Ply1:  -0.743443
+
+The loads are applied on the main spar caps nodes (bar elements), as you can see in the picture loading (
+
+).
+
+As a way of debugging, zero and ninety degrees were used as a value for the material angle of ply 1 and the results for Stress Normal 1 and Stress Normal 2 parameters obtained didn't show any abrupt change.
+
+Does anyone have an idea about the reason for these values? Is this an issue from the solver?
+Are these the values used to compute the Failure Theory index?
+
+Leave as an attachment, on google drive, the Case.dat file (input file) and Case.F06 (results file) (the files are too big to add as an attachment here).
+Link for google drive with files: https://drive.google.com/drive/folders/1...sp=sharing
+
+Thank you very much for your time.
+Regards,
+Filipe Silva
+
+--- Post #2 ---
+Author: Admin
+Date: 11-27-2021, 08:11 PM
+
+You may have to create a simpler test problem so it is easy to work with an evaluate.
+
+Regarding failure and that sort of thing, how much experience do you have with composites and sizing them for aircraft applications? That as a separate and involved topic. You could look at CMH-17 or "Practical Analysis of Aircraft Composites" (that is my book).
+
+--- Post #3 ---
+Author: fmjs
+Date: 11-30-2021, 06:32 PM
+
+Brian,
+Thank you for the recommendation about the book and the CMH-17 handbook.
+
+So, I came up with this simpler case: a built-in tube with two local loads applied on the opposite end (
+
+).
+
+Tube dimensions:
+Length = 1000 mm
+Diameter = 100 mm
+
+Loads:
+F1 = F2 = [50, 0, 0] Newton
+
+The structural configuration is 6 layers of woven carbon fiber placed 45º with the longitudinal direction of the tube (y direction).
+
+The results for the stress in direction 1, from the “Stresses in layered composite elements for element type TRIA3” table from F06 output, shows an abrupt change, from positive to negative (from red to blue), at some adjacent triangles (
+
+), the scale from -10 to 10 is to emphasize the change. This tends to happen at the upper and lower parts of the tube in all layers.
+This I can't really understand and I would appreciate your help to get it. From my perspective, this abrupt change shouldn't happen. The results when the fibers are placed at 0º or 90º with the longitudinal direction of the tube make sense for stress in directions 1, 2 and 12. I tried to refine the mesh but these changes kept appearing.
+
+Is this related to the type of the element (CTRIA3) or something else is missing me? If it is element related, any advice on how to handle it?
+
+All the files for the run can be found in this google drive folder (again, too big to add here) (https://drive.google.com/drive/folders/1...sp=sharing). If you use Paraview or any other vtk reader I also placed in the folder the vtk file containing the graphics for the solution.
+
+Once more, I really appreciate your time and thank you for the help.
+
+Regards,
+
+Filipe Silva
+
+More pictures:
+Layer 1 - Stress Normal 1(regular scale):
+
+Layer 1 - Stress Normal 2 (regular scale):
+
+Layer 1 - Stress Shear 12 (regular scale):
+
+--- Post #4 ---
+Author: Admin
+Date: 12-03-2021, 06:55 PM
+
+I won't be able to have a look for a bit since we have a lot of things in work right now.
+
+However, usually the best approach is to minimize the problem down to the simplest case that still demonstrates the issue. Is this the simplest case possible for the given issue? It still seems more complicated than it could be. The more effort it is to try to figure out what is going, the less likely you will be to get a response.

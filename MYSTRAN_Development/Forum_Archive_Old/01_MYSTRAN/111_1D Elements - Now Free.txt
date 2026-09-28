@@ -1,0 +1,14 @@
+Thread: 1D Elements - Now Free
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=111
+Posts: 1
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 02-12-2025, 10:54 PM
+
+https://www.structuralfea.com
+
+1D Elements© is a user friendly finite element pre/post processor that uses beam, rod, and spring elements in 2D space. It is Excel based and uses VBA (Visual Basic for Applications) to allow for advanced capability. 1D Elements is compatible with the included free MYSTRAN solver (similar to Nastran) or the MSC Nastran solver. This combination is a standard approach to finite element analysis (pre/post processer and a solver).

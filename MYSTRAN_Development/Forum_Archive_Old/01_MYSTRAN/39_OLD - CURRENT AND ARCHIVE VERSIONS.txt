@@ -1,0 +1,126 @@
+Thread: OLD - CURRENT AND ARCHIVE VERSIONS
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=39
+Posts: 4
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 06-24-2020, 05:53 AM
+
+This thread is considered to be outdated, but is kept for reference. For the most current and archive versions, see:
+
+https://www.mystran.com/forums/showthread.php?tid=83
+
+---OUTDATED THREAD FOLLOWS---
+
+LAST EDIT: 11/11/2021
+
+For end users, the following links are for the most current official version:
+
+Version 13.3
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_13.3A.zip - Compiled by Bill Case
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_13.3B.zip - Compiled by TBD
+Linux - See the procedure on GitHub: https://github.com/dr-bill-c/MYSTRAN
+Documentation (NEEDS UPDATE) - https://www.mystran.com/documentation/MY...9_2021.zip
+Benchmark Runs and Process - https://www.mystran.com/versions/Benchma...29_2021.7z
+
+Notable Modifications from the prior official version:
+-TBD
+
+Additional files not commonly used by end users:
+Source Code (in Zip Form as opposed to GitHub form - direct download) -  https://www.mystran.com/versions/MYSTRAN...Source.zip
+Test Problem Hand Calculations (60MB) - www.mystran.com/documentation/MYSTRAN_Test_Problem_Hand_Calculations.pdf
+
+-------------------------------------------------------------------------------------------------------------------
+
+NOTE: The most current source code for developers is on GitHub ( https://www.mystran.com/forums/showthread.php?tid=2 ).
+
+--- Post #2 ---
+Author: Admin
+Date: 06-25-2020, 05:30 AM
+
+OLDER VERSIONS
+---------------------
+Version 12.1
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_12.1A.zip - Compiled with Option 1 (Preferred) by Bruno
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_12.1X.zip - Compiled by Bill - Unknown process (perhaps via Lahey Fortran)
+Linux - See the preferred option in this thread: https://www.mystran.com/forums/showthread.php?tid=2
+Documentation - https://www.mystran.com/documentation/MY...9_2021.zip
+Test Runs (used to benchmark and may also be used as reference DAT/BDF files) - https://www.mystran.com/versions/MYSTRAN...stRuns.zip
+
+Notable Modifications from the prior official version:
+- Corrected error for the BUSH element and other more minor changes.
+- Introduced the new MYSTRAN Benchmark Tool in the Test Runs ZIP
+
+Additional files not commonly used by end users:
+Source Code (in Zip Form as opposed to GitHub form - direct download) -  https://www.mystran.com/versions/MYSTRAN...Source.zip
+Test Problem Hand Calculations (60MB) - www.mystran.com/documentation/MYSTRAN_Test_Problem_Hand_Calculations.pdf
+
+Version 12.0
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_12.0A.zip - Compiled with Option 1 (Preferred)
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_12.0B.zip - Compiled with Option 2 (Alternate) from the compile thread using CodeBlocks and gFortran (10.2.0 x64) and SuperLU version 5.2.2
+Linux - See the preferred option in this thread: https://www.mystran.com/forums/showthread.php?tid=2
+Documentation - https://www.mystran.com/documentation/MY...9_2021.zip
+Test Runs (used to benchmark) - https://www.mystran.com/versions/MYSTRAN...stRuns.zip - Note that starting with 12.0, the Test Runs have been updated to be in sync with gFortran
+
+Notable Modifications from the prior official version:
+- Added the SuperLU sparse solver. Previously there was only an option to use the LAPACK banded solver. The sparse solver is more efficient and necessary for problems with a larger number of DOF.
+
+--- Post #3 ---
+Author: Admin
+Date: 12-04-2020, 03:14 AM
+
+Note that before version 11.0, the compiling process was to use the Lahey compiler and Perl scripts. Also, the source code, manuals, and test run are grouped in the Package.
+
+Version 11.2
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_11.2.zip - 8/30/2020
+Linux - See Option 2a in this thread: https://www.mystran.com/forums/showthread.php?tid=2
+Documentation - https://www.mystran.com/documentation/MY...3_2020.zip
+Test Runs - https://www.mystran.com/versions/MYSTRAN...stRuns.zip
+
+Notable Modifications from prior official version:
+- Added files needed to incorporate a sparse solver. These were previously removed when the Intel sparse solver was removed.
+- Added msg/error in the event that a CQUAD4 with orthotropic properties is used. The current CQUAD4 has an issue with this scenario: https://www.mystran.com/forums/showthrea...=46&page=3
+
+Additional files not commonly used by end users:
+Source Code (in Zip Form as opposed to GitHub form - direct download) -  https://www.mystran.com/versions/MYSTRAN...Source.zip
+
+Version 11.1
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_11.1.zip
+Documentation - https://www.mystran.com/documentation/MY...2_2020.zip
+Test Runs - https://www.mystran.com/versions/MYSTRAN...stRuns.zip
+Source Code -  https://www.mystran.com/versions/MYSTRAN...Source.zip
+
+Version 11.0
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_11.0.zip
+Documentation - https://www.mystran.com/documentation/MY...2_2020.zip
+Test Runs - https://www.mystran.com/versions/MYSTRAN...stRuns.zip
+Source Code -  https://www.mystran.com/versions/MYSTRAN...Source.zip
+
+Version 10.31
+Package - https://www.mystran.com/versions/MYSTRAN...-10.31.zip
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_10.31.zip
+
+Version 10.3
+Package - https://www.mystran.com/versions/MYSTRAN...r-10.3.zip
+Windows EXE - Not currently available
+
+Version 10.2
+Package - https://www.mystran.com/versions/MYSTRAN...r-10.2.zip
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_10.2.zip
+
+Version 10.0
+Package - https://www.mystran.com/versions/MYSTRAN...r-10.0.zip
+Windows EXE - Not currently available
+
+Version 9.03
+Package - https://www.mystran.com/versions/MYSTRAN...r-9.03.zip
+Windows EXE - https://www.mystran.com/versions/MYSTRAN_9.03.zip
+
+--- Post #4 ---
+Author: Admin
+Date: 02-04-2021, 04:54 AM
+
+.

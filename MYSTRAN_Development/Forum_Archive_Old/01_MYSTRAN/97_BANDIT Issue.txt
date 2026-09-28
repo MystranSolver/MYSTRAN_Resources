@@ -1,0 +1,36 @@
+Thread: BANDIT Issue
+Category: MYSTRAN
+URL: https://www.mystran.com/forums/showthread.php?tid=97
+Posts: 3
+
+======================================================================
+
+--- Post #1 ---
+Author: Admin
+Date: 10-18-2022, 08:58 PM
+
+Question: Do you have any general plan for modernization of the code? I noticed that in the bandit module there are some features that were already considered obsolete in ISO/IEC 1539-1:1997 (https://gcc.gnu.org/wiki/GFortranStandards#Fortran_90) and later, as is the case with statement GOTO.
+
+Initial Response:
+Bandit is an odd one. A couple years ago we had problems with it so afaik we just removed it in essence. It’s a routine that is only used when you enact the banded solver and even then it only helps to optimize the matrix setup so the solution is faster and uses less memory. But that was far more important in the 70s/80s and not such a big deal now. For large problems, we use the superlu sparse solver anyway (so bandit would never come into play). We could totally remove anything to do with bandit and I would be ok with that. I think we may tried, but there were some loose ends so it sort of artificially resides in the program. But it would be nice to totally strip it out clean IMO.
+
+--- Post #2 ---
+Author: Admin
+Date: 10-19-2022, 03:24 PM
+
+Some other discussions regarding BANDIT:
+https://www.mystran.com/forums/showthread.php?tid=48
+https://www.mystran.com/forums/showthread.php?tid=62
+https://www.mystran.com/forums/showthread.php?tid=30
+
+--- Post #3 ---
+Author: Admin
+Date: 11-08-2022, 02:23 AM
+
+From Cean in the Discord chat:
+
+The problem is this file. It is not used by cmake correctly.
+Source/BANDIT/BANDIT_BLOCK_DATA.f90
+Its name needs to be changed to BANDIT_BLOCK_DATA.fi which is a Fortran include file. When I wrote the CMakeLists.txt, I don't know it is a Fortran include file.
+and better move it into Source/INCLUDE
+Then in Source/Modules/BANDIT/BANDIT_MODULE.f, add a line at the front to include this new fi file.
