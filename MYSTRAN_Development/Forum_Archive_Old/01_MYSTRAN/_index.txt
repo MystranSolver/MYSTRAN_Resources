@@ -1,69 +1,69 @@
-MYSTRAN — 66 threads
+MYSTRAN — 66 threads (sorted alphabetically by title)
 ======================================================================
 
-93_--- DISCORD CHAT ---.txt  (1 post) — --- DISCORD CHAT ---
-83_--- MAIN OVERVEIW THREAD ---.txt  (2 posts) — --- MAIN OVERVEIW THREAD ---
-92_Actions and Change Log.txt  (1 post) — Actions and Change Log
-90_PrePost Options for MYSTRAN.txt  (1 post) — Pre/Post Options for MYSTRAN
-84_Bill Case - Primary Author.txt  (1 post) — Bill Case - Primary Author
-113_M3D Tutorials.txt  (1 post) — M3D Tutorials
-112_MYSTRAN - History and Current Efforts (2025 Update).txt  (1 post) — MYSTRAN - History and Current Efforts (2025 Update)
-111_1D Elements - Now Free.txt  (1 post) — 1D Elements - Now Free
-109_Inertial relief in Mystran.txt  (3 posts) — Inertial relief in Mystran
-108_Composite orientation.txt  (3 posts) — Composite orientation
-105_Concern about RBE3.txt  (3 posts) — Concern about RBE3
-106_AbaqusCCX to MYSTRANNastran Converter.txt  (1 post) — Abaqus/CCX to MYSTRAN/Nastran Converter
-104_15.1.0 Update.txt  (1 post) — 15.1.0 Update
-103_15.0 Released - Major Update.txt  (2 posts) — 15.0 Released - Major Update
-102_New User facing issues.txt  (2 posts) — New User facing issues
-101_Femap model hard crash.txt  (1 post) — Femap model hard crash
-94_Windows Complie Issue.txt  (5 posts) — Windows Complie Issue
-99_Mystran and Intel One API 2022.txt  (8 posts) — Mystran and Intel One API 2022
-97_BANDIT Issue.txt  (3 posts) — BANDIT Issue
-98_ABAQUSCalculiX to NASTRANMYSTRAN Converter.txt  (3 posts) — ABAQUS/CalculiX to NASTRAN/MYSTRAN Converter
-96_OP4 Discussion.txt  (2 posts) — OP4 Discussion
-95_CSV Output Discussion.txt  (1 post) — CSV Output Discussion
-91_Major Documentation Update.txt  (1 post) — Major Documentation Update
-85_MITC Shell Elements - Need Developer!.txt  (2 posts) — MITC Shell Elements - Need Developer!
-86_ELAS Bug (992022).txt  (2 posts) — ELAS Bug (9/9/2022)
-89_Changes - 14.0 to Date.txt  (1 post) — Changes - 14.0 to Date
-82_DMAP.txt  (7 posts) — DMAP
-80_Stress in layered composites.txt  (4 posts) — Stress in layered composites
-78_Failure Theory values.txt  (3 posts) — Failure Theory values
-77_RBE3 Issue.txt  (5 posts) — RBE3 Issue
-71_MYSTRAN Solid Element Buckling.txt  (3 posts) — MYSTRAN Solid Element Buckling
-72_error in beam analysis.txt  (7 posts) — error in beam analysis
-70_tetra10 from pyNastran do not work with Mystran.txt  (6 posts) — tetra10 from pyNastran do not work with Mystran
-69_New User Bernd.txt  (3 posts) — New User Bernd
-68_Weired issue with CBUSHES (cont).txt  (3 posts) — Weired issue with CBUSHES (cont)
-67_Ansible Role to install MYSTRAN.txt  (1 post) — Ansible Role to install MYSTRAN
-61_NEWS ComLab Released to the Public.txt  (2 posts) — NEWS: ComLab Released to the Public
-62_Added a Parameter that Removes Bandit Files from final Run Directory.txt  (1 post) — Added a Parameter that Removes Bandit Files from final Run Directory
-60_Compiler Error for Preferred Option - Windows.txt  (2 posts) — Compiler Error for Preferred Option - Windows
-56_11112021 UPDATE.txt  (2 posts) — 11/11/2021 UPDATE
-39_OLD - CURRENT AND ARCHIVE VERSIONS.txt  (4 posts) — OLD - CURRENT AND ARCHIVE VERSIONS
-57_Successful addition of sparse solver SuperLU to MYSTRAN.txt  (1 post) — Successful addition of sparse solver SuperLU to MYSTRAN
-2_OLD - SOURCE CODE AND COMPILING.txt  (3 posts) — OLD -  SOURCE CODE AND COMPILING
-55_Steps to build third party package under Windows 10.txt  (3 posts) — Steps to build third party package under Windows 10
-54_Trying to add sparse matrix code to LK2REDUCE_KFF_TO_KAA.f90.txt  (5 posts) — Trying to add sparse matrix code to LK2/REDUCE_KFF_TO_KAA.f90
-46_3.txt  (28 posts) — 3
-50_Sparse Solver Notes.txt  (1 post) — Sparse Solver Notes
-49_Comparation of OS specified files.txt  (6 posts) — Comparation of OS specified files
-45_Batch file to solve test cases in one folder.txt  (2 posts) — Batch file to solve test cases in one folder
-48_2.txt  (16 posts) — 2
-47_Help to get a NEU output.txt  (2 posts) — Help to get a NEU output
-44_ParaView documentation.txt  (5 posts) — ParaView documentation
-41_2.txt  (19 posts) — 2
-42_gFortran 8.1.0 for Windows.txt  (1 post) — gFortran  8.1.0 for Windows
-28_Mystran on Github.txt  (3 posts) — Mystran on Github
-16_ComplingTesting Notes.txt  (6 posts) — Compling/Testing Notes
-38_Compile with CMake.txt  (2 posts) — Compile with CMake
-37_OLD - Documentation Control.txt  (1 post) — OLD - Documentation Control
-6_Developer Items to Consider.txt  (3 posts) — Developer Items to Consider
-34_PaStiX Sparse Solver.txt  (1 post) — PaStiX Sparse Solver
-33_Compile 10.31 with CodeBlocks.txt  (1 post) — Compile 10.31 with Code::Blocks
-32_Compile 10.3 With Intel and gFortran Assistance.txt  (2 posts) — Compile 10.3 With Intel and gFortran Assistance
-30_Bandit RemoveAdd.txt  (1 post) — Bandit Remove/Add
-10_Intel Compile.txt  (9 posts) — Intel Compile
-12_Sparse Solver.txt  (6 posts) — Sparse Solver
-1_Completed Items.txt  (1 post) — Completed Items
+--- DISCORD CHAT --- [tid-93].txt  (1 post)  [tid=93]
+--- MAIN OVERVEIW THREAD --- [tid-83].txt  (2 posts)  [tid=83]
+11112021 UPDATE [tid-56].txt  (2 posts)  [tid=56]
+15.0 Released - Major Update [tid-103].txt  (2 posts)  [tid=103]
+15.1.0 Update [tid-104].txt  (1 post)  [tid=104]
+1D Elements - Now Free [tid-111].txt  (1 post)  [tid=111]
+ABAQUSCalculiX to NASTRANMYSTRAN Converter [tid-98].txt  (3 posts)  [tid=98]
+AbaqusCCX to MYSTRANNastran Converter [tid-106].txt  (1 post)  [tid=106]
+Actions and Change Log [tid-92].txt  (1 post)  [tid=92]
+Added a Parameter that Removes Bandit Files from final Run Directory [tid-62].txt  (1 post)  [tid=62]
+Ansible Role to install MYSTRAN [tid-67].txt  (1 post)  [tid=67]
+BANDIT crash on Windows (MSYS+CMake build) [tid-48].txt  (16 posts)  [tid=48]
+BANDIT Issue [tid-97].txt  (3 posts)  [tid=97]
+Bandit RemoveAdd [tid-30].txt  (1 post)  [tid=30]
+Batch file to solve test cases in one folder [tid-45].txt  (2 posts)  [tid=45]
+Bill Case - Primary Author [tid-84].txt  (1 post)  [tid=84]
+Changes - 14.0 to Date [tid-89].txt  (1 post)  [tid=89]
+Comparation of OS specified files [tid-49].txt  (6 posts)  [tid=49]
+Compile 10.3 With Intel and gFortran Assistance [tid-32].txt  (2 posts)  [tid=32]
+Compile 10.31 with CodeBlocks [tid-33].txt  (1 post)  [tid=33]
+Compile with CMake [tid-38].txt  (2 posts)  [tid=38]
+Compiler Error for Preferred Option - Windows [tid-60].txt  (2 posts)  [tid=60]
+Completed Items [tid-1].txt  (1 post)  [tid=1]
+ComplingTesting Notes [tid-16].txt  (6 posts)  [tid=16]
+Composite orientation [tid-108].txt  (3 posts)  [tid=108]
+Concern about RBE3 [tid-105].txt  (3 posts)  [tid=105]
+CQUAD4 in bending test [tid-46].txt  (28 posts)  [tid=46]
+CSV Output Discussion [tid-95].txt  (1 post)  [tid=95]
+Developer Items to Consider [tid-6].txt  (3 posts)  [tid=6]
+DMAP [tid-82].txt  (7 posts)  [tid=82]
+ELAS Bug (992022) [tid-86].txt  (2 posts)  [tid=86]
+error in beam analysis [tid-72].txt  (7 posts)  [tid=72]
+Failure Theory values [tid-78].txt  (3 posts)  [tid=78]
+Femap model hard crash [tid-101].txt  (1 post)  [tid=101]
+gFortran 8.1.0 for Windows [tid-42].txt  (1 post)  [tid=42]
+Help to get a NEU output [tid-47].txt  (2 posts)  [tid=47]
+Inertial relief in Mystran [tid-109].txt  (3 posts)  [tid=109]
+Intel Compile [tid-10].txt  (9 posts)  [tid=10]
+Linux Compiling [tid-41].txt  (19 posts)  [tid=41]
+M3D Tutorials [tid-113].txt  (1 post)  [tid=113]
+Major Documentation Update [tid-91].txt  (1 post)  [tid=91]
+MITC Shell Elements - Need Developer! [tid-85].txt  (2 posts)  [tid=85]
+MYSTRAN - History and Current Efforts (2025 Update) [tid-112].txt  (1 post)  [tid=112]
+Mystran and Intel One API 2022 [tid-99].txt  (8 posts)  [tid=99]
+Mystran on Github [tid-28].txt  (3 posts)  [tid=28]
+MYSTRAN Solid Element Buckling [tid-71].txt  (3 posts)  [tid=71]
+New User Bernd [tid-69].txt  (3 posts)  [tid=69]
+New User facing issues [tid-102].txt  (2 posts)  [tid=102]
+NEWS ComLab Released to the Public [tid-61].txt  (2 posts)  [tid=61]
+OLD - CURRENT AND ARCHIVE VERSIONS [tid-39].txt  (4 posts)  [tid=39]
+OLD - Documentation Control [tid-37].txt  (1 post)  [tid=37]
+OLD - SOURCE CODE AND COMPILING [tid-2].txt  (3 posts)  [tid=2]
+OP4 Discussion [tid-96].txt  (2 posts)  [tid=96]
+ParaView documentation [tid-44].txt  (5 posts)  [tid=44]
+PaStiX Sparse Solver [tid-34].txt  (1 post)  [tid=34]
+PrePost Options for MYSTRAN [tid-90].txt  (1 post)  [tid=90]
+RBE3 Issue [tid-77].txt  (5 posts)  [tid=77]
+Sparse Solver [tid-12].txt  (6 posts)  [tid=12]
+Sparse Solver Notes [tid-50].txt  (1 post)  [tid=50]
+Steps to build third party package under Windows 10 [tid-55].txt  (3 posts)  [tid=55]
+Stress in layered composites [tid-80].txt  (4 posts)  [tid=80]
+Successful addition of sparse solver SuperLU to MYSTRAN [tid-57].txt  (1 post)  [tid=57]
+tetra10 from pyNastran do not work with Mystran [tid-70].txt  (6 posts)  [tid=70]
+Trying to add sparse matrix code to LK2REDUCE_KFF_TO_KAA.f90 [tid-54].txt  (5 posts)  [tid=54]
+Weired issue with CBUSHES (cont) [tid-68].txt  (3 posts)  [tid=68]
+Windows Complie Issue [tid-94].txt  (5 posts)  [tid=94]

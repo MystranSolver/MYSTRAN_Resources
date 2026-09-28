@@ -1,4 +1,4 @@
-Thread: 2
+Thread: NASTRAN-95 vs MYSTRAN
 Category: ComLab and NASTRAN-95
 URL: https://www.mystran.com/forums/showthread.php?tid=4
 Posts: 17

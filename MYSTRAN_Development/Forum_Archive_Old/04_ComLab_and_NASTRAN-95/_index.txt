@@ -1,13 +1,13 @@
-ComLab and NASTRAN-95 — 10 threads
+ComLab and NASTRAN-95 — 10 threads (sorted alphabetically by title)
 ======================================================================
 
-100_Converting MSC Nastran Input Deck to NASTRAN-95.txt  (2 posts) — Converting MSC Nastran Input Deck to NASTRAN-95
-58_ComLab (an improved NASTRAN-95) has been released to the public.txt  (3 posts) — ComLab (an improved NASTRAN-95) has been released to the public
-63_ComLab Enhancments.txt  (1 post) — ComLab Enhancments
-40_hfcNASTRAN95 - PrePost processing for NASTRAN95.txt  (3 posts) — hfcNASTRAN95 - Pre/Post processing for NASTRAN95
-4_2.txt  (17 posts) — 2
-35_CodeBlocks Notes - CalculiX.txt  (1 post) — CodeBlocks Notes - CalculiX
-20_Compling NASTRAN-95.txt  (10 posts) — Compling NASTRAN-95
-31_More Notes from Harry Schaeffer.txt  (2 posts) — More Notes from Harry Schaeffer
-19_Documents.txt  (1 post) — Documents
-11_Some Notes about NASTRAN.txt  (4 posts) — Some Notes about NASTRAN
+CodeBlocks Notes - CalculiX [tid-35].txt  (1 post)  [tid=35]
+ComLab (an improved NASTRAN-95) has been released to the public [tid-58].txt  (3 posts)  [tid=58]
+ComLab Enhancments [tid-63].txt  (1 post)  [tid=63]
+Compling NASTRAN-95 [tid-20].txt  (10 posts)  [tid=20]
+Converting MSC Nastran Input Deck to NASTRAN-95 [tid-100].txt  (2 posts)  [tid=100]
+Documents [tid-19].txt  (1 post)  [tid=19]
+hfcNASTRAN95 - PrePost processing for NASTRAN95 [tid-40].txt  (3 posts)  [tid=40]
+More Notes from Harry Schaeffer [tid-31].txt  (2 posts)  [tid=31]
+NASTRAN-95 vs MYSTRAN [tid-4].txt  (17 posts)  [tid=4]
+Some Notes about NASTRAN [tid-11].txt  (4 posts)  [tid=11]

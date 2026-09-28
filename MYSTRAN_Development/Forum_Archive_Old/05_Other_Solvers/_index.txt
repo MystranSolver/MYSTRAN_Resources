@@ -1,6 +1,6 @@
-Other Solvers — 3 threads
+Other Solvers — 3 threads (sorted alphabetically by title)
 ======================================================================
 
-22_Nastran to code aster converter.txt  (1 post) — Nastran to code aster converter
-21_Code_Aster.txt  (1 post) — Code_Aster
-15_About CalculiX.txt  (3 posts) — About CalculiX
+About CalculiX [tid-15].txt  (3 posts)  [tid=15]
+Code_Aster [tid-21].txt  (1 post)  [tid=21]
+Nastran to code aster converter [tid-22].txt  (1 post)  [tid=22]

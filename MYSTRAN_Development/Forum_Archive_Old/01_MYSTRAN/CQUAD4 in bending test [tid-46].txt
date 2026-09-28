@@ -1,4 +1,4 @@
-Thread: 3
+Thread: CQUAD4 in bending test
 Category: MYSTRAN
 URL: https://www.mystran.com/forums/showthread.php?tid=46
 Posts: 28

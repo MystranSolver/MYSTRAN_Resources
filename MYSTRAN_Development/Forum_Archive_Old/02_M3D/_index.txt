@@ -1,7 +1,7 @@
-M3D — 4 threads
+M3D — 4 threads (sorted alphabetically by title)
 ======================================================================
 
-114_M3D - PrePost Processor for NASTRANMYSTRAN.txt  (1 post) — M3D - Pre/Post Processor for NASTRAN/MYSTRAN
-117_First experience creating a wingbox with M3D.txt  (1 post) — First experience creating a wingbox with M3D
-116_M3D - Master List of Tutorials, Videos, Learning Resources.txt  (1 post) — M3D - Master List of Tutorials, Videos, Learning Resources
-115_M3D - Tutorial Series.txt  (1 post) — M3D - Tutorial Series
+First experience creating a wingbox with M3D [tid-117].txt  (1 post)  [tid=117]
+M3D - Master List of Tutorials, Videos, Learning Resources [tid-116].txt  (1 post)  [tid=116]
+M3D - PrePost Processor for NASTRANMYSTRAN [tid-114].txt  (1 post)  [tid=114]
+M3D - Tutorial Series [tid-115].txt  (1 post)  [tid=115]

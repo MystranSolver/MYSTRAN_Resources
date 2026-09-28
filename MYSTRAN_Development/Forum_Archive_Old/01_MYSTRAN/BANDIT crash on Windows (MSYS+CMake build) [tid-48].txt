@@ -1,4 +1,4 @@
-Thread: 2
+Thread: BANDIT crash on Windows (MSYS+CMake build)
 Category: MYSTRAN
 URL: https://www.mystran.com/forums/showthread.php?tid=48
 Posts: 16

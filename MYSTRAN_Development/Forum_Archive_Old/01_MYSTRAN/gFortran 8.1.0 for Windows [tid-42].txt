@@ -1,4 +1,4 @@
-Thread: gFortran  8.1.0 for Windows
+Thread: gFortran 8.1.0 for Windows
 Category: MYSTRAN
 URL: https://www.mystran.com/forums/showthread.php?tid=42
 Posts: 1

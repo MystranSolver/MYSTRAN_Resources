@@ -1,4 +1,4 @@
-Thread: 2
+Thread: Linux Compiling
 Category: MYSTRAN
 URL: https://www.mystran.com/forums/showthread.php?tid=41
 Posts: 19
